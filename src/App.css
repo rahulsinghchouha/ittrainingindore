@@ -53,3 +53,18 @@ top: 50%;
 transform: translateY(-50%);
 right: 0;
 }
+.search-submit{
+  background: url("../public/Home/form-search-icon.svg") no-repeat;
+}
+.search-shadow{
+  box-shadow: -2px 4px 35px 0 rgba(0, 156, 229, 0.1);
+  transition: all 0.3 ease;
+}
+.textColor{
+  color: #1aaef4;
+}
+.banner-images{
+  background: url("../public/Home/banner-image-bg.svg") no-repeat 84% 25% ; 
+  visibility: visible;
+  animation-duration: 1s;
+}
