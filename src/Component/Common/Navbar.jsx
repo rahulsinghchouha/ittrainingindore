@@ -9,7 +9,7 @@ import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-sv
 function Navbar() {
 
     return (
-        <div className="w-100vw h-[124px] border-b-[1px]  box-border ">
+        <div className="w-100vw h-[124px]   box-border ">
             <section className="wrapper  flex justify-between items-center  pt-[10px] pb-[14px]">
 
                 <div className="mt-[6px] w-[24%] float-left">
