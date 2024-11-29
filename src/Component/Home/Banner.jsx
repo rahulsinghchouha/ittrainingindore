@@ -871,6 +871,25 @@ function Banner() {
                 </div>
 
             </section>
+            {/* Explore categories section starts */}
+            <section className="pt-[50px] pb-[50px] pr-0 pl-0 m-0  " >
+                <div className="wrapper">
+                    <div className="relative">
+                        <div>
+                          <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
+                        </div>
+                        <div className="mt-[35px] ">
+                            <div>
+                                <div className="w-[100%] overflow-hidden relative h-[392px] pt-[80px] pr-[20px] pb-[20px] pl-[20px] "></div>
+                                <div></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
 
         </div>
     )
