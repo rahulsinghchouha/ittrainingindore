@@ -276,3 +276,10 @@ p {
 .stuPlacShad{
   box-shadow:-5px 4px 40px 0 rgb(0 0 0 / 8%);
 }
+.swiper-button-next {
+  right: 10px; /* Adjust as needed */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Adjust as needed */
+}

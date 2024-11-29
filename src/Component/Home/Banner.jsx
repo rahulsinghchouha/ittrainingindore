@@ -1,5 +1,5 @@
 import { Field, Formik, Form } from "formik";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Select } from "antd";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -16,6 +16,8 @@ function Banner() {
     const [isActive4, setIsActive4] = useState(false);
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
+
+
 
     function setActive1() { setIsActive1(true); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
 
@@ -110,10 +112,22 @@ function Banner() {
             position: 'Web Developer'
         }
     ]
+    //partners image 
 
-   
+    const partnerImage = [
+        "/Partners_1.png",
+        "/Partners_2.png",
+        "/Partners_3.png",
+        "/Partners_4.png",
+        "/Partners_1.png",
+        "/Partners_2.png",
+        "/Partners_3.png",
+        "/Partners_4.png",
+    ]
 
-    
+    // for swiper reference
+    const swiperRef = useRef(null);
+    const partnerSwipRef = useRef(null);
 
     const handleSearch = () => {
     }
@@ -718,67 +732,70 @@ function Banner() {
                         </div>
 
                         <div className="w-[48.5%] relative text-center float-right stuPlacShad">
-                            <div className="w-[100%] overflow-hidden relative h-[696px]">
-                                <div className="w-[860%] relative duration-0  transform translate-x-[3d-x] translate-y-0 ">
-                                    <Swiper
-                                        modules={[Autoplay, Pagination,Navigation]}
-                                        spaceBetween={0}
-                                        autoplay={{
-                                            delay: 3000,
-                                            disableOnInteraction: false,
-                                            pauseOnMouseEnter:true, //for stop slide on mouse enter
-                                        }}
-                                        slidesPerView={1}
-                                        navigation={false}
-                                        speed={300}
-                                        pagination={{ clickable: true }}
-                                        loop={true}
+                            <div className="w-[100%]  relative h-[696px]">
+                                <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
+                                <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
 
-                                        
-                                    >
-                                        {
-                                            stuPlaced.map((student, index) => (
-                                                <SwiperSlide key={index}>
-                                                    <div className="w-[641.156px] ">
-                                                        <div className="relative">
-                                                            <figure className="relative text-center m-0 ">
-                                                                <img className="rounded-[50%] mt-[50px] mr-auto mb-auto ml-auto border-[5px] solid border-[#1AAEF4] shadow-imgShadow w-[215px] h-[215px] " src={student.img} alt="sheetal Rana" />
-                                                                <figcaption className="bg-[unset] absolute top-0 left-0 right-0 mt-0 mb-0 ml-auto mr-auto h-[100%] w-[100%]"></figcaption>
-                                                            </figure>
+
+                                <Swiper
+                                    modules={[Autoplay, Pagination, Navigation]}
+                                    spaceBetween={0}
+                                    autoplay={{
+                                        delay: 3000,
+                                        disableOnInteraction: false,
+                                        pauseOnMouseEnter: true, //for stop slide on mouse enter
+                                    }}
+                                    slidesPerView={1}
+                                    navigation={false}
+                                    speed={500}
+                                    // pagination={{ clickable: true }}
+                                    loop={true}
+                                    onSwiper={(swiper) => swiperRef.current = swiper}
+
+                                >
+                                    {
+                                        stuPlaced.map((student, index) => (
+                                            <SwiperSlide key={index}>
+                                                <div className="w-[641.156px] ">
+                                                    <div className="relative">
+                                                        <figure className="relative text-center m-0 ">
+                                                            <img className="rounded-[50%] mt-[50px] mr-auto mb-auto ml-auto border-[5px] solid border-[#1AAEF4] shadow-imgShadow w-[215px] h-[215px] " src={student.img} alt="sheetal Rana" />
+                                                            <figcaption className="bg-[unset] absolute top-0 left-0 right-0 mt-0 mb-0 ml-auto mr-auto h-[100%] w-[100%]"></figcaption>
+                                                        </figure>
+
+                                                    </div>
+                                                    <div className="pt-[60px] pr-[54px] pb-[94px] pl-[54px] bg-[#fff] " >
+                                                        <p className="text-[#000000] text-[16px] leading-[34px] font-[400] tracking-normal"
+                                                            style={{
+                                                                backgroundImage: `url('/Home/testimonials-quote_icon.svg') `, backgroundRepeat: 'no-repeat',
+                                                                backgroundPosition: 'center',
+                                                                backgroundSize: 'contain'
+                                                            }}>
+                                                            {student.para}
+                                                        </p>
+                                                        <div className="mt-[30px] ">
+                                                            <span className="text-[#1AAEF4] text-[18px] leading-[23px] font-[700] ">{student.name}</span>
+                                                            <h4 className="text-[14px] leading-[20px] font-[500] text-[#000000]">{student.position}</h4>
 
                                                         </div>
-                                                        <div className="pt-[60px] pr-[54px] pb-[94px] pl-[54px] bg-[#fff] " >
-                                                            <p className="text-[#000000] text-[16px] leading-[34px] font-[400] tracking-normal"
-                                                                style={{
-                                                                    backgroundImage: `url('/Home/testimonials-quote_icon.svg') `, backgroundRepeat: 'no-repeat',
-                                                                    backgroundPosition: 'center',
-                                                                    backgroundSize: 'contain'
-                                                                }}>
-                                                              {student.para}   
-                                                           </p>
-                                                            <div className="mt-[30px] ">
-                                                                <span className="text-[#1AAEF4] text-[18px] leading-[23px] font-[700] ">{student.name}</span>
-                                                                <h4 className="text-[14px] leading-[20px] font-[500] text-[#000000]">{student.position}</h4>
-
-                                                            </div>
-
-                                                        </div>
-
 
                                                     </div>
 
-                                                </SwiperSlide>
 
-                                            ))
-                                        }
+                                                </div>
 
-                                    </Swiper>
+                                            </SwiperSlide>
+
+                                        ))
+                                    }
+
+                                </Swiper>
 
 
 
-                                    {/* remaining for div */}
+                                {/* remaining for div */}
 
-                                </div>
+
 
                             </div>
 
@@ -791,6 +808,69 @@ function Banner() {
 
             </section>
 
+            {/* our partners */}
+            <section className="pb-[59px] m-0 ">
+                <div className="wrapper ">
+                    <div className="text-center mb-[30px] ">
+                        <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] "> Our Partners </h3>
+                    </div>
+                    <div className="bg-[#ffffff] shadow-partnerShadow relative rounded-[22px] p-[30px] ">
+                        <button onClick={() => { partnerSwipRef.current.slidePrev() }} className="w-[54px] h-[54px] bg-[#ececec] rounded-[50%] absolute top-[30%] left-[-30px] border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-prev (1).svg" /></button>
+                        <button onClick={() => { partnerSwipRef.current.slideNext() }} className="w-[54px] h-[54px] bg-[#ececec] rounded-[50%] absolute top-[30%] right-[-30px] border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+
+
+                        <div className="w-[100%] relative   h-[74px] rounded-[22px]   ">
+                            <Swiper
+                                modules={[Autoplay, Pagination, Navigation]}
+                                autoplay={{ delay: 3000, }}
+                                slidesPerView={4}
+                                navigation={false}
+                                speed={500}
+                                // pagination={{ clickable: true }}
+                                loop={true}
+                                onSwiper={(swiper) => partnerSwipRef.current = swiper}
+
+                            >
+                                {partnerImage.map((partner, index) => (
+                                    <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
+                                        <figure className="w-[315.3px] min-h-[74px]      flex justify-center items-center}">
+                                            <img className=" mt-auto  mb-auto " src={partner} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
+                                        </figure>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            {/* our partners end */}
+            {/* Explore categories section starts */}
+            <section className="pt-[50px] pb-[50px] pr-0 pl-0 m-0  " >
+                <div className="wrapper">
+                    <div className="relative">
+                        <div>
+                          <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
+                        </div>
+                        <div className="mt-[35px] ">
+                            <div>
+                                <div className="w-[100%] overflow-hidden relative h-[392px] pt-[80px] pr-[20px] pb-[20px] pl-[20px] "></div>
+                                <div></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
 
         </div>
     )
