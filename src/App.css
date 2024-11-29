@@ -255,3 +255,24 @@ textarea::placeholder{
   border-radius: 23px;
   transition: all 0.3s ease;
 }
+
+.accordion-content {
+  padding: 16px 62px 27px 38px;
+  border-bottom: 7px solid #1AAEF4;
+  background-color: #F3FAFD;
+  
+}
+p {
+  font-size: 16px;
+  line-height: 34px;
+  color: #000;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.studentFalse{
+  box-shadow:3px 4px 35px rgb(0 0 0 / 8%)
+}
+.stuPlacShad{
+  box-shadow:-5px 4px 40px 0 rgb(0 0 0 / 8%);
+}
