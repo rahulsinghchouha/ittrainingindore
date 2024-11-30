@@ -283,3 +283,11 @@ p {
 .swiper-button-prev {
   left: 10px; /* Adjust as needed */
 }
+.educatorsLeft{
+    content: "";
+    position: absolute;
+   
+    top: 0;
+    background-color: #009ce5;
+    z-index: -10;
+}

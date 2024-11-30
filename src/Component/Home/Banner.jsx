@@ -125,9 +125,61 @@ function Banner() {
         "/Partners_4.png",
     ]
 
+    const exploreCat = [
+        {
+            bgImage: '/blog-our-course-categories-01-bg.svg',
+            image: '/blog-our-course-categories-01.svg',
+            heading: 'Graphic Designing',
+            para: 'Make your communication creative on the digital platforms with our graphic designing courses.',
+        },
+        {
+            bgImage: '/blog-our-course-categories-02-bg.svg',
+            image: '/blog-our-course-categories-02.svg',
+            heading: 'Web Designing',
+            para: 'Make yourself ready with IT Training Indore, to showcase your idea into a working website on the digital platform.',
+        },
+        {
+            bgImage: '/blog-our-course-categories-03-bg.svg',
+            image: '/UI_UX.svg',
+            heading: 'UI/UX Designing',
+            para: 'Make the attention grabbing website and graphic designs, and learn the hacks that make you job ready for the IT Industry in the upcoming future.',
+        },
+        {
+            bgImage: '/blog-our-course-categories-04-bg.svg',
+            image: '/blog-our-course-categories-04.svg',
+            heading: 'Digital Marketing',
+            para: 'Get the full access of making a SEO friendly website and take the ideas for creating the successful promotion strategies to become a brand and earn.',
+        },
+        {
+            bgImage: '/blog-our-course-categories-01-bg.svg',
+            image: '/Web_Development.svg',
+            heading: 'Web Development',
+            para: 'With our knowledge and years of expertise, learn to implement your idea into reality on the digital platform with our web development courses',
+        },
+        {
+            bgImage: '/blog-our-course-categories-02-bg.svg',
+            image: '/Animation.svg',
+            heading: 'Animation',
+            para: 'Keep your skills updated with the latest trends included in our courses that will make your animation designs more engaging.',
+        },
+        {
+            bgImage: '/blog-our-course-categories-03-bg.svg',
+            image: '/Mobile_App_Development.svg',
+            heading: 'Mobile App Development',
+            para: 'Take your mobile application to the next level, with our course, you will learn the latest technologies to make your applications user-friendly.',
+        },
+        {
+            bgImage: '/blog-our-course-categories-04-bg.svg',
+            image: '/Software_Development.svg',
+            heading: 'Software App Development',
+            para: 'Make your idea a reality through a software app development course.',
+        },
+    ]
+
     // for swiper reference
     const swiperRef = useRef(null);
     const partnerSwipRef = useRef(null);
+    const exploreCatRef = useRef(null);
 
     const handleSearch = () => {
     }
@@ -833,7 +885,7 @@ function Banner() {
                             >
                                 {partnerImage.map((partner, index) => (
                                     <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
-                                        <figure className="w-[315.3px] min-h-[74px]      flex justify-center items-center}">
+                                        <figure className="w-[315.3px] min-h-[74px] flex justify-center items-center}">
                                             <img className=" mt-auto  mb-auto " src={partner} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
                                         </figure>
                                     </SwiperSlide>
@@ -856,13 +908,61 @@ function Banner() {
             <section className="pt-[50px] pb-[50px] pr-0 pl-0 m-0  " >
                 <div className="wrapper">
                     <div className="relative">
-                        <div>
-                          <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
+                        <div className="flex justify-between">
+
+                            <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
+                            <div className="flex gap-2">
+                                <button onClick={() => { exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center transform transition-all ease-linear duration-75 delay-100"><img src="/exolore-slider-prev (1).svg" /></button>
+                                <button onClick={() => { exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] hover:bg-[#ececec] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+                            </div>
                         </div>
                         <div className="mt-[35px] ">
                             <div>
-                                <div className="w-[100%] overflow-hidden relative h-[392px] pt-[80px] pr-[20px] pb-[20px] pl-[20px] "></div>
-                                <div></div>
+                                <div className="w-[100%] relative h-[392px] pt-[30px]   pr-[20px] pb-[20px] pl-[20px]">
+
+
+
+                                    {/* in this we will add the cart */}
+                                    <Swiper
+                                        modules={[Navigation]}
+                                        autoplay={{ delay: 3000 }}
+                                        slidesPerView={3}
+                                        navigation={false}
+                                        speed={500}
+                                        loop={true}
+                                        onSwiper={(swiper) => { exploreCatRef.current = swiper }}
+                                    >
+                                        {
+                                            exploreCat.map((card, index) => (
+                                                <SwiperSlide key={index}>
+
+                                                    <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
+                                                        <div className={`absolute border-t-[2px] border-l-[2px] rounded-[2px] solid w-[80px] h-[80px] top-0 left-0 transform   origin-top-left duration-[0.5s]  ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
+                                                        <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] rounded-[22px] shadow-exploreCardShad flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
+                                                            <figure className="w-[105px] h-[105px] m-0 " style={{ background: `url(${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
+                                                                <img src={card.image} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
+                                                            </figure>
+                                                            <div className="mt-[16px] ">
+                                                                <h4 className="text-[20px] leading-[25px] text-[#000000] font-[700] ">{card.heading}</h4>
+                                                            </div>
+                                                            <div className="mt-[13px] text-center ">
+                                                                <p className="text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal">
+                                                                    {card.para} </p>
+                                                            </div>
+                                                            <div className="mt-[18px] ">
+                                                                <h5 className="text-[18px] leading-[23px] text-[#000] font-[700]  ">
+                                                                    <a className={` ${(index % 4 === 0 && (`text-[#ddac00]`)) || (index % 4 === 1 && (`text-[#0089ca]`)) || (index % 4 === 2 && (`text-[#109304]`)) || (index % 4 === 3 && (`text-[#7b57c6]`))} `} href="/">Explore</a>
+                                                                </h5>
+                                                            </div>
+                                                            <div className={`absolute border-b-[2px] border-r-[2px] rounded-[2px] solid w-[80px] h-[80px] bottom-0 right-0 transform   origin-top-left duration-[0.5s] ${(index) % 2 === 1 && (`mt-[-65px]`)} ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
+                                                        </div>
+                                                    </div>
+                                                </SwiperSlide>
+                                            ))
+                                        }
+                                    </Swiper>
+                                </div>
+                             
                             </div>
 
                         </div>
@@ -871,7 +971,108 @@ function Banner() {
                 </div>
 
             </section>
-           
+
+            {/* Best Educators section start */}
+            <section className="pt-[62px] mt-[80px] pb-[92px] pl-0 pr-0 overflow-hidden " >
+                <div className="wrapper">
+                    <div className="">
+                        <div className="w-[55%] float-left ">
+                            <div>
+                                <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">Maximize Your Career with IT Education</h3>
+                            </div>
+                            <div className="mt-[26px] mb-[25px] ">
+                                <p className="mt-[25px] text-[16px] leading-[34px] tracking-normal">IT training strives to make students or professionals more alert about their careers. And understands tech industries’ needs in their candidates.</p>
+                                <ul className="mt-[26px] ">
+                                    <li className="font-[400] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
+                                    style={{background:`url('/arrow-right-blue.svg')`, backgroundRepeat:'no-repeat', backgroundPositionX:'0%', backgroundPositionY:'10px' }}>
+
+                                        <b>Classroom training </b>
+                                        <span className="font-[400] "> is a structured learning experience with direct interaction between instructors and students. And it is the most intensive learning experience.</span>
+
+                                    </li>
+                                    <li className="font-[400] mt-[20px] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
+                                    style={{background:`url('/arrow-right-blue.svg')`, backgroundRepeat:'no-repeat', backgroundPositionX:'0%', backgroundPositionY:'10px' }}>
+
+                                        <b>Industrial training </b>
+                                        <span className="font-[400] "> is generally for those who want to enter technical fields. And they should want experience in real projects and practical experiences.</span>
+
+                                    </li>
+                                    <li className="font-[400] mt-[20px] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
+                                    style={{background:`url('/arrow-right-blue.svg')`, backgroundRepeat:'no-repeat', backgroundPositionX:'0%', backgroundPositionY:'10px' }}>
+
+                                        <b>Corporate training</b>
+                                        <span className="font-[400] ">focuses on upskilling employees for need to excel in their roles and responsibilities. This specific need of a company or improve team performance and productivity.</span>
+
+                                    </li>
+
+
+                                </ul>
+                        
+                            </div>
+                            <div className="mt-[48px] ">
+                                <a className="pt-[13px] font-[700] border-none rounded-[24px] relative z-[11]  pb-[13px] pl-[34px] pr-[34px] text-[16px] leading-[21px] text-[#fff] bg-[linear-gradient(180deg,_#1AAEF4_0%,_#1AAEF4_0.01%,_#0096EB_100%)] h-[64px] w-full">
+                                            Read More
+                                </a>
+
+                            </div>
+
+
+                        </div>
+
+                        <div className="mt-[-58px] w-[38%] float-right ">
+                            <figure className="m-0">
+                                <img className="max-w-[100%] block "  src="/best-educators-image.svg"/>
+                            </figure>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            {/* Best Educators Section end */}
+
+            {/* our achievements section starts */}
+            {/* <section className="pb-[44px] m-0 "> 
+                <div className="wrapper" >
+                    <div className="relative ">
+                        <div className="float-left bg-[#009ce5] w-[41%] relative pt-[48px] pb-[52px] pl-0 pr-0 z-[10] educatorsLeft">
+                            <div className="w-[91%] ml-auto ">
+                                <figure className="absolute bottom-[57px] left-[-177px] w-[19%] inline-block align-top m-0 ">
+                                    <img className="max-w-[100%] block " src="/our-achievements.svg" alt="mman-logo"/>
+                                </figure>
+                                <div className="ml-0 w-[100%] inline-block align-top">
+                                    <div>
+                                        <h4 className="text-[24px] leading-[30px] text-[#fff] font-[700] ">
+                                            What make us
+                                            <span> SUCCESFULL?</span>
+                                        </h4>
+                                    </div>
+                                    <div className="mt-[12px] pr-[20px] ">
+                                        <p className="text-[#fff] text-[16px] leading-[34px] font-[400] tracking-normal">
+                                        These are not only numbers, but the outcome of our hard work, success, and accomplishments over the years.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div className="float-right w-[100%] pt-[190px] pr-0 pb-[35px] pl-0 mt-[-114px] border-b-[13px] border-solid  border-[#009ce5]  "
+                        style={{background:`url['/paperplane.svg']`,  backgroundRepeat:"no-repeat", backgroundPositionX:"70%", backgroundPositionY:"45%",backgroundColor:'#f3fbff'}}
+                        >
+                            <div className="text-center" >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section> */}
 
         </div>
     )

@@ -5,10 +5,12 @@ module.exports = {
     extend: {
       translate: {
         '3d-x': '-1923.42px',
+        
       },
       boxShadow:{
         imgShadow:'0px 10px 20px rgba(0,0,0,0.2) ',
         partnerShadow:'4px 4px 40px rgb(0 0 0 / 8%) ',
+        exploreCardShad:'4px 4px 30px #0000000d'
       }
 
     },
