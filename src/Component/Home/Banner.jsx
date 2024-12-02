@@ -1259,18 +1259,64 @@ function Banner() {
 
                     </div>
 
-                        <div className="mt-[40px] text-center ">
-                            <a href="/" className="btnAfter">
-                                Contact us now
-                            </a>
+                    <div className="mt-[40px] text-center ">
+                        <a href="/" className="btnAfter">
+                            Contact us now
+                        </a>
 
-                        </div>
+                    </div>
 
                 </div>
 
 
 
             </section>
+            {/* job program section complete */}
+
+            {/*college life section starts  */}
+
+            <section className="pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
+                <div className="wrapper ">
+                    <div className="mt-[40px] w-[60%] float-left">
+                        <h3 className="mb-[20px] ">Want to get placed before completion of College Life?</h3>
+                        <p className="mb-[23px]">
+                            Everybody wants to get <strong>placed with a good salary package</strong> in the field of their interest area, we come up with the best out of the best courses for those who want to apply their theoretical knowledge on the project work and upgrade their <strong>skills</strong>
+                        </p>
+                        <p className="mb-[23px]">
+                            <strong>
+                                IT Training Indore has easy to understand <a className="hover:text-[#1AAEF4] transition-all delay-75" href="/">courses with Hindi and English </a> mixed lecture,
+                            </strong><span> </span>
+                            with the best examples and unique learning techniques for the basic and technical terms.
+
+                        </p>
+                    </div>
+
+                    <div className="w-[35%] float-right cle">
+                        <figure className="m-0 ">
+                            <img src="/College-placement-coaching-class-institute.png" alt="College ,placement coaching class institute" />
+
+                        </figure>
+
+                    </div>
+                </div>
+
+            </section>
+            {/* completion of college life */}
+
+            {/* footer section start */}
+            <footer className="pt-[500px] ">
+                <div className="wrapper">
+                    <div className="mt-[-107px]">
+                        <div className="w-[40.2%] pt-[37px] pr-[69px] pb-[49px] pl-[52px] rounded-[31px] z-[1] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
+                            <div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </footer>
 
 
 

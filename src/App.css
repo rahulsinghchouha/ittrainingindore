@@ -326,3 +326,25 @@ p {
 .blogBtn{
   background:url("../public/btn-right-arrow.svg") no-repeat 97% center;
 }
+h3{
+  font-size: 36px;
+    line-height: 52px;
+    letter-spacing: 0.72px;
+    color: #000000;
+    font-weight: 800;
+}
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.comCollegeBg::after{
+  content: "";
+  position: absolute;
+  background: url("../public/Cheerful_People.png") no-repeat center ;
+  height: 806px;
+  width: 100%;
+  left: 0;
+  top: -60px;
+}

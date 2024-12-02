@@ -12,7 +12,8 @@ module.exports = {
         partnerShadow:'4px 4px 40px rgb(0 0 0 / 8%) ',
         exploreCardShad:'4px 4px 30px #0000000d',
         blogShadow:'3px 4px 40px 0 rgb(26 174 244 / 11%)',
-        jobCardShadow:'5px 4px 35px 0 rgb(26 174 244 / 13%)'
+        jobCardShadow:'5px 4px 35px 0 rgb(26 174 244 / 13%)',
+        footFormSahd:'-2px -4px 40px 0 rgba(26, 174, 244, 0.17)'
       }
 
     },
