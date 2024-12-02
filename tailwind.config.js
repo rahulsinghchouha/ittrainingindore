@@ -10,7 +10,9 @@ module.exports = {
       boxShadow:{
         imgShadow:'0px 10px 20px rgba(0,0,0,0.2) ',
         partnerShadow:'4px 4px 40px rgb(0 0 0 / 8%) ',
-        exploreCardShad:'4px 4px 30px #0000000d'
+        exploreCardShad:'4px 4px 30px #0000000d',
+        blogShadow:'3px 4px 40px 0 rgb(26 174 244 / 11%)',
+        jobCardShadow:'5px 4px 35px 0 rgb(26 174 244 / 13%)'
       }
 
     },

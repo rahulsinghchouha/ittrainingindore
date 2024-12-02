@@ -962,7 +962,7 @@ function Banner() {
                                         }
                                     </Swiper>
                                 </div>
-                             
+
                             </div>
 
                         </div>
@@ -984,21 +984,21 @@ function Banner() {
                                 <p className="mt-[25px] text-[16px] leading-[34px] tracking-normal">IT training strives to make students or professionals more alert about their careers. And understands tech industries’ needs in their candidates.</p>
                                 <ul className="mt-[26px] ">
                                     <li className="font-[400] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
-                                    style={{background:`url('/arrow-right-blue.svg')`, backgroundRepeat:'no-repeat', backgroundPositionX:'0%', backgroundPositionY:'10px' }}>
+                                        style={{ background: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
 
                                         <b>Classroom training </b>
                                         <span className="font-[400] "> is a structured learning experience with direct interaction between instructors and students. And it is the most intensive learning experience.</span>
 
                                     </li>
                                     <li className="font-[400] mt-[20px] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
-                                    style={{background:`url('/arrow-right-blue.svg')`, backgroundRepeat:'no-repeat', backgroundPositionX:'0%', backgroundPositionY:'10px' }}>
+                                        style={{ background: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
 
                                         <b>Industrial training </b>
                                         <span className="font-[400] "> is generally for those who want to enter technical fields. And they should want experience in real projects and practical experiences.</span>
 
                                     </li>
                                     <li className="font-[400] mt-[20px] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
-                                    style={{background:`url('/arrow-right-blue.svg')`, backgroundRepeat:'no-repeat', backgroundPositionX:'0%', backgroundPositionY:'10px' }}>
+                                        style={{ background: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
 
                                         <b>Corporate training</b>
                                         <span className="font-[400] ">focuses on upskilling employees for need to excel in their roles and responsibilities. This specific need of a company or improve team performance and productivity.</span>
@@ -1007,11 +1007,11 @@ function Banner() {
 
 
                                 </ul>
-                        
+
                             </div>
                             <div className="mt-[48px] ">
                                 <a className="pt-[13px] font-[700] border-none rounded-[24px] relative z-[11]  pb-[13px] pl-[34px] pr-[34px] text-[16px] leading-[21px] text-[#fff] bg-[linear-gradient(180deg,_#1AAEF4_0%,_#1AAEF4_0.01%,_#0096EB_100%)] h-[64px] w-full">
-                                            Read More
+                                    Read More
                                 </a>
 
                             </div>
@@ -1021,7 +1021,7 @@ function Banner() {
 
                         <div className="mt-[-58px] w-[38%] float-right ">
                             <figure className="m-0">
-                                <img className="max-w-[100%] block "  src="/best-educators-image.svg"/>
+                                <img className="max-w-[100%] block " src="/best-educators-image.svg" />
                             </figure>
                         </div>
                     </div>
@@ -1032,37 +1032,226 @@ function Banner() {
             {/* Best Educators Section end */}
 
             {/* our achievements section starts */}
-            {/* <section className="pb-[44px] m-0 "> 
-                <div className="wrapper" >
-                    <div className="relative ">
-                        <div className="float-left bg-[#009ce5] w-[41%] relative pt-[48px] pb-[52px] pl-0 pr-0 z-[10] educatorsLeft">
-                            <div className="w-[91%] ml-auto ">
-                                <figure className="absolute bottom-[57px] left-[-177px] w-[19%] inline-block align-top m-0 ">
-                                    <img className="max-w-[100%] block " src="/our-achievements.svg" alt="mman-logo"/>
-                                </figure>
-                                <div className="ml-0 w-[100%] inline-block align-top">
-                                    <div>
-                                        <h4 className="text-[24px] leading-[30px] text-[#fff] font-[700] ">
-                                            What make us
-                                            <span> SUCCESFULL?</span>
-                                        </h4>
-                                    </div>
-                                    <div className="mt-[12px] pr-[20px] ">
-                                        <p className="text-[#fff] text-[16px] leading-[34px] font-[400] tracking-normal">
-                                        These are not only numbers, but the outcome of our hard work, success, and accomplishments over the years.
-                                        </p>
 
+            <section className=" pb-[44px] pt-[10px] m-0 ">
+
+                <div className="wrapper">
+
+                    <div className="w-[41%] bg-[#009ce5]  pb-[52px] relative wraSuccesfull">
+                        <figure className="absolute top-[-49%] left-[-33%]">
+                            <img src="/our-achievements.svg" />
+
+                        </figure>
+                        <div className="w-[100%] ml-0 pl-12  pt-[48px]  " >
+
+                            <h4 className="text-[24px] leading-[30px] text-[#fff] font-[700]">What makes us SUCCESSFUL?</h4>
+                            <div className="mt-[12px] pr-[20px] ">
+                                <p className="text-[#fff] leading-[34px] font-[400] tracking-normal">
+                                    These are not only numbers, but the outcome of our hard work, success, and accomplishments over the years.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="w-[100%] pt-[190px] pb-[55px]  border-b-[13px] border-solid border-[#009ce5] -mt-[114px]  text-center"
+                        style={{ background: `url('/paperplane.svg')`, backgroundPositionX: '70%', backgroundPositionY: '45%', backgroundRepeat: 'no-repeat', backgroundColor: '#f3fbff' }}>
+                        <div className="flex w-[82%] ml-auto mr-auto  ">
+                            <div className="w-[25%] relative mentorBorder  ">
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">10</h1>
+                                <p className="mt-[8px]">Mentors</p>
+                            </div>
+                            <div className="w-[25%] relative mentorBorder  ">
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">10</h1>
+                                <p className="mt-[8px]">Years Of Experience</p>
+                            </div>
+                            <div className="w-[25%] relative mentorBorder  ">
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">60<span className="ml-[2px]">+</span></h1>
+                                <p className="mt-[8px]">Placed</p>
+                            </div>
+                            <div className="w-[25%] relative   ">
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">05 </h1>
+                                <p className="mt-[8px]">Years of Journey</p>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </section>
+
+            {/* our achievements section end */}
+
+            {/* latest blog section starts */}
+
+            <section className="pt-[144px] pl-0 pr-0 pb-[100px] overflow-hidden flex ">
+
+                <div className="w-[50%] ">
+                    <figure className="m-0 ">
+                        <img className="w-[100%]" src="/ibest-it-training-indore-latest-blog.jpg" />
+                    </figure>
+                </div>
+
+
+                <div className=" w-[686px] ml-10 mt-auto mb-auto">
+                    <div className="">
+                        <div className=" ">
+                            <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Our Latest Blogs</h3>
+                        </div>
+                        <div className="mt-[15px] w-[90%] ">
+                            <p>
+                                Check out the updated <strong><a href="/">blog</a></strong> of IT and tech related to your areas of interest and explore where you are lacking while learning. We work like pillars for building the students' career life.
+                            </p>
+
+                        </div>
+
+                        <div className="mt-[52px] w-[95%] ">
+                            <div className=" flex justify-between ">
+                                <div className=" flex">
+                                    <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
+                                        <div className="mt-[8px] flex flex-col justify-center items-center">
+                                            <h2 className="text-[18px] leading-[23px] font-[700] text-[#4800E2]">
+                                                2nd
+                                            </h2>
+                                            <h5 className="text-[12px] font-[500] leading-[25px] text-[#000000] ">
+                                                Aug
+                                            </h5>
+                                        </div>
+                                    </div>
+                                    <div className="ml-[8px] ">
+                                        <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Top IT Courses after...</h4>
+                                        <span className="text-[#4800E2] text-[16px] leading-[34px] font-[400] ">Mobile App Development</span>
                                     </div>
 
                                 </div>
+                                <div className=" flex justify-center items-center " >
+                                    <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
+                                        <a href="/" className="blogBtn pr-[45px] mt-[33px] text-[#000] "> Read More   </a> </h6>
+                                </div>
+                            </div>
+
+
+                            <div className="mt-[25px] pt-[24px] border-t-[1px] border-solid border-[#d8effa] flex justify-between ">
+                                <div className=" flex">
+                                    <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
+                                        <div className="mt-[8px] flex flex-col justify-center items-center">
+                                            <h2 className="text-[18px] leading-[23px] font-[700] text-[#11B400]">
+                                                19th
+                                            </h2>
+                                            <h5 className="text-[12px] font-[500] leading-[25px] text-[#000000] ">
+                                                Apr
+                                            </h5>
+                                        </div>
+
+
+                                    </div>
+                                    <div className="ml-[8px] ">
+                                        <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Become Master of Your....</h4>
+                                        <span className="text-[#11B400] text-[16px] leading-[34px] font-[400] ">Animation</span>
+                                    </div>
+
+                                </div>
+                                <div className=" flex justify-center items-center" >
+                                    <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
+                                        <a href="/" className="blogBtn pr-[45px] mt-[33px] text-[#000] "> Read More   </a>
+                                    </h6>
+                                </div>
+                            </div>
+                            <div className="mt-[25px] pt-[24px] border-t-[1px] border-solid border-[#d8effa] flex justify-between">
+                                <div className=" flex">
+                                    <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
+                                        <div className="mt-[8px] flex flex-col justify-center items-center">
+                                            <h2 className="text-[18px] leading-[23px] font-[700] text-[#1AAEF4]">
+                                                10th
+                                            </h2>
+                                            <h5 className="text-[12px] font-[500] leading-[25px] text-[#000000] ">
+                                                Apr
+                                            </h5>
+                                        </div>
+
+
+                                    </div>
+                                    <div className="ml-[8px] ">
+                                        <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">How to Choose Right...</h4>
+                                        <span className="text-[#1AAEF4] text-[16px] leading-[34px] font-[400] ">Web Development</span>
+                                    </div>
+
+                                </div>
+                                <div className=" align-middle" >
+                                    <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
+                                        <a href="/" className="blogBtn pr-[45px] mt-[33px] text-[#000] "> Read More   </a>
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            {/* latest blog section end  */}
+
+            {/* job program sectin start  */}
+
+            <section className="pt-[50px] pb-[180px]">
+                <div className="wrapper">
+                    <div className="text-center ">
+                        <div>
+                            <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">How IT Training Indore, will make your JOB Ready?</h3>
+
+                        </div>
+                        <div className="w-[63%] mt-[22px] mb-0 ml-auto mr-auto">
+                            <p>
+                                IT Training Indore and your IT skills can help you to land your dream job. We believe in the process of learning and expertise rather than ensuring. We are here to help you to gain practical expertise in your career.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-[95px] flex w-[100%] ">
+                        <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            <figure className="w-[92px] h-[92px] leading-[120px] bg-[#fff7db] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
+
+                            </figure>
+                            <div className="mt-[17px] ">
+                                <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Interview Preparation</h4>
+                            </div>
+                            <div className="mt-[15px]">
+                                <p>
+                                    We make you <strong>job-ready</strong> while providing relevant study material in the from basic to advanced level <strong className="hover:text-[#1AAEF4] transition-all delay-75"><a href="/"> courses </a></strong>, we offer tips and tricks to get your <strong>dream job.</strong>
+                                </p>
 
                             </div>
 
                         </div>
-                        <div className="float-right w-[100%] pt-[190px] pr-0 pb-[35px] pl-0 mt-[-114px] border-b-[13px] border-solid  border-[#009ce5]  "
-                        style={{background:`url['/paperplane.svg']`,  backgroundRepeat:"no-repeat", backgroundPositionX:"70%", backgroundPositionY:"45%",backgroundColor:'#f3fbff'}}
-                        >
-                            <div className="text-center" >
+                        <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            <figure className="w-[92px] h-[92px] leading-[120px] bg-[#e3ffe0] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
+
+                            </figure>
+                            <div className="mt-[17px] ">
+                                <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Mentors with experience
+                                </h4>
+                            </div>
+                            <div className="mt-[15px]">
+                                <p>
+                                    Mentors at IT Training Indore share their practical and theoretical knowledge into their whole working experience, so you can become more advance in your skills.  </p>
+
+                            </div>
+
+                        </div>
+                        <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
+
+                            </figure>
+                            <div className="mt-[17px] ">
+                                <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Career Counselling</h4>
+                            </div>
+                            <div className="mt-[15px]">
+                                <p>
+                                    The IT Training Indore career counsellors and mentors will guide you in making career decisions based on their interest and skillsets.
+                                </p>
 
                             </div>
 
@@ -1070,9 +1259,20 @@ function Banner() {
 
                     </div>
 
+                        <div className="mt-[40px] text-center ">
+                            <a href="/" className="btnAfter">
+                                Contact us now
+                            </a>
+
+                        </div>
+
                 </div>
 
-            </section> */}
+
+
+            </section>
+
+
 
         </div>
     )

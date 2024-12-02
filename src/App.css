@@ -291,3 +291,38 @@ p {
     background-color: #009ce5;
     z-index: -10;
 }
+p {
+  font-size: 16px;
+  line-height: 34px;
+  color: #000;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+.mentorBorder::after{
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 55%;
+  right: 0;
+  top: 25%;
+  background-color: #cecece;
+}
+.wraSuccesfull::after{
+  content: "";
+  position: absolute;
+  width: 900%;
+  height: 100%;
+  left: -899%;
+  top: 0;
+  background-color: #009ce5;
+  z-index: -1;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.blogBtn{
+  background:url("../public/btn-right-arrow.svg") no-repeat 97% center;
+}
