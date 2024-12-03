@@ -7,6 +7,12 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
+
+
 
 function Banner() {
 
@@ -317,7 +323,7 @@ function Banner() {
 
                             <div>
                                 <Formik
-                                    initialValues={{ name: '', email: '', phone: '', selector1: '', selector2: '', message: '' }}
+                                    initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}
 
                                 >
                                     {({ isSubmitting }) => (
@@ -1304,18 +1310,384 @@ function Banner() {
             {/* completion of college life */}
 
             {/* footer section start */}
-            <footer className="pt-[500px] ">
+            <footer className="pt-[393px] ">
                 <div className="wrapper">
-                    <div className="mt-[-107px]">
-                        <div className="w-[40.2%] pt-[37px] pr-[69px] pb-[49px] pl-[52px] rounded-[31px] z-[1] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
-                            <div>
+                    <div className="">
+                        <div className="w-[40.2%] pt-[37px] pr-[69px] pb-[49px] relative pl-[52px]  rounded-[31px] z-[10] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
+                            <div className="w-[100%] ">
+                                <h4 className="w-[100%] font-normal text-[28px] leading-[46px] ">
+                                    Get a free
+                                    <span className="font-[700] block">keystroke quote</span>
+                                </h4>
+
+                            </div>
+                            <div className="mt-[20px] ">
+                                <Formik
+                                    initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}
+
+                                >
+                                    {
+                                        ({ isSubmitting }) =>
+                                        (
+                                            <form className="">
+                                                <div className="border-b-[1px] border-solid border-[#cecece] pb-2  w-[100%]">
+                                                    <img src="/Home/form-user-icon.svg" className="inline" />
+                                                    <input type="text" name="name" placeholder="Name" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
+                                                </div>
+                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
+                                                    <img src="/Home/form-email-icon.svg" className="inline" />
+                                                    <input type="text" name="email" placeholder="Email" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+
+                                                </div>
+                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6 w-[100%] ">
+                                                    <img src="/Home/form-call-icon.svg" className="inline" />
+                                                    <input type="number" name="phone" placeholder="Phone" minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
+                                                </div>
+                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
+                                                    <img src="/Home/form-course-icon.svg" className="inline" />
+                                                    <Select
+                                                        showSearch
+                                                        defaultValue="Select Course"
+                                                        style={{ width: "90%", border: "0px", cursor: "pointer" }}
+                                                        // onChange={handleChange}
+                                                        className="selectBorder antSelector cursor-pointer pl-2"
+
+                                                        options={[
+
+                                                            { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
+                                                            { label: <span>Angular Js</span>, value: 'Angular Js' },
+                                                            { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
+                                                            { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
+                                                            { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
+                                                            { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
+                                                            { label: <span>Cake PHP</span>, value: 'Cake PHP' },
+                                                            { label: <span>Codeigniter</span>, value: 'Codeigniter' },
+                                                            { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
+                                                            { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
+                                                            { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
+                                                            { label: <span>Magento</span>, value: 'Magento' },
+                                                            { label: <span>React with Node Js</span>, value: 'React with Node Js' },
+                                                            { label: <span>Shopify</span>, value: 'Shopify' },
+                                                            { label: <span>UI/UX</span>, value: 'UI/UX' },
+                                                            { label: <span>Web API Development</span>, value: 'Web API Development' },
+                                                            { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
+                                                            { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
+
+
+
+                                                        ]}
+                                                    />
+
+                                                </div>
+                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
+                                                    <img src="/Home/join-calendar.svg" className="inline" />
+                                                    <Select
+                                                        showSearch
+
+                                                        defaultValue="How soon you want to join IT Training?"
+                                                        style={{ width: "90%", border: "0px", cursor: "pointer" }}
+                                                        // onChange={handleChange}
+                                                        className="selectBorder antSelector cursor-pointer pl-2"
+
+
+                                                        options={[
+
+                                                            { label: <span>This Week</span>, value: 'Jack' },
+                                                            { label: <span>Upcoming Week</span>, value: 'Lucy' },
+                                                            { label: <span>In a month</span>, value: 'Jack' },
+
+
+
+
+
+                                                        ]}
+                                                    />
+                                                </div>
+                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
+                                                    <img src="/Home/join-Message.svg" className="inline" />
+                                                    <input type="text" name="message" placeholder="Type your message" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+
+                                                </div>
+                                                <div className="mt-6 p-0 box-border">
+                                                    <p className="leading-[21px] font-[400] text-[16px] ">
+                                                        <input type="submit" value="Send" className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px]
+                                                             text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none "/>
+                                                        <span className="w-[24px] h-[24px] absolute right-[-72px] bottom-[9px] mt-0 mb-0 ml-[24px] mr-[24px] "> </span>
+                                                    </p>
+
+                                                </div>
+
+
+                                            </form>
+
+                                        )
+                                    }
+
+
+                                </Formik>
 
                             </div>
                         </div>
 
                     </div>
                 </div>
+                <div>
 
+                </div>
+
+                <div className="mt-[-405px]">
+                    <div style={{ background: `url('/footer-newsletter-bg.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+                        <div className="pt-[42px] pb-[40px] pl-0 pr-0 bg-[#1aaef4e6]">
+                            <div className="wrapper">
+                                <div className="w-[35%] mr-[184px] ml-auto mt-0 mb-0 ">
+                                    <div>
+                                        <h4 className="text-[#ffffff] text-[24px] leading-[30px] font-[800]">Subscribe to our Newsletter</h4>
+                                    </div>
+                                    <div className="mt-[18px] ">
+                                        <Formik
+                                            initialValues={{ email: '' }}
+                                        >
+                                            {({ isSubmitting }) => (
+                                                <form>
+                                                    <div className=" clearfix">
+                                                        <input type="text" placeholder="Enter Your Email" className="inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] rounded-tl-[9px] rounded-bl-[9px] w-[74.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
+                                                        <span className=" float-right pt-[10.3px] text-[white] pr-[20px] pb-[11px] pl-[35px] text-[16px] rounded-tr-[9px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
+                                                            Submit
+                                                        </span>
+                                                    </div>
+                                                </form>
+                                            )}
+
+                                        </Formik>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div className="bg-[#202020] pt-[62px] pb-[42px] ">
+                        <div className="wrapper">
+                            <div className="clearfix">
+                                <div className="pt-[252px] w-[44%]  float-left ">
+                                    <figure className="m-0 ">
+                                        <a className="text-[#000000] " href="/">
+                                            <img src="/footer-logo.svg" alt="Top IT Training Indore Coaching Class Institute" />
+                                        </a>
+
+                                    </figure>
+
+                                    <div className="mt-[22px] w-[75%] ">
+                                        <a target="_blank" className=" inline-block text-[14px] leading-[28px] font-[400] text-[#ffffff] pl-[28px] " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
+
+                                            Office No. 217-218, 3rd Floor, Onam Plaza, Beside Industry house, In front of iBus Stop, New Palasia, Indore (M.P.) 452001, India
+                                        </a>
+
+                                    </div>
+                                    <div className="mt-[42px] ">
+                                        <div className="inline-block">
+                                            <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Follow us on:</h6>
+
+                                        </div>
+                                        <div className="ml-[16px] inline-block">
+                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px]  inline-block text-center rounded-[50%] text-[#ffffff] ">
+
+                                                <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                            </a>
+                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+
+                                                <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                            </a>
+                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+
+                                                <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                            </a>
+                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+
+                                                <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px", fontWeight: 400 }} />
+
+                                            </a>
+                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+
+                                                <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div className="w-[18%] pr-[24px] pl-[24px] float-left">
+                                    <div className="mb-[32px] ">
+                                        <h6 className="text-[18px] leading-[23px] font-[700] text-[#fff] ">Categories</h6>
+
+                                    </div>
+                                    <div>
+                                        <ul>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Graphic Designing
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Web Designing
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    UI/UX Designing
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Digital Marketing
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Web Development
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Animation
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Mobile App Development
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px]">
+                                                <a href="/" className="text-[#9c9c9c]" >
+                                                    Software App Development
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div className="w-[18%] pt-0 pb-0 pl-[24px] pr-[24px] float-left">
+                                    <div className="mb-[32px] ">
+                                        <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Popular Courses</h6>
+                                    </div>
+                                    <div>
+                                        <ul className="m-0">
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Basic Web Designing Course
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Basic PHP Course
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Digital Marketing Course in Indore
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Advance PHP Training
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Graphic Design Course in Indore
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Web API Development
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Cake PHP Course
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    C, C++ Training
+                                                </a>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div className="w-[18%] pt-0 pb-0 pl-[24px] pr-[24px] float-left">
+                                    <div className="mb-[32px] ">
+                                        <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Our Menu</h6>
+                                    </div>
+                                    <div>
+                                        <ul className="m-0">
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Home
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Courses
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    About Us
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Blogs
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Testimonials
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Contact Us
+                                                </a>
+                                            </li>
+                                            <li className="mt-[30px] ">
+                                                <a href="/" className="text-[#9c9c9c]">
+                                                    Sitemap
+                                                </a>
+                                            </li>
+
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div className="bg-[#2e2e2e] pt-[23px] pb-[23px] mt-[-10px] border-t-[1px] border-[#fff] border-opacity-25">
+                        <div className="wrapper text-center">
+                            <p className="text-[14px] leading-[19px] font-[400] text-[#ffffff] ">
+                                © 2024 <a href="/" className="hover:text-[#c4c4c4] transition-all ease-linear delay-75">IT Training Indore</a> Center for Excellence. All Rights Reserved.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
             </footer>
 
 
