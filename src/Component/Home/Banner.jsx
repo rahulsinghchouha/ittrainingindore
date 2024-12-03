@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
+import { Blocks } from 'react-loader-spinner';
 
 
 
@@ -190,6 +191,16 @@ function Banner() {
     const handleSearch = () => {
     }
 
+    function traineeDetailsForm(values) {
+        console.log("trainee details", values)
+
+    }
+    function sendEmail(values) {
+        console.log("trainee details", values)
+
+    }
+
+
     return (
         <div>
             <div className="home-banner-wr">
@@ -324,34 +335,56 @@ function Banner() {
                             <div>
                                 <Formik
                                     initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}
+                                    validate={values => {
+                                        const errors = {};
+                                        if (!values.name) errors.name = "Please Enter your Name";
+                                        if (!values.email) errors.email = "Please Enter your Email";
+                                        else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) errors.email = "Please Enter Valid Email";
+                                        if (!values.phone) errors.phone = "Please Enter your Number";
+                                        if (!values.course) errors.course = "Select At least  One Course";
+                                        return errors;
+
+                                    }}
+                                    onSubmit={(values, { setSubmitting }) => {
+                                        setTimeout(() => {
+                                            traineeDetailsForm(values);
+                                            setSubmitting(false);
+                                        }, 400);
+                                    }}
 
                                 >
-                                    {({ isSubmitting }) => (
-                                        <form className="flex flex-col m-0 p-0 ">
+                                    {({ isSubmitting, values, errors, touched, handleChange, handleSubmit, handleBlur, setFieldValue, setFieldTouched }) => (
+                                        <form className="flex flex-col m-0 p-0 " onSubmit={handleSubmit}>
+
                                             <div className="flex">
-                                                <div className="w-[29%] border-b-[1px] border-solid  border-[#cecece] mb-[27px] ml-0 mr-0 mt-0  ">
-                                                    <p className="leading-[21px] text-[#000000] text-[16px] spacing-normal font-[400] ">
-                                                        <span className="formUserIcon pl-[25px] block ">
-                                                            <input type="text" name="name" aria-required="" aria-invalid="true" placeholder="Name" className="  pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[86%] inline-block homeInputForm focus:outline-none focus:bg-transparent focus:placeholder:text-transparent " />
-                                                            {/* {for error handle} */}
+                                                <div className="w-[29%]  mb-[27px] ml-0 mr-0 mt-0 relative  border-b-[1px]  border-solid  border-[#cecece] ">
+                                                    <p className="leading-[21px] text-[#000000] text-[16px] spacing-normal font-[400]">
+                                                        <span className="formUserIcon pl-[25px] block  ">
+                                                            <input type="text" name="name" onBlur={handleBlur} aria-required="true" aria-invalid={errors?.name && touched?.name ? "true" : "false"} onChange={handleChange} value={values.name} placeholder="Name" className="  pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[86%] inline-block homeInputForm focus:outline-none focus:bg-transparent focus:placeholder:text-transparent " />
+                                                            {errors?.name && touched?.name && <span className=" text-[13px] absolute left-0 pt-[37px] text-[#ff0000] ">*{errors.name}</span>}
+
                                                         </span>
+
                                                     </p>
 
+
                                                 </div>
-                                                <div className="w-[29%] border-b-[1px] border-solid border-[#cecece] mb-[27px] ml-[33px]   ">
+                                                <div className="w-[29%] border-b-[1px] relative border-solid border-[#cecece] mb-[27px] ml-[33px]   ">
                                                     <p className="leading-[21px] text-[#000000] text-[16px] font-[400] ">
                                                         <span className="formEmailIcon pl-[25px] block" >
-                                                            <input size={40} type="email" name="email" aria-required="true" aria-invalid="true" placeholder="Email" className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[86%] inline-block focus:outline-none focus:placeholder:text-transparent" />
+                                                            <input size={40} type="email" name="email" onBlur={handleBlur} onChange={handleChange} values={values.email} placeholder="Email" className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[86%] inline-block focus:outline-none focus:placeholder:text-transparent" />
+                                                            {errors?.email && touched?.email && <span className=" text-[13px] absolute left-0 pt-[37px] text-[#ff0000] ">*{errors.email}</span>}
                                                         </span>
 
                                                     </p>
 
                                                 </div>
-                                                <div className="w-[29%] border-b-[1px] border-solid border-[#cecece] mb-[27px] ml-[33px] box-border inline-block">
+                                                <div className="w-[29%] border-b-[1px] relative border-solid border-[#cecece] mb-[27px] ml-[33px] box-border inline-block">
                                                     <p className="leading-[21px] text-[#000000] text-[16px] font-[400] ">
                                                         <span className="formPhoneIcon pl-[25px] block">
-                                                            <input size={40} maxLength={10} minLength={10} name="Phone" type="number"
-                                                                pattern="[0-9]{10}" aria-required="true" aria-invalid="true" placeholder="Phone" className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[86%] inline-block focus:outline-none focus:placeholder:text-transparent " />
+                                                            <input size={40} maxLength={10} minLength={10} name="phone" type="number"
+                                                                pattern="[0-9]{10}" placeholder="Phone" onChange={handleChange} values={values.phone} className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[86%] inline-block focus:outline-none focus:placeholder:text-transparent " onBlur={handleBlur} />
+                                                            {errors?.phone && touched?.phone && <span className=" text-[13px] absolute left-0 pt-[37px] text-[#ff0000] ">*{errors.phone}</span>}
 
                                                         </span>
                                                     </p>
@@ -359,15 +392,17 @@ function Banner() {
                                             </div>
                                             <div className="flex">
                                                 <div className="mt-0 w-[46%] relative inline-block mb-[27px] border-b-[1px] border-solid border-[#cecece]">
-                                                    <p className="leading-[21px] text-[#000000] font-[400] text-[16px] ">
+                                                    <p className="leading-[21px] text-[#000000] font-[400] text-[16px] "   >
 
-                                                        <span className=" formSelectCourse pl-[25px] block">
+                                                        <span className=" formSelectCourse pl-[25px] block"   >
                                                             <Select
                                                                 showSearch
                                                                 defaultValue="Select Course"
                                                                 style={{ width: "100%", border: "0px", cursor: "pointer" }}
-                                                                // onChange={handleChange}
+                                                                onChange={(value) => setFieldValue("course", value)}
+                                                                values={values.course}
                                                                 className="selectBorder antSelector cursor-pointer"
+                                                                onBlur={() => setFieldTouched("course", true)} // Manually set touched
 
                                                                 options={[
 
@@ -396,6 +431,7 @@ function Banner() {
                                                             />
                                                         </span>
                                                     </p>
+                                                    {errors?.course && touched?.course && <span className=" text-[13px] absolute left-0  text-[#ff0000] ">*{errors.course}</span>}
 
                                                 </div>
 
@@ -406,23 +442,18 @@ function Banner() {
                                                         <span className=" formSelectCalender pl-[25px] block">
                                                             <Select
                                                                 showSearch
-
                                                                 defaultValue="How soon you want to join IT Training?"
                                                                 style={{ width: "100%", border: "0px", cursor: "pointer" }}
-                                                                // onChange={handleChange}
+                                                                onChange={(value) => setFieldValue("joiningTime", value)}
+                                                                values={values.joiningTime}
                                                                 className="selectBorder antSelector cursor-pointer"
 
 
                                                                 options={[
 
-                                                                    { label: <span>This Week</span>, value: 'Jack' },
-                                                                    { label: <span>Upcoming Week</span>, value: 'Lucy' },
-                                                                    { label: <span>In a month</span>, value: 'Jack' },
-
-
-
-
-
+                                                                    { label: <span>This Week</span>, value: 'This Week' },
+                                                                    { label: <span>Upcoming Week</span>, value: 'Upcoming Week' },
+                                                                    { label: <span>In a month</span>, value: 'In a month' },
                                                                 ]}
                                                             />
                                                         </span>
@@ -436,7 +467,7 @@ function Banner() {
                                                     <p className="leading-[21px] text-[#000000] font-[400] text-[16px] ">
 
                                                         <span className=" formMessage pl-[25px] block">
-                                                            <textarea cols={40} rows={10} aria-invalid="false" name="Message" placeholder="Type your message" className="h-[44px] b-0 w-[100%] font-[500] text-[14px] 
+                                                            <textarea cols={40} rows={10} aria-invalid="false" name="message" onChange={handleChange} value={values.message} placeholder="Type your message" className="h-[44px] b-0 w-[100%] font-[500] text-[14px] 
                                                                  resize-none leading-[19px]  pt-[10px] pb-[10px] pl-[5px] pr-[5px] bg-transparent text-[#000]  focus:outline-none focus:placeholder:text-transparent "></textarea>
 
                                                         </span>
@@ -446,8 +477,24 @@ function Banner() {
 
                                                 <div className="m-0 p-0 box-border">
                                                     <p className="leading-[21px] font-[400] text-[16px] ">
-                                                        <input type="submit" value="Send" className="cursor-pointer ml-[22px] pt-[13px] pb-[13px] pl-[105px] pr-[105px]
-                                                             text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none "/>
+                                                        <button type="submit" disabled={isSubmitting} className="cursor-pointer ml-[22px] pt-[13px] pb-[13px] pl-[105px] pr-[105px]
+                                                             text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none ">
+                                                            {isSubmitting ?
+                                                                (
+                                                                    <Blocks
+                                                                        height={24}
+                                                                        width={30}
+                                                                        color="#4fa94d"
+                                                                        ariaLabel="blocks-loading"
+                                                                        wrapperStyle={{}}
+                                                                        wrapperClass="blocks-wrapper"
+                                                                        visible={true}
+
+                                                                    />
+                                                                ) : 'Send'
+                                                            }
+                                                        </button>
+
                                                         <span className="w-[24px] h-[24px] absolute right-[-72px] bottom-[9px] mt-0 mb-0 ml-[24px] mr-[24px] "> </span>
                                                     </p>
 
@@ -458,12 +505,7 @@ function Banner() {
                                         </form>
                                     )
 
-
                                     }
-
-
-
-
 
                                 </Formik>
                             </div>
@@ -1324,32 +1366,50 @@ function Banner() {
                             <div className="mt-[20px] ">
                                 <Formik
                                     initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}
+                                    validate={values => {
+                                        const errors = {};
+                                        if (!values.name) errors.name = "Please Enter your Name";
+                                        if (!values.email) errors.email = "Please Enter your Email";
+                                        else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) errors.email = "Please Enter Valid Email";
+                                        if (!values.phone) errors.phone = "Please Enter your Number";
+                                        if (!values.course) errors.course = "Select At least  One Course";
+                                        return errors;
 
+                                    }}
+                                    onSubmit={(values, { setSubmitting }) => {
+                                        setTimeout(() => {
+                                            traineeDetailsForm(values);
+                                            setSubmitting(false);
+                                        }, 400);
+                                    }}
                                 >
                                     {
-                                        ({ isSubmitting }) =>
+                                        ({ isSubmitting, values, errors, touched, handleChange, handleSubmit, handleBlur, setFieldValue, setFieldTouched }) =>
                                         (
-                                            <form className="">
-                                                <div className="border-b-[1px] border-solid border-[#cecece] pb-2  w-[100%]">
+                                            <form className="" onSubmit={handleSubmit}>
+                                                <div className="border-b-[1px] relative border-solid border-[#cecece] pb-2  w-[100%]">
                                                     <img src="/Home/form-user-icon.svg" className="inline" />
-                                                    <input type="text" name="name" placeholder="Name" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
+                                                    <input type="text" name="name"   placeholder="Name" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
+                                                    {errors?.name && touched.name && <span className="text-[13px] absolute left-0 pt-[47px] text-[#ff0000] ">*{errors.name}</span>}
                                                 </div>
-                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
+                                                <div className=" border-b-[1px] relative border-solid border-[#cecece] pb-2 mt-6">
                                                     <img src="/Home/form-email-icon.svg" className="inline" />
-                                                    <input type="text" name="email" placeholder="Email" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
-
+                                                    <input type="text" name="email"  placeholder="Email" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+                                                    {errors?.email &&  touched.email && <span className=" text-[13px] absolute left-0 pt-[45px] text-[#ff0000] ">*{errors.email}</span>}
                                                 </div>
-                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6 w-[100%] ">
+                                                <div className=" border-b-[1px] relative border-solid border-[#cecece] pb-2 mt-6 w-[100%] ">
                                                     <img src="/Home/form-call-icon.svg" className="inline" />
-                                                    <input type="number" name="phone" placeholder="Phone" minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
+                                                    <input type="number" name="phone"  placeholder="Phone" onChange={handleChange} onBlur={handleBlur} minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
+                                                    {errors?.phone && touched?.phone && <span className=" text-[13px] absolute left-0 pt-[45px] text-[#ff0000] ">*{errors.phone}</span>}
                                                 </div>
-                                                <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
+                                                <div className=" relative border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
                                                     <img src="/Home/form-course-icon.svg" className="inline" />
                                                     <Select
                                                         showSearch
                                                         defaultValue="Select Course"
                                                         style={{ width: "90%", border: "0px", cursor: "pointer" }}
-                                                        // onChange={handleChange}
+                                                        onChange={(value) => setFieldValue("course", value)}
+                                                        onBlur={() => { setFieldTouched('course', true) }}
                                                         className="selectBorder antSelector cursor-pointer pl-2"
 
                                                         options={[
@@ -1377,41 +1437,51 @@ function Banner() {
 
                                                         ]}
                                                     />
-
+                                                    {errors?.course && touched?.course && <span className=" text-[13px] absolute left-0 pt-[40px] text-[#ff0000] ">*{errors.course}</span>}
                                                 </div>
                                                 <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
                                                     <img src="/Home/join-calendar.svg" className="inline" />
                                                     <Select
                                                         showSearch
-
                                                         defaultValue="How soon you want to join IT Training?"
                                                         style={{ width: "90%", border: "0px", cursor: "pointer" }}
-                                                        // onChange={handleChange}
+                                                        onChange={(value) => setFieldValue("joiningTime", value)}
+                                                        onBlur={() => setFieldTouched("joiningTime", true)} // Manually set touched
                                                         className="selectBorder antSelector cursor-pointer pl-2"
-
 
                                                         options={[
 
-                                                            { label: <span>This Week</span>, value: 'Jack' },
-                                                            { label: <span>Upcoming Week</span>, value: 'Lucy' },
-                                                            { label: <span>In a month</span>, value: 'Jack' },
-
-
-
-
+                                                            { label: <span>This Week</span>, value: 'This Week' },
+                                                            { label: <span>Upcoming Week</span>, value: 'Upcoming Week' },
+                                                            { label: <span>In a month</span>, value: 'In a month' },
 
                                                         ]}
                                                     />
                                                 </div>
                                                 <div className=" border-b-[1px] border-solid border-[#cecece] pb-2 mt-6">
                                                     <img src="/Home/join-Message.svg" className="inline" />
-                                                    <input type="text" name="message" placeholder="Type your message" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+                                                    <input type="text" name="message" onChange={handleChange} placeholder="Type your message" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
 
                                                 </div>
                                                 <div className="mt-6 p-0 box-border">
                                                     <p className="leading-[21px] font-[400] text-[16px] ">
-                                                        <input type="submit" value="Send" className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px]
-                                                             text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none "/>
+                                                        <button type="submit" disabled={isSubmitting} className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px]
+                                                             text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none ">
+                                                            {isSubmitting ?
+                                                                (
+                                                                    <Blocks
+                                                                        height={24}
+                                                                        width={30}
+                                                                        color="#4fa94d"
+                                                                        ariaLabel="blocks-loading"
+                                                                        wrapperStyle={{}}
+                                                                        wrapperClass="blocks-wrapper"
+                                                                        visible={true}
+
+                                                                    />
+                                                                ) : 'Send'
+                                                            }
+                                                        </button>
                                                         <span className="w-[24px] h-[24px] absolute right-[-72px] bottom-[9px] mt-0 mb-0 ml-[24px] mr-[24px] "> </span>
                                                     </p>
 
@@ -1446,14 +1516,40 @@ function Banner() {
                                     <div className="mt-[18px] ">
                                         <Formik
                                             initialValues={{ email: '' }}
+                                            validate={(values)=>{
+                                                const errors= {};
+                                                if(!values.email) errors.email = values.email;
+                                                return errors;
+                                            }   }
+                                            onSubmit={(values, { setSubmitting }) => {
+                                                setTimeout(() => {
+                                                    sendEmail(values);
+                                                    setSubmitting(false);
+                                                }, 400);
+                                            }}
                                         >
-                                            {({ isSubmitting }) => (
+                                            {({ isSubmitting, values, errors, touched, handleChange, handleSubmit, handleBlur, setFieldValue, setFieldTouched }) => (
                                                 <form>
-                                                    <div className=" clearfix">
-                                                        <input type="text" placeholder="Enter Your Email" className="inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] rounded-tl-[9px] rounded-bl-[9px] w-[74.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
-                                                        <span className=" float-right pt-[10.3px] text-[white] pr-[20px] pb-[11px] pl-[35px] text-[16px] rounded-tr-[9px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
-                                                            Submit
-                                                        </span>
+                                                    <div className=" relative clearfix">
+                                                        <input type="text" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className="inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
+                                                      
+                                                        <button className=" float-right pt-[10.3px] text-[white] pr-[20px] pb-[11px] pl-[35px] text-[16px] rounded-tr-[9px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
+                                                        {isSubmitting ?
+                                                                (
+                                                                    <Blocks
+                                                                        height={24}
+                                                                        width={30}
+                                                                        color="#4fa94d"
+                                                                        ariaLabel="blocks-loading"
+                                                                        wrapperStyle={{}}
+                                                                        wrapperClass="blocks-wrapper"
+                                                                        visible={true}
+
+                                                                    />
+                                                                ) : 'Send'
+                                                            }
+                                                        </button>
+                                                        {errors?.email && touched.email && <span className="text-[13px] absolute left-0 pt-[47px] text-[#ff0000] ">*{errors.email}</span>}
                                                     </div>
                                                 </form>
                                             )}
