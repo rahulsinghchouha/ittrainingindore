@@ -14,9 +14,11 @@ module.exports = {
         blogShadow:'3px 4px 40px 0 rgb(26 174 244 / 11%)',
         jobCardShadow:'5px 4px 35px 0 rgb(26 174 244 / 13%)',
         footFormSahd:'-2px -4px 40px 0 rgba(26, 174, 244, 0.17)',
-        navShadow:'0 8px 40px 0 rgba(0, 0, 0, 0.04)'
-      }
-
+        navShadow:'0 8px 40px 0 rgba(0, 0, 0, 0.04)',
+        geiinquiryShad:'-4px 6px 40px 0 rgba(0, 0, 0, 0.2)'
+      },
+     
+    
     },
   },
   plugins: [],

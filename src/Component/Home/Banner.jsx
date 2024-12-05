@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import CountUp from "react-countup";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -202,13 +203,13 @@ function Banner() {
 
 
     return (
-        <div>
+        <div className="pt-[125px] ">
             <div className="home-banner-wr">
                 <section className="wrapper">
                     <div className="box-border flex justify-between ">
                         <div className="w-[47.5%] pt-[16px] pl-0 pr-0 pb-0">
                             <div>
-                                <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] inline-block">GET COURSE NOW</h4>
+                                <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                             </div>
                             <div className="mt-[28px] ">
                                 <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
@@ -236,8 +237,8 @@ function Banner() {
                                 >
                                     {() => (
                                         <form className="w-[98%] flex ">
-                                            <input type="text" name="query" placeholder="Search Course" className="bg-[#ffffff] py-[17px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none" />
-                                            <button className="  bg-[#1aaef4] w-[17%] rounded-r-full items-center cursor-pointer ">
+                                            <input type="text" name="query" placeholder="Search Course" className="bg-[#ffffff] py-[15px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent" />
+                                            <button className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
                                                 <input className="search-submit ml-8 focus:outline-none cursor-pointer " />
                                             </button>
 
@@ -254,45 +255,36 @@ function Banner() {
 
                                 </div>
                                 <div className="ml-[10px] inline-block cursor-pointer">
-                                    <a href="" className="py-[9px] px-[15px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all duration-300 ease ">Web Development</a>
-                                    <a href="" className="py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all duration-300 ease ">Graphic Design</a>
-                                    <a href="" className="py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all duration-300 ease ">Animation</a>
+                                    <a href="" className=" text-[14px] py-[9px] px-[15px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] ">Web Development</a>
+                                    <a href="" className=" text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] ">Graphic Design</a>
+                                    <a href="" className=" text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] ">Animation</a>
                                 </div>
                             </div>
 
                             {/* banner course link */}
                             <div className="mt-[60px] box-border flex">
-                                <div className="w-[32.8%] pl-[20px] border-r-[1px] border-solid border-[#e0e0e0]">
+                                <div className="w-[32.7%]  border-r-[1px] border-solid border-[#e0e0e0]">
                                     <img src="/Home/web_development_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
-                                    <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none">Development</a>
+                                    <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Development</a>
 
 
                                 </div>
-                                <div className="w-[32.8%] pl-[20px] border-r-[1px] border-solid border-[#e0e0e0]">
+                                <div className="w-[32.7%] pl-[13px] border-r-[1px] border-solid border-[#e0e0e0]">
                                     <img src="/Home/graphic_design_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
-                                    <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none">Designing</a>
+                                    <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Designing</a>
 
 
                                 </div>
-                                <div className="w-[32.8%] pl-[20px]  border-solid border-[#e0e0e0] pr-0 box-border">
+                                <div className="w-[33%] pl-[13px]  border-solid border-[#e0e0e0] pr-0 box-border">
                                     <img src="/Home/digital_marketing_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
-                                    <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] whitespace-nowrap focus:outline-none">Digital Marketi</a>
+                                    <a href="/" className="text-[16px] leading-[20px] font-[500] text-[#000000] w-[70%] ml-[10px] whitespace-nowrap focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Digital Marketing</a>
 
 
                                 </div>
 
                             </div>
 
-
-
-
                         </div>
-
-
-
-
-
-
 
                         {/* second div */}
                         <div className="banner-images w-[39%] mt-[-52px] max-h-[687px] relative float-right box-border">
@@ -303,7 +295,7 @@ function Banner() {
                                         <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%] block" />
                                     </div>
                                     <div className="mt-[5px] visible text-[14px] leading-[20px] font-[600] text-[#1aaef4]">
-                                        <a href="tel:+91 8269600400">+91 8269600400</a>
+                                        <a href="tel:+91 8269600400" className="hover:text-[#000000] transition-all delay-75">+91 8269600400</a>
 
                                     </div>
                                 </figcaption>
@@ -321,7 +313,7 @@ function Banner() {
 
             {/* key store form section starts */}
 
-            <section className="mt-[-107px] z-100 bgKeyStore ">
+            <section className="mt-[-107px] z-100 bgKeyStore animate__animated animate__slideInDown animate__delay-200ms">
                 <div className="wrapper">
                     <div className="flex justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] w-[83%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore">
                         <div className="w-[15%] float-left ">
@@ -358,84 +350,84 @@ function Banner() {
 
                                             <div className="flex">
                                                 <div className="w-[29%]  relative mb-[27px] ml-0 mr-0 mt-0" >
-                                                <div className=" border-b-[1px]  border-solid  border-[#cecece] ">
-                                                    <p className="leading-[21px] text-[#000000] text-[16px] spacing-normal font-[400]">
-                                                        <span className="formUserIcon pl-[25px] block  ">
-                                                            <input type="text" name="name" onBlur={handleBlur} aria-required="true" aria-invalid={errors?.name && touched?.name ? "true" : "false"} onChange={handleChange} value={values.name} placeholder="Name" className="  pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[100%] inline-block homeInputForm focus:outline-none focus:bg-transparent focus:placeholder:text-transparent " />
-                                                        </span>
-                                                    </p>
+                                                    <div className=" border-b-[1px]  border-solid  border-[#cecece] ">
+                                                        <p className="leading-[21px] text-[#000000] text-[16px] spacing-normal font-[400]">
+                                                            <span className="formUserIcon pl-[25px] block  ">
+                                                                <input type="text" name="name" onBlur={handleBlur} aria-required="true" aria-invalid={errors?.name && touched?.name ? "true" : "false"} onChange={handleChange} value={values.name} placeholder="Name" className="  pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[100%] inline-block homeInputForm focus:outline-none focus:bg-transparent focus:placeholder:text-transparent " />
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    {errors?.name && touched?.name && <span className=" text-[13px] absolute left-0 bottom-[-16px]  text-[#ff0000] ">*{errors.name}</span>}
                                                 </div>
-                                                {errors?.name && touched?.name && <span className=" text-[13px] absolute left-0 bottom-[-16px]  text-[#ff0000] ">*{errors.name}</span>}
-                                                </div>
-                                               <div className="w-[29%] mb-[27px]  ml-[33px] relative ">   
-                                                <div className=" border-b-[1px]  border-solid border-[#cecece]   ">
-                                                    <p className="leading-[21px] text-[#000000] text-[16px] font-[400] ">
-                                                        <span className="formEmailIcon pl-[25px] block" >
-                                                            <input size={40} type="email" name="email" onBlur={handleBlur} onChange={handleChange} values={values.email} placeholder="Email" className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[100%] inline-block focus:outline-none focus:placeholder:text-transparent" />
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                                {errors?.email && touched?.email && <span className=" text-[13px] absolute left-0 bottom-[-16px]  text-[#ff0000] ">*{errors.email}</span>}
+                                                <div className="w-[29%] mb-[27px]  ml-[33px] relative ">
+                                                    <div className=" border-b-[1px]  border-solid border-[#cecece]   ">
+                                                        <p className="leading-[21px] text-[#000000] text-[16px] font-[400] ">
+                                                            <span className="formEmailIcon pl-[25px] block" >
+                                                                <input size={40} type="email" name="email" onBlur={handleBlur} onChange={handleChange} values={values.email} placeholder="Email" className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[100%] inline-block focus:outline-none focus:placeholder:text-transparent" />
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    {errors?.email && touched?.email && <span className=" text-[13px] absolute left-0 bottom-[-16px]  text-[#ff0000] ">*{errors.email}</span>}
                                                 </div>
                                                 <div className="w-[29%] mb-[27px] relative ml-[33px] ">
-                                                <div className=" border-b-[1px]  border-solid border-[#cecece]  box-border inline-block">
-                                                    <p className="leading-[21px] text-[#000000] text-[16px] font-[400] ">
-                                                        <span className="formPhoneIcon pl-[25px] block">
-                                                            <input size={40} maxLength={10} minLength={10} name="phone" type="number"
-                                                                pattern="[0-9]{10}" placeholder="Phone" onChange={handleChange} values={values.phone} className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[100%] inline-block focus:outline-none focus:placeholder:text-transparent " onBlur={handleBlur} />
-                                                           
-                                                        </span>
-                                                    </p>
-                                                </div>
-                                                {errors?.phone && touched?.phone && <span className=" text-[13px] absolute left-0 bottom-[-15px]  text-[#ff0000] ">*{errors.phone}</span>}
+                                                    <div className=" border-b-[1px]  border-solid border-[#cecece]  box-border inline-block">
+                                                        <p className="leading-[21px] text-[#000000] text-[16px] font-[400] ">
+                                                            <span className="formPhoneIcon pl-[25px] block">
+                                                                <input size={40} maxLength={10} minLength={10} name="phone" type="number"
+                                                                    pattern="[0-9]{10}" placeholder="Phone" onChange={handleChange} values={values.phone} className=" pt-[10px] pb-[10px] pl-[5px] pr-[5px] border-none text-[14px] leading-[18px] font-[500] bg-transparent align-middle w-[100%] inline-block focus:outline-none focus:placeholder:text-transparent " onBlur={handleBlur} />
+
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                    {errors?.phone && touched?.phone && <span className=" text-[13px] absolute left-0 bottom-[-15px]  text-[#ff0000] ">*{errors.phone}</span>}
 
                                                 </div>
                                             </div>
                                             <div className="flex">
                                                 <div className="mt-0 w-[46%] mb-[27px] relative ">
-                                                <div className=" inline-block  w-[100%] border-b-[1px] border-solid border-[#cecece]">
-                                                    <p className="leading-[21px] text-[#000000] font-[400] text-[16px] "   >
+                                                    <div className=" inline-block  w-[100%] border-b-[1px] border-solid border-[#cecece]">
+                                                        <p className="leading-[21px] text-[#000000] font-[400] text-[16px] "   >
 
-                                                        <span className=" formSelectCourse pl-[25px] block"   >
-                                                            <Select
-                                                                showSearch
-                                                                defaultValue="Select Course"
-                                                                style={{ width: "100%", border: "0px", cursor: "pointer" }}
-                                                                onChange={(value) => setFieldValue("course", value)}
-                                                                values={values.course}
-                                                                className="selectBorder antSelector cursor-pointer"
-                                                                onBlur={() => setFieldTouched("course", true)} // Manually set touched
+                                                            <span className=" formSelectCourse pl-[25px] block"   >
+                                                                <Select
+                                                                    showSearch
+                                                                    defaultValue="Select Course"
+                                                                    style={{ width: "100%", border: "0px", cursor: "pointer" }}
+                                                                    onChange={(value) => setFieldValue("course", value)}
+                                                                    values={values.course}
+                                                                    className="selectBorder antSelector cursor-pointer"
+                                                                    onBlur={() => setFieldTouched("course", true)} // Manually set touched
 
-                                                                options={[
+                                                                    options={[
 
-                                                                    { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
-                                                                    { label: <span>Angular Js</span>, value: 'Angular Js' },
-                                                                    { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
-                                                                    { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
-                                                                    { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
-                                                                    { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
-                                                                    { label: <span>Cake PHP</span>, value: 'Cake PHP' },
-                                                                    { label: <span>Codeigniter</span>, value: 'Codeigniter' },
-                                                                    { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
-                                                                    { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
-                                                                    { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
-                                                                    { label: <span>Magento</span>, value: 'Magento' },
-                                                                    { label: <span>React with Node Js</span>, value: 'React with Node Js' },
-                                                                    { label: <span>Shopify</span>, value: 'Shopify' },
-                                                                    { label: <span>UI/UX</span>, value: 'UI/UX' },
-                                                                    { label: <span>Web API Development</span>, value: 'Web API Development' },
-                                                                    { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
-                                                                    { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
+                                                                        { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
+                                                                        { label: <span>Angular Js</span>, value: 'Angular Js' },
+                                                                        { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
+                                                                        { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
+                                                                        { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
+                                                                        { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
+                                                                        { label: <span>Cake PHP</span>, value: 'Cake PHP' },
+                                                                        { label: <span>Codeigniter</span>, value: 'Codeigniter' },
+                                                                        { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
+                                                                        { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
+                                                                        { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
+                                                                        { label: <span>Magento</span>, value: 'Magento' },
+                                                                        { label: <span>React with Node Js</span>, value: 'React with Node Js' },
+                                                                        { label: <span>Shopify</span>, value: 'Shopify' },
+                                                                        { label: <span>UI/UX</span>, value: 'UI/UX' },
+                                                                        { label: <span>Web API Development</span>, value: 'Web API Development' },
+                                                                        { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
+                                                                        { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
 
 
 
-                                                                ]}
-                                                            />
-                                                        </span>
-                                                    </p>
-                                                   
-                                                </div>
-                                                {errors?.course && touched?.course && <span className=" text-[13px]  absolute left-0 bottom-[-15px] text-[#ff0000] ">*{errors.course}</span>}
+                                                                    ]}
+                                                                />
+                                                            </span>
+                                                        </p>
+
+                                                    </div>
+                                                    {errors?.course && touched?.course && <span className=" text-[13px]  absolute left-0 bottom-[-15px] text-[#ff0000] ">*{errors.course}</span>}
 
                                                 </div>
 
@@ -482,7 +474,7 @@ function Banner() {
                                                 <div className="m-0 p-0 box-border">
                                                     <p className="leading-[21px] font-[400] text-[16px] ">
                                                         <button type="submit" disabled={isSubmitting} className="cursor-pointer ml-[22px] pt-[13px] pb-[13px] pl-[105px] pr-[105px]
-                                                             text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none ">
+                                                             text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
                                                             {isSubmitting ?
                                                                 (
                                                                     <Blocks
@@ -542,14 +534,14 @@ function Banner() {
                     <div className="w-[82%] mt-[10px] ml-auto mr-auto mb-0  ">
                         <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
                             IT Training Indore, we understand the importance of quality education and career growth. Our institute stands out as a trusted destination for
-                            <strong>software training institute in Indore</strong>
+                            <strong> software training institute in Indore</strong>
                             . With a team of industry experts, we offer comprehensive industrial or corporate training programs that cover the latest software development technologies. Our hands-on training approach ensures that you gain practical skills and industry-specific knowledge.
                         </p>
                         <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
                             Whether you want to learn programming languages,
                             <a href="/" className=" hover:text-[#009ce5] transition-all ease delay-[0.3s]"><strong><span> </span>web development,</strong></a>
                             <a href="/" className=" hover:text-[#009ce5] transition-all ease delay-[0.3s]"><strong><span> </span>app development, </strong></a>
-                            <strong>check out our courses and learn from Indore’s best software training coaching center.</strong>
+                            <strong>check out our courses and learn from Indore’s best software training coaching center. </strong>
                             Our courses focus on preparing students to ensure that they are ready to defeat the upcoming challenges in their career lives.
                         </p>
                         <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
@@ -565,7 +557,7 @@ function Banner() {
 
 
                         {webCard.map((card) => (
-                            <div key={card.id} className={` w-[31.3%] relative  text-left roundex-[18px] mt-0 mb-[36px] ml-0 transition-all ease delay-[0.3s] float-left courseCardShadow rounded-[18px] ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}>
+                            <div key={card.id} className={` w-[31.3%] relative  text-left roundex-[18px] mt-0 mb-[36px] ml-0 float-left courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300    ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}>
                                 <figure className="h-[214px] relative webdevelopmentCard">
                                     <img src={card.image} alt="Best Web API Development Training Course indore" className="h-[100%] object-contain
                                             rounded-tl-[18px] rounded-tr-[18px]  block "/>
@@ -578,7 +570,7 @@ function Banner() {
                                 </figure>
                                 <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
                                     <div className="mb-[15px] ">
-                                        <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] ">
+                                        <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
                                             <a href="/">
                                                 {card.heading}
                                             </a>
@@ -592,7 +584,7 @@ function Banner() {
 
                                     </div>
                                     <div className="mt-[21px] ">
-                                        <a href="/" className="itCardBtn text-[#000000] pr-[45px] tetx-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-[0.3s] outline-none ">{card.button2}</a>
+                                        <a href="/" className=" group-hover:translate-x-3 itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">{card.button2}</a>
 
                                     </div>
 
@@ -652,7 +644,7 @@ function Banner() {
                                     isActive1 ?
                                         (<div className=" pt-0 pr-0 pb-[13px]   pointer   text-left flex gap-6 items-center ">
                                             <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease duration-[0.5s] "> - </div>
+                                        text-center transition-all ease-linear duration-[0.5s] "> - </div>
 
                                             <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Start from Scratch</h5>
 
@@ -662,14 +654,14 @@ function Banner() {
                                         (
                                             <div className="pt-0 pr-0 pb-[13px]   cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-6 items-center">
                                                 <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease duration-[0.5s]" onClick={() => { setActive1() }}> + </div>
+                                        text-center transition-all ease-linear delay-1000 duration-[0.5s]" onClick={() => { setActive1() }}> + </div>
                                                 <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Start from Scratch</h5>
                                             </div>)
 
                                 }
                                 {
                                     isActive1 &&
-                                    <div className="accordion-content" >
+                                    <div className="accordion-content  transition-all ease-linear delay-1000 duration-[0.5s]" >
                                         <p className="text-[#000] ">
                                             Students will be taught and guided by best IT Training institute mentors from the basics to advanced level. We assist them to prepare for the future challenges in their field of interest. Our courses will cover all the updated topics which are in demand in the fast paced IT world.
                                         </p>
@@ -1109,19 +1101,39 @@ function Banner() {
                         style={{ background: `url('/paperplane.svg')`, backgroundPositionX: '70%', backgroundPositionY: '45%', backgroundRepeat: 'no-repeat', backgroundColor: '#f3fbff' }}>
                         <div className="flex w-[82%] ml-auto mr-auto  ">
                             <div className="w-[25%] relative mentorBorder  ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">10</h1>
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] "><CountUp
+                                    start={0}
+                                    end={10}
+                                    duration={4}
+                                    
+                                /></h1>
                                 <p className="mt-[8px]">Mentors</p>
                             </div>
                             <div className="w-[25%] relative mentorBorder  ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">10</h1>
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] "> <CountUp
+                                    start={0}
+                                    end={10}
+                                    duration={4}
+                                    
+                                /></h1>
                                 <p className="mt-[8px]">Years Of Experience</p>
                             </div>
                             <div className="w-[25%] relative mentorBorder  ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">60<span className="ml-[2px]">+</span></h1>
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] "><CountUp
+                                    start={0}
+                                    end={60}
+                                    duration={5}
+                                    
+                                /><span className="ml-[2px]">+</span></h1>
                                 <p className="mt-[8px]">Placed</p>
                             </div>
                             <div className="w-[25%] relative   ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">05 </h1>
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0<CountUp
+                                    start={0}
+                                    end={5}
+                                    duration={4}
+                                    
+                                /> </h1>
                                 <p className="mt-[8px]">Years of Journey</p>
                             </div>
 
@@ -1392,66 +1404,66 @@ function Banner() {
                                         (
                                             <form className="" onSubmit={handleSubmit}>
                                                 <div className="relative   w-[100%] ">
-                                                <div className="border-b-[1px] relative border-solid pb-1 border-[#cecece] ">
-                                                    <img src="/Home/form-user-icon.svg" className="inline" />
-                                                    <input type="text" name="name"   placeholder="Name" onChange={handleChange} onBlur={handleBlur} className="pl-[5px]  font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
-                                                   
-                                                </div>
-                                                {errors?.name && touched?.name && <span className="text-[13px] absolute text-[#ff0000] ">*{errors.name}</span>}
+                                                    <div className="border-b-[1px] relative border-solid pb-1 border-[#cecece] ">
+                                                        <img src="/Home/form-user-icon.svg" className="inline" />
+                                                        <input type="text" name="name" placeholder="Name" onChange={handleChange} onBlur={handleBlur} className="pl-[5px]  font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
+
+                                                    </div>
+                                                    {errors?.name && touched?.name && <span className="text-[13px] absolute text-[#ff0000] ">*{errors.name}</span>}
                                                 </div>
                                                 <div className="relative  mt-5">
-                                                <div className=" border-b-[1px]  border-solid border-[#cecece] pb-1">
-                                                    <img src="/Home/form-email-icon.svg" className="inline" />
-                                                    <input type="text" name="email"  placeholder="Email" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
-                                                </div>
-                                                {errors?.email &&  touched?.email && <span className=" text-[13px] absolute  text-[#ff0000] ">*{errors.email}</span>}
+                                                    <div className=" border-b-[1px]  border-solid border-[#cecece] pb-1">
+                                                        <img src="/Home/form-email-icon.svg" className="inline" />
+                                                        <input type="text" name="email" placeholder="Email" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+                                                    </div>
+                                                    {errors?.email && touched?.email && <span className=" text-[13px] absolute  text-[#ff0000] ">*{errors.email}</span>}
                                                 </div>
                                                 <div className="mt-5 w-[100%] relative">
-                                                <div className=" border-b-[1px]  border-solid border-[#cecece] pb-1  ">
-                                                    <img src="/Home/form-call-icon.svg" className="inline" />
-                                                    <input type="number" name="phone"  placeholder="Phone" onChange={handleChange} onBlur={handleBlur} minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
-                                                   
-                                                </div>
-                                                {errors?.phone && touched?.phone && <span className=" text-[13px] absolute text-[#ff0000] ">*{errors.phone}</span>}
+                                                    <div className=" border-b-[1px]  border-solid border-[#cecece] pb-1  ">
+                                                        <img src="/Home/form-call-icon.svg" className="inline" />
+                                                        <input type="number" name="phone" placeholder="Phone" onChange={handleChange} onBlur={handleBlur} minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
+
+                                                    </div>
+                                                    {errors?.phone && touched?.phone && <span className=" text-[13px] absolute text-[#ff0000] ">*{errors.phone}</span>}
                                                 </div>
                                                 <div className="relative">
                                                     <div className=" border-b-[1px] border-solid border-[#cecece] pb-1 mt-5">
-                                                    <img src="/Home/form-course-icon.svg" className="inline" />
-                                                    <Select
-                                                        showSearch
-                                                        defaultValue="Select Course"
-                                                        style={{ width: "90%", border: "0px", cursor: "pointer" }}
-                                                        onChange={(value) => setFieldValue("course", value)}
-                                                        onBlur={() => { setFieldTouched('course', true) }}
-                                                        className="selectBorder antSelector cursor-pointer pl-2"
+                                                        <img src="/Home/form-course-icon.svg" className="inline" />
+                                                        <Select
+                                                            showSearch
+                                                            defaultValue="Select Course"
+                                                            style={{ width: "90%", border: "0px", cursor: "pointer" }}
+                                                            onChange={(value) => setFieldValue("course", value)}
+                                                            onBlur={() => { setFieldTouched('course', true) }}
+                                                            className="selectBorder antSelector cursor-pointer pl-2"
 
-                                                        options={[
+                                                            options={[
 
-                                                            { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
-                                                            { label: <span>Angular Js</span>, value: 'Angular Js' },
-                                                            { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
-                                                            { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
-                                                            { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
-                                                            { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
-                                                            { label: <span>Cake PHP</span>, value: 'Cake PHP' },
-                                                            { label: <span>Codeigniter</span>, value: 'Codeigniter' },
-                                                            { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
-                                                            { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
-                                                            { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
-                                                            { label: <span>Magento</span>, value: 'Magento' },
-                                                            { label: <span>React with Node Js</span>, value: 'React with Node Js' },
-                                                            { label: <span>Shopify</span>, value: 'Shopify' },
-                                                            { label: <span>UI/UX</span>, value: 'UI/UX' },
-                                                            { label: <span>Web API Development</span>, value: 'Web API Development' },
-                                                            { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
-                                                            { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
+                                                                { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
+                                                                { label: <span>Angular Js</span>, value: 'Angular Js' },
+                                                                { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
+                                                                { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
+                                                                { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
+                                                                { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
+                                                                { label: <span>Cake PHP</span>, value: 'Cake PHP' },
+                                                                { label: <span>Codeigniter</span>, value: 'Codeigniter' },
+                                                                { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
+                                                                { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
+                                                                { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
+                                                                { label: <span>Magento</span>, value: 'Magento' },
+                                                                { label: <span>React with Node Js</span>, value: 'React with Node Js' },
+                                                                { label: <span>Shopify</span>, value: 'Shopify' },
+                                                                { label: <span>UI/UX</span>, value: 'UI/UX' },
+                                                                { label: <span>Web API Development</span>, value: 'Web API Development' },
+                                                                { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
+                                                                { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
 
 
 
-                                                        ]}
-                                                    />                                                   
-                                                </div>
-                                                {errors?.course && touched?.course && <span className=" text-[13px] absolute  text-[#ff0000] ">*{errors.course}</span>}
+                                                            ]}
+                                                        />
+                                                    </div>
+                                                    {errors?.course && touched?.course && <span className=" text-[13px] absolute  text-[#ff0000] ">*{errors.course}</span>}
                                                 </div>
 
                                                 <div className=" border-b-[1px] border-solid border-[#cecece] pb-1 mt-5">
@@ -1530,12 +1542,12 @@ function Banner() {
                                     <div className="mt-[18px] ">
                                         <Formik
                                             initialValues={{ email: '' }}
-                                            validate={(values)=>{
-                                                const errors= {};
-                                                if(!values.email) errors.email = "Please Enter your Email"
+                                            validate={(values) => {
+                                                const errors = {};
+                                                if (!values.email) errors.email = "Please Enter your Email"
                                                 else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) errors.email = "Please Enter Valid Email";
                                                 return errors;
-                                            }   }
+                                            }}
                                             onSubmit={(values, { setSubmitting }) => {
                                                 setTimeout(() => {
                                                     sendEmail(values);
@@ -1545,27 +1557,27 @@ function Banner() {
                                         >
                                             {({ isSubmitting, values, errors, touched, handleChange, handleSubmit, handleBlur }) => (
                                                 <form onSubmit={handleSubmit}>
-                                                    <div className="relative">                             
+                                                    <div className="relative">
                                                         <div className=" clearfix">
-                                                        <input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className="inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
-                                                      
-                                                        <button type="submit" disabled={isSubmitting} className=" float-right absolute pt-[10.3px] text-[white] pr-[20px] pb-[11px] pl-[35.1px] text-[16px] rounded-tr-[9px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
-                                                        {isSubmitting ?
-                                                                (
-                                                                    <Blocks
-                                                                        height="19"
-                                                                        width="20"
-                                                                        color="#4fa94d"
-                                                                        ariaLabel="blocks-loading"
-                                                                        wrapperStyle={{}}
-                                                                        wrapperClass="blocks-wrapper"
-                                                                        visible={true}
-                                                                    />
-                                                                ) : 'Send'
-                                                            }
-                                                        </button>
+                                                            <input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className="inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
+
+                                                            <button type="submit" disabled={isSubmitting} className=" float-right absolute pt-[10.3px] text-[white] pr-[20px] pb-[11px] pl-[35.1px] text-[16px] rounded-tr-[9px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
+                                                                {isSubmitting ?
+                                                                    (
+                                                                        <Blocks
+                                                                            height="19"
+                                                                            width="20"
+                                                                            color="#4fa94d"
+                                                                            ariaLabel="blocks-loading"
+                                                                            wrapperStyle={{}}
+                                                                            wrapperClass="blocks-wrapper"
+                                                                            visible={true}
+                                                                        />
+                                                                    ) : 'Send'
+                                                                }
+                                                            </button>
                                                         </div>
- 
+
                                                         {errors?.email && touched?.email && <span className="text-[13px] absolute left-0 bottom-[39px] font-[500] pt-[47px] text-[#ff0000] ">*{errors.email}</span>}
                                                     </div>
                                                 </form>
@@ -1594,36 +1606,36 @@ function Banner() {
                                     </figure>
 
                                     <div className="mt-[22px] w-[75%] ">
-                                        <a target="_blank" className=" inline-block text-[14px] leading-[28px] font-[400] text-[#ffffff] pl-[28px] " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
+                                        <a target="_blank" className=" inline-block text-[14px] leading-[28px] cursor-pointer font-[400] text-[#ffffff] pl-[28px] hover:text-[#9c9c9c] transition-all delay-150 ease-linear  " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
 
                                             Office No. 217-218, 3rd Floor, Onam Plaza, Beside Industry house, In front of iBus Stop, New Palasia, Indore (M.P.) 452001, India
                                         </a>
 
                                     </div>
-                                    <div className="mt-[42px] ">
-                                        <div className="inline-block">
+                                    <div className="mt-[42px] flex  ">
+                                        <div className="flex justify-center items-center ">
                                             <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Follow us on:</h6>
 
                                         </div>
-                                        <div className="ml-[16px] inline-block">
-                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px]  inline-block text-center rounded-[50%] text-[#ffffff] ">
+                                        <div className="ml-[16px] flex gap-2 ">
+                                            <a href="/" className="w-[54px] h-[54px] flex justify-center items-center  text-[18px] z-[1] relative  overflow-hidden text-center hover:text-[#009ce5] rounded-[50%] text-[#ffffff] socialIconFooter">
 
                                                 <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight: 400 }} />
                                             </a>
-                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+                                            <a href="/" className="w-[54px] h-[54px]  flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
 
                                                 <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight: 400 }} />
                                             </a>
-                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+                                            <a href="/" className="w-[54px] h-[54px] flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative overflow-hidden text-[#ffffff] socialIconFooter">
 
                                                 <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight: 400 }} />
                                             </a>
-                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+                                            <a href="/" className="w-[54px] h-[54px]  flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
 
                                                 <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px", fontWeight: 400 }} />
 
                                             </a>
-                                            <a href="/" className="w-[54px] h-[54px] leading-[54px] text-[18px] ml-[5px] text-center rounded-[50%] inline-block text-[#ffffff] ">
+                                            <a href="/" className="w-[54px] h-[54px]  flex justify-center items-center  text-[18px] ml-[5px] text-center  hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
 
                                                 <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight: 400 }} />
                                             </a>
@@ -1643,42 +1655,42 @@ function Banner() {
                                     <div>
                                         <ul>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear " >
                                                     Graphic Designing
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     Web Designing
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     UI/UX Designing
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     Digital Marketing
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     Web Development
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     Animation
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     Mobile App Development
                                                 </a>
                                             </li>
                                             <li className="mt-[30px]">
-                                                <a href="/" className="text-[#9c9c9c]" >
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear" >
                                                     Software App Development
                                                 </a>
                                             </li>
@@ -1693,42 +1705,42 @@ function Banner() {
                                     <div>
                                         <ul className="m-0">
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Basic Web Designing Course
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Basic PHP Course
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Digital Marketing Course in Indore
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Advance PHP Training
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Graphic Design Course in Indore
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Web API Development
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Cake PHP Course
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     C, C++ Training
                                                 </a>
                                             </li>
@@ -1744,37 +1756,37 @@ function Banner() {
                                     <div>
                                         <ul className="m-0">
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Home
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Courses
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     About Us
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Blogs
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Testimonials
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Contact Us
                                                 </a>
                                             </li>
                                             <li className="mt-[30px] ">
-                                                <a href="/" className="text-[#9c9c9c]">
+                                                <a href="/" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                     Sitemap
                                                 </a>
                                             </li>
@@ -1802,6 +1814,26 @@ function Banner() {
 
                 </div>
             </footer>
+
+            {/* back to top align */}
+            <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center w-[62px] h-[62px] bg-[#050505] rounded-[50%] leading-[62px] flex justify-center items-center ">
+                <a className="  text-[25px] text-[#ffffff] bg-[#050505] text-center ">
+                    <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.6665 12.2923L11.9998 1.95898L22.3332 12.2923" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M1.6665 20.0423L11.9998 9.70898L22.3332 20.0423" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </a>
+
+            </div>
+            {/* back to top end */}
+
+            {/* get inquiry */}
+            <div className="fixed top-[50%] right-0 py-[10px] pr-[13px] pl-[11px] shadow-geiinquiryShad bg-[#000] w-[56px] text-center cursor-pointer rounded-[5px] z-[51] " style={{ writingMode: 'vertical-rl' }}>
+                <div>
+                    <h4 className="text-[#fff] font-[700] text-[16px] leading-[21px] ">Get Enquiry</h4>
+                </div>
+                <figure></figure>
+            </div>
 
 
 

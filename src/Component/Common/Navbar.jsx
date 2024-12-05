@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
+import "animate.css";
 
 
 
 function Navbar() {
 
     return (
-        <div className="w-[100%] border-b-[1px] border-[white] h-[124px] fixed bg-[#fff] z-[100]  box-border  shadow-navShadow">
-            <section className="wrapper  flex justify-between items-center  pt-[10px] pb-[14px]">
+        <header className="w-[100%] border-b-[1px] border-[white] fixed  bg-[#fff] z-[111]  box-border  shadow-navShadow">
+            <section className="wrapper  flex justify-between items-center  pt-[10px] pb-[19px]">
 
                 <div className="mt-[6px] w-[24%] float-left">
                     <figure className="w-[307px] h-[83px]">
@@ -23,22 +24,22 @@ function Navbar() {
                 <div className="  mt-[14px] flex flex-col gap-3 text-right float-right ">
                     <div className=" w-[100%] flex justify-end items-center text-right  ">
                         <div className="  flex  items-center gap-[3px] z-10 ">
-                            <a href="" className="h-[40px] w-[40px] rounded-full flex justify-center items-center">
-                            <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", color: "#1877F2",fontWeight:400 }} />
+                            <a href="/" className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon navIcon">
+                            <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight:400,  }} className="navIcon"/>
 
                             </a>
-                            <a href="" className="h-[40px] w-[40px] rounded-full flex justify-center items-center">
-                            <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", color: "#0077B5",fontWeight:400  }} />
+                            <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
+                            <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight:400  }} />
                             </a>
-                            <a className="h-[40px] w-[40px] rounded-full flex justify-center items-center">
-                            <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", color: "#E1306C",fontWeight:400  }} />
+                            <a  href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
+                            <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight:400  }} />
                             </a>
-                            <a className="h-[40px] w-[40px] rounded-full flex justify-center items-center">
-                            <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px", color: "#1DA1F2", fontWeight:400  }} />
+                            <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
+                            <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px",  fontWeight:400  }} />
 
                             </a>
-                            <a className="h-[40px] w-[40px] rounded-full flex justify-center items-center mr-[6px]">
-                            <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", color: "#E60023",fontWeight:400  }} />
+                            <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
+                            <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight:400  }} />
                             </a></div>
                         <div className="flex ">
                           
@@ -48,7 +49,7 @@ function Navbar() {
                                     <img src="/Navbar/phone-icon.svg" alt="phone-icon" loading="lazy" className="h-[20px] w-[20px] " />
                                 </span>
                                 <span className="header-call-us">Call Us Now</span>
-                                <a href="tel:+91 8269600400" className="text-[14px]">+91 8269600400</a>
+                                <a href="tel:+91 8269600400" className="text-[14px] hover:text-[#1aaef4] transition-all delay-75 duration-200 ease-linear">+91 8269600400</a>
                             </div>
                            
                            
@@ -56,7 +57,7 @@ function Navbar() {
                                 <span className="">
                                     <img src="/Navbar/email-icon.svg" alt="email-icon" loading="lazy" />
                                 </span>
-                                <a href="mailto:info@ittrainingindore.in">info@ittrainingindore.in</a>
+                                <a href="mailto:info@ittrainingindore.in" className="text-[14px] hover:text-[#1aaef4] transition-all delay-75 duration-200 ease-linear">info@ittrainingindore.in</a>
 
                             </div>
 
@@ -66,32 +67,32 @@ function Navbar() {
                     <nav className="mt-[7px]">
                        
                             <ul className="flex  ">
-                                <li className="text-[#000000] text-[16px] leading-[21px] font-[700] pt-[1px] ml-[67px] overflow-hidden">
+                                <li className="text-[#000000] text-[16px] cursor-pointer relative leading-[21px] z-[-1] font-[700] pt-[1px] ml-[67px] overflow-hidden  navNavigation">
                                     <a>
                                         Home
                                     </a>
                                 </li>
-                                <li className="text-[#000000] text-[16px] leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
+                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
                                     <a>
                                         Courses
                                     </a>
                                 </li>
-                                <li className="text-[#000000] text-[16px] leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden">
+                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden">
                                     <a>
                                         About Us
                                     </a>
                                 </li>
-                                <li className="text-[#000000] text-[16px] leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
+                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
                                     <a>
                                         Blog
                                     </a>
                                 </li>
-                                <li className="text-[#000000] text-[16px] leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
+                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
                                     <a>
                                         Testimonial
                                     </a>
                                 </li>
-                                <li className="text-[#000000] text-[16px] leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
+                                <li className="text-[#000000] text-[16px]  cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
                                     <a>
                                         Contact Us
                                     </a>
@@ -109,7 +110,7 @@ function Navbar() {
 
             </section>
 
-        </div>
+        </header>
     )
 
 

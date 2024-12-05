@@ -68,7 +68,9 @@ body {
 
 
 /* Handle on hover */
-
+.navIcon:hover{
+  color: #000;
+}
 
 
 .wrapper{
@@ -177,8 +179,9 @@ visibility: visible;
   box-shadow: none !important; /* Remove focus outline */
 }
 .inputGradient{
-  background: linear-gradient(180deg, #1aaef4 0%, #1aaef4 0.01%, #0096EB 100%);
+  background: linear-gradient(180deg, #1AAEF4 0%, #1AAEF4 0.01%, #0096EB 100%);
 }
+
 input::placeholder{
   color: #000;
 }
@@ -225,6 +228,9 @@ textarea::placeholder{
 } */
 .itCardBtn{
   background:url("../public/Home/black-right-arrow.svg") no-repeat 90% center;
+}
+.itCardBtn:hover{
+  transform: translateX(3);
 }
 .btnAfter{
   font-size: 16px;
@@ -347,4 +353,52 @@ h3{
   width: 100%;
   left: 0;
   top: -60px;
+}
+.socialIcon::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  display: block;
+  height: 40px;
+  width: 40px;
+  color: #000;
+  border-radius: 100%;
+  background-color: #cecece;
+  top: 100%;
+  transition:all 500ms ease;
+}
+.socialIcon:hover::after
+{
+  top: 0%;
+}
+.socialIconFooter::after{
+  content: "";
+  position: absolute;
+  display: block;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  background-color: white;
+  opacity: 0.1;
+  top: 100%;
+  
+  transition:all 500ms ease;
+}
+.socialIconFooter:hover::after{
+  top: 0%;
+}
+.navNavigation::after{
+  content: "Home";
+  color: #1AAEF4;
+  position: absolute;
+  top: 0%;
+  display: block;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  border-bottom: 4px solid #1AAEF4 ;
+}
+.navIcon::after:hover{
+  top: 0;
 }
