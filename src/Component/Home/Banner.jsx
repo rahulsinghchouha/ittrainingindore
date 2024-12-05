@@ -13,7 +13,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { Blocks } from 'react-loader-spinner';
-
+import { useInView } from 'react-intersection-observer';
 
 
 function Banner() {
@@ -25,6 +25,86 @@ function Banner() {
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
 
+
+    //  $$$$$$$$$$$$$$     ANIMATION      $$$$$$$$$$$$$$$$
+
+    const { ref: keyStoreRef, inView: iskeyStore } = useInView({
+        threshold: 0.01, // Trigger when the 20% of the element is visible 
+        triggerOnce: true,
+    });
+    const { ref: mainHeading, inView: isMainHeading } = useInView({
+        threshold: 0.9, 
+        triggerOnce: true,
+    });
+    const { ref: mainImage, inView: isMainImage } = useInView({
+        threshold: 0.9, 
+        triggerOnce: true,
+    });
+    const { ref: chooseCourse, inView: isChooseCourse } = useInView({
+        threshold: 0.9, 
+        triggerOnce: true,
+    });
+    const { ref: courseCard, inView: isCourseCard } = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: upliftHead, inView: isUpliftHead } = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: ourPartners, inView: isOurPartners } = useInView({
+        threshold: 0.2, 
+        triggerOnce: true,
+    });
+    const { ref: exploreCategory, inView: isExploreCategory } = useInView({
+        threshold: 0.2, 
+        triggerOnce: true,
+    });
+
+    const { ref: maximizeCareer, inView: isMaximizeCareer } = useInView({
+        threshold: 0.2, 
+        triggerOnce: true,
+    });
+    const { ref: maxiSideImg, inView: isMaxiSideImg } = useInView({
+        threshold: 0.2, 
+        triggerOnce: true,
+    });
+    const { ref: countRef, inView: isCountRef } = useInView({
+        threshold: 0.2, 
+        triggerOnce: true,
+    });
+    const { ref: latestBimag, inView: isLatestBimg } = useInView({
+        threshold: 0.2, 
+        triggerOnce: true,
+    });
+    const { ref: latestBhead, inView: isLatestBhead } = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: latestBside, inView: isLatestBside } = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: jobRedyRef, inView: isJobReady } = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: jobRedyCardRef, inView: isJobReadyCard } = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: footerKeyFormRef, inView: isFooterKeyForm} = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: footerMailFormRef, inView: isFooterMailForm} = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
+    const { ref: footerContentRef, inView: isFooterContent} = useInView({
+        threshold: 0.1, 
+        triggerOnce: true,
+    });
 
 
     function setActive1() { setIsActive1(true); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
@@ -211,7 +291,11 @@ function Banner() {
                             <div>
                                 <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                             </div>
-                            <div className="mt-[28px] ">
+                            <div
+                                ref={mainHeading}
+                                className={`mt-[28px] ${isMainHeading && "animate__fadeIn"} `} style={{
+                                    animationDuration: "3s",
+                                }}>
                                 <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
                                     Unlock
                                     <span className="text-[#1aaef4]"> Your Potential </span>
@@ -287,8 +371,13 @@ function Banner() {
                         </div>
 
                         {/* second div */}
-                        <div className="banner-images w-[39%] mt-[-52px] max-h-[687px] relative float-right box-border">
-                            <figure className="relative">
+                        <div ref={mainImage}
+
+
+                            style={{ animationDuration: "3s" }} className={`banner-images w-[39%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-h-[687px] relative float-right box-border`}>
+                            <figure
+
+                            >
                                 <img src="/Home/Best_IT_Training_Indore_Student.png" alt="best software training institute in indore " />
                                 <figcaption className="absolute top-[32.5%] pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
                                     <div className="mt-[-32px]">
@@ -313,7 +402,9 @@ function Banner() {
 
             {/* key store form section starts */}
 
-            <section className="mt-[-107px] z-100 bgKeyStore animate__animated animate__slideInDown animate__delay-200ms">
+            <section ref={keyStoreRef} className={`mt-[-110px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
+                animationDuration: "2s", // Custom animation duration
+            }}>
                 <div className="wrapper">
                     <div className="flex justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] w-[83%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore">
                         <div className="w-[15%] float-left ">
@@ -522,7 +613,9 @@ function Banner() {
                 <div className="wrapper">
 
                     <div style={{ visibility: "visible" }}>
-                        <h3 className="text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000000]">
+                        <h3 ref={chooseCourse} className={`text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000000] ${isChooseCourse && "animate__fadeInDown"}`}
+                            style={{ animationDuration: '3s' }}
+                        >
 
                             Choose Your Course & IT Training Institute Carefully
                             <br />
@@ -553,11 +646,20 @@ function Banner() {
 
                     </div>
 
-                    <div className="text-center relative mt-[47px] ">
+                    <div className={`text-center relative mt-[47px] ${isCourseCard && "animate__fadeIn"}  `}
+                        ref={courseCard}
+
+                        style={{ animationDuration: '3s' }}
+                    >
 
 
                         {webCard.map((card) => (
-                            <div key={card.id} className={` w-[31.3%] relative  text-left roundex-[18px] mt-0 mb-[36px] ml-0 float-left courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300    ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}>
+                            <div
+                                ref={courseCard}
+                                key={card.id} className={` w-[31.3%] relative  text-left roundex-[18px] mt-0 mb-[36px] ml-0 float-left courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300   ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}
+                                style={{ animationDuration: '4s' }}
+                            >
+
                                 <figure className="h-[214px] relative webdevelopmentCard">
                                     <img src={card.image} alt="Best Web API Development Training Course indore" className="h-[100%] object-contain
                                             rounded-tl-[18px] rounded-tr-[18px]  block "/>
@@ -620,10 +722,14 @@ function Banner() {
 
 
 
-            <section className="pt-[100px] pr-0 pl-0 pb-[72px] ">
+            <section className={`pt-[100px] pr-0 pl-0 pb-[72px] ${isUpliftHead && "animate__fadeIn"} `}
+                ref={upliftHead}
+                style={{ animationDuration: '4s' }}>
                 <div className="wrapper">
                     <div className="visible text-center">
-                        <h3 className="text-[36px]  leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">
+                        <h3 className={`text-[36px]  leading-[52px] tracking-[0.72px] text-[#000000] font-[800]  `}
+
+                        >
                             How will IT career training uplift your career?
                         </h3>
 
@@ -905,9 +1011,13 @@ function Banner() {
             </section>
 
             {/* our partners */}
-            <section className="pb-[59px] m-0 ">
+            <section className={` pb-[59px] m-0 `}
+
+            >
                 <div className="wrapper ">
-                    <div className="text-center mb-[30px] ">
+                    <div className={`text-center mb-[30px] ${isOurPartners && "animate__fadeInDown"}`}
+                        ref={ourPartners}
+                        style={{ animationDuration: "2s" }}>
                         <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] "> Our Partners </h3>
                     </div>
                     <div className="bg-[#ffffff] shadow-partnerShadow relative rounded-[22px] p-[30px] ">
@@ -949,9 +1059,16 @@ function Banner() {
 
             {/* our partners end */}
             {/* Explore categories section starts */}
-            <section className="pt-[50px] pb-[50px] pr-0 pl-0 m-0  " >
-                <div className="wrapper">
-                    <div className="relative">
+            <section className={`pt-[50px] pb-[50px] pr-0 pl-0 m-0  `}
+
+            >
+                <div className="wrapper"
+
+                >
+                    <div className={`relative ${isExploreCategory && "animate__fadeIn"}`}
+                        ref={exploreCategory}
+                        style={{ animationDuration: "3s" }}
+                    >
                         <div className="flex justify-between">
 
                             <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
@@ -1021,7 +1138,10 @@ function Banner() {
                 <div className="wrapper">
                     <div className="">
                         <div className="w-[55%] float-left ">
-                            <div>
+                            <div className={`${isMaximizeCareer && "animate__fadeInDown"}  `}
+                                ref={maximizeCareer}
+                                style={{ animationDuration: "3s" }}
+                            >
                                 <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">Maximize Your Career with IT Education</h3>
                             </div>
                             <div className="mt-[26px] mb-[25px] ">
@@ -1063,7 +1183,11 @@ function Banner() {
 
                         </div>
 
-                        <div className="mt-[-58px] w-[38%] float-right ">
+                        <div className={`mt-[-58px] w-[38%]  float-right ${isMaxiSideImg ? "transform translate-x-[-15px] transition-all ease-linear delay-[100ms] duration-[1s]" : "translate-x-6"} `}
+                            ref={maxiSideImg}
+                            style={{ animationDuration: "5s" }}
+
+                        >
                             <figure className="m-0">
                                 <img className="max-w-[100%] block " src="/best-educators-image.svg" />
                             </figure>
@@ -1097,43 +1221,48 @@ function Banner() {
                         </div>
                     </div>
 
-                    <div className="w-[100%] pt-[190px] pb-[55px]  border-b-[13px] border-solid border-[#009ce5] -mt-[114px]  text-center"
+                    <div ref={countRef} className="w-[100%] pt-[190px] pb-[55px]  border-b-[13px] border-solid border-[#009ce5] -mt-[114px]  text-center"
                         style={{ background: `url('/paperplane.svg')`, backgroundPositionX: '70%', backgroundPositionY: '45%', backgroundRepeat: 'no-repeat', backgroundColor: '#f3fbff' }}>
                         <div className="flex w-[82%] ml-auto mr-auto  ">
                             <div className="w-[25%] relative mentorBorder  ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] "><CountUp
-                                    start={0}
-                                    end={10}
-                                    duration={4}
-                                    
-                                /></h1>
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
+                                    {isCountRef &&
+                                        <CountUp
+                                            start={0}
+                                            end={10}
+                                            duration={4}
+
+                                        />}</h1>
                                 <p className="mt-[8px]">Mentors</p>
                             </div>
                             <div className="w-[25%] relative mentorBorder  ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] "> <CountUp
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
+                                   {isCountRef &&  <CountUp
                                     start={0}
                                     end={10}
                                     duration={4}
-                                    
-                                /></h1>
+
+                                /> }</h1>
                                 <p className="mt-[8px]">Years Of Experience</p>
                             </div>
                             <div className="w-[25%] relative mentorBorder  ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] "><CountUp
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
+                                   {isCountRef && <CountUp
                                     start={0}
                                     end={60}
                                     duration={5}
-                                    
-                                /><span className="ml-[2px]">+</span></h1>
+
+                                /> }<span className="ml-[2px]">+</span></h1>
                                 <p className="mt-[8px]">Placed</p>
                             </div>
                             <div className="w-[25%] relative   ">
-                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0<CountUp
+                                <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0
+                                    {isCountRef && <CountUp
                                     start={0}
                                     end={5}
                                     duration={4}
-                                    
-                                /> </h1>
+
+                                /> }</h1>
                                 <p className="mt-[8px]">Years of Journey</p>
                             </div>
 
@@ -1149,10 +1278,14 @@ function Banner() {
 
             {/* latest blog section starts */}
 
-            <section className="pt-[144px] pl-0 pr-0 pb-[100px] overflow-hidden flex ">
+            <section className="pt-[144px] relative pl-0 pr-0 pb-[100px] overflow-hidden flex ">
 
-                <div className="w-[50%] ">
-                    <figure className="m-0 ">
+                <div className={`w-[50%]  `}
+               
+                >
+                    <figure className={`m-0   ${isLatestBimg ? "transform duration-[2s] " : " translate-x-[-25px] translate-y-[-25px] "}` }
+                     ref={latestBimag}
+                     style={{animationDuration:"3s"}}>
                         <img className="w-[100%]" src="/ibest-it-training-indore-latest-blog.jpg" />
                     </figure>
                 </div>
@@ -1161,9 +1294,17 @@ function Banner() {
                 <div className=" w-[686px] ml-10 mt-auto mb-auto">
                     <div className="">
                         <div className=" ">
-                            <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Our Latest Blogs</h3>
+                            <h3 className={`text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ${isLatestBhead ? "transform translate-y-0 duration-[2s]":"translate-y-[-70px]"} `}
+                            ref={latestBhead}
+                            style={{animationDuration:"3s"}}
+                            
+                            >Our Latest Blogs</h3>
                         </div>
-                        <div className="mt-[15px] w-[90%] ">
+                        <div className={`${isLatestBside ? " transform duration-[3s] " : "transform translate-x-[20px] translate-y-[-20px] "}`}
+                        ref={latestBside}
+                        style={{animationDuration:"3s"}}
+                        >
+                            <div className="mt-[15px] w-[90%] ">
                             <p>
                                 Check out the updated <strong><a href="/">blog</a></strong> of IT and tech related to your areas of interest and explore where you are lacking while learning. We work like pillars for building the students' career life.
                             </p>
@@ -1249,6 +1390,8 @@ function Banner() {
                                 </div>
                             </div>
                         </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -1261,7 +1404,10 @@ function Banner() {
             <section className="pt-[50px] pb-[180px]">
                 <div className="wrapper">
                     <div className="text-center ">
-                        <div>
+                        <div className={`${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
+                        ref={jobRedyRef}
+                        style={{animationDuration:"3s"}}
+                        >
                             <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">How IT Training Indore, will make your JOB Ready?</h3>
 
                         </div>
@@ -1271,7 +1417,11 @@ function Banner() {
                             </p>
                         </div>
                     </div>
-                    <div className="mt-[95px] flex w-[100%] ">
+                    <div className={`mt-[95px] flex w-[100%] ${isJobReadyCard && "animate__fadeIn"}`}
+                    ref={jobRedyCardRef}
+                    style={{animationDuration:"2s"}}
+                    
+                    >
                         <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
                             <figure className="w-[92px] h-[92px] leading-[120px] bg-[#fff7db] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                 <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
@@ -1370,7 +1520,10 @@ function Banner() {
             {/* footer section start */}
             <footer className="pt-[393px] ">
                 <div className="wrapper">
-                    <div className="">
+                    <div className={` ${isFooterKeyForm && "animate__pulse"  } `}
+                    ref={footerKeyFormRef}
+                    style={{animationDuration:"2s"}}
+                    >
                         <div className="w-[40.2%] pt-[37px] pr-[69px] pb-[49px] relative pl-[52px]  rounded-[31px] z-[10] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
                             <div className="w-[100%] ">
                                 <h4 className="w-[100%] font-normal text-[28px] leading-[46px] ">
@@ -1535,7 +1688,10 @@ function Banner() {
                     <div style={{ background: `url('/footer-newsletter-bg.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                         <div className="pt-[42px] pb-[40px] pl-0 pr-0 bg-[#1aaef4e6]">
                             <div className="wrapper">
-                                <div className="w-[35%] mr-[184px] ml-auto mt-0 mb-0 ">
+                                <div className={`w-[35%] mr-[184px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] "}`}
+                                ref={footerMailFormRef}
+                                style={{animationDuration:"3s"}}
+                                >
                                     <div>
                                         <h4 className="text-[#ffffff] text-[24px] leading-[30px] font-[800]">Subscribe to our Newsletter</h4>
                                     </div>
@@ -1595,7 +1751,10 @@ function Banner() {
 
                     </div>
                     <div className="bg-[#202020] pt-[62px] pb-[42px] ">
-                        <div className="wrapper">
+                        <div className={`wrapper ${isFooterContent && "animate__fadeIn"} `}
+                        ref={footerContentRef}
+                        style={{animationDuration:"1s"}}
+                        >
                             <div className="clearfix">
                                 <div className="pt-[252px] w-[44%]  float-left ">
                                     <figure className="m-0 ">

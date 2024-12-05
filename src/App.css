@@ -114,12 +114,12 @@ background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
 .get-course-now::after{
   content: "";
   position: absolute;
-  width: 30%;
+  width: 9.3%;
   height: 1px;
   background-image: linear-gradient( to right,#1aaef4 0%,#74deff 100%);
 top: 50%;
 transform: translateY(-50%);
-right: 0;
+left: 23%;
 }
 .search-submit{
   background: url("../public/Home/form-search-icon.svg") no-repeat;
