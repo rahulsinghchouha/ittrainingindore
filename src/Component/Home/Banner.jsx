@@ -14,6 +14,7 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
+import { Collapse } from 'antd';
 
 
 function Banner() {
@@ -686,7 +687,7 @@ function Banner() {
 
                                     </div>
                                     <div className="mt-[21px] ">
-                                        <a href="/" className=" group-hover:translate-x-3 itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">{card.button2}</a>
+                                        <a href="/" className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">{card.button2}</a>
 
                                     </div>
 
@@ -720,8 +721,6 @@ function Banner() {
 
             {/* student placed section starts */}
 
-
-
             <section className={`pt-[100px] pr-0 pl-0 pb-[72px] ${isUpliftHead && "animate__fadeIn"} `}
                 ref={upliftHead}
                 style={{ animationDuration: '4s' }}>
@@ -743,6 +742,7 @@ function Banner() {
                     </div>
 
                     <div className="flex justify-between">
+                        {/* start from scratch  */}
                         <div className="float-left w-[45.7%] mt-[30px] ">
                             <div className="mt-0 ">
 

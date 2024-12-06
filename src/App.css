@@ -230,7 +230,7 @@ textarea::placeholder{
   background:url("../public/Home/black-right-arrow.svg") no-repeat 90% center;
 }
 .itCardBtn:hover{
-  transform: translateX(3);
+background-position: 100% center;
 }
 .btnAfter{
   font-size: 16px;
@@ -389,16 +389,104 @@ h3{
   top: 0%;
 }
 .navNavigation::after{
-  content: "Home";
-  color: #1AAEF4;
+  content: 'Home';
   position: absolute;
-  top: 0%;
-  display: block;
-  z-index: 1;
-  height: 100%;
+  top: -100%;
+  left: 0;
   width: 100%;
-  border-bottom: 4px solid #1AAEF4 ;
+  color: #1AAEF4;
+  overflow: hidden;
+  border-bottom: 2px solid #1AAEF4;
+  transform: scaleY(0); /* Initially hidden (compressed) */
+   transform-origin: top; /* Animate from top to bottom */
+  transition: transform 0.3s ease; 
 }
-.navIcon::after:hover{
-  top: 0;
+.navNavigation:hover::after{
+ top: 0;
+ transform: scale(1);
 }
+
+/* Collapse start from scratch */
+/* .ant-collapse-item
+
+.ant-collapse, .ant-collapse-icon-position-start {
+  width: 45.5%;
+  margin-top: 30px;
+  background-color: #fff;
+  border: none;
+}
+.ant-collapse-header{
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 31px;
+  padding-left: 70px;
+  margin-top: 18px;
+  margin-bottom: 15px;
+ border: none !important;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+  
+} */
+/* .ant-collapse-item{
+  border: none !important;
+} */
+/* 
+.ant-collapse-header span{
+ 
+  padding-left: 55px;
+  
+ 
+  cursor: pointer;
+    
+}
+.ant-collapse-header::before{
+    content: '+';
+    position: absolute;
+    width: 46px;
+    height: 46px;
+    background-color: #fff;
+    box-shadow: 3px 4px 35px rgb(0 0 0 / 8%);
+    border-radius: 13px;
+    top: -5px;
+    left: 0;
+    font-size: 22px;
+    line-height: 46px;
+    font-weight:bold;
+    color: #000;
+    transition: 0.5s;
+    text-align: center;
+}
+.ant-collapse-header-text{
+  font-size: 17px;
+  line-height: 20px;
+  color: #000;
+  font-weight: 700;
+}
+.ant-collapse-content, .ant-collapse-content-active
+{
+  border-top: none !important;
+ 
+  border-bottom: 7px solid #1AAEF4;
+}
+.ant-collapse-content-box{
+  box-sizing: border-box;
+ 
+  padding: 16px 62px 27px 38px !important;
+ 
+  background-color: #F3FAFD;
+
+ 
+}
+
+.ant-collapse-content-box p{
+font-size: 16px;
+line-height: 34px;
+font-weight: 400;
+letter-spacing: normal;
+font-family: 'Montserrat', sans-serif;
+-webkit-text-size-adjust: 100%;
+
+
+} */

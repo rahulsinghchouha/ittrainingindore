@@ -24,8 +24,8 @@ function Navbar() {
                 <div className="  mt-[14px] flex flex-col gap-3 text-right float-right ">
                     <div className=" w-[100%] flex justify-end items-center text-right  ">
                         <div className="  flex  items-center gap-[3px] z-10 ">
-                            <a href="/" className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon navIcon">
-                            <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight:400,  }} className="navIcon"/>
+                            <a href="/" className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
+                            <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight:400,  }} />
 
                             </a>
                             <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
@@ -67,8 +67,8 @@ function Navbar() {
                     <nav className="mt-[7px]">
                        
                             <ul className="flex  ">
-                                <li className="text-[#000000] text-[16px] cursor-pointer relative leading-[21px] z-[-1] font-[700] pt-[1px] ml-[67px] overflow-hidden  navNavigation">
-                                    <a>
+                                <li className="text-[#000000] text-[16px]   leading-[21px] relative font-[700] pt-[1px] ml-[67px] ">
+                                    <a href="/" className=" cursor-pointer overflow-hidden navNavigation"> 
                                         Home
                                     </a>
                                 </li>
