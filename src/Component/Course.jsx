@@ -4,6 +4,11 @@ import { NavLink } from "react-router-dom";
 import { Select } from "antd";
 import { IoCaretDownOutline } from "react-icons/io5";
 import { useInView } from 'react-intersection-observer';
+import CounterPage from "./Common/CounterPage";
+import Footer from "./Common/Footer";
+
+
+
 const webCard = [
 
     {
@@ -137,24 +142,15 @@ function Course() {
                             suffixIcon={<IoCaretDownOutline style={{ fontSize: "16px", fontWeight: "bold", color: "#000", cursor: "pointer" }} />}
                             className="selectBorder  antSelectorrounded-[5px] courseSelector  "
                             options={[
-                                { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
-                                { label: <span>Angular Js</span>, value: 'Angular Js' },
-                                { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
-                                { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
-                                { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
-                                { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
-                                { label: <span>Cake PHP</span>, value: 'Cake PHP' },
-                                { label: <span>Codeigniter</span>, value: 'Codeigniter' },
-                                { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
-                                { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
-                                { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
-                                { label: <span>Magento</span>, value: 'Magento' },
-                                { label: <span>React with Node Js</span>, value: 'React with Node Js' },
-                                { label: <span>Shopify</span>, value: 'Shopify' },
-                                { label: <span>UI/UX</span>, value: 'UI/UX' },
-                                { label: <span>Web API Development</span>, value: 'Web API Development' },
-                                { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
-                                { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
+                                { label: <span>Graphic Designing </span>, value: 'Graphic Designing' },
+                                { label: <span>Web Designing</span>, value: 'Web Designing' },
+                                { label: <span>UI/UX Designing</span>, value: 'UI/UX Designing' },
+                                { label: <span>Digital Marketing</span>, value: 'Digital Marketing' },
+                                { label: <span>Web Development</span>, value: 'Web Development' },
+                                { label: <span>Animation</span>, value: 'Animation' },
+                                { label: <span>Mobile App Development</span>, value: 'Mobile App Development' },
+                                { label: <span>Software App Development</span>, value: 'Software App Development' },
+
                             ]}
                         />
 
@@ -250,8 +246,8 @@ function Course() {
                 </div>
             </section>
 
-            <section className="py-[16px] px-0 ">
-                <div className="wrapper">
+            <section className="py-[16px] mb-[100px] px-0 ">
+                <div className="wrapper text-center">
                     <div className={`text-center relative mt-[47px] ${isCourseCard && "animate__fadeIn"}  `}
                         ref={courseCard}
 
@@ -262,9 +258,9 @@ function Course() {
                             squareCard && !horizontalCard &&
                             webCard.map((card) => (
                                 <div
-                                    ref={courseCard}
+
                                     key={card.id} className={` w-[31.3%] relative  text-left rounded-[18px] mt-0 mb-[36px] ml-0 float-left courseCardShadow  transition-all ease-linear duration-300   ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}
-                                    style={{ animationDuration: '4s' }}
+
                                 >
 
                                     <figure className="h-[214px] relative webdevelopmentCard">
@@ -352,15 +348,23 @@ function Course() {
 
 
 
-
+                      
                     </div>
+                    <div className="mt-[81px] ">
+                            <a href="/" className="btnAfter">
+                                Load More
+                            </a>
+
+                        </div>
 
                 </div>
 
 
             </section>
 
-
+            {/* Conter Page */}
+                        <CounterPage/>
+                        <Footer className="pt-[-200px]" />
 
 
         </div>
