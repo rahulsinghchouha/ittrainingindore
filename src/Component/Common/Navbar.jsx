@@ -67,33 +67,33 @@ function Navbar() {
                     <nav className="mt-[7px]">
                        
                             <ul className="flex  ">
-                                <li className="text-[#000000] text-[16px]   leading-[21px] relative font-[700] pt-[1px] ml-[67px] ">
-                                    <NavLink to="/" className=" cursor-pointer overflow-hidden navNavigation"> 
+                                <li className=" text-[16px]   leading-[21px] relative font-[700] pt-[1px] ml-[67px] ">
+                                    <NavLink to="/" className=" cursor-pointer overflow-hidden navNavigation" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }> 
                                         Home
                                     </NavLink>
                                 </li>
-                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <NavLink to="/course">
+                                <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden "  > 
+                                    <NavLink to="/course" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Courses
                                     </NavLink>
                                 </li>
-                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden">
-                                    <NavLink to="/about-us">
+                                <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden" >
+                                    <NavLink to="/about-us" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         About Us
                                     </NavLink>
                                 </li>
-                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <NavLink to="/blog">
+                                <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden " >
+                                    <NavLink to="/blog" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Blog
                                     </NavLink>
                                 </li>
-                                <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <NavLink to="/testimonial">
+                                <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden " >
+                                    <NavLink to="/testimonial" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Testimonial
                                     </NavLink>
                                 </li>
-                                <li className="text-[#000000] text-[16px]  cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <NavLink to="/contact-us">
+                                <li className=" text-[16px]  cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden " >
+                                    <NavLink to="/contact-us" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Contact Us
                                     </NavLink>
                                 </li>

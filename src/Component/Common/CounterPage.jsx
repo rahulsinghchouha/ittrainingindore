@@ -10,7 +10,7 @@ const CounterPage=()=>{
     });
     return (
         
-            <section className="pt-[55px] pb-[300px] px-0 mb-[-345px] bg-[#f3fbff] " style={{background:`url('/paperplane.svg')`,backgroundRepeat:'no-repeat',backgroundPositionX:"67%",backgroundPositionY:"75%",backgroundColor:"#f3fbff"}}>
+            <section className="pt-[55px] pb-[300px] px-0 mb-[-620px] bg-[#f3fbff] " style={{background:`url('/our-achievement-paperplane.svg')`,backgroundRepeat:'no-repeat',backgroundPositionX:"67%",backgroundPositionY:"70%",backgroundColor:"#f3fbff"}}>
                 <div className="wrapper text-center">
                     <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">
                     We feel proud about our Stats

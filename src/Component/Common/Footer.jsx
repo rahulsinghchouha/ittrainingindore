@@ -33,7 +33,7 @@ const Footer = () =>{
     }
 
 return(
-  <footer className="pt-[97px] ">
+  <footer className="pt-[393px] ">
   <div className="wrapper">
       <div className={` ${isFooterKeyForm && "animate__pulse"} `}
           ref={footerKeyFormRef}
