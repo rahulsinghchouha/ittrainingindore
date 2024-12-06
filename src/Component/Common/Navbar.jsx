@@ -4,7 +4,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import "animate.css";
-
+import { NavLink } from "react-router-dom";
 
 
 function Navbar() {
@@ -68,46 +68,38 @@ function Navbar() {
                        
                             <ul className="flex  ">
                                 <li className="text-[#000000] text-[16px]   leading-[21px] relative font-[700] pt-[1px] ml-[67px] ">
-                                    <a href="/" className=" cursor-pointer overflow-hidden navNavigation"> 
+                                    <NavLink to="/" className=" cursor-pointer overflow-hidden navNavigation"> 
                                         Home
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <a>
+                                    <NavLink to="/course">
                                         Courses
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden">
-                                    <a>
+                                    <NavLink to="/about-us">
                                         About Us
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <a>
+                                    <NavLink to="/blog">
                                         Blog
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="text-[#000000] text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <a>
+                                    <NavLink to="/testimonial">
                                         Testimonial
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className="text-[#000000] text-[16px]  cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden ">
-                                    <a>
+                                    <NavLink to="/contact-us">
                                         Contact Us
-                                    </a>
+                                    </NavLink>
                                 </li>
-
-
-                            </ul>
-                     
-
+                            </ul>                  
                     </nav>
-
                 </div>
-                
-
-
             </section>
 
         </header>

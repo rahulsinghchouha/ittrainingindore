@@ -490,3 +490,40 @@ font-family: 'Montserrat', sans-serif;
 
 
 } */
+.mainImageAfter::after{
+  content: "";
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  top: 0;
+left: 0;
+z-index: 1;
+background-color: rgba(0, 0, 0, 0.5);
+ }
+.rightSmallArrow{
+background: url(../public/breadcrumb_arrow.svg) no-repeat 0px 7px ;
+ }
+ .rightSmallArrow:hover{
+  background-position: 7px 7px;
+ }
+.courseSelector .ant-select-selection-item{
+  font-size: 16px !important;
+  font-weight: 600;
+  padding-left: 15px !important;
+  letter-spacing: normal;
+font-family: 'Montserrat', sans-serif;
+-webkit-text-size-adjust: 100%;
+}
+.courseSelector .ant-select-arrow {
+
+  background-image: url("../public/filter-down.svg") no-repeat 92% center;
+
+}
+.courseSelector .ant-select-selection-search-input{
+  font-size: 16px !important;
+  font-weight: 600;
+  letter-spacing: normal;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
