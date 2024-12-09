@@ -6,6 +6,7 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
+import { ittrainingDataSerivice } from "../../Services/dataService";
 import { Select } from "antd";
 
 const Footer = () =>{
@@ -14,8 +15,18 @@ const Footer = () =>{
         threshold: 0.1,
         triggerOnce: true,
     });
-    function traineeDetailsForm(values) {
+    async function traineeDetailsForm(values) {
         console.log("trainee details", values)
+
+        try{
+                await ittrainingDataSerivice.studentForm(values);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+
+
 
     }
     const { ref: footerMailFormRef, inView: isFooterMailForm } = useInView({

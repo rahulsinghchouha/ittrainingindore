@@ -7,14 +7,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import CountUp from "react-countup";
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
-import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
+import { ittrainingDataSerivice } from "../../Services/dataService";
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
 import { Collapse } from 'antd';
+
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
 
@@ -275,12 +272,19 @@ function Banner() {
     const handleSearch = () => {
     }
 
-    function traineeDetailsForm(values) {
-        console.log("trainee details", values)
+   async function traineeDetailsForm(values) {
+         console.log("trainee details", values)
+        try {
+            const response = await ittrainingDataSerivice.studentForm(values);
+                     
+        }
+        catch (error) {
+            console.log(error);
+        }
 
     }
     function sendEmail(values) {
-        console.log("trainee details", values)
+        console.log("trainee details", values);
 
     }
 
@@ -1522,7 +1526,7 @@ function Banner() {
                 {/* completion of college life */}
 
                 {/* footer section start */}
-             <Footer className="pt-[300px] "></Footer>
+                <Footer className="pt-[300px] "></Footer>
 
                 {/* back to top align */}
                 <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center w-[62px] h-[62px] bg-[#050505] rounded-[50%] leading-[62px] flex justify-center items-center ">
