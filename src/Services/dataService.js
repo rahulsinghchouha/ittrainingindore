@@ -1,18 +1,26 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
-const backendUrl = "http://localhost:4000";
-
+ 
 class DataService {
 
     constructor() {
-        // constructor implementation pending
+        this.backendUrl = "http://localhost:4000"; // Define backendUrl here 
     }
 
     studentForm(values) {
         
-        axios.post(`${backendUrl}/api/v1/student-details/student-form`, (values));
+        axios.post(`${this.backendUrl}/api/v1/student-details/student-form`, (values));
 
     }
+    getCourseCard(){
+      return  axios.get(`${this.backendUrl}/api/v1/get/course-card`);
+    }
+    getStudentPlaced(){
+        return  axios.get(`${this.backendUrl}/api/v1/get/student-placed`);
+      }
+      getOurPartners(){
+        return axios.get(`${this.backendUrl}/api/v1/get/get-partners`)
+      }
 }
 
 export const ittrainingDataSerivice = new DataService();

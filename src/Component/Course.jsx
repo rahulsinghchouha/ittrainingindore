@@ -6,6 +6,9 @@ import { IoCaretDownOutline } from "react-icons/io5";
 import { useInView } from 'react-intersection-observer';
 import CounterPage from "./Common/CounterPage";
 import Footer from "./Common/Footer";
+import CourseCard from "./Common/CourseCard";
+import { useSelector } from "react-redux";
+
 
 
 
@@ -70,6 +73,11 @@ function Course() {
 
     const [squareCard, setSquareCard] = useState(true);
     const [horizontalCard, setHorizontalCard] = useState(false);
+    const [cardLimit, setCardLimit] = useState(12);
+
+    const cardSize = useSelector((state) => state.loadMore.size);
+
+    console.log("card size", cardSize);
 
     function showHorizontalCard() {
         setSquareCard(false);
@@ -254,108 +262,47 @@ function Course() {
                         style={{ animationDuration: '3s' }}
                     >
                         {
+                            !horizontalCard && squareCard &&
+                            <div>
+                                <CourseCard cardLimit={cardLimit}
 
-                            squareCard && !horizontalCard &&
-                            webCard.map((card) => (
-                                <div
+                                    square={true}
+                                    horizontal={false}
 
-                                    key={card.id} className={` w-[31.3%] relative  text-left rounded-[18px] mt-0 mb-[36px] ml-0 float-left courseCardShadow  transition-all ease-linear duration-300   ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}
-
-                                >
-
-                                    <figure className="h-[214px] relative webdevelopmentCard">
-                                        <img src={card.image} alt="Best Web API Development Training Course indore" className="h-[100%] object-contain
-                                            rounded-tl-[18px] rounded-tr-[18px]  block "/>
-                                        <figcaption className="absolute top-[12%] left-[9%] ">
-                                            <a href="/" className="bg-[#1AAEF4] pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] ">
-                                                {card.button1}
-                                            </a>
-
-                                        </figcaption>
-                                    </figure>
-                                    <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
-                                        <div className="mb-[15px] ">
-                                            <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                                <a href="/">
-                                                    {card.heading}
-                                                </a>
-
-                                            </h4>
-                                        </div>
-                                        <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
-                                            <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                                {card.para}
-                                            </p>
-
-                                        </div>
-                                        <div className="mt-[21px] ">
-                                            <a href="/" className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">{card.button2}</a>
-
-                                        </div>
-
-                                    </div>
+                                />
+                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "" : ""}`}>
+                                    <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
+                                        Load More
+                                    </p>
 
                                 </div>
-                            ))
+                            </div>
 
                         }
                         {
                             horizontalCard && !squareCard &&
-                            webCard.map((card) => (
-                                <div className="w-[100%] rounded-[18px] shadow-horizontaCard mb-[36px] p-[25px] flex gap-3">
-                                    <figure className="h-[214px] w-[30%] rounded-[20px] relative ">
-                                        <img src={card.image} alt="Best Web API Development Training Course indore" className="h-[100%] rounded-[20px] object-cover" />
-                                        <figcaption className="absolute top-[12%] left-[4%]">
-                                            <NavLink to="/course" className="bg-[#1AAEF4] pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] ">
-                                                {card.button1}
-                                            </NavLink>
+                            <div> <CourseCard cardLimit={cardLimit}
 
+                                square={false}
+                                horizontal={true}
 
-                                        </figcaption>
-                                    </figure>
-                                    <div className=" w-[69%] pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
-                                        <div className="mb-[15px] ">
-                                            <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                                <a href="/">
-                                                    {card.heading}
-                                                </a>
-
-                                            </h4>
-                                        </div>
-                                        <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
-                                            <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                                {card.para}
-                                            </p>
-
-                                        </div>
-                                        <div className="mt-[21px] ">
-                                            <a href="/" className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">{card.button2}</a>
-
-                                        </div>
-
-                                    </div>
-
-
-
-
-
+                            />
+                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "" : ""}`}>
+                                    <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
+                                        Load More
+                                    </p>
 
                                 </div>
 
-                            ))
+                            </div>
+
                         }
 
 
 
 
-                      
-                    </div>
-                    <div className="mt-[81px] ">
-                            <a href="/" className="btnAfter">
-                                Load More
-                            </a>
 
-                        </div>
+                    </div>
 
                 </div>
 
@@ -363,8 +310,8 @@ function Course() {
             </section>
 
             {/* Conter Page */}
-                        <CounterPage/>
-                        <Footer className="pt-[-200px]" />
+            <CounterPage />
+            <Footer className="pt-[-200px]" />
 
 
         </div>

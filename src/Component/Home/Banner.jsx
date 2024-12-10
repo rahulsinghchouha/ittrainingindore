@@ -1,5 +1,5 @@
 import { Field, Formik, Form } from "formik";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Select } from "antd";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -10,10 +10,12 @@ import CountUp from "react-countup";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
-import { Collapse } from 'antd';
+
 
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
+import CourseCard from "../Common/CourseCard";
+import { Link } from "react-router-dom";
 
 
 function Banner() {
@@ -24,6 +26,39 @@ function Banner() {
     const [isActive4, setIsActive4] = useState(false);
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
+
+    const [ stuPlaced,setStudentPlaced] = useState([{}]);
+    const [partnerImage,setOurPartners] = useState([]);
+
+    async function getPlacedStudent() {
+        try {  
+            const response = await ittrainingDataSerivice.getStudentPlaced();
+            if(response.status===200) setStudentPlaced(response.data.data);
+          
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    async function getOurPartners(){
+        try{
+            const response = await ittrainingDataSerivice.getOurPartners();
+            if(response.status === 200) setOurPartners(response.data.data);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+
+        getPlacedStudent();
+        getOurPartners();
+
+    }, [])
+
+   
 
 
     //  $$$$$$$$$$$$$$     ANIMATION      $$$$$$$$$$$$$$$$
@@ -93,18 +128,7 @@ function Banner() {
         threshold: 0.1,
         triggerOnce: true,
     });
-    const { ref: footerKeyFormRef, inView: isFooterKeyForm } = useInView({
-        threshold: 0.1,
-        triggerOnce: true,
-    });
-    const { ref: footerMailFormRef, inView: isFooterMailForm } = useInView({
-        threshold: 0.1,
-        triggerOnce: true,
-    });
-    const { ref: footerContentRef, inView: isFooterContent } = useInView({
-        threshold: 0.1,
-        triggerOnce: true,
-    });
+
 
 
     function setActive1() { setIsActive1(true); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
@@ -119,99 +143,23 @@ function Banner() {
 
     function setActive6() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(true); }
 
-    const webCard = [
 
-        {
-            id: 1,
-            image: "/Home/best-web-api-development-coaching-class-indore-1-414x214.jpg",
-            button1: "Web Development",
-            heading: "Web API Development",
-            para: "In our Web API Development Course, we teach the basics of creating. . .",
-            button2: "Details"
-        },
-        {
-            id: 2,
-            image: "/Home/best-cake-php-coaching-class-indore-414x214.jpg",
-            button1: "Web Development",
-            heading: "Cake PHP Course",
-            para: "In IT Training Indore, we provide you best cake php course training. . .",
-            button2: "Details"
-        },
 
-        {
-            id: 3,
-            image: "/Home/best-vue-js-coaching-class-indore-414x214.jpg",
-            button1: "Web Development",
-            heading: "Vue.js Course",
-            para: "IT Training Indore is the best Vue JS development training Institute in. . .",
-            button2: "Details"
-        },
-
-        {
-            id: 4,
-            image: "/Home/best-codeigniter-course-coaching-class-indore-414x214.jpg",
-            button1: "Web Development",
-            heading: "Codelgniter Training Course",
-            para: "Uplift your web development career with codeIgniter training course at IT Training. . .",
-            button2: "Details"
-        },
-        {
-            id: 5,
-            image: "/Home/best-laravel-course-coaching-class-414x214.jpg",
-            button1: "Web Development",
-            heading: "Laravel PHP Course",
-            para: "Laravel is a popular open-source PHP framework. And we provide complete laravel. . .",
-            button2: "Details"
-        },
-        {
-            id: 6,
-            image: "/Home/Top-shopify-development-training-course-in-indore-414x214.jpg",
-            button1: "Web Development",
-            heading: "Shopify Development Course",
-            para: "Shopify is a popular e-commerce development platform, where we can create and. . .",
-            button2: "Details"
-        }
-
-    ]
-
-    const stuPlaced = [
-        {
-            img: '/Home/2.jpg',
-            para: 'It is the right place to kick start your career in the managment and HR field. Students who want their future in Human Resource Management must get education from this institute. The mentors, course material, and facilities are all top-notch, and the support staff are always willing to go the extra mile to ensure a positive learning experience.',
-            name: 'Sheetal Rana',
-            position: 'HR Intern'
-        },
-        {
-            img: '/Home/Mohit.jpg',
-            para: 'IT Training Indore is an excellent place to become trained and professional in your career life. The placement process is also very good. I highly recommend this institute for a good career in the IT field. One area for improvement could be more personalised attention from mentors, particularly during the more challenging portions of the course.',
-            name: 'Mohit Singh',
-            position: 'Web Developer'
-        },
-        {
-            img: "/Home/Ritu-Dhanotiya.jpg",
-            para: 'IT Training Indore, well the name itself is enough in the industry circles because it is synonymous with quality. It is a very good platform to give jump start to your career. Placement cell in IT Training Indore is quite good. They put efforts to make you skilled and trained you for your dream job. I would highly recommend everyone looking to improve their IT skills.',
-            name: 'Ritu Dhanotiya',
-            position: 'Software Quality Tester'
-        },
-        {
-            img: "/Home/2-1.jpg",
-            para: "I thoroughly enjoyed the course that make curious about the new technologies and updates, also how we can uplift our skills to get result in better outcomes. I thought the course had good content, pace and delivery. The trainers are highly experienced. It’s the right choice for the freshers to start your career with IT Training Indore.",
-            name: "Ankesh Gupta",
-            position: 'Web Developer'
-        }
-    ]
+   
     //partners image 
 
-    const partnerImage = [
-        "/Partners_1.png",
-        "/Partners_2.png",
-        "/Partners_3.png",
-        "/Partners_4.png",
-        "/Partners_1.png",
-        "/Partners_2.png",
-        "/Partners_3.png",
-        "/Partners_4.png",
-    ]
+    // const partnerImage = [
+    //     "/Partners_1.png",
+    //     "/Partners_2.png",
+    //     "/Partners_3.png",
+    //     "/Partners_4.png",
+    //     "/Partners_1.png",
+    //     "/Partners_2.png",
+    //     "/Partners_3.png",
+    //     "/Partners_4.png",
+    // ]
+
+
 
     const exploreCat = [
         {
@@ -272,11 +220,11 @@ function Banner() {
     const handleSearch = () => {
     }
 
-   async function traineeDetailsForm(values) {
-         console.log("trainee details", values)
+    async function traineeDetailsForm(values) {
+        console.log("trainee details", values)
         try {
             const response = await ittrainingDataSerivice.studentForm(values);
-                     
+
         }
         catch (error) {
             console.log(error);
@@ -662,50 +610,7 @@ function Banner() {
                         >
 
 
-                            {webCard.map((card) => (
-                                <div
-                                    ref={courseCard}
-                                    key={card.id} className={` w-[31.3%] relative  text-left roundex-[18px] mt-0 mb-[36px] ml-0 float-left courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300   ${card.id % 3 === 0 ? "" : "mr-[3%]"} `}
-                                    style={{ animationDuration: '4s' }}
-                                >
-
-                                    <figure className="h-[214px] relative webdevelopmentCard">
-                                        <img src={card.image} alt="Best Web API Development Training Course indore" className="h-[100%] object-contain
-                                            rounded-tl-[18px] rounded-tr-[18px]  block "/>
-                                        <figcaption className="absolute top-[12%] left-[9%] ">
-                                            <a href="/" className="bg-[#1AAEF4] pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] ">
-                                                {card.button1}
-                                            </a>
-
-                                        </figcaption>
-                                    </figure>
-                                    <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
-                                        <div className="mb-[15px] ">
-                                            <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                                <a href="/">
-                                                    {card.heading}
-                                                </a>
-
-                                            </h4>
-                                        </div>
-                                        <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
-                                            <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                                {card.para}
-                                            </p>
-
-                                        </div>
-                                        <div className="mt-[21px] ">
-                                            <a href="/" className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">{card.button2}</a>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            ))
-
-                            }
-
+                            <CourseCard cardLimit={6} square={true} horizontal={false} />
 
 
 
@@ -714,9 +619,9 @@ function Banner() {
 
                         {/* view all course btn  */}
                         <div className="mt-[21px] ">
-                            <a href="/" className="btnAfter">
+                            <Link to="/course" className="btnAfter">
                                 View all Courses
-                            </a>
+                            </Link>
 
                         </div>
 
@@ -932,8 +837,7 @@ function Banner() {
                                         isActive6 &&
                                         <div className="accordion-content" >
                                             <p className="text-[#000] ">
-                                                Students will be taught and guided by best IT Training institute mentors from the basics to advanced level. We assist them to prepare for the future challenges in their field of interest. Our courses will cover all the updated topics which are in demand in the fast paced IT world.
-
+                                                With IT Training Indore, learners will get the opportunity to work on live projects and grasp the knowledge we are delivering and how it can be applied practically.
                                             </p>
                                         </div>
                                     }
@@ -946,7 +850,7 @@ function Banner() {
                                     <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
                                     <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
 
-
+                                   
                                     <Swiper
                                         modules={[Autoplay, Pagination, Navigation]}
                                         spaceBetween={0}
@@ -969,7 +873,7 @@ function Banner() {
                                                     <div className="w-[641.156px] ">
                                                         <div className="relative">
                                                             <figure className="relative text-center m-0 ">
-                                                                <img className="rounded-[50%] mt-[50px] mr-auto mb-auto ml-auto border-[5px] solid border-[#1AAEF4] shadow-imgShadow w-[215px] h-[215px] " src={student.img} alt="sheetal Rana" />
+                                                                <img className="rounded-[50%] mt-[50px] mr-auto mb-auto ml-auto border-[5px] solid border-[#1AAEF4] shadow-imgShadow w-[215px] h-[215px] " src={`${ittrainingDataSerivice.backendUrl}/${student.img}`} alt="sheetal Rana" />
                                                                 <figcaption className="bg-[unset] absolute top-0 left-0 right-0 mt-0 mb-0 ml-auto mr-auto h-[100%] w-[100%]"></figcaption>
                                                             </figure>
 
@@ -981,11 +885,11 @@ function Banner() {
                                                                     backgroundPosition: 'center',
                                                                     backgroundSize: 'contain'
                                                                 }}>
-                                                                {student.para}
+                                                                {student.experience}
                                                             </p>
                                                             <div className="mt-[30px] ">
                                                                 <span className="text-[#1AAEF4] text-[18px] leading-[23px] font-[700] ">{student.name}</span>
-                                                                <h4 className="text-[14px] leading-[20px] font-[500] text-[#000000]">{student.position}</h4>
+                                                                <h4 className="text-[14px] leading-[20px] font-[500] text-[#000000]">{student.profile}</h4>
 
                                                             </div>
 
@@ -1000,6 +904,7 @@ function Banner() {
                                         }
 
                                     </Swiper>
+
 
 
 
@@ -1048,7 +953,7 @@ function Banner() {
                                     {partnerImage.map((partner, index) => (
                                         <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
                                             <figure className="w-[315.3px] min-h-[74px] flex justify-center items-center}">
-                                                <img className=" mt-auto  mb-auto " src={partner} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
+                                                <img className=" mt-auto  mb-auto " src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
                                             </figure>
                                         </SwiperSlide>
                                     ))}
