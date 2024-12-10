@@ -18,6 +18,7 @@ import CourseCard from "../Common/CourseCard";
 import { Link } from "react-router-dom";
 
 
+
 function Banner() {
 
     const [isActive1, setIsActive1] = useState(true);
@@ -29,6 +30,8 @@ function Banner() {
 
     const [ stuPlaced,setStudentPlaced] = useState([{}]);
     const [partnerImage,setOurPartners] = useState([]);
+    const [exploreCat,setExploreCat] = useState([{}]);
+    const [ourStats,setOurStats] = useState([]);
 
     async function getPlacedStudent() {
         try {  
@@ -50,11 +53,33 @@ function Banner() {
             console.log(error);
         }
     }
-
+    async function getExploreCard(){
+        try{
+            const response = await ittrainingDataSerivice.getExploreCards();
+            
+            if(response.status === 200) setExploreCat(response.data.data);            
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
+    async function getOurStats(){
+        try{
+            const response = await ittrainingDataSerivice.getOurStats();
+            if(response.status === 200) setOurStats(response.data.data);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
     useEffect(() => {
 
         getPlacedStudent();
         getOurPartners();
+        getExploreCard();
+        getOurStats();
 
     }, [])
 
@@ -146,73 +171,62 @@ function Banner() {
 
 
    
-    //partners image 
 
-    // const partnerImage = [
-    //     "/Partners_1.png",
-    //     "/Partners_2.png",
-    //     "/Partners_3.png",
-    //     "/Partners_4.png",
-    //     "/Partners_1.png",
-    //     "/Partners_2.png",
-    //     "/Partners_3.png",
-    //     "/Partners_4.png",
+
+
+    // const exploreCat = [
+    //     {
+    //         bgImage: '/blog-our-course-categories-01-bg.svg',
+    //         image: '/blog-our-course-categories-01.svg',
+    //         heading: 'Graphic Designing',
+    //         para: 'Make your communication creative on the digital platforms with our graphic designing courses.',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-02-bg.svg',
+    //         image: '/blog-our-course-categories-02.svg',
+    //         heading: 'Web Designing',
+    //         para: 'Make yourself ready with IT Training Indore, to showcase your idea into a working website on the digital platform.',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-03-bg.svg',
+    //         image: '/UI_UX.svg',
+    //         heading: 'UI/UX Designing',
+    //         para: 'Make the attention grabbing website and graphic designs, and learn the hacks that make you job ready for the IT Industry in the upcoming future.',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-04-bg.svg',
+    //         image: '/blog-our-course-categories-04.svg',
+    //         heading: 'Digital Marketing',
+    //         para: 'Get the full access of making a SEO friendly website and take the ideas for creating the successful promotion strategies to become a brand and earn.',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-01-bg.svg',
+    //         image: '/Web_Development.svg',
+    //         heading: 'Web Development',
+    //         para: 'With our knowledge and years of expertise, learn to implement your idea into reality on the digital platform with our web development courses',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-02-bg.svg',
+    //         image: '/Animation.svg',
+    //         heading: 'Animation',
+    //         para: 'Keep your skills updated with the latest trends included in our courses that will make your animation designs more engaging.',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-03-bg.svg',
+    //         image: '/Mobile_App_Development.svg',
+    //         heading: 'Mobile App Development',
+    //         para: 'Take your mobile application to the next level, with our course, you will learn the latest technologies to make your applications user-friendly.',
+    //     },
+    //     {
+    //         bgImage: '/blog-our-course-categories-04-bg.svg',
+    //         image: '/Software_Development.svg',
+    //         heading: 'Software App Development',
+    //         para: 'Make your idea a reality through a software app development course.',
+    //     },
     // ]
 
-
-
-    const exploreCat = [
-        {
-            bgImage: '/blog-our-course-categories-01-bg.svg',
-            image: '/blog-our-course-categories-01.svg',
-            heading: 'Graphic Designing',
-            para: 'Make your communication creative on the digital platforms with our graphic designing courses.',
-        },
-        {
-            bgImage: '/blog-our-course-categories-02-bg.svg',
-            image: '/blog-our-course-categories-02.svg',
-            heading: 'Web Designing',
-            para: 'Make yourself ready with IT Training Indore, to showcase your idea into a working website on the digital platform.',
-        },
-        {
-            bgImage: '/blog-our-course-categories-03-bg.svg',
-            image: '/UI_UX.svg',
-            heading: 'UI/UX Designing',
-            para: 'Make the attention grabbing website and graphic designs, and learn the hacks that make you job ready for the IT Industry in the upcoming future.',
-        },
-        {
-            bgImage: '/blog-our-course-categories-04-bg.svg',
-            image: '/blog-our-course-categories-04.svg',
-            heading: 'Digital Marketing',
-            para: 'Get the full access of making a SEO friendly website and take the ideas for creating the successful promotion strategies to become a brand and earn.',
-        },
-        {
-            bgImage: '/blog-our-course-categories-01-bg.svg',
-            image: '/Web_Development.svg',
-            heading: 'Web Development',
-            para: 'With our knowledge and years of expertise, learn to implement your idea into reality on the digital platform with our web development courses',
-        },
-        {
-            bgImage: '/blog-our-course-categories-02-bg.svg',
-            image: '/Animation.svg',
-            heading: 'Animation',
-            para: 'Keep your skills updated with the latest trends included in our courses that will make your animation designs more engaging.',
-        },
-        {
-            bgImage: '/blog-our-course-categories-03-bg.svg',
-            image: '/Mobile_App_Development.svg',
-            heading: 'Mobile App Development',
-            para: 'Take your mobile application to the next level, with our course, you will learn the latest technologies to make your applications user-friendly.',
-        },
-        {
-            bgImage: '/blog-our-course-categories-04-bg.svg',
-            image: '/Software_Development.svg',
-            heading: 'Software App Development',
-            para: 'Make your idea a reality through a software app development course.',
-        },
-    ]
-
     // for swiper reference
+    
     const swiperRef = useRef(null);
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
@@ -223,8 +237,8 @@ function Banner() {
     async function traineeDetailsForm(values) {
         console.log("trainee details", values)
         try {
-            const response = await ittrainingDataSerivice.studentForm(values);
-
+          await ittrainingDataSerivice.studentForm(values);
+            
         }
         catch (error) {
             console.log(error);
@@ -1013,8 +1027,8 @@ function Banner() {
                                                         <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
                                                             <div className={`absolute border-t-[2px] border-l-[2px] rounded-[2px] solid w-[80px] h-[80px] top-0 left-0 transform   origin-top-left duration-[0.5s]  ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
                                                             <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] rounded-[22px] shadow-exploreCardShad flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
-                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ background: `url(${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
-                                                                    <img src={card.image} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
+                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ background: `url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
+                                                                    <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
                                                                 </figure>
                                                                 <div className="mt-[16px] ">
                                                                     <h4 className="text-[20px] leading-[25px] text-[#000000] font-[700] ">{card.heading}</h4>

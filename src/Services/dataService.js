@@ -1,6 +1,6 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
- 
+
 class DataService {
 
     constructor() {
@@ -8,21 +8,24 @@ class DataService {
     }
 
     studentForm(values) {
-        
         axios.post(`${this.backendUrl}/api/v1/student-details/student-form`, (values));
-
     }
-    getCourseCard(){
-      return  axios.get(`${this.backendUrl}/api/v1/get/course-card`);
+    getCourseCard() {
+        return axios.get(`${this.backendUrl}/api/v1/get/course-card`);
     }
-    getStudentPlaced(){
-        return  axios.get(`${this.backendUrl}/api/v1/get/student-placed`);
-      }
-      getOurPartners(){
+    getStudentPlaced() {
+        return axios.get(`${this.backendUrl}/api/v1/get/student-placed`);
+    }
+    getOurPartners() {
         return axios.get(`${this.backendUrl}/api/v1/get/get-partners`)
-      }
+    }
+    getExploreCards() {
+        return axios.get(`${this.backendUrl}/api/v1/get/get-explore-card`)
+    }
+    getOurStats() {
+        return axios.get(`${this.backendUrl}/api/v1/get/get-our-stats`)
+    }
 }
 
 export const ittrainingDataSerivice = new DataService();
-
 
