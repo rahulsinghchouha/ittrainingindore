@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Common/Navbar";
 import { NavLink } from "react-router-dom";
 import { Select } from "antd";
@@ -9,64 +9,8 @@ import Footer from "./Common/Footer";
 import CourseCard from "./Common/CourseCard";
 import { useSelector } from "react-redux";
 
-
-
-
-const webCard = [
-
-    {
-        id: 1,
-        image: "/Home/best-web-api-development-coaching-class-indore-1-414x214.jpg",
-        button1: "Web Development",
-        heading: "Web API Development",
-        para: "Our Web API Development Course teaches the basics of creating web applications API. In basics, you learn HTTP,. . .",
-        button2: "Details"
-    },
-    {
-        id: 2,
-        image: "/Home/best-cake-php-coaching-class-indore-414x214.jpg",
-        button1: "Web Development",
-        heading: "Cake PHP Course",
-        para: "In IT Training Indore, we provide you best cake php course training in Indore. We cover the complete. . .",
-        button2: "Details"
-    },
-
-    {
-        id: 3,
-        image: "/Home/best-vue-js-coaching-class-indore-414x214.jpg",
-        button1: "Web Development",
-        heading: "Vue.js Course",
-        para: "IT Training Indore is the best Vue JS development training Institute in Indore. Vue.js is the most popular. . .",
-        button2: "Details"
-    },
-
-    {
-        id: 4,
-        image: "/Home/best-codeigniter-course-coaching-class-indore-414x214.jpg",
-        button1: "Web Development",
-        heading: "Codelgniter Training Course",
-        para: "Uplift your web development career with codeIgniter training course at IT Training Indore Institute. It is the best. . .",
-        button2: "Details"
-    },
-    {
-        id: 5,
-        image: "/Home/best-laravel-course-coaching-class-414x214.jpg",
-        button1: "Web Development",
-        heading: "Laravel PHP Course",
-        para: "Laravel is a popular open-source PHP framework. And we provide complete laravel php training course in indore. It. . .",
-        button2: "Details"
-    },
-    {
-        id: 6,
-        image: "/Home/Top-shopify-development-training-course-in-indore-414x214.jpg",
-        button1: "Web Development",
-        heading: "Shopify Development Course",
-        para: "Shopify is a popular e-commerce development platform, where we can create and manage our online stores. In our. . .",
-        button2: "Details"
-    }
-
-]
-
+import { useDispatch } from "react-redux";
+import { fetchCards } from "../Redux/functionsSlics";
 
 
 function Course() {
@@ -75,9 +19,12 @@ function Course() {
     const [horizontalCard, setHorizontalCard] = useState(false);
     const [cardLimit, setCardLimit] = useState(12);
 
-    const cardSize = useSelector((state) => state.loadMore.size);
+    const dispatch = useDispatch();
 
-    console.log("card size", cardSize);
+    const cardSize = useSelector((state) => state.loadMore.size);
+    const webCard = useSelector((state)=> state.backendFunction.webCard);
+
+   
 
     function showHorizontalCard() {
         setSquareCard(false);
@@ -93,6 +40,11 @@ function Course() {
         triggerOnce: true,
     });
 
+    useEffect(()=>{
+
+        dispatch(fetchCards());
+
+    },[])
 
 
     return (
@@ -177,37 +129,37 @@ function Course() {
                                         <mask id="7p6rejbyfa" fill="#fff">
                                             <rect x=".69" y=".689" width="9.375" height="9.375" rx="1.5"></rect>
                                         </mask>
-                                        <rect x=".69" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#fff" stroke-width="4" mask="url(#7p6rejbyfa)"></rect>
+                                        <rect x=".69" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#fff" strokeWidth="4" mask="url(#7p6rejbyfa)"></rect>
                                         <mask id="c2v3qv5yab" fill="#fff">
                                             <rect x="11.627" y=".689" width="9.375" height="9.375" rx="1.5"></rect>
                                         </mask>
-                                        <rect x="11.627" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#fff" stroke-width="4" mask="url(#c2v3qv5yab)"></rect>
+                                        <rect x="11.627" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#fff" strokeWidth="4" mask="url(#c2v3qv5yab)"></rect>
                                         <mask id="ni9mysvpyc" fill="#fff">
                                             <rect x=".69" y="11.626" width="9.375" height="9.375" rx="1.5"></rect>
                                         </mask>
-                                        <rect x=".69" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#fff" stroke-width="4" mask="url(#ni9mysvpyc)"></rect>
+                                        <rect x=".69" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#fff" strokeWidth="4" mask="url(#ni9mysvpyc)"></rect>
                                         <mask id="tyqbn5jr4d" fill="#fff">
                                             <rect x="11.627" y="11.626" width="9.375" height="9.375" rx="1.5"></rect>
                                         </mask>
-                                        <rect x="11.627" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#fff" stroke-width="4" mask="url(#tyqbn5jr4d)"></rect>
+                                        <rect x="11.627" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#fff" strokeWidth="4" mask="url(#tyqbn5jr4d)"></rect>
                                     </svg>) : (
                                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none" className="absolute top-[50%] left-[25%]  transform translate-y-[-50%] my-0 mx-auto  overflow-visible " >
                                             <mask id="7p6rejbyfa" fill="#fff">
                                                 <rect x=".69" y=".689" width="9.375" height="9.375" rx="1.5"></rect>
                                             </mask>
-                                            <rect x=".69" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" stroke-width="4" mask="url(#7p6rejbyfa)"></rect>
+                                            <rect x=".69" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" strokeWidth="4" mask="url(#7p6rejbyfa)"></rect>
                                             <mask id="c2v3qv5yab" fill="#fff">
                                                 <rect x="11.627" y=".689" width="9.375" height="9.375" rx="1.5"></rect>
                                             </mask>
-                                            <rect x="11.627" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" stroke-width="4" mask="url(#c2v3qv5yab)"></rect>
+                                            <rect x="11.627" y=".689" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" strokeWidth="4" mask="url(#c2v3qv5yab)"></rect>
                                             <mask id="ni9mysvpyc" fill="#fff">
                                                 <rect x=".69" y="11.626" width="9.375" height="9.375" rx="1.5"></rect>
                                             </mask>
-                                            <rect x=".69" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" stroke-width="4" mask="url(#ni9mysvpyc)"></rect>
+                                            <rect x=".69" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" strokeWidth="4" mask="url(#ni9mysvpyc)"></rect>
                                             <mask id="tyqbn5jr4d" fill="#fff">
                                                 <rect x="11.627" y="11.626" width="9.375" height="9.375" rx="1.5"></rect>
                                             </mask>
-                                            <rect x="11.627" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" stroke-width="4" mask="url(#tyqbn5jr4d)"></rect>
+                                            <rect x="11.627" y="11.626" width="9.375" height="9.375" rx="1.5" stroke="#1AAEF4" strokeWidth="4" mask="url(#tyqbn5jr4d)"></rect>
                                         </svg>
                                     )
                                 }
@@ -268,9 +220,10 @@ function Course() {
 
                                     square={true}
                                     horizontal={false}
+                                    webCard={webCard}
 
                                 />
-                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "" : ""}`}>
+                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
                                     <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
                                         Load More
                                     </p>
@@ -281,13 +234,15 @@ function Course() {
                         }
                         {
                             horizontalCard && !squareCard &&
-                            <div> <CourseCard cardLimit={cardLimit}
+                             <div> 
+                                    <CourseCard cardLimit={cardLimit}
+                                    
+                                        square={false}
+                                        horizontal={true}
+                                        webCard={webCard}
+                                    />
 
-                                square={false}
-                                horizontal={true}
-
-                            />
-                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "" : ""}`}>
+                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
                                     <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
                                         Load More
                                     </p>

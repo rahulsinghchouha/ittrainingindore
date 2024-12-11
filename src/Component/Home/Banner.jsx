@@ -10,12 +10,14 @@ import CountUp from "react-countup";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
+import { useSelector,useDispatch } from "react-redux";
 
+import { fetchCards } from "../../Redux/functionsSlics";
 
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
 import CourseCard from "../Common/CourseCard";
-import { Link } from "react-router-dom";
+import { Link, useFetcher } from "react-router-dom";
 
 
 
@@ -33,6 +35,10 @@ function Banner() {
     const [exploreCat,setExploreCat] = useState([{}]);
     const [ourStats,setOurStats] = useState([]);
 
+    const dispatch = useDispatch();
+    const webCard = useSelector((state)=>state.backendFunction.webCard);
+
+
     async function getPlacedStudent() {
         try {  
             const response = await ittrainingDataSerivice.getStudentPlaced();
@@ -46,6 +52,7 @@ function Banner() {
     async function getOurPartners(){
         try{
             const response = await ittrainingDataSerivice.getOurPartners();
+
             if(response.status === 200) setOurPartners(response.data.data);
         }
         catch(error)
@@ -67,15 +74,20 @@ function Banner() {
     async function getOurStats(){
         try{
             const response = await ittrainingDataSerivice.getOurStats();
-            if(response.status === 200) setOurStats(response.data.data);
-        }
+            console.log("response",response);
+            if(response.status === 200){
+
+             setOurStats(response.data.data);
+          
+            }
+            }
         catch(error)
         {
             console.log(error);
         }
     }
     useEffect(() => {
-
+        dispatch(fetchCards());
         getPlacedStudent();
         getOurPartners();
         getExploreCard();
@@ -245,10 +257,7 @@ function Banner() {
         }
 
     }
-    function sendEmail(values) {
-        console.log("trainee details", values);
-
-    }
+   
 
 
     return (
@@ -624,7 +633,7 @@ function Banner() {
                         >
 
 
-                            <CourseCard cardLimit={6} square={true} horizontal={false} />
+                            <CourseCard cardLimit={6} square={true} horizontal={false} webCard={webCard} />
 
 
 
@@ -1027,7 +1036,7 @@ function Banner() {
                                                         <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
                                                             <div className={`absolute border-t-[2px] border-l-[2px] rounded-[2px] solid w-[80px] h-[80px] top-0 left-0 transform   origin-top-left duration-[0.5s]  ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
                                                             <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] rounded-[22px] shadow-exploreCardShad flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
-                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ background: `url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
+                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage: `url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
                                                                     <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
                                                                 </figure>
                                                                 <div className="mt-[16px] ">
@@ -1156,7 +1165,7 @@ function Banner() {
                                         {isCountRef &&
                                             <CountUp
                                                 start={0}
-                                                end={10}
+                                                end={ourStats[0].mentors}
                                                 duration={4}
 
                                             />}</h1>
@@ -1166,7 +1175,7 @@ function Banner() {
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                                         {isCountRef && <CountUp
                                             start={0}
-                                            end={10}
+                                            end={ourStats[0].experience}
                                             duration={4}
 
                                         />}</h1>
@@ -1176,7 +1185,7 @@ function Banner() {
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                                         {isCountRef && <CountUp
                                             start={0}
-                                            end={60}
+                                            end={ourStats[0].placedStudent}
                                             duration={5}
 
                                         />}<span className="ml-[2px]">+</span></h1>
@@ -1186,7 +1195,7 @@ function Banner() {
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0
                                         {isCountRef && <CountUp
                                             start={0}
-                                            end={5}
+                                            end={ourStats[0].yearsOfJourney}
                                             duration={4}
 
                                         />}</h1>
@@ -1451,8 +1460,8 @@ function Banner() {
                 <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center w-[62px] h-[62px] bg-[#050505] rounded-[50%] leading-[62px] flex justify-center items-center ">
                     <a className="  text-[25px] text-[#ffffff] bg-[#050505] text-center ">
                         <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1.6665 12.2923L11.9998 1.95898L22.3332 12.2923" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                            <path d="M1.6665 20.0423L11.9998 9.70898L22.3332 20.0423" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M1.6665 12.2923L11.9998 1.95898L22.3332 12.2923" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
+                            <path d="M1.6665 20.0423L11.9998 9.70898L22.3332 20.0423" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                         </svg>
                     </a>
 

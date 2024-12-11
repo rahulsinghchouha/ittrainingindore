@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import loadMoreReducer from "./loadMoreSlice";
+import backendFunctionSlice from "./functionsSlics";
 
 
 const store = configureStore({
     reducer:{
-        loadMore:loadMoreReducer
+        loadMore:loadMoreReducer,
+        backendFunction:backendFunctionSlice,
     }
 })
 

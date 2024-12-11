@@ -1,35 +1,14 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 import { ittrainingDataSerivice } from "../../Services/dataService";
-import { useDispatch } from "react-redux";
-import { setCardSize } from "../../Redux/loadMoreSlice";
+
+
 import { NavLink } from "react-router-dom";
 
 
-const CourseCard = ({ cardLimit, square, horizontal }) => {
-
-    const [webCard, setWebCard] = useState([]);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-
-        async function getCourseCard() {
-            const response = await ittrainingDataSerivice.getCourseCard();
-
-            console.log("response", response);
-            if (response.status === 200) {
 
 
-                setWebCard(response.data.data)
-                dispatch(setCardSize(webCard.length));
-
-            }
-
-        }
-        getCourseCard();
-
-    }, [])
-
+const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
 
     return (
         <div className="flex flex-wrap">
@@ -44,7 +23,7 @@ const CourseCard = ({ cardLimit, square, horizontal }) => {
                         <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] object-contain
                                             rounded-tl-[18px] rounded-tr-[18px]  block "/>
                         <figcaption className="absolute top-[12%] left-[9%] ">
-                            <a href="/" className="bg-[#1AAEF4] pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] ">
+                            <a href="/" className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" ||card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]" } pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `}>
                                 {card.category}
                             </a>
 
@@ -81,9 +60,9 @@ const CourseCard = ({ cardLimit, square, horizontal }) => {
                     <div className="w-[100%] rounded-[18px] shadow-horizontaCard mb-[36px] p-[25px] flex gap-3">
                         <figure className="h-[214px] w-[30%] rounded-[20px] relative ">
                             <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] rounded-[20px] object-cover" />
-                            <figcaption className="absolute top-[12%] left-[4%]">
+                            <figcaption className={`absolute top-[12%] left-[4%]`}>
 
-                                <NavLink to="/course" className="bg-[#1AAEF4] pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] ">
+                                <NavLink to="/course" className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" ||card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]" } pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
                                     {card.category}
                                 </NavLink>
 
