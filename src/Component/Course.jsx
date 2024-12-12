@@ -54,9 +54,14 @@ function Course() {
 
     // for handle the selected course
     const handleSelectedCourse = (value) => {
-
-        const filteredCourses = webCard.filter((course) => course.category === value);
-        setCourses(filteredCourses);
+        if(value==="All Courses")
+        {
+            setCourses(webCard);
+        }
+        else{
+            const filteredCourses = webCard.filter((course) => course.category === value);
+            setCourses(filteredCourses);
+        }
     }
 
 
@@ -116,6 +121,7 @@ function Course() {
                             suffixIcon={<IoCaretDownOutline style={{ fontSize: "16px", fontWeight: "bold", color: "#000", cursor: "pointer" }} />}
                             className="selectBorder  antSelectorrounded-[5px] courseSelector  "
                             options={[
+                                { label: <span>All Courses </span>, value: 'All Courses' },
                                 { label: <span>Graphic Designing </span>, value: 'Graphic Designing' },
                                 { label: <span>Web Designing</span>, value: 'Web Designing' },
                                 { label: <span>UI/UX Designing</span>, value: 'UI/UX Designing' },
