@@ -11,11 +11,11 @@ import { NavLink } from "react-router-dom";
 const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
 
     return (
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center items-center">
             {square && webCard.slice(0, cardLimit).map((card, index) => (
                 <div
 
-                    key={index} className={` w-[31.3%] relative  text-left roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300   ${(index + 1) % 3 === 0 ? "" : "mr-[3%]"} `}
+                    key={index} className={` w-[31.3%] relative  text-center roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300   ${(index + 1) % 3 === 0 ? "" : "mr-[3%]"} `}
 
                 >
 

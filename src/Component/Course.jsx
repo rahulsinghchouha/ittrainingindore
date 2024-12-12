@@ -18,13 +18,11 @@ function Course() {
     const [squareCard, setSquareCard] = useState(true);
     const [horizontalCard, setHorizontalCard] = useState(false);
     const [cardLimit, setCardLimit] = useState(12);
+    const [courses, setCourses] = useState([]);
+
 
     const dispatch = useDispatch();
 
-    const cardSize = useSelector((state) => state.loadMore.size);
-    const webCard = useSelector((state)=> state.backendFunction.webCard);
-
-   
 
     function showHorizontalCard() {
         setSquareCard(false);
@@ -32,6 +30,7 @@ function Course() {
     }
 
     function showSquareCard() {
+
         setSquareCard(true);
         setHorizontalCard(false);
     }
@@ -40,11 +39,26 @@ function Course() {
         triggerOnce: true,
     });
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        dispatch(fetchCards());
+        dispatch(fetchCards()); // Fetch the cards once when the component mounts
+    }, [dispatch]);
+    const webCard = useSelector((state) => state.backendFunction.webCard);
+    const cardSize = courses.length;
 
-    },[])
+
+    useEffect(() => {
+
+        setCourses(webCard); // Set courses whenever `webCard` changes
+    }, [webCard]);
+
+    // for handle the selected course
+    const handleSelectedCourse = (value) => {
+
+        const filteredCourses = webCard.filter((course) => course.category === value);
+        setCourses(filteredCourses);
+    }
+
 
 
     return (
@@ -98,7 +112,7 @@ function Course() {
                             showSearch
                             defaultValue="All Courses"
                             style={{ width: "100%", height: '42px', border: "0px", cursor: "pointer", borderRadius: '5px' }}
-
+                            onChange={handleSelectedCourse}
                             suffixIcon={<IoCaretDownOutline style={{ fontSize: "16px", fontWeight: "bold", color: "#000", cursor: "pointer" }} />}
                             className="selectBorder  antSelectorrounded-[5px] courseSelector  "
                             options={[
@@ -220,7 +234,7 @@ function Course() {
 
                                     square={true}
                                     horizontal={false}
-                                    webCard={webCard}
+                                    webCard={courses}
 
                                 />
                                 <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
@@ -234,13 +248,13 @@ function Course() {
                         }
                         {
                             horizontalCard && !squareCard &&
-                             <div> 
-                                    <CourseCard cardLimit={cardLimit}
-                                    
-                                        square={false}
-                                        horizontal={true}
-                                        webCard={webCard}
-                                    />
+                            <div>
+                                <CourseCard cardLimit={cardLimit}
+
+                                    square={false}
+                                    horizontal={true}
+                                    webCard={courses}
+                                />
 
                                 <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
                                     <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
@@ -252,16 +266,9 @@ function Course() {
                             </div>
 
                         }
-
-
-
-
-
                     </div>
 
                 </div>
-
-
             </section>
 
             {/* Conter Page */}
@@ -271,9 +278,5 @@ function Course() {
 
         </div>
     )
-
-
-
-
 }
 export default Course;

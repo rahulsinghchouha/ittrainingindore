@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const loadMoreSlice = createSlice({
     name:'loadMore',
-    initialState: {size:21},
+    initialState: {size:0},
     reducers:{
         setCardSize: (state,action) =>{
            state.size = action.payload;
