@@ -16,7 +16,10 @@ module.exports = {
         footFormSahd:'-2px -4px 40px 0 rgba(26, 174, 244, 0.17)',
         navShadow:'0 8px 40px 0 rgba(0, 0, 0, 0.04)',
         geiinquiryShad:'-4px 6px 40px 0 rgba(0, 0, 0, 0.2)',
-        horizontaCard:'3px 4px 35px 0 rgba(0, 0, 0, 0.08)'
+        horizontaCard:'3px 4px 35px 0 rgba(0, 0, 0, 0.08)',
+        aboutEnrollShadow:'11px 12px 40px 0 rgb(26 174 244 / 13%)',
+        aboutEnrollnow:'5px 4px 43px 0 rgb(0 0 0 / 12%);',
+        studentAboutSha:'3px 4px 40px 0 rgb(0 0 0 / 15%)'
       },
      
     
