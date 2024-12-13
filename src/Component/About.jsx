@@ -77,8 +77,8 @@ const About = () => {
             <Navbar />
             {/* page banner start */}
             <section className="m-0 pt-[125px]">
-                <div className="relative">
-                    <figure className=" z-[-1]  relative mainImageAfter">
+                <div className="relative w-[100%]">
+                    <figure className="w-[100%] z-[-1]  relative mainImageAfter">
                         <img className="w-[100%] " src="/About-Us-Coaching-Class-Institute.jpg" />
                     </figure>
 
