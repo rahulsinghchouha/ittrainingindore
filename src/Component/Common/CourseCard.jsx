@@ -12,7 +12,7 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
 
     return (
         <div className="flex flex-wrap justify-center items-center">
-            {square && webCard.slice(0, cardLimit).map((card, index) => (
+            {square && webCard?.slice(0, cardLimit).map((card, index) => (
                 <div
 
                     key={index} className={` w-[31.3%] relative  text-center roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300   ${(index + 1) % 3 === 0 ? "" : "mr-[3%]"} `}
@@ -56,7 +56,7 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
 
             }
             {
-                horizontal && webCard.slice(0, cardLimit).map((card) => (
+                horizontal && webCard?.slice(0, cardLimit).map((card) => (
                     <div className="w-[100%] rounded-[18px] shadow-horizontaCard mb-[36px] p-[25px] flex gap-3">
                         <figure className="h-[214px] w-[30%] rounded-[20px] relative ">
                             <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] rounded-[20px] object-cover" />

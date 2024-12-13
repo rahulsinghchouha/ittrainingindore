@@ -13,11 +13,12 @@ import { useInView } from 'react-intersection-observer';
 import { useSelector,useDispatch } from "react-redux";
 
 import { fetchCards } from "../../Redux/functionsSlics";
+import { getPlacedStudent } from "../../Redux/functionsSlics";
 
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
 import CourseCard from "../Common/CourseCard";
-import { Link, useFetcher } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -30,25 +31,16 @@ function Banner() {
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
 
-    const [ stuPlaced,setStudentPlaced] = useState([{}]);
+   
     const [partnerImage,setOurPartners] = useState([]);
-    const [exploreCat,setExploreCat] = useState([{}]);
+    const [exploreCat,setExploreCat] = useState([]);
     const [ourStats,setOurStats] = useState([]);
 
     const dispatch = useDispatch();
     const webCard = useSelector((state)=>state.backendFunction.webCard);
+    const stuPlaced = useSelector((state)=>state.backendFunction.stuPlaced);
 
-
-    async function getPlacedStudent() {
-        try {  
-            const response = await ittrainingDataSerivice.getStudentPlaced();
-            if(response.status===200) setStudentPlaced(response.data.data);
-          
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
+   
     async function getOurPartners(){
         try{
             const response = await ittrainingDataSerivice.getOurPartners();
@@ -87,13 +79,17 @@ function Banner() {
         }
     }
     useEffect(() => {
-        dispatch(fetchCards());
-        getPlacedStudent();
+       
         getOurPartners();
         getExploreCard();
         getOurStats();
 
     }, [])
+    useEffect(()=>{
+        dispatch(fetchCards());
+        dispatch(getPlacedStudent());
+        
+    },[dispatch])
 
    
 
@@ -181,64 +177,7 @@ function Banner() {
     function setActive6() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(true); }
 
 
-
-   
-
-
-
-    // const exploreCat = [
-    //     {
-    //         bgImage: '/blog-our-course-categories-01-bg.svg',
-    //         image: '/blog-our-course-categories-01.svg',
-    //         heading: 'Graphic Designing',
-    //         para: 'Make your communication creative on the digital platforms with our graphic designing courses.',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-02-bg.svg',
-    //         image: '/blog-our-course-categories-02.svg',
-    //         heading: 'Web Designing',
-    //         para: 'Make yourself ready with IT Training Indore, to showcase your idea into a working website on the digital platform.',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-03-bg.svg',
-    //         image: '/UI_UX.svg',
-    //         heading: 'UI/UX Designing',
-    //         para: 'Make the attention grabbing website and graphic designs, and learn the hacks that make you job ready for the IT Industry in the upcoming future.',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-04-bg.svg',
-    //         image: '/blog-our-course-categories-04.svg',
-    //         heading: 'Digital Marketing',
-    //         para: 'Get the full access of making a SEO friendly website and take the ideas for creating the successful promotion strategies to become a brand and earn.',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-01-bg.svg',
-    //         image: '/Web_Development.svg',
-    //         heading: 'Web Development',
-    //         para: 'With our knowledge and years of expertise, learn to implement your idea into reality on the digital platform with our web development courses',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-02-bg.svg',
-    //         image: '/Animation.svg',
-    //         heading: 'Animation',
-    //         para: 'Keep your skills updated with the latest trends included in our courses that will make your animation designs more engaging.',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-03-bg.svg',
-    //         image: '/Mobile_App_Development.svg',
-    //         heading: 'Mobile App Development',
-    //         para: 'Take your mobile application to the next level, with our course, you will learn the latest technologies to make your applications user-friendly.',
-    //     },
-    //     {
-    //         bgImage: '/blog-our-course-categories-04-bg.svg',
-    //         image: '/Software_Development.svg',
-    //         heading: 'Software App Development',
-    //         para: 'Make your idea a reality through a software app development course.',
-    //     },
-    // ]
-
-    // for swiper reference
-    
+  
     const swiperRef = useRef(null);
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
@@ -249,7 +188,7 @@ function Banner() {
     async function traineeDetailsForm(values) {
         console.log("trainee details", values)
         try {
-          await ittrainingDataSerivice.studentForm(values);
+          await   ittrainingDataSerivice.studentForm(values);
             
         }
         catch (error) {
@@ -885,13 +824,13 @@ function Banner() {
                                         slidesPerView={1}
                                         navigation={false}
                                         speed={500}
-                                        // pagination={{ clickable: true }}
+                                        
                                         loop={true}
                                         onSwiper={(swiper) => swiperRef.current = swiper}
 
                                     >
                                         {
-                                            stuPlaced.map((student, index) => (
+                                            stuPlaced?.map((student, index) => (
                                                 <SwiperSlide key={index}>
                                                     <div className="w-[641.156px] ">
                                                         <div className="relative">
@@ -973,7 +912,7 @@ function Banner() {
                                     onSwiper={(swiper) => partnerSwipRef.current = swiper}
 
                                 >
-                                    {partnerImage.map((partner, index) => (
+                                    {partnerImage?.map((partner, index) => (
                                         <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
                                             <figure className="w-[315.3px] min-h-[74px] flex justify-center items-center}">
                                                 <img className=" mt-auto  mb-auto " src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
@@ -1030,7 +969,7 @@ function Banner() {
                                             onSwiper={(swiper) => { exploreCatRef.current = swiper }}
                                         >
                                             {
-                                                exploreCat.map((card, index) => (
+                                                exploreCat?.map((card, index) => (
                                                     <SwiperSlide key={index}>
 
                                                         <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
@@ -1165,7 +1104,7 @@ function Banner() {
                                         {isCountRef &&
                                             <CountUp
                                                 start={0}
-                                                end={ourStats[0].mentors}
+                                                end={ourStats[0]?.mentors}
                                                 duration={4}
 
                                             />}</h1>
@@ -1175,7 +1114,7 @@ function Banner() {
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                                         {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0].experience}
+                                            end={ourStats[0]?.experience}
                                             duration={4}
 
                                         />}</h1>
@@ -1185,7 +1124,7 @@ function Banner() {
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                                         {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0].placedStudent}
+                                            end={ourStats[0]?.placedStudent}
                                             duration={5}
 
                                         />}<span className="ml-[2px]">+</span></h1>
@@ -1195,7 +1134,7 @@ function Banner() {
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0
                                         {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0].yearsOfJourney}
+                                            end={ourStats[0]?.yearsOfJourney}
                                             duration={4}
 
                                         />}</h1>

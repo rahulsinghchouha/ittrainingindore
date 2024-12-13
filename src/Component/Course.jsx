@@ -38,7 +38,10 @@ function Course() {
         threshold: 0.1,
         triggerOnce: true,
     });
-
+    const { ref: mainPageHead, inView: isMainPageHead } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
     useEffect(() => {
 
         dispatch(fetchCards()); // Fetch the cards once when the component mounts
@@ -79,7 +82,12 @@ function Course() {
                     <div >
                         <div className="wrapper">
                             <div className="absolute top-[50%] transform translate-y-[-50%]">
-                                <h1 className="text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] ">Courses</h1>
+                                <h1 className={`  ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
+                                 ref={mainPageHead}
+                                 style={{
+                                    animationDuration: "3s",
+                                }}
+                                >Courses</h1>
                                 <div className="mt-[5px] block">
                                     <NavLink to="/" className="hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
                                     <span className="ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">Courses</span>
