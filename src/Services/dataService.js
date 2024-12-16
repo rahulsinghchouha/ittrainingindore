@@ -17,13 +17,16 @@ class DataService {
         return axios.get(`${this.backendUrl}/api/v1/get/student-placed`);
     }
     getOurPartners() {
-        return axios.get(`${this.backendUrl}/api/v1/get/get-partners`)
+        return axios.get(`${this.backendUrl}/api/v1/get/get-partners`);
     }
     getExploreCards() {
-        return axios.get(`${this.backendUrl}/api/v1/get/get-explore-card`)
+        return axios.get(`${this.backendUrl}/api/v1/get/get-explore-card`);
     }
     getOurStats() {
-        return axios.get(`${this.backendUrl}/api/v1/get/get-our-stats`)
+        return axios.get(`${this.backendUrl}/api/v1/get/get-our-stats`);
+    }
+    getBlogs() {
+        return axios.get(`${this.backendUrl}/api/v1/get/get-blogs`);
     }
 }
 

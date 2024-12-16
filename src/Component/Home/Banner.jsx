@@ -55,7 +55,7 @@ function Banner() {
     async function getExploreCard(){
         try{
             const response = await ittrainingDataSerivice.getExploreCards();
-            
+            console.log("explore card",response);
             if(response.status === 200) setExploreCat(response.data.data);            
         }
         catch(error)

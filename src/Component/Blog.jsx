@@ -1,23 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Common/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import { ittrainingDataSerivice } from "../Services/dataService";
+import ReactPaginate from 'react-paginate';
+import { FaArrowRightLong, FaRegClock } from "react-icons/fa6";
 
-import { FaRegClock } from "react-icons/fa6";
+import { FaArrowLeftLong } from "react-icons/fa6";
 
-const Blog = () =>{
+const Blog = () => {
     const { ref: mainPageHead, inView: isMainPageHead } = useInView({
         threshold: 0.5,
         triggerOnce: true,
     });
 
+    const [blog, setBlog] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
 
-return (
-    <div>
-        <Navbar/>
+    const itemsPerPage = 6;
+    //total pages
+    const totalPages = Math.ceil(blog.length / 6);
 
-           {/* page banner start */}
-           <section className="m-0 pt-[125px]">
+
+    const currentItems = blog.slice(currentPage * itemsPerPage, currentPage * itemsPerPage + itemsPerPage);
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page.selected); // Only update currentPage
+    };
+    async function fetchBlog() {
+
+        try {
+            const response = await ittrainingDataSerivice.getBlogs();
+
+            if (response.status === 200) {
+                setBlog(response.data.data);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        fetchBlog();
+    }, [])
+
+
+    return (
+        <div>
+            <Navbar />
+
+            {/* page banner start */}
+            <section className="m-0 pt-[125px]">
                 <div className="relative">
                     <figure className=" w-[100%] z-[-1]  relative mainImageAfter">
                         <img className="w-[100%] " src="/Top_IT_Training_Indore_Blogs_2.jpg" />
@@ -26,12 +60,12 @@ return (
                     <div >
                         <div className="wrapper">
                             <div className="absolute top-[50%] transform translate-y-[-50%]">
-                                <h1 
-                                ref={mainPageHead}
-                                className={` ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
-                                style={{
-                                    animationDuration: "3s",
-                                }}
+                                <h1
+                                    ref={mainPageHead}
+                                    className={` ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
+                                    style={{
+                                        animationDuration: "3s",
+                                    }}
                                 >Blogs</h1>
                                 <div className="mt-[5px] block">
                                     <NavLink to="/" className="hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
@@ -47,63 +81,303 @@ return (
             {/* Page banner End */}
 
             {/* Page Blog Section start */}
-            <section className="pt-[80px] pb-[62px] ">
+            <section className="pt-[60px] pb-[62px] ">
                 <div className="wrapper">
                     <div className="flex justify-between">
-                    <div className="w-[66%] "> 
-                        <div className="w-[47.7%] mt-0 mb-[38px] ml-0 mr-[4.4%] hover:translate-y-[-10px] duration-300 ease-out ">
-                            <div className="min-h-[282px] ">
-                                <figure>
-                                    <img src="/IT-Courses-after-12th.jpg" className="w-[100%] rounded-t-[23px] rounded-b-none " alt="IT Courses after 12th"/>
-                                </figure>
+                        <div className="w-[66%] flex flex-col flex-wrap ">
+                            <div className="flex flex-wrap">
+                                {currentItems?.map((blog, index) => (
+                                    <div key={index} className={` w-[47.7%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
+                                        <div className="min-h-[282px] ">
+                                            <figure>
+                                                <img src={`${ittrainingDataSerivice.backendUrl}/${blog.img}`} className="w-[100%] rounded-t-[23px] rounded-b-none " alt="IT Courses after 12th" />
+                                            </figure>
 
+                                        </div>
+                                        <div className="shadow-blogCardShado bg-[#fff] pt-[23px] pb-[30px] px-[23px] rounded-b-[23px] rounded-t-none">
+                                            <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500] flex items-center">
+                                                <span><FaRegClock style={{ fontSize: '17px' }} /></span> <span className="ml-[7px]"> {blog.date}</span>
+
+                                            </h4>
+                                            <div className="mt-[14px]">
+                                                <h6 className="leading-[28px] min-h-[48px] ">
+                                                    <Link to="" className="hover:text-[#009ce5] transition-all duration-200 ease-out">{blog.heading}</Link>
+
+                                                </h6>
+
+                                            </div>
+                                            <div className="mt-[12px] flex items-center ">
+                                                <div>
+                                                    <figure>
+                                                        <img className="w-[54px] rounded-[50%] border-[5px] border-solid border-[#fff] shadow-blogCarditShado " src="/Favicon-150x150.png" />
+                                                    </figure>
+                                                </div>
+                                                <div className="ml-[15px]">
+                                                    <h4 className="text-[16px] leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out">IT Training Indore</h4>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                ))
+                                }
                             </div>
-                            <div className="shadow-blogCardShado bg-[#fff] pt-[23px] pb-[30px] px-[23px] rounded-b-[23px] rounded-t-none">
-                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500] flex items-center">
-                                    <span><FaRegClock style={{fontSize:'17px'}}/></span> <span className="ml-[7px]"> August, 2024</span> 
-                                  
-                                </h4>
-                                <div className="mt-[14px]">
-                                    <h6 className="leading-[28px] min-h-[48px] ">
-                                        <Link to="" className="hover:text-[#009ce5] transition-all duration-200 ease-out">Top IT Courses after 12th for Successful Career in 2025</Link>
+                            <div className="mt-[20px] ">
+                                <ReactPaginate
+                                    breakLabel="..."
+                                    nextLabel={currentPage + 1 === totalPages ? "" : <FaArrowRightLong />}
+                                    onPageChange={handlePageChange}
 
-                                    </h6>
+                                    pageCount={totalPages}
+                                    previousLabel={currentPage === 0 ? "" : <FaArrowLeftLong />}
+                                    renderOnZeroPageCount={null}
+                                    containerClassName="pagination" // Main container
+                                    pageClassName="page-item" // Each page item (li)
+                                    pageLinkClassName="page-link" // Each page link (a)
+                                    activeClassName="active" // Active page item
+                                    previousClassName="page-item prev border-[0px]  border-white shadow-none " // Previous button
+                                    nextClassName="page-item next" // Next button
+                                    breakClassName="page-item break" // Break "..." item
+                                    disabledClassName="disabled" // Disabled state  
+                                />
+                            </div>
+                        </div>
+
+                        <div className="w-[31.5%] ">
+                            <div className="w-[99%] ml-auto pt-[10px]">
+                                <div>
+                                    <div className="w-[90%]  ">
+                                        <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Latest Courses</h6>
+
+                                    </div>
+                                    <div className="mt-[25px] ">
+                                        <div className="flex">
+                                            <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
+                                                <figure className="m-0">
+                                                    <Link className="w-[100%] h-[77px] block">
+                                                        <img className="w-[100%] h-[100%] object-cover" src="/best-web-api-development-coaching-class-indore-1.jpg" />
+                                                    </Link>
+                                                </figure>
+                                            </div>
+                                            <div className="ml-[10px] w-[68%] ">
+                                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">April 28, 2023</h4>
+                                                <div className="mt-[10px]">
+                                                    <h4 className="leading-[24px] text-[16px] font-[600] ">
+                                                        <Link to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web API Development
+                                                        </Link>
+
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex mt-[25px]">
+                                            <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
+                                                <figure className="m-0">
+                                                    <Link className="w-[100%] h-[77px] block">
+                                                        <img className="w-[100%] h-[100%] object-cover" src="/best-cake-php-coaching-class-indore.jpg" />
+                                                    </Link>
+                                                </figure>
+                                            </div>
+                                            <div className="ml-[10px] w-[68%] ">
+                                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">April 28, 2023</h4>
+                                                <div className="mt-[10px]">
+                                                    <h4 className="leading-[24px] text-[16px] font-[600] ">
+                                                        <Link to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Cake PHP Course
+                                                        </Link>
+
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex mt-[25px]">
+                                            <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
+                                                <figure className="m-0">
+                                                    <Link className="w-[100%] h-[77px] block">
+                                                        <img className="w-[100%] h-[100%] object-cover" src="/best-vue-js-coaching-class-indore.jpg" />
+                                                    </Link>
+                                                </figure>
+                                            </div>
+                                            <div className="ml-[10px] w-[68%] ">
+                                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">April 28, 2023</h4>
+                                                <div className="mt-[10px]">
+                                                    <h4 className="leading-[24px] text-[16px] font-[600] ">
+                                                        <Link to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Vue.js course
+                                                        </Link>
+
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div className="mt-[65px]">
+                                    <div className="w-[90%] ">
+                                        <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">
+                                            Our Courses Categories
+                                        </h6>
+
+                                    </div>
+                                    <div className="mt-[25px] h-[400px] overflow-y-scroll ">
+                                      
+                                        <div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#FFF7DB] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/blog-our-course-categories-01.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Graphic Designing</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div><div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#D9F3FF] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/blog-our-course-categories-02.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Designing</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div>
+                                        <div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#E3FFE0] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/UI_UX.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">UI/UX Designing</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div><div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#ECE3FF] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/blog-our-course-categories-04.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Digital Marketing</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div>
+                                        <div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#FFF7DB] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/Web_Development.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Development</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div>
+                                        <div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#D9F3FF] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/Animation.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Animation</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div>
+                                        <div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#E3FFE0] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/Mobile_App_Development.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Mobile App Development</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div><div className="mt-[29px] flex items-center">
+                                            <div className="w-[77px] rounded-[10px]">
+                                                <figure className="w-[77px] h-[75px] bg-[#ECE3FF] text-center flex  justify-center items-center rounded-[10px] ">
+                                                    <Link to="/" className="block">
+                                                        <img className="w-[35px] " src="/Software_Development.svg"/>
+                                                    </Link>
+
+                                                </figure>
+
+                                            </div>
+                                            <div className="w-[68%] ml-[24px]">
+                                                <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Software App Development</Link>
+                                                </h4>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
 
                                 </div>
-                                <div className="mt-[12px] flex items-center ">
-                                    <div>
-                                        <figure>
-                                            <img className="w-[54px] rounded-[50%] border-[5px] border-solid border-[#fff] shadow-blogCarditShado " src="/Favicon-150x150.png"/>
-                                        </figure>
-                                    </div>
-                                    <div className="ml-[15px]">
-                                        <h4 className="text-[16px] leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out">IT Training Indore</h4>
-
-                                    </div>
-
-                                </div>
+                                <div></div>
                             </div>
 
                         </div>
+                    </div>
 
-                    </div>
-                    <div className="w-[33%]">
-
-                    </div>
-                    </div>
-                    
                 </div>
-
 
             </section>
 
-            
-
-
-
-
-    </div>
-)
+        </div>
+    )
 
 }
 

@@ -533,3 +533,76 @@ h6{
     color: #000000;
     font-weight: 700;
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+   list-style: none;
+  
+}
+.page-item a{
+  padding: 8px 14px;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  font-size: 16px;
+  font-weight: 600;
+  border: 1px solid #dedede;
+  color: #ababab;
+  border-radius: 5px;
+  box-shadow: 2px 4px 20px 0 rgba(0, 0, 0, 0.08);
+   cursor: pointer;
+}
+.pagination .page-item:hover  {
+  background-color: #00aaff;
+  border-color: #00aaff;border-radius: 5px;
+
+}
+.pagination .page-item.active  a{
+  color: #fff;
+  background-color: #00aaff; /* Bright Blue Background for Active Page */
+  border-color: #00aaff;
+}
+.pagination .page-item.prev .page-link,
+.pagination .page-item.next .page-link {
+  font-weight: bold;
+  color: #666;
+}
+.pagination .page-item.disabled .page-link {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.pagination .break .page-link {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: default;
+}
+.page-item.prev a
+{
+  border: 0px transparent !important;
+  box-shadow: none ;
+}
+.page-item.prev:hover{
+  background-color: transparent !important;
+  border-color: transparent;
+  
+}
+.page-item.next a{
+  border: 0px transparent !important;
+  box-shadow: none ;
+
+}
+.page-item.next a svg:hover{
+  
+  color:#000 !important;
+}
+.page-item.prev a svg:hover{
+  
+  color:#000 !important;
+}
+.page-item.next:hover{
+  background-color: transparent !important;
+  border-color: transparent;
+  
+}

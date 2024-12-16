@@ -290,9 +290,7 @@ const About = () => {
                                             fadeEffect={{ crossFade: true }} // Optional: smooth fading
                                             slidesPerView={1}
                                             speed={600}
-
                                             loop={true}
-
                                             onSwiper={(swiper) => navRef.current = swiper}
                                         >
                                             {
