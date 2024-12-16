@@ -7,6 +7,8 @@ import ReactPaginate from 'react-paginate';
 import { FaArrowRightLong, FaRegClock } from "react-icons/fa6";
 
 import { FaArrowLeftLong } from "react-icons/fa6";
+import CounterPage from "./Common/CounterPage";
+import Footer from "./Common/Footer";
 
 const Blog = () => {
     const { ref: mainPageHead, inView: isMainPageHead } = useInView({
@@ -221,12 +223,12 @@ const Blog = () => {
 
                                     </div>
                                     <div className="mt-[25px] h-[400px] overflow-y-scroll ">
-                                      
+
                                         <div className="mt-[29px] flex items-center">
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#FFF7DB] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/blog-our-course-categories-01.svg"/>
+                                                        <img className="w-[35px] " src="/blog-our-course-categories-01.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -234,7 +236,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Graphic Designing</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Graphic Designing</Link>
                                                 </h4>
 
                                             </div>
@@ -243,7 +245,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#D9F3FF] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/blog-our-course-categories-02.svg"/>
+                                                        <img className="w-[35px] " src="/blog-our-course-categories-02.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -251,7 +253,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Designing</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Designing</Link>
                                                 </h4>
 
                                             </div>
@@ -261,7 +263,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#E3FFE0] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/UI_UX.svg"/>
+                                                        <img className="w-[35px] " src="/UI_UX.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -269,7 +271,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">UI/UX Designing</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">UI/UX Designing</Link>
                                                 </h4>
 
                                             </div>
@@ -278,7 +280,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#ECE3FF] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/blog-our-course-categories-04.svg"/>
+                                                        <img className="w-[35px] " src="/blog-our-course-categories-04.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -286,7 +288,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Digital Marketing</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Digital Marketing</Link>
                                                 </h4>
 
                                             </div>
@@ -296,7 +298,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#FFF7DB] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Web_Development.svg"/>
+                                                        <img className="w-[35px] " src="/Web_Development.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -304,7 +306,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Development</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Development</Link>
                                                 </h4>
 
                                             </div>
@@ -314,7 +316,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#D9F3FF] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Animation.svg"/>
+                                                        <img className="w-[35px] " src="/Animation.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -322,7 +324,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Animation</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Animation</Link>
                                                 </h4>
 
                                             </div>
@@ -332,7 +334,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#E3FFE0] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Mobile_App_Development.svg"/>
+                                                        <img className="w-[35px] " src="/Mobile_App_Development.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -340,7 +342,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Mobile App Development</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Mobile App Development</Link>
                                                 </h4>
 
                                             </div>
@@ -349,7 +351,7 @@ const Blog = () => {
                                             <div className="w-[77px] rounded-[10px]">
                                                 <figure className="w-[77px] h-[75px] bg-[#ECE3FF] text-center flex  justify-center items-center rounded-[10px] ">
                                                     <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Software_Development.svg"/>
+                                                        <img className="w-[35px] " src="/Software_Development.svg" />
                                                     </Link>
 
                                                 </figure>
@@ -357,7 +359,7 @@ const Blog = () => {
                                             </div>
                                             <div className="w-[68%] ml-[24px]">
                                                 <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course"  className="hover:text-[#009ce5] transition-all duration-300 ease-out">Software App Development</Link>
+                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Software App Development</Link>
                                                 </h4>
 
                                             </div>
@@ -366,15 +368,543 @@ const Blog = () => {
                                     </div>
 
                                 </div>
-                                <div></div>
+
+                                <div className="mt-[65px]">
+                                    <div className="w-[90%] ">
+                                        <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Tags</h6>
+                                    </div>
+                                    <div className="mt-[24px]">
+                                        <div className="h-[200px]  overflow-y-scroll">
+                                            <div className="mr-[3%] mt-0 ml-0 mb-5  inline-block  ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
+                                                        It Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block  ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Software Development
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        .NET
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        .ASP
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        MYSQL
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Android Development
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Search Engines
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Best Graphic Designing Training
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Best IT Training  Indore Institute
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Best IT Training
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Training
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        XML
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Cms
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Content Writing
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Best Cms Course
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Designing
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Graphic
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        PHP Training
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Best Web Design
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Digital Marketing Course
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Top IT Course
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                       Graphic Design Course
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                      IT Degrees After 12th Class
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                     Computer Diploma Course After 12th
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                     IT Courses After 12th For Students
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                     IT Diploma Courses After 12th 
+                                                                                                         </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                    Best Digital Marketing Course
+                                                                                                         </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                   IT Training Classes In Indore
+                                                                                                         </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Project Based IT Courses
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Career
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                 Growth
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                 Skills
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Internship Opportunity
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                IT Courses After 12th
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Industrial Training In Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Best Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  UI UX
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Interview Preparation
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Graphic Designing
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Digital Presence
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  PHP
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  JAVA
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Industrial Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Best Digital Marketing
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                SEO Training In Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Web Development
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                            Web Designing
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  CSS
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                Web Development Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Live Project Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  SEO
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Smm
+                                                          </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  Web Design Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  HTML
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  C
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                  C++
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+
+
+
+
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
                             </div>
 
                         </div>
                     </div>
 
                 </div>
+               
 
             </section>
+            <CounterPage/>
+            <Footer/>
 
         </div>
     )
