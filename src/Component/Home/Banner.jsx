@@ -10,10 +10,10 @@ import CountUp from "react-countup";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { fetchCards } from "../../Redux/functionsSlics";
-import { getPlacedStudent } from "../../Redux/functionsSlics";
+import { getPlacedStudent, getExploreCards } from "../../Redux/functionsSlics";
 
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
@@ -31,67 +31,49 @@ function Banner() {
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
 
-   
-    const [partnerImage,setOurPartners] = useState([]);
-    const [exploreCat,setExploreCat] = useState([]);
-    const [ourStats,setOurStats] = useState([]);
+
+    const [partnerImage, setOurPartners] = useState([]);
+
+    const [ourStats, setOurStats] = useState([]);
 
     const dispatch = useDispatch();
-    const webCard = useSelector((state)=>state.backendFunction.webCard);
-    const stuPlaced = useSelector((state)=>state.backendFunction.stuPlaced);
+    const webCard = useSelector((state) => state.backendFunction.webCard);
+    const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
+    const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
 
-   
-    async function getOurPartners(){
-        try{
+    async function getOurPartners() {
+        try {
             const response = await ittrainingDataSerivice.getOurPartners();
+            if (response.status === 200) setOurPartners(response.data.data);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
 
-            if(response.status === 200) setOurPartners(response.data.data);
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
-    }
-    async function getExploreCard(){
-        try{
-            const response = await ittrainingDataSerivice.getExploreCards();
-            console.log("explore card",response);
-            if(response.status === 200) setExploreCat(response.data.data);            
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
-    }
-    async function getOurStats(){
-        try{
+    async function getOurStats() {
+        try {
             const response = await ittrainingDataSerivice.getOurStats();
-            console.log("response",response);
-            if(response.status === 200){
-
-             setOurStats(response.data.data);
-          
+            console.log("response", response);
+            if (response.status === 200) {
+                setOurStats(response.data.data);
             }
-            }
-        catch(error)
-        {
+        }
+        catch (error) {
             console.log(error);
         }
     }
     useEffect(() => {
-       
         getOurPartners();
-        getExploreCard();
         getOurStats();
-
     }, [])
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(fetchCards());
         dispatch(getPlacedStudent());
-        
-    },[dispatch])
+        dispatch(getExploreCards());
+    }, [dispatch])
 
-   
+
 
 
     //  $$$$$$$$$$$$$$     ANIMATION      $$$$$$$$$$$$$$$$
@@ -177,7 +159,7 @@ function Banner() {
     function setActive6() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(true); }
 
 
-  
+
     const swiperRef = useRef(null);
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
@@ -188,15 +170,15 @@ function Banner() {
     async function traineeDetailsForm(values) {
         console.log("trainee details", values)
         try {
-          await   ittrainingDataSerivice.studentForm(values);
-            
+            await ittrainingDataSerivice.studentForm(values);
+
         }
         catch (error) {
             console.log(error);
         }
 
     }
-   
+
 
 
     return (
@@ -812,7 +794,7 @@ function Banner() {
                                     <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
                                     <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
 
-                                   
+
                                     <Swiper
                                         modules={[Autoplay, Pagination, Navigation]}
                                         spaceBetween={0}
@@ -824,7 +806,7 @@ function Banner() {
                                         slidesPerView={1}
                                         navigation={false}
                                         speed={500}
-                                        
+
                                         loop={true}
                                         onSwiper={(swiper) => swiperRef.current = swiper}
 

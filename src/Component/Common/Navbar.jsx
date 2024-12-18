@@ -88,7 +88,7 @@ function Navbar() {
                                     </NavLink>
                                 </li>
                                 <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden " >
-                                    <NavLink to="/testimonial" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
+                                    <NavLink to="/testimonials" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Testimonial
                                     </NavLink>
                                 </li>

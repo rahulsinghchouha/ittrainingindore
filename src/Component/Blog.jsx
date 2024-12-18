@@ -6,15 +6,19 @@ import { ittrainingDataSerivice } from "../Services/dataService";
 import ReactPaginate from 'react-paginate';
 import { FaArrowRightLong, FaRegClock } from "react-icons/fa6";
 
+import { useSelector, useDispatch } from "react-redux";
+import { getExploreCards } from "../Redux/functionsSlics";
+
 import { FaArrowLeftLong } from "react-icons/fa6";
 import CounterPage from "./Common/CounterPage";
 import Footer from "./Common/Footer";
+import PageBanner from "./Common/PageBanner";
 
 const Blog = () => {
-    const { ref: mainPageHead, inView: isMainPageHead } = useInView({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+
+    const dispatch = useDispatch();
+
+    const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
 
     const [blog, setBlog] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
@@ -47,46 +51,47 @@ const Blog = () => {
         fetchBlog();
     }, [])
 
+    useEffect(() => {
+        dispatch(getExploreCards());
+    }, [dispatch])
 
+    const { ref: mainPageHead, inView: isMainPageHead } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: pagination, inView: isPagination } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: latestCourse, inView: isLatestCourse } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: courseCategories, inView: isCourseCategories } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+    const { ref: tags, inView: isTags } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
+  
     return (
         <div>
             <Navbar />
-
             {/* page banner start */}
-            <section className="m-0 pt-[125px]">
-                <div className="relative">
-                    <figure className=" w-[100%] z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%] " src="/Top_IT_Training_Indore_Blogs_2.jpg" />
-                    </figure>
-
-                    <div >
-                        <div className="wrapper">
-                            <div className="absolute top-[50%] transform translate-y-[-50%]">
-                                <h1
-                                    ref={mainPageHead}
-                                    className={` ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
-                                    style={{
-                                        animationDuration: "3s",
-                                    }}
-                                >Blogs</h1>
-                                <div className="mt-[5px] block">
-                                    <NavLink to="/" className="hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
-                                    <span className="ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">Blogs</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </section>
+           <PageBanner heading={"Blogs"} img={"/Top_IT_Training_Indore_Blogs_2.jpg"}/>
             {/* Page banner End */}
 
             {/* Page Blog Section start */}
             <section className="pt-[60px] pb-[62px] ">
                 <div className="wrapper">
                     <div className="flex justify-between">
-                        <div className="w-[66%] flex flex-col flex-wrap ">
+                        <div className={`w-[66%] flex flex-col flex-wrap ${isPagination && "animate__fadeIn"} `}
+                        ref={pagination}
+                        style={{animationDuration:'5s'}}
+                        
+                        >
                             <div className="flex flex-wrap">
                                 {currentItems?.map((blog, index) => (
                                     <div key={index} className={` w-[47.7%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
@@ -149,7 +154,10 @@ const Blog = () => {
 
                         <div className="w-[31.5%] ">
                             <div className="w-[99%] ml-auto pt-[10px]">
-                                <div>
+                                <div className={`${isLatestCourse && "animate__fadeIn"}`}
+                                ref={latestCourse}
+                                style={{animationDuration:'5s'}}
+                                >
                                     <div className="w-[90%]  ">
                                         <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Latest Courses</h6>
 
@@ -215,161 +223,48 @@ const Blog = () => {
 
                                     </div>
                                 </div>
-                                <div className="mt-[65px]">
+                                <div className={`mt-[65px] ${isCourseCategories && "animate__fadeIn"}`}
+                                style={{animationDuration:"5s"}}
+                                ref={courseCategories}
+                                >
                                     <div className="w-[90%] ">
                                         <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">
                                             Our Courses Categories
                                         </h6>
 
                                     </div>
+
                                     <div className="mt-[25px] h-[400px] overflow-y-scroll ">
+                                        {
+                                            exploreCat?.map((item, index) => (
+                                                <div className="mt-[29px] flex items-center" key={index}>
+                                                    <div className="w-[77px] rounded-[10px]">
+                                                        <figure className={`w-[77px] h-[75px] ${ index%4 === 0 && "bg-[#FFF7DB]" || index%4 === 1 && "bg-[#D9F3FF]" || index%4 === 2 && "bg-[#E3FFE0]" || index%4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
+                                                            <Link to="/" className="block">
+                                                                <img className="w-[35px] " src={`${ittrainingDataSerivice.backendUrl}/${item.img}`} />
+                                                            </Link>
 
-                                        <div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#FFF7DB] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/blog-our-course-categories-01.svg" />
-                                                    </Link>
+                                                        </figure>
 
-                                                </figure>
+                                                    </div>
+                                                    <div className="w-[68%] ml-[24px]">
+                                                        <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                            <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</Link>
+                                                        </h4>
 
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Graphic Designing</Link>
-                                                </h4>
+                                                    </div>
 
-                                            </div>
-
-                                        </div><div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#D9F3FF] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/blog-our-course-categories-02.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Designing</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div>
-                                        <div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#E3FFE0] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/UI_UX.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">UI/UX Designing</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div><div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#ECE3FF] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/blog-our-course-categories-04.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Digital Marketing</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div>
-                                        <div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#FFF7DB] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Web_Development.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web Development</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div>
-                                        <div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#D9F3FF] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Animation.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Animation</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div>
-                                        <div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#E3FFE0] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Mobile_App_Development.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Mobile App Development</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div><div className="mt-[29px] flex items-center">
-                                            <div className="w-[77px] rounded-[10px]">
-                                                <figure className="w-[77px] h-[75px] bg-[#ECE3FF] text-center flex  justify-center items-center rounded-[10px] ">
-                                                    <Link to="/" className="block">
-                                                        <img className="w-[35px] " src="/Software_Development.svg" />
-                                                    </Link>
-
-                                                </figure>
-
-                                            </div>
-                                            <div className="w-[68%] ml-[24px]">
-                                                <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                    <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Software App Development</Link>
-                                                </h4>
-
-                                            </div>
-
-                                        </div>
+                                                </div>
+                                                ))
+                                        }                                     
                                     </div>
 
                                 </div>
 
-                                <div className="mt-[65px]">
+                                <div className={`mt-[65px] ${isTags && "animate__fadeIn"}`}
+                                style={{animationDuration:'5s'}}
+                                        ref={tags}
+>
                                     <div className="w-[90%] ">
                                         <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Tags</h6>
                                     </div>
@@ -568,7 +463,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                       Graphic Design Course
+                                                        Graphic Design Course
                                                     </Link>
 
                                                 </h4>
@@ -577,7 +472,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                      IT Degrees After 12th Class
+                                                        IT Degrees After 12th Class
                                                     </Link>
 
                                                 </h4>
@@ -586,7 +481,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                     Computer Diploma Course After 12th
+                                                        Computer Diploma Course After 12th
                                                     </Link>
 
                                                 </h4>
@@ -595,7 +490,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                     IT Courses After 12th For Students
+                                                        IT Courses After 12th For Students
                                                     </Link>
 
                                                 </h4>
@@ -604,34 +499,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                     IT Diploma Courses After 12th 
-                                                                                                         </Link>
-
-                                                </h4>
-
-                                            </div>
-                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
-                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                    Best Digital Marketing Course
-                                                                                                         </Link>
-
-                                                </h4>
-
-                                            </div>
-                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
-                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                   IT Training Classes In Indore
-                                                                                                         </Link>
-
-                                                </h4>
-
-                                            </div>
-                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
-                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Project Based IT Courses
+                                                        IT Diploma Courses After 12th
                                                     </Link>
 
                                                 </h4>
@@ -640,7 +508,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Career
+                                                        Best Digital Marketing Course
                                                     </Link>
 
                                                 </h4>
@@ -649,7 +517,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                 Growth
+                                                        IT Training Classes In Indore
                                                     </Link>
 
                                                 </h4>
@@ -658,7 +526,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                 Skills
+                                                        Project Based IT Courses
                                                     </Link>
 
                                                 </h4>
@@ -667,7 +535,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Internship Opportunity
+                                                        Career
                                                     </Link>
 
                                                 </h4>
@@ -676,7 +544,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                IT Courses After 12th
+                                                        Growth
                                                     </Link>
 
                                                 </h4>
@@ -685,7 +553,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Industrial Training In Indore
+                                                        Skills
                                                     </Link>
 
                                                 </h4>
@@ -694,7 +562,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Best Training Indore
+                                                        Internship Opportunity
                                                     </Link>
 
                                                 </h4>
@@ -703,7 +571,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  UI UX
+                                                        IT Courses After 12th
                                                     </Link>
 
                                                 </h4>
@@ -712,7 +580,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Interview Preparation
+                                                        Industrial Training In Indore
                                                     </Link>
 
                                                 </h4>
@@ -721,7 +589,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Graphic Designing
+                                                        Best Training Indore
                                                     </Link>
 
                                                 </h4>
@@ -730,7 +598,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Digital Presence
+                                                        UI UX
                                                     </Link>
 
                                                 </h4>
@@ -739,7 +607,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  PHP
+                                                        Interview Preparation
                                                     </Link>
 
                                                 </h4>
@@ -748,7 +616,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  JAVA
+                                                        Graphic Designing
                                                     </Link>
 
                                                 </h4>
@@ -757,7 +625,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Industrial Training Indore
+                                                        Digital Presence
                                                     </Link>
 
                                                 </h4>
@@ -766,7 +634,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Best Digital Marketing
+                                                        PHP
                                                     </Link>
 
                                                 </h4>
@@ -775,7 +643,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                SEO Training In Indore
+                                                        JAVA
                                                     </Link>
 
                                                 </h4>
@@ -784,7 +652,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Web Development
+                                                        Industrial Training Indore
                                                     </Link>
 
                                                 </h4>
@@ -793,7 +661,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                            Web Designing
+                                                        Best Digital Marketing
                                                     </Link>
 
                                                 </h4>
@@ -802,7 +670,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  CSS
+                                                        SEO Training In Indore
                                                     </Link>
 
                                                 </h4>
@@ -811,7 +679,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                Web Development Training Indore
+                                                        Web Development
                                                     </Link>
 
                                                 </h4>
@@ -820,7 +688,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Live Project Training Indore
+                                                        Web Designing
                                                     </Link>
 
                                                 </h4>
@@ -829,7 +697,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  SEO
+                                                        CSS
                                                     </Link>
 
                                                 </h4>
@@ -838,16 +706,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Smm
-                                                          </Link>
-
-                                                </h4>
-
-                                            </div>
-                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
-                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  Web Design Training Indore
+                                                        Web Development Training Indore
                                                     </Link>
 
                                                 </h4>
@@ -856,7 +715,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  HTML
+                                                        Live Project Training Indore
                                                     </Link>
 
                                                 </h4>
@@ -865,7 +724,7 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  C
+                                                        SEO
                                                     </Link>
 
                                                 </h4>
@@ -874,7 +733,43 @@ const Blog = () => {
                                             <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
                                                 <h4 className="text-[14px] leading-[20px] font-[500] ">
                                                     <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
-                                                  C++
+                                                        Smm
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        Web Design Training Indore
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        HTML
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        C
+                                                    </Link>
+
+                                                </h4>
+
+                                            </div>
+                                            <div className="mr-[3%]  mt-0 ml-0 mb-5 inline-block ">
+                                                <h4 className="text-[14px] leading-[20px] font-[500] ">
+                                                    <Link to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block  hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out">
+                                                        C++
                                                     </Link>
 
                                                 </h4>
@@ -900,11 +795,11 @@ const Blog = () => {
                     </div>
 
                 </div>
-               
+
 
             </section>
-            <CounterPage/>
-            <Footer/>
+            <CounterPage />
+            <Footer />
 
         </div>
     )

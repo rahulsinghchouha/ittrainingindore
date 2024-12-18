@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Common/Navbar";
-import { NavLink } from "react-router-dom";
 import { Select } from "antd";
 import { IoCaretDownOutline } from "react-icons/io5";
 import { useInView } from 'react-intersection-observer';
@@ -8,9 +7,9 @@ import CounterPage from "./Common/CounterPage";
 import Footer from "./Common/Footer";
 import CourseCard from "./Common/CourseCard";
 import { useSelector } from "react-redux";
-
 import { useDispatch } from "react-redux";
 import { fetchCards } from "../Redux/functionsSlics";
+import PageBanner from "./Common/PageBanner";
 
 
 function Course() {
@@ -38,10 +37,7 @@ function Course() {
         threshold: 0.1,
         triggerOnce: true,
     });
-    const { ref: mainPageHead, inView: isMainPageHead } = useInView({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
+   
     useEffect(() => {
 
         dispatch(fetchCards()); // Fetch the cards once when the component mounts
@@ -73,32 +69,7 @@ function Course() {
         <div>
             <Navbar />
             {/* page banner start */}
-            <section className="m-0 pt-[125px]">
-                <div className="relative">
-                    <figure className=" z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%] " src="/Best-IT-Courses-Coaching-Class-Institute.jpg" />
-                    </figure>
-
-                    <div >
-                        <div className="wrapper">
-                            <div className="absolute top-[50%] transform translate-y-[-50%]">
-                                <h1 className={`  ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
-                                 ref={mainPageHead}
-                                 style={{
-                                    animationDuration: "3s",
-                                }}
-                                >Courses</h1>
-                                <div className="mt-[5px] block">
-                                    <NavLink to="/" className="hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
-                                    <span className="ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">Courses</span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </section>
+            <PageBanner heading={"Courses"} img={"/Best-IT-Courses-Coaching-Class-Institute.jpg"}/>
             {/* Page banner End */}
             <section className="py-[4em] m-0">
                 <div className="wrapper">

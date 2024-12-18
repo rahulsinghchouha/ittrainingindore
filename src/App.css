@@ -604,5 +604,8 @@ h6{
 .page-item.next:hover{
   background-color: transparent !important;
   border-color: transparent;
-  
+}
+.contact-us.ant-select-single {
+
+  height: 46px;
 }

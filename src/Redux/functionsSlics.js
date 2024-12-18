@@ -4,8 +4,7 @@ import { ittrainingDataSerivice } from "../Services/dataService";
 export const fetchCards = createAsyncThunk(
     'backendFunctions/fetchCards', //  Type prefix (action identifier) (required)
     async () => {
-        try {
-          
+        try {        
             const response = await ittrainingDataSerivice.getCourseCard();
             if (response.status === 200)
                 return response.data?.data;
@@ -18,14 +17,12 @@ export const fetchCards = createAsyncThunk(
             throw error;
         }
     }
-
 );
 
 export const getPlacedStudent = createAsyncThunk(
     'backendFunctions/getPlacedStudent',
     async () => {
         try {
-           
             const response = await ittrainingDataSerivice.getStudentPlaced();
             if (response.status === 200)
                return response.data.data
@@ -34,7 +31,6 @@ export const getPlacedStudent = createAsyncThunk(
                     console.log("error");
                 throw new Error(`Unexpected response status: ${response.status}`);
             }
-
         }
         catch (error) {
             console.log(error);
@@ -43,15 +39,40 @@ export const getPlacedStudent = createAsyncThunk(
     }
 )
 
+export const getExploreCards = createAsyncThunk(
+    'backendFunctions/getExploreCards',
+    async () =>{
+            try{
+                   const response =  await ittrainingDataSerivice.getExploreCards();
+                            
+                            if(response.status === 200)
+                                 return response.data.data;
+                            else{
+                                console.log("error");
+                                throw new Error(`Unexpected response status: ${response.status}`);
+                            }
+                }
+            catch(error)
+            {
+                    console.log(error);
+                    throw error;
+            }
+    }
+)
+
+
 const backendFunctionsSlice = createSlice({
     name: "backendFunctions",
     initialState: {
         webCard: [],
         stuPlaced: [],
+        exploreCat:[],
         isLoadingWebCard: false,
         errorWebCard: null,
         isLoadingStuPlaced: false,
         errorStuPlaced: null,
+        isLoadingExploreCat: false,
+        errorExploreCat: null, 
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -79,7 +100,18 @@ const backendFunctionsSlice = createSlice({
                 state.isLoadingStuPlaced = false;
                 state.errorStuPlaced = action.error.message;
             })
-
+            //for Explore Category
+            .addCase(getExploreCards.pending, (state) => {
+                state.isLoadingExploreCat = true;               
+            })
+            .addCase(getExploreCards.fulfilled, (state, action) => {
+                state.isLoadingExploreCat = false;
+                state.exploreCat = action.payload;
+            })
+            .addCase(getExploreCards.rejected, (state, action) => {
+                state.isLoadingExploreCat = false;
+                state.errorExploreCat = action.error.message;
+            })
     }
 })
 

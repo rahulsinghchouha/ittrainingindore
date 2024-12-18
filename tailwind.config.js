@@ -5,7 +5,6 @@ module.exports = {
     extend: {
       translate: {
         '3d-x': '-1923.42px',
-        
       },
       boxShadow:{
         imgShadow:'0px 10px 20px rgba(0,0,0,0.2) ',
@@ -23,7 +22,10 @@ module.exports = {
         aboutFigCaptionShad:'5px 10px 35px 0 rgb(26 174 244 / 15%)',
         aboutPlacedShad:'9px 8px 40px 0 rgb(26 174 244 / 13%)',
         blogCardShado:'3px 4px 40px 0 rgb(26 174 244 / 12%)',
-        blogCarditShado:'4px 4px 40px 0 rgb(26 174 244 / 14%)'
+        blogCarditShado:'4px 4px 40px 0 rgb(26 174 244 / 14%)',
+        testimonialCardShad:'5px 4px 40px 0 rgb(26 174 244 / 10%)',
+        contactUsCardShad:'4px 4px 40px 0 rgb(26 174 244 / 12%)',
+        contactUsForminput:'3px 4px 40px 0 rgb(26 174 244 / 2%)',
       },
      
     
