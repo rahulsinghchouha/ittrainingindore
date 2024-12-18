@@ -9,6 +9,8 @@ import Footer from "./Common/Footer";
 import CounterPage from "./Common/CounterPage";
 import { useSelector, useDispatch } from "react-redux";
 import { studentForm } from "../Redux/functionsSlics";
+import { useInView } from "react-intersection-observer";
+
 
 const Contact = () => {
 
@@ -18,6 +20,21 @@ const Contact = () => {
     }
     //const messageBackend = useSelector((state) => state.backendFunction.studentFormMessage);
 
+    const { ref: yourOneClick, inView: isYourOneClick } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    })
+    const { ref: contactCard, inView: isContactCard } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    })
+ 
+    const { ref: getInTouchForm, inView: isGetInTouchForm } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    })
+
+
     return (
         <div>
             <Navbar />
@@ -25,7 +42,10 @@ const Contact = () => {
 
             <section className="py-[80px] ">
                 <div className="wrapper">
-                    <div className="text-center">
+                    <div className={`text-center ${isYourOneClick ? " transform translate-y-0 opacity-1 ease-in duration-500 " : "transform translate-y-[-15px] opacity-0"}`}
+                    ref={yourOneClick}
+                    style={{animationDuration:"5s"}}
+                    >
                         <h3>Your One Click</h3>
                         <h4 className="text-[#1AAEF4] text-[24px] leading-[30px] my-[20px] ">Will connect your career to the bright FUTURE!</h4>
 
@@ -37,7 +57,10 @@ const Contact = () => {
                         </p>
                     </div>
 
-                    <div className="mt-[92px] flex ">
+                    <div className={`mt-[92px] flex ${isContactCard ? "animate__fadeIn" :""}`}
+                    ref={contactCard}
+                    style={{animationDuration:"3s"}}
+                    >
                         <div className="pt-[100px] pb-[23px] pr-[19px] pl-[20px] rounded-[21px] shadow-contactUsCardShad w-[31.3%] my-0 ml-0 mr-[2%]  ">
                             <div>
                                 <figure className="h-[92px] w-[92px] leading-[120px] bg-[#fff7db] rounded-[50%] mt-[-140px] mx-auto flex justify-center items-center">
@@ -98,149 +121,154 @@ const Contact = () => {
             </section>
             <section className="bg-[#f3fbff]  mb-0 mx-0 pb-[40px]  flex   ">
                 <div className="w-[50%] h-[740px]">
-               
+
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.991830249862!2d75.88581821547166!3d22.728545035102695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396302a855d2cb1f%3A0x1c7f9782f7ab421c!2sIT%20Training%20Indore!5e0!3m2!1sen!2sin!4v1648556231289!5m2!1sen!2sin" width="600" height="450" style={{ border: "0px", width: "100%", height: "795.75px", }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-origwidth="600" data-origheight="450"></iframe>
-               
+
                 </div>
                 <div className="w-[43%]">
-                     <div className=" pt-[62px] pb-[68px] px-0 ml-[60px]">
-                    <div className="w-[75%]">
-                        <div>
-                            <h3>Get in Touch</h3>
-                        </div>
-                        <div className="mt-[14px] ">
-                            <p className="font-[500]">We read each e-mail and reply within a maximum of 2 business days. Please enter correct e-mail address so that we can back to you.</p>
-                        </div>
-                        <div className="mt-[42px] ">
-                            <Formik
-                                initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}
-                                validate={(values) => {
-                                    const errors = {};
-
-                                    if (!values.name) errors.name = "Please Enter your name";
-                                    if (!values.email) errors.email = "Please Enter your email";
-                                    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) errors.email = "Please Enter Valid Email";
-                                    if (!values.phone) errors.phone = "Please Enter your number";
-                                    if (!values.course) errors.course = "Select At least One Course"
-
-                                    return errors;
-                                }}
-                                onSubmit={(values, { setSubmitting }) => {
-
-                                    setTimeout(() => {
-                                        traineeDetailsForm(values);
-                                        setSubmitting(false);
-                                    }, 400);
-
-                                }}
-
+                    <div className=" pt-[62px] pb-[68px] px-0 ml-[60px]">
+                        <div className={`w-[75%] ${isGetInTouchForm ? "transform translate-x-0 opacity-[1] duration-1000" : "transform translate-x-5 opacity-0"}`}
+                         ref={getInTouchForm}
+                         style={{animationDuration:"5s"}}
+                        >
+                            <div>
+                                <h3>Get in Touch</h3>
+                            </div>
+                            <div className="mt-[14px] ">
+                                <p className="font-[500]">We read each e-mail and reply within a maximum of 2 business days. Please enter correct e-mail address so that we can back to you.</p>
+                            </div>
+                            <div className={`mt-[42px]  `}
+                           
                             >
-                                {({ isSubmitting, errors, values, touched, handleChange, handleSubmit, handleBlur, setFieldValue, setFieldTouched }) => (
-                                    <form onSubmit={handleSubmit}>
-                                        <div className="flex justify-between mb-[16px] ">
-                                            <div className="w-[48%] relative " >
-                                                <input type="text" placeholder="Name" name="name" onBlur={handleBlur} onChange={handleChange} value={values.name} className="py-[13px] px-[15px] w-[100%] rounded-[8px] shadow-contactUsForminput text-[14px] leading-[20px] font-[500] bg-[#fff] focus:outline-none" />
-                                                {errors?.name && touched?.name && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.name}</span>}
-                                            </div>
-                                            <div className="w-[48%] relative">
-                                                <input type="email" name="email" onBlur={handleBlur} onChange={handleChange} value={values.email} placeholder="Email" className="py-[13px] px-[15px] w-[100%] rounded-[8px] shadow-contactUsForminput text-[14px] leading-[20px] font-[500] bg-[#fff] focus:outline-none " />
-                                                {errors?.email && touched?.email && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.email}</span>}
+                                <Formik
+                                    initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}
+                                    validate={(values) => {
+                                        const errors = {};
 
-                                            </div>
-                                        </div>
-                                        <div className="flex justify-between mb-[16px] ">
-                                            <div className="w-[48%] relative " >
-                                                <input placeholder="Phone" maxLength={10} minLength={10} name="phone" type="number" onBlur={handleBlur} onChange={handleChange} className="py-[13px] px-[15px] w-[100%] rounded-[8px] shadow-contactUsForminput text-[14px] leading-[20px] font-[500] bg-[#fff] focus:outline-none " />
-                                                {errors?.phone && touched?.phone && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.phone}</span>}
+                                        if (!values.name) errors.name = "Please Enter your name";
+                                        if (!values.email) errors.email = "Please Enter your email";
+                                        else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) errors.email = "Please Enter Valid Email";
+                                        if (!values.phone) errors.phone = "Please Enter your number";
+                                        if (!values.course) errors.course = "Select At least One Course"
 
+                                        return errors;
+                                    }}
+                                    onSubmit={(values, { setSubmitting }) => {
+
+                                        setTimeout(() => {
+                                            traineeDetailsForm(values);
+                                            setSubmitting(false);
+                                        }, 400);
+
+                                    }}
+
+                                >
+                                    {({ isSubmitting, errors, values, touched, handleChange, handleSubmit, handleBlur, setFieldValue, setFieldTouched }) => (
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="flex justify-between mb-[16px] ">
+                                                <div className="w-[48%] relative " >
+                                                    <input type="text" placeholder="Name" name="name" onBlur={handleBlur} onChange={handleChange} value={values.name} className="py-[13px] px-[15px] w-[100%] rounded-[8px] shadow-contactUsForminput text-[14px] leading-[20px] font-[500] bg-[#fff] focus:outline-none" />
+                                                    {errors?.name && touched?.name && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.name}</span>}
+                                                </div>
+                                                <div className="w-[48%] relative">
+                                                    <input type="email" name="email" onBlur={handleBlur} onChange={handleChange} value={values.email} placeholder="Email" className="py-[13px] px-[15px] w-[100%] rounded-[8px] shadow-contactUsForminput text-[14px] leading-[20px] font-[500] bg-[#fff] focus:outline-none " />
+                                                    {errors?.email && touched?.email && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.email}</span>}
+
+                                                </div>
                                             </div>
-                                            <div className="w-[48%] relative">
+                                            <div className="flex justify-between mb-[16px] ">
+                                                <div className="w-[48%] relative " >
+                                                    <input placeholder="Phone" maxLength={10} minLength={10} name="phone" type="number" onBlur={handleBlur} onChange={handleChange} className="py-[13px] px-[15px] w-[100%] rounded-[8px] shadow-contactUsForminput text-[14px] leading-[20px] font-[500] bg-[#fff] focus:outline-none " />
+                                                    {errors?.phone && touched?.phone && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.phone}</span>}
+
+                                                </div>
+                                                <div className="w-[48%] relative">
+                                                    <Select
+                                                        showSearch
+                                                        defaultValue="Select Course"
+                                                        style={{ width: "100%", border: "0px", cursor: "pointer", }}
+                                                        onChange={(value) => setFieldValue("course", value)}
+                                                        values={values.course}
+                                                        className="selectBorder antSelector cursor-pointer contact-us"
+                                                        onBlur={() => setFieldTouched("course", true)} // Manually set touched
+                                                        options={[
+                                                            { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
+                                                            { label: <span>Angular Js</span>, value: 'Angular Js' },
+                                                            { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
+                                                            { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
+                                                            { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
+                                                            { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
+                                                            { label: <span>Cake PHP</span>, value: 'Cake PHP' },
+                                                            { label: <span>Codeigniter</span>, value: 'Codeigniter' },
+                                                            { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
+                                                            { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
+                                                            { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
+                                                            { label: <span>Magento</span>, value: 'Magento' },
+                                                            { label: <span>React with Node Js</span>, value: 'React with Node Js' },
+                                                            { label: <span>Shopify</span>, value: 'Shopify' },
+                                                            { label: <span>UI/UX</span>, value: 'UI/UX' },
+                                                            { label: <span>Web API Development</span>, value: 'Web API Development' },
+                                                            { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
+                                                            { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
+                                                        ]}
+                                                    />
+                                                    {errors?.course && touched?.course && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.course}</span>}
+
+                                                </div>
+                                            </div>
+                                            <div className="mb-[16px] ">
                                                 <Select
                                                     showSearch
-                                                    defaultValue="Select Course"
-                                                    style={{ width: "100%", border: "0px", cursor: "pointer", }}
-                                                    onChange={(value) => setFieldValue("course", value)}
-                                                    values={values.course}
+                                                    defaultValue="How soon you want to join IT Training?"
+                                                    style={{ width: "100%", border: "0px", cursor: "pointer" }}
+                                                    onChange={(value) => setFieldValue("joiningTime", value)}
+                                                    values={values.joiningTime}
                                                     className="selectBorder antSelector cursor-pointer contact-us"
-                                                    onBlur={() => setFieldTouched("course", true)} // Manually set touched
                                                     options={[
-                                                        { label: <span>Advanced PHP Training</span>, value: 'Advanced PHP Training' },
-                                                        { label: <span>Angular Js</span>, value: 'Angular Js' },
-                                                        { label: <span>Basic PHP Training Course</span>, value: 'Basic PHP Training Course' },
-                                                        { label: <span>Basic Web Designing</span>, value: 'Basic Web Designing' },
-                                                        { label: <span>C, C++ Training</span>, value: 'C, C++ Training' },
-                                                        { label: <span>C, C++ with Data Structure</span>, value: 'C, C++ with Data Structure' },
-                                                        { label: <span>Cake PHP</span>, value: 'Cake PHP' },
-                                                        { label: <span>Codeigniter</span>, value: 'Codeigniter' },
-                                                        { label: <span>WordPress with Woo-commerce</span>, value: 'WordPress with Woo-commerce' },
-                                                        { label: <span>Graphic Design with UI/UX</span>, value: 'Graphic Design with UI/UX' },
-                                                        { label: <span>Laravel Framework</span>, value: 'Laravel Framework' },
-                                                        { label: <span>Magento</span>, value: 'Magento' },
-                                                        { label: <span>React with Node Js</span>, value: 'React with Node Js' },
-                                                        { label: <span>Shopify</span>, value: 'Shopify' },
-                                                        { label: <span>UI/UX</span>, value: 'UI/UX' },
-                                                        { label: <span>Web API Development</span>, value: 'Web API Development' },
-                                                        { label: <span>Web Design with UI/UX</span>, value: 'Web Design with UI/UX' },
-                                                        { label: <span>Web Designing with React</span>, value: 'Web Designing with React' },
+
+                                                        { label: <span>This Week</span>, value: 'This Week' },
+                                                        { label: <span>Upcoming Week</span>, value: 'Upcoming Week' },
+                                                        { label: <span>In a month</span>, value: 'In a month' },
                                                     ]}
                                                 />
-                                                {errors?.course && touched?.course && <span className=" text-[13px] absolute left-0 top-[-15px]  text-[#ff0000] ">*{errors.course}</span>}
-
                                             </div>
-                                        </div>
-                                        <div className="mb-[16px] ">
-                                            <Select
-                                                showSearch
-                                                defaultValue="How soon you want to join IT Training?"
-                                                style={{ width: "100%", border: "0px", cursor: "pointer" }}
-                                                onChange={(value) => setFieldValue("joiningTime", value)}
-                                                values={values.joiningTime}
-                                                className="selectBorder antSelector cursor-pointer contact-us"
-                                                options={[
+                                            <div className="w-[100%] border-0 m-0 ">
+                                                <p>
+                                                    <textarea rows="10" name="message" onChange={handleChange} onBlur={handleBlur} value={values.message} placeholder="Type your message" className="py-[14px] px-[15px] shadow-contactUsForminput w-[100%] text-[14px] leading-[20px] font-[500] border-0 focus:outline-none">
 
-                                                    { label: <span>This Week</span>, value: 'This Week' },
-                                                    { label: <span>Upcoming Week</span>, value: 'Upcoming Week' },
-                                                    { label: <span>In a month</span>, value: 'In a month' },
-                                                ]}
-                                            />
-                                        </div>
-                                        <div className="w-[100%] border-0 m-0 ">
-                                            <p>
-                                                <textarea rows="10" name="message" onChange={handleChange} onBlur={handleBlur} value={values.message} placeholder="Type your message" className="py-[14px] px-[15px] shadow-contactUsForminput w-[100%] text-[14px] leading-[20px] font-[500] border-0 focus:outline-none">
-
-                                                </textarea>
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <div className="mt-5 p-0 box-border">
-                                                <p className="leading-[21px] font-[400] text-[16px] ">
-                                                    <button type="submit" className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px]
-                                           text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none ">
-                                                        {isSubmitting ?
-                                                            (
-                                                                <Blocks
-                                                                    height={24}
-                                                                    width={30}
-                                                                    color="#4fa94d"
-                                                                    ariaLabel="blocks-loading"
-                                                                    wrapperStyle={{}}
-                                                                    wrapperClass="blocks-wrapper"
-                                                                    visible={true}
-                                                                />
-                                                            ) : 'Send'
-                                                        }
-
-                                                    </button>
-                                                   
+                                                    </textarea>
                                                 </p>
                                             </div>
-                                        </div>
-                                    </form>
-                                  
-                                )}
-                            </Formik>
+                                            <div>
+                                                <div className="mt-5 p-0 box-border">
+                                                    <p className="leading-[21px] font-[400] text-[16px] ">
+                                                        <button type="submit" className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px]
+                                           text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none ">
+                                                            {isSubmitting ?
+                                                                (
+                                                                    <Blocks
+                                                                        height={24}
+                                                                        width={30}
+                                                                        color="#4fa94d"
+                                                                        ariaLabel="blocks-loading"
+                                                                        wrapperStyle={{}}
+                                                                        wrapperClass="blocks-wrapper"
+                                                                        visible={true}
+                                                                    />
+                                                                ) : 'Send'
+                                                            }
+
+                                                        </button>
+
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    )}
+                                </Formik>
+                            </div>
                         </div>
-                    </div>
                     </div>
 
                 </div>
