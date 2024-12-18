@@ -26,6 +26,7 @@ module.exports = {
         testimonialCardShad:'5px 4px 40px 0 rgb(26 174 244 / 10%)',
         contactUsCardShad:'4px 4px 40px 0 rgb(26 174 244 / 12%)',
         contactUsForminput:'3px 4px 40px 0 rgb(26 174 244 / 2%)',
+        whatsappButtonShad:'0px 2px 6px 1px rgba(0, 0, 0, 0.20)'
       },
      
     

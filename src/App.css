@@ -654,3 +654,19 @@ opacity: 0;
     scale: 10;
   }
 }
+
+.backtotop:hover .backtotopchild{
+  background-color: #1AAEF4;
+  transition: all 200ms ease-out;
+}
+.getInquiryimg:hover img{
+ animation: rotateimg 300ms ease-out ;
+}
+@keyframes rotateimg{
+  0%{
+    rotate:0deg; 
+  }
+  100%{
+     rotate:360deg;
+  }
+}

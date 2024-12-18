@@ -13,7 +13,7 @@ import { useInView } from 'react-intersection-observer';
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchCards } from "../../Redux/functionsSlics";
-import { getPlacedStudent, getExploreCards,studentForm } from "../../Redux/functionsSlics";
+import { getPlacedStudent, getExploreCards, studentForm } from "../../Redux/functionsSlics";
 
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
@@ -475,7 +475,7 @@ function Banner() {
                                                                 }
                                                             </button>
 
-                                                             </p>
+                                                        </p>
 
                                                     </div>
 
@@ -1369,24 +1369,37 @@ function Banner() {
                 <Footer className="pt-[300px] "></Footer>
 
                 {/* back to top align */}
-                <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center w-[62px] h-[62px] bg-[#050505] rounded-[50%] leading-[62px] flex justify-center items-center ">
-                    <a className="  text-[25px] text-[#ffffff] bg-[#050505] text-center ">
-                        <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center backtotop  ">
+                    <Link to="/" className=" backtotopchild text-[25px] text-[#ffffff]  text-center w-[62px] h-[62px] bg-[#050505] inline-block align-middle  rounded-[50%] leading-[62px] ">
+                        <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
                             <path d="M1.6665 12.2923L11.9998 1.95898L22.3332 12.2923" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                             <path d="M1.6665 20.0423L11.9998 9.70898L22.3332 20.0423" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                         </svg>
-                    </a>
-
+                       
+                    </Link>
+                    <span className="block text-[14px] leading-[19px] font-[500] mt-[12px]  ">Back To Top</span>
                 </div>
                 {/* back to top end */}
 
                 {/* get inquiry */}
-                <div className="fixed top-[50%] right-0 py-[10px] pr-[13px] pl-[11px] shadow-geiinquiryShad bg-[#000] w-[56px] text-center cursor-pointer rounded-[5px] z-[51] " style={{ writingMode: 'vertical-rl' }}>
-                    <div>
+                <div className="getInquiryimg fixed top-[50%] right-0 py-[10px] pr-[13px] pl-[11px] shadow-geiinquiryShad bg-[#000] w-[56px] text-center cursor-pointer rounded-[5px] z-[51] flex gap-2 items-center" style={{ writingMode: 'vertical-rl' }}>
+                    <figure className="w-[27px] h-[26px] pt-[4px] pb-[3px] pl-[2px] pr-[6px] rounded-[3px] bg-[#1aaef4] mt-[10px] transform rotate-180 ">
+                        <img src="/get-enquiry-icon.svg" alt="It Training Indore Enquiry" className="" />
+                    </figure>
+                    <div className="transform rotate-180 ">
                         <h4 className="text-[#fff] font-[700] text-[16px] leading-[21px] ">Get Enquiry</h4>
                     </div>
-                    <figure></figure>
+
                 </div>
+
+                {/* whatsapp button */}
+
+                <div className=" box-border w-[50px] h-[50px] fixed left-[10px] bottom-[10px] rounded-[50px] z-[99] bg-[#1aaef4] shadow-whatsappButtonShad   ">
+                    <a className="w-[100%] h-[100%] flex justify-center items-center" aria-label="Chat on WhatsApp" href="https://api.whatsapp.com/send/?phone=8269600400&text&type=phone_number&app_absent=0" target="_blank">
+                        <img className="w-[20px] h-[20px] " src="/whatsapp.svg" />
+                    </a>
+                </div>
+
 
 
             </div>
@@ -1394,5 +1407,3 @@ function Banner() {
     )
 }
 export default Banner;
-
-
