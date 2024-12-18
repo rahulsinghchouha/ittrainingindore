@@ -8,7 +8,7 @@ class DataService {
     }
 
     studentForm(values) {
-        axios.post(`${this.backendUrl}/api/v1/student-details/student-form`, (values));
+        return axios.post(`${this.backendUrl}/api/v1/student-details/student-form`, (values));
     }
     getCourseCard() {
         return axios.get(`${this.backendUrl}/api/v1/get/course-card`);

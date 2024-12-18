@@ -7,28 +7,24 @@ import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-sv
 import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
 import { ittrainingDataSerivice } from "../../Services/dataService";
+import { useDispatch,useSelector } from "react-redux";
+import { studentForm } from "../../Redux/functionsSlics";
+
+
 import { Select } from "antd";
 
 const Footer = () =>{
   
+    const dispatch = useDispatch();
+    
+    async function traineeDetailsForm(values) {
+        dispatch(studentForm(values));
+    }
+
     const { ref: footerKeyFormRef, inView: isFooterKeyForm } = useInView({
         threshold: 0.1,
         triggerOnce: true,
     });
-    async function traineeDetailsForm(values) {
-        console.log("trainee details", values)
-
-        try{
-                await ittrainingDataSerivice.studentForm(values);
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
-
-
-
-    }
     const { ref: footerMailFormRef, inView: isFooterMailForm } = useInView({
         threshold: 0.1,
         triggerOnce: true,

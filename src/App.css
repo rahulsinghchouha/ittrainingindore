@@ -609,3 +609,48 @@ h6{
 
   height: 46px;
 }
+.card-parent:hover .border-hover{
+opacity: 0;
+}
+.card-parent:hover .img-child{
+transform: translateY(-30px);
+opacity: 0;
+
+
+}
+.card-parent:hover .para-child{
+
+  transform: translateY(30px);
+  opacity: 1;
+
+}
+
+.card-parent .blob{
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 15%;
+  bottom: 60px;
+  z-index: 1;
+  opacity: 0;
+  margin: 0px auto;
+  border-radius: 50%;
+  transform: scale(0.5);
+ transition: all 1s ease-in;
+}
+
+.card-parent:hover .blob{
+  opacity: 1;
+  animation: big 1s  ease-in forwards;
+}
+@keyframes big{
+  0%{
+    opacity: 0.8;
+    scale: 1;
+  }
+  100%{
+    opacity: 0;
+    scale: 10;
+  }
+}

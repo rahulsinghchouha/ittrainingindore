@@ -24,12 +24,32 @@ export const getPlacedStudent = createAsyncThunk(
     async () => {
         try {
             const response = await ittrainingDataSerivice.getStudentPlaced();
+           
             if (response.status === 200)
                return response.data.data
                
                 else {
                     console.log("error");
                 throw new Error(`Unexpected response status: ${response.status}`);
+            }
+        }
+        catch (error) {
+            console.log(error);
+            throw error;
+        }
+    }
+)
+
+export const studentForm = createAsyncThunk(
+    'backendFunctions/studentForm',
+    async (values) => {
+        try {
+            const response = await ittrainingDataSerivice.studentForm(values);
+            if (response.status === 200)
+               return response.data.message;
+                else {
+                    console.log("error");
+                throw new Error(`form not submitted please try again: ${response.status}`);
             }
         }
         catch (error) {
@@ -67,6 +87,7 @@ const backendFunctionsSlice = createSlice({
         webCard: [],
         stuPlaced: [],
         exploreCat:[],
+        studentFormMessage:null,
         isLoadingWebCard: false,
         errorWebCard: null,
         isLoadingStuPlaced: false,
@@ -111,6 +132,17 @@ const backendFunctionsSlice = createSlice({
             .addCase(getExploreCards.rejected, (state, action) => {
                 state.isLoadingExploreCat = false;
                 state.errorExploreCat = action.error.message;
+            })
+            //for student Form 
+            .addCase(studentForm.pending, (state) => {
+                               
+            })
+            .addCase(studentForm.fulfilled, (state, action) => {
+              
+                state.studentFormMessage = action.payload;
+            })
+            .addCase(studentForm.rejected, (state, action) => {
+                state.studentFormMessage = "data not saved please try again"
             })
     }
 })

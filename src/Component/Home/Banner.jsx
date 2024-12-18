@@ -13,7 +13,7 @@ import { useInView } from 'react-intersection-observer';
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchCards } from "../../Redux/functionsSlics";
-import { getPlacedStudent, getExploreCards } from "../../Redux/functionsSlics";
+import { getPlacedStudent, getExploreCards,studentForm } from "../../Redux/functionsSlics";
 
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
@@ -168,15 +168,7 @@ function Banner() {
     }
 
     async function traineeDetailsForm(values) {
-        console.log("trainee details", values)
-        try {
-            await ittrainingDataSerivice.studentForm(values);
-
-        }
-        catch (error) {
-            console.log(error);
-        }
-
+        dispatch(studentForm(values));
     }
 
 
@@ -483,8 +475,7 @@ function Banner() {
                                                                 }
                                                             </button>
 
-                                                            <span className="w-[24px] h-[24px] absolute right-[-72px] bottom-[9px] mt-0 mb-0 ml-[24px] mr-[24px] "> </span>
-                                                        </p>
+                                                             </p>
 
                                                     </div>
 

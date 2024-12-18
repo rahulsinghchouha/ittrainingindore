@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
 
     return (
-        <header className="w-[100%] border-b-[1px] border-[white] fixed  bg-[#fff] z-[111]  box-border  shadow-navShadow">
+        <header className="w-[100%] border-b-[1px] border-[white] fixed  bg-[#fff] z-[11]  box-border  shadow-navShadow overflow-hidden">
             <section className="wrapper  flex justify-between items-center  pt-[10px] pb-[19px]">
 
                 <div className="mt-[6px] w-[24%] float-left">
