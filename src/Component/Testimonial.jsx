@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Navbar from "./Common/Navbar";
 
 import { MdOutlineFormatQuote } from "react-icons/md";
@@ -17,12 +17,13 @@ import { useInView } from "react-intersection-observer";
 
 const Testimonial = () => {
 
+    const ref = useRef(0);
 
     const dispatch = useDispatch();
 
     const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
-
-    console.log(stuPlaced);
+ref.current +=1;
+    console.log("ref count -> ",ref.current); 
 
     useEffect(() => {
         dispatch(getPlacedStudent());

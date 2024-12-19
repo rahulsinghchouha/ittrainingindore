@@ -8,6 +8,7 @@ import About from './Component/About';
 import Blog from './Component/Blog';
 import Testimonial from './Component/Testimonial';
 import Contact from './Component/Contact';
+import CourseDetails from './Component/CourseDetails';
 
 
 
@@ -15,10 +16,7 @@ function App() {
   return (
     <div className="">
 
-
-
       {/* Routers */}
-
 
       <Router>
         <Routes>
@@ -29,6 +27,7 @@ function App() {
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/testimonials' element={<Testimonial/>}/> 
           <Route path='/contact-us' element={<Contact/>}/> 
+          <Route path='/course-details/:course' element={<CourseDetails/>}/>
         </Routes>
       </Router>
    </div>
