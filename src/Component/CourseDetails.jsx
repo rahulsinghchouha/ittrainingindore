@@ -25,7 +25,7 @@ const CourseDetails = () => {
             <PageBanner heading={"Courses"} img={"/Best-IT-Courses-Coaching-Class-Institute.jpg"} />
 
             <section className="pt-[83px] pb-[36px] px-0">
-                <div className="wrapper">
+                <div className="wrapper flex">
                     <div className="w-[66%]">
                         <div>
                             <Link className="text-[16px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
@@ -182,6 +182,42 @@ const CourseDetails = () => {
                             </Collapse>
 
                         </div>
+                        </div>
+
+                    </div>
+                    <div className="w-[34%]">
+                        <div className="px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
+                                <div>
+                                    <figure className="m-0">
+                                                <img className="max-w-[100%]" src="/designers-using-gadgets.jpg"/>
+                                    </figure>
+                                </div>
+                                <div>
+                                    <div className="mt-[20px] mb-[15px] w-[100%] flex justify-center items-center">
+                                        <a  href="tel:+91 8269600400" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out text-[16px] leading-[19px] font-[500] text-center" >+91 8269600400</a>
+                                    </div>
+                                    <div className="mb-[15px] flex justify-center items-center ">
+                                        <a href="mailto:info@ittrainingindore.in" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out text-[16px] leading-[19px] font-[500] text-center" >info@ittrainingindore.in	</a>
+
+                                    </div>
+                                </div>
+                                <div className="mt-[27px]">
+                                    <h4>Get Course Enquiry</h4>
+
+                                    <div className="w-[100%] mt-[25px] ">
+                                        <form>
+                                            <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
+                                                <p>
+                                                    <span className="pl-[25px] block" style={{backgroundImage:`url('/form-user-icon.svg')`,backgroundRepeat:'no-repeat', backgroundPositionX:'0px',backgroundPositionY:'50%'}}>
+                                                        <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" />
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
                         </div>
 
                     </div>
