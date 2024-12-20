@@ -12,13 +12,12 @@ const CourseDetails = () => {
 
     const course = useLocation().state;
 
-   for(let i=0; i<course.toolsInHand.length; i++)
-   {
-    console.log(course.toolsInHand[i][0],i);
-   }
-   course.toolsInHand.forEach((tool) => {
-    console.log(tool);
-  });
+    for (let i = 0; i < course.toolsInHand.length; i++) {
+        console.log(course.toolsInHand[i][0], i);
+    }
+    course.toolsInHand.forEach((tool) => {
+        console.log(tool);
+    });
     return (
         <div>
             <Navbar />
@@ -62,8 +61,9 @@ const CourseDetails = () => {
                             <div>
                                 <h4>Key Areas We Are Covering in the {course?.courseName} Course in Indore</h4>
                             </div>
+
                             <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
-                                <Collapse label={course} bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
+                                <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
                                     {
                                         course?.keyAreas?.map((keyArea, index) =>
                                             <Panel header={keyArea.heading} key={index} >
@@ -73,7 +73,6 @@ const CourseDetails = () => {
                                         )
                                     }
                                 </Collapse>
-
                             </div>
 
                         </div>
@@ -81,13 +80,108 @@ const CourseDetails = () => {
                         <div className="mt-[55px] pt-[25px] pb-[89px] px-0">
                             <div>
                                 <h3 className="mb-[16px]">Tools to hands-on</h3>
-                                <div>
+                                <ul className="flex flex-wrap gap-[23px]">
                                     {
-                                        
+                                        course?.toolsInHand?.map((tools, index) => <li key={index} className=" toolsInHand font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
+                                            {tools}
+                                        </li>)
                                     }
-                                    </div>
+                                </ul>
                             </div>
 
+                        </div>
+                        <div className="pt-[25px] pb-[89px] px-0" >
+                            <h3 className="mt-[25px] mb-[25px] text-[36px] ">Benefits To Enroll {course?.courseName} Classes at IT Training Indore</h3>
+
+                            <ul>
+                                {
+                                    course?.benefits?.map((benefits, index) => <li key={index} className="w-[100%] mt-[20px] mb-[5px] font-[400] pl-[35px] inline-block" style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '6px' }}>
+                                        {benefits}
+
+                                    </li>
+                                    )
+                                }
+                            </ul>
+                            <h3 className="mt-[50px] mb-[25px]">Enroll in Our {course?.courseName} & Management Training Program
+                            </h3>
+
+                            <p className="mt-[20px] ">
+                                <span className="font-[400]">Join our <strong>Training Program</strong> and upskill with the {course?.courseName} Course.</span>
+                            </p>
+
+                            <ul className="m-0">
+
+                                <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
+                                    <b>Eligibility: </b>{course?.eligibility}
+                                </li>
+                                <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
+                                    <b>Course Duration: </b>{course?.courseDuration}
+                                </li>
+                                <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
+                                    <b>Affordable & Flexible Fee: </b>{course?.feeOptions}
+                                </li>
+
+
+                            </ul>
+
+                        </div>
+                        <div>
+                            <h3>Course Curriculum</h3>
+                        </div>
+                        {/* course curricullum pending */}
+                        <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
+                            <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
+                                {
+                                    course?.keyAreas?.map((keyArea, index) =>
+                                        <Panel header={keyArea.heading} key={index} >
+                                            <p>{keyArea.details}</p>
+
+                                        </Panel>
+                                    )
+                                }
+                            </Collapse>
+
+                        </div>
+                        <div className="mt-[55px] pt-[25px] pb-[89px] border-b-[2px] border-solid border-[#0003]">
+                            <div>
+                                <h3 className="mb-[16px] ">Key Highlights</h3>
+                                <ul className="flex flex-wrap gap-[23px]">
+                                    {
+                                        course?.keyHighLights?.map((key, index) => <li key={index} className=" keyHighlight font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
+                                            {key}
+                                        </li>)
+                                    }
+                                </ul>
+                                <h3 className="mt-[50px] mb-[25px] text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">What Job Roles Offer With {course?.courseName} Training in Indore
+                                </h3>
+                                <ul className="flex flex-wrap gap-[23px]">
+                                    {
+                                        course?.jobRoles?.map((key, index) => <li key={index} className=" keyHighlight font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
+                                            {key}
+                                        </li>)
+                                    }
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div className="pt-[84px] ">
+                            <div>
+                                <h3 className="font-[800] ">FAQ’s</h3>   
+                              </div>
+                              <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
+                            <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
+                                {
+                                    course?.fAQ?.map((faqs, index) =>
+                                        <Panel header={faqs.heading} key={index} >
+                                            <p>{faqs.details}</p>
+
+                                        </Panel>
+                                    )
+                                }
+                            </Collapse>
+
+                        </div>
                         </div>
 
                     </div>
