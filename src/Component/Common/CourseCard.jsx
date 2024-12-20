@@ -12,10 +12,10 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
 
     const navigate = useNavigate();
 
-    function handleCourseDetails (card)
+    function handleCourseDetails (course)
     {
-        console.log("card",card);
-        navigate("/course-details/" + card._id);
+        console.log("card",course);
+        navigate("/course-details/" + course.courseName,{state :course });
     }
 
     return (
