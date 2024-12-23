@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import Navbar from "./Common/Navbar";
 import PageBanner from "./Common/PageBanner";
 import { Link } from "react-router-dom";
@@ -20,27 +20,26 @@ const { Panel } = Collapse;
 
 const CourseDetails = () => {
 
-    const dispatch = useDispatch();
-
-    const [relatedCourses, setRelatedCourses] = React.useState([])
+    const dispatch = useDispatch(); 
 
     const course = useLocation().state;
 
-
-
-    const relatedCourse = useSelector((state) => state.backendFunction.webCard)
+    const allCourse = useSelector((state) => state.backendFunction.webCard)
+   
+    console.log("allCourse",allCourse );
+    console.log("course",course);
 
     useEffect(() => {
 
-        dispatch(fetchCards);
-        const relatedCou = relatedCourse?.filter(related => related.category === course.category)
-
-        setRelatedCourses(relatedCou);
-
+        dispatch(fetchCards());
+        
     }, [dispatch]);
 
-
-
+   
+    const relatedCourses = useMemo(() => 
+        allCourse?.filter(related => related.category === course?.category), 
+        [allCourse, course?.category]
+    );
 
     return (
         <div>
