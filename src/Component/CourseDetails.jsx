@@ -1,30 +1,55 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./Common/Navbar";
 import PageBanner from "./Common/PageBanner";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { ittrainingDataSerivice } from "../Services/dataService";
 import { Collapse } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faInstagram, faLinkedinIn, faPinterest, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { fetchCards } from "../Redux/functionsSlics";
+import { useSelector, useDispatch } from "react-redux";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Autoplay } from "swiper/modules";
+import CounterPage from "../Component/Common/CounterPage";
+import Footer from "./Common/Footer";
+
 
 const { Panel } = Collapse;
 
 const CourseDetails = () => {
 
+    const dispatch = useDispatch();
+
+    const [relatedCourses, setRelatedCourses] = React.useState([])
+
     const course = useLocation().state;
 
-    for (let i = 0; i < course.toolsInHand.length; i++) {
-        console.log(course.toolsInHand[i][0], i);
-    }
-    course.toolsInHand.forEach((tool) => {
-        console.log(tool);
-    });
+
+
+    const relatedCourse = useSelector((state) => state.backendFunction.webCard)
+
+    useEffect(() => {
+
+        dispatch(fetchCards);
+        const relatedCou = relatedCourse?.filter(related => related.category === course.category)
+
+        setRelatedCourses(relatedCou);
+
+    }, [dispatch]);
+
+
+
+
     return (
         <div>
             <Navbar />
 
             <PageBanner heading={"Courses"} img={"/Best-IT-Courses-Coaching-Class-Institute.jpg"} />
 
-            <section className="pt-[83px] pb-[36px] px-0">
+            {/* course details section start */}
+            <section className="pt-[83px] pb-[36px] px-0 " >
                 <div className="wrapper flex">
                     <div className="w-[66%]">
                         <div>
@@ -132,9 +157,10 @@ const CourseDetails = () => {
                         <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
                             <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
                                 {
-                                    course?.keyAreas?.map((keyArea, index) =>
-                                        <Panel header={keyArea.heading} key={index} >
-                                            <p>{keyArea.details}</p>
+                                    course?.courseCurriculum?.map((curriculumn, index) =>
+                                        <Panel header={curriculumn.heading} key={index} className="" >
+
+                                            {curriculumn?.details?.map((detail, index) => <p key={index} className=" leading-[34px] pl-[20px] relative mb-[9px] curriculumDetails">{detail}</p>)}
 
                                         </Panel>
                                     )
@@ -152,6 +178,14 @@ const CourseDetails = () => {
                                         </li>)
                                     }
                                 </ul>
+
+
+                                <h3 className="mt-[50px] mb-[16px]  ">
+                                    Get {course?.courseName} Course Certification in Indore
+                                </h3>
+
+                                <p>After the course, your will get your <strong>{course?.courseName} course certification and</strong>  It will strengthen your resume and portfolio to stand out in your {course?.category} career.</p>
+
                                 <h3 className="mt-[50px] mb-[25px] text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">What Job Roles Offer With {course?.courseName} Training in Indore
                                 </h3>
                                 <ul className="flex flex-wrap gap-[23px]">
@@ -165,60 +199,132 @@ const CourseDetails = () => {
 
                         </div>
 
+
                         <div className="pt-[84px] ">
                             <div>
-                                <h3 className="font-[800] ">FAQ’s</h3>   
-                              </div>
-                              <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
-                            <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
-                                {
-                                    course?.fAQ?.map((faqs, index) =>
-                                        <Panel header={faqs.heading} key={index} >
-                                            <p>{faqs.details}</p>
+                                <h3 className="font-[800] ">FAQ’s</h3>
+                            </div>
+                            <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
+                                <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
+                                    {
+                                        course?.fAQ?.map((faqs, index) =>
+                                            <Panel header={faqs.heading} key={index} >
+                                                <p>{faqs.details}</p>
 
-                                        </Panel>
-                                    )
-                                }
-                            </Collapse>
+                                            </Panel>
+                                        )
+                                    }
+                                </Collapse>
 
-                        </div>
+                            </div>
                         </div>
 
                     </div>
-                    <div className="w-[34%]">
-                        <div className="px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
-                                <div>
-                                    <figure className="m-0">
-                                                <img className="max-w-[100%]" src="/designers-using-gadgets.jpg"/>
-                                    </figure>
+                    <div className="w-[34%]  ">
+                        <div className=" px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
+                            <div>
+                                <figure className="m-0">
+                                    <img className="max-w-[100%]" src="/designers-using-gadgets.jpg" />
+                                </figure>
+                            </div>
+                            <div>
+                                <div className="mt-[20px] mb-[15px] w-[100%] flex justify-center items-center">
+                                    <a href="tel:+91 8269600400" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out text-[16px] leading-[19px] font-[500] text-center" >+91 8269600400</a>
                                 </div>
-                                <div>
-                                    <div className="mt-[20px] mb-[15px] w-[100%] flex justify-center items-center">
-                                        <a  href="tel:+91 8269600400" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out text-[16px] leading-[19px] font-[500] text-center" >+91 8269600400</a>
-                                    </div>
-                                    <div className="mb-[15px] flex justify-center items-center ">
-                                        <a href="mailto:info@ittrainingindore.in" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out text-[16px] leading-[19px] font-[500] text-center" >info@ittrainingindore.in	</a>
-
-                                    </div>
-                                </div>
-                                <div className="mt-[27px]">
-                                    <h4>Get Course Enquiry</h4>
-
-                                    <div className="w-[100%] mt-[25px] ">
-                                        <form>
-                                            <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
-                                                <p>
-                                                    <span className="pl-[25px] block" style={{backgroundImage:`url('/form-user-icon.svg')`,backgroundRepeat:'no-repeat', backgroundPositionX:'0px',backgroundPositionY:'50%'}}>
-                                                        <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" />
-                                                    </span>
-                                                </p>
-                                            </div>
-                                        </form>
-
-                                    </div>
+                                <div className="mb-[15px] flex justify-center items-center ">
+                                    <a href="mailto:info@ittrainingindore.in" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out text-[16px] leading-[19px] font-[500] text-center" >info@ittrainingindore.in	</a>
 
                                 </div>
+                            </div>
+                            <div className="mt-[27px]">
+                                <h4>Get Course Enquiry</h4>
+
+                                <div className="w-[100%] mt-[25px] ">
+                                    <form>
+                                        <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
+                                            <p>
+                                                <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-user-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
+                                                    <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" type="text" />
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
+                                            <p>
+                                                <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-email-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
+                                                    <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Email" type="email" />
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
+                                            <p>
+                                                <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-call-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
+                                                    <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Phone" type="tel:" />
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
+                                            <p>
+                                                <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-course-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
+                                                    <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Message" type="text" />
+                                                </span>
+                                            </p>
+                                        </div>
+                                        <div className="mt-[27px] flex justify-center items-center">
+                                            <p className="leading-[21px] font-[400] text-[16px] ">
+                                                <button type="submit" className=" w-[100%] cursor-pointer pt-[9px] pb-[9px] pl-[90px] pr-[90px]
+                                                             text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
+                                                    {/* {isSubmitting ?
+                                                        (
+                                                            <Blocks
+                                                                height={24}
+                                                                width={30}
+                                                                color="#4fa94d"
+                                                                ariaLabel="blocks-loading"
+                                                                wrapperStyle={{}}
+                                                                wrapperClass="blocks-wrapper"
+                                                                visible={true}
+
+                                                            />
+                                                        ) : 'Send'
+                                                    } */}
+                                                    Send Form
+                                                </button>
+
+                                            </p>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+
+                            </div>
+                            <div className="mt-[30px] ">
+                                <div className="mb-[15px] flex justify-center items-center gap-5">
+                                    <div className="flex">
+                                        <a href="/" className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
+                                            <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight: 400, }} />
+
+                                        </a>
+                                        <a href="/" className="h-[40px] w-[40px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
+                                            <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                        </a>
+                                        <a href="/" className="h-[40px] w-[40px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
+                                            <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                        </a>
+                                        <a href="/" className="h-[40px] w-[40px] rounded-full relative  z-0  overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
+                                            <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px", fontWeight: 400 }} />
+
+                                        </a>
+                                        <a href="/" className="h-[40px] w-[40px] rounded-full relative  z-0  overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
+                                            <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                        </a></div>
+
+                                </div>
+
+                            </div>
+
                         </div>
+
 
                     </div>
 
@@ -227,6 +333,72 @@ const CourseDetails = () => {
 
             </section>
 
+            {/* course details section end */}
+
+            {/* related course section start */}
+
+            <section className="py-[50px] px-0">
+                <div className="wrapper">
+                    <div>
+                        <div>
+                            <h3>Related Courses</h3>
+                        </div>
+                        <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff]  ">
+
+                            <Swiper
+                                modules={[Autoplay]}
+                                loop={true}
+                                slidesPerView={4}
+                                autoplay={
+                                    {
+                                        delay: 1000,
+                                        disableOnInteraction: false,
+                                        pauseOnMouseEnter: true
+                                    }
+                                }
+                                speed={2000}
+
+                            >
+                                {
+                                    relatedCourses.map((related, index) => (
+                                        <SwiperSlide key={index} className="w-[100%] h-auto hover:translate-y-[-10px] z-[5] pt-[40px] transition-all duration-800 ease-linear">
+                                            <div className={`  rounded-[18px] mr-[10%]  shadow-reletedCardShad flex-shrink-0`}  >
+                                                <div className="w-[100%]">
+                                                    <figure className="w-[100%] ">
+                                                        <img src={`${ittrainingDataSerivice.backendUrl}/${related.img}`} className="w-[297px] h-[198px] object-cover rounded-tr-[18px] rounded-tl-[18px] block" />
+                                                    </figure>
+                                                </div>
+                                                <div className="pt-0 pl-[25px] pr-[25px] pb-[25px] w-[100%] ">
+                                                    <div className="mt-[20px] w-[100%]">
+                                                        <h6>{related.courseName}</h6>
+                                                    </div>
+                                                    <div className="pt-[21px] w-[100%]">
+
+                                                        <button className="transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </SwiperSlide>
+                                    )
+                                    )
+                                }
+
+                            </Swiper>
+
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <CounterPage />
+            <Footer />
         </div>
     )
 

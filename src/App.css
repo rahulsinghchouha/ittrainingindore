@@ -727,3 +727,14 @@ width: 6.65px;
 height: 100%;
 background-color: #1AAEF4;
 }
+.curriculumDetails::before{
+  content: "";
+  position: absolute;
+  width: 9.78px;
+  height: 9.78px;
+  background-color: #DDAC00;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+}
