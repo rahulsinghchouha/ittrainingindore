@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import loadMoreReducer from "./loadMoreSlice";
+import loadMoreReducer from "./globalData";
 import backendFunctionSlice from "./functionsSlics";
 
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./Common/Navbar";
 import PageBanner from "./Common/PageBanner";
 import { Link } from "react-router-dom";
@@ -20,25 +20,27 @@ const { Panel } = Collapse;
 
 const CourseDetails = () => {
 
-    const dispatch = useDispatch(); 
 
-    const course = useLocation().state;
+    const [course,setCourse] = useState([]);
+
+    const dispatch = useDispatch();
+
+    const courseDetails = useLocation().state;
+
+   useMemo(()=> setCourse(courseDetails),[courseDetails]);
 
     const allCourse = useSelector((state) => state.backendFunction.webCard)
-   
-    console.log("allCourse",allCourse );
-    console.log("course",course);
 
     useEffect(() => {
-
         dispatch(fetchCards());
-        
     }, [dispatch]);
 
-   
-    const relatedCourses = useMemo(() => 
-        allCourse?.filter(related => related.category === course?.category), 
+
+    const relatedCourses = useMemo(() =>
+
+        allCourse?.filter(related => related.category === course?.category),
         [allCourse, course?.category]
+   
     );
 
     return (
@@ -67,14 +69,14 @@ const CourseDetails = () => {
                         </div>
                         <div className="mt-[40px]">
                             <a href="#description" style={{ backgroundImage: `url('/course-description.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '15%', backgroundPositionY: 'center' }} className="text-[14px]  text-[#000] leading-[20px] font-[600] py-[15px] pl-[50px] pr-[40px] rounded-[12px] bg-[#ceefff] text-center">Description</a>
-                            <a href="#faq's" style={{ backgroundImage: `url('/course-faq.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '20%', backgroundPositionY: 'center' }} className="text-[14px] ml-[15px] text-[#000] leading-[20px] font-[600] py-[15px] pl-[50px] pr-[40px] rounded-[12px] bg-[#ceefff] text-center">FAQ's</a>
+                            <a href="#faqs" style={{ backgroundImage: `url('/course-faq.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '20%', backgroundPositionY: 'center' }} className="text-[14px] ml-[15px] text-[#000] leading-[20px] font-[600] py-[15px] pl-[50px] pr-[40px] rounded-[12px] bg-[#ceefff] text-center">FAQ's</a>
                             <a href="#related-courses" style={{ backgroundImage: `url('/related-course.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '10%', backgroundPositionY: 'center' }} className="text-[14px] ml-[15px] text-[#000] leading-[20px] font-[600] py-[15px] pl-[50px] pr-[40px] rounded-[12px] bg-[#ceefff] text-center">Related Courses</a>
 
                         </div>
                         <div className="mt-[80px] ">
                             <h3>Overview</h3>
                             <div className="mt-[26px] ">
-                                <p>
+                                <p id="description">
                                     {course?.overview}
                                 </p>
 
@@ -201,7 +203,7 @@ const CourseDetails = () => {
 
                         <div className="pt-[84px] ">
                             <div>
-                                <h3 className="font-[800] ">FAQ’s</h3>
+                                <h3 className="font-[800] " id="faqs">FAQ’s</h3>
                             </div>
                             <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
                                 <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
@@ -340,7 +342,7 @@ const CourseDetails = () => {
                 <div className="wrapper">
                     <div>
                         <div>
-                            <h3>Related Courses</h3>
+                            <h3 id="related-courses">Related Courses</h3>
                         </div>
                         <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff]  ">
 

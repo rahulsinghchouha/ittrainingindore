@@ -9,6 +9,7 @@ import Blog from './Component/Blog';
 import Testimonial from './Component/Testimonial';
 import Contact from './Component/Contact';
 import CourseDetails from './Component/CourseDetails';
+import BlogDetails from './Component/BlogDetails';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path='/testimonials' element={<Testimonial/>}/> 
           <Route path='/contact-us' element={<Contact/>}/> 
           <Route path='/course-details/:course' element={<CourseDetails/>} key={Math.random()}/>
+          <Route path='/blog-details/:blog' element={<BlogDetails/>} key={Math.random()}/>
         </Routes>
       </Router>
    </div>
