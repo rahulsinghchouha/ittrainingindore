@@ -44,7 +44,7 @@ ref.current +=1;
 
             <section className="px-0 pt-[124px] pb-[48px] bg-[#f3fbff]">
                 <div className="wrapper">
-                    <div className={` ${isCard ? "animate__fadeIn" :""} w-[100%] relative h-[2269px] flex flex-wrap   gap-9 `}
+                    <div className={` ${isCard ? "animate__fadeIn" :""} w-[100%] relative  flex flex-wrap   gap-9 `}
                     ref={card}
                     style={{animationDuration:'5s'}}
 
