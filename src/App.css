@@ -738,3 +738,6 @@ background-color: #1AAEF4;
   transform: translateY(-50%);
 
 }
+.listBgImage ul li {
+  background: url('../public/arrow-right-blue (1).svg') no-repeat 0% 10px !important;
+}
