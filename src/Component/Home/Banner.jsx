@@ -31,7 +31,7 @@ function Banner() {
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
 
-
+    const [homeData,setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
 
     const [ourStats, setOurStats] = useState([]);
@@ -40,6 +40,22 @@ function Banner() {
     const webCard = useSelector((state) => state.backendFunction.webCard);
     const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
+
+    async function getHome(){
+        try{
+            const response = await ittrainingDataSerivice.getHome();
+            if(response.status === 200)
+            {
+                console.log("home data ", response.data);
+                setHomeData(response.data.data);
+            }
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+
+    }
 
     async function getOurPartners() {
         try {
@@ -64,6 +80,7 @@ function Banner() {
         }
     }
     useEffect(() => {
+        getHome();
         getOurPartners();
         getOurStats();
     }, [])
