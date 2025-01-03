@@ -16,6 +16,9 @@ class DataService {
     getCourseCard() {
         return axios.get(`${this.backendUrl}/api/v1/get/course-card`);
     }
+    getAboutUs(){
+        return axios.get(`${this.backendUrl}/api/v1/get/get-about-us`);
+    }
     getStudentPlaced() {
         return axios.get(`${this.backendUrl}/api/v1/get/student-placed`);
     }

@@ -207,8 +207,6 @@ function Banner() {
                                         animationDuration: "3s",
                                     }}
                                     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.bannerHeading) }}
-
-
                                 >
                                     {/* <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
                                         Unlock
