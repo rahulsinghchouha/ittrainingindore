@@ -19,6 +19,7 @@ import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
 import CourseCard from "../Common/CourseCard";
 import { Link } from "react-router-dom";
+import DOMPurify from "dompurify";
 
 
 
@@ -46,7 +47,7 @@ function Banner() {
             const response = await ittrainingDataSerivice.getHome();
             if(response.status === 200)
             {
-                console.log("home data ", response.data);
+                console.log("home data ", response.data.data);
                 setHomeData(response.data.data);
             }
         }
@@ -70,9 +71,10 @@ function Banner() {
     async function getOurStats() {
         try {
             const response = await ittrainingDataSerivice.getOurStats();
-            console.log("response", response);
+           
             if (response.status === 200) {
                 setOurStats(response.data.data);
+                
             }
         }
         catch (error) {
@@ -197,7 +199,7 @@ function Banner() {
                 <div className="home-banner-wr">
                     <section className="wrapper">
                         <div className="box-border flex justify-between ">
-                            <div className="w-[47.5%] pt-[16px] pl-0 pr-0 pb-0">
+                            <div className="w-[48.5%] pt-[16px] pl-0 pr-0 pb-0">
                                 <div>
                                     <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                                 </div>
@@ -205,22 +207,26 @@ function Banner() {
                                     ref={mainHeading}
                                     className={`mt-[28px] ${isMainHeading && "animate__fadeIn"} `} style={{
                                         animationDuration: "3s",
-                                    }}>
-                                    <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
+                                    }}
+                                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.bannerHeading) }}
+                                    
+                                    
+                                    >
+                                    {/* <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
                                         Unlock
                                         <span className="text-[#1aaef4]"> Your Potential </span>
                                         Choose the Best
                                         <span className="text-[#1aaef4]"> Software Training </span>
                                         Institute in Indore
 
-                                    </h1>
+                                    </h1> */}
 
 
-                                </div>
-                                <div className="mt-[32px] box-border">
-                                    <p className="text-[16px] leading-[34px] font-[400] tracking-normal">
+                                {/* </div>
+                                <div className="mt-[32px] box-border"> */}
+                                    {/* <p className="text-[16px] leading-[34px] font-[400] tracking-normal">
                                         Welcome to IT Training Indore, your premier destination for comprehensive IT training and placements in Indore.
-                                    </p>
+                                    </p> */}
                                 </div>
                                 {/* banner search form */}
                                 <div className="w-[100%] mt-[16px] ">
@@ -284,11 +290,11 @@ function Banner() {
                             <div ref={mainImage}
 
 
-                                style={{ animationDuration: "3s" }} className={`banner-images w-[39%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-h-[687px] relative float-right box-border`}>
+                                style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`,backgroundRepeat:'no-repeat',backgroundPositionX:'84%', backgroundPositionY:'25%'}} className={` w-[39%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-h-[687px] relative float-right box-border`}>
                                 <figure
 
                                 >
-                                    <img src="/Home/Best_IT_Training_Indore_Student.png" alt="best software training institute in indore " />
+                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " />
                                     <figcaption className="absolute top-[32.5%] pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
                                         <div className="mt-[-32px]">
                                             <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%] block" />

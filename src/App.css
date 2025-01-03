@@ -131,11 +131,12 @@ left: 23%;
 .textColor{
   color: #1aaef4;
 }
+/* 
 .banner-images{
   background: url("../public/Home/banner-image-bg.svg") no-repeat 84% 25% ; 
   visibility: visible;
   animation-duration: 1s;
-}
+} */
 .figShadow {
   box-shadow: -4px 6px 40px #6cd0ff33;
 }
