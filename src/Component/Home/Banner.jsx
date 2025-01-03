@@ -32,7 +32,7 @@ function Banner() {
     const [isActive5, setIsActive5] = useState(false);
     const [isActive6, setIsActive6] = useState(false);
 
-    const [homeData,setHomeData] = useState();
+    const [homeData, setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
 
     const [ourStats, setOurStats] = useState([]);
@@ -42,17 +42,15 @@ function Banner() {
     const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
 
-    async function getHome(){
-        try{
+    async function getHome() {
+        try {
             const response = await ittrainingDataSerivice.getHome();
-            if(response.status === 200)
-            {
+            if (response.status === 200) {
                 console.log("home data ", response.data.data);
                 setHomeData(response.data.data);
             }
         }
-        catch(error)
-        {
+        catch (error) {
             console.log(error);
         }
 
@@ -71,10 +69,10 @@ function Banner() {
     async function getOurStats() {
         try {
             const response = await ittrainingDataSerivice.getOurStats();
-           
+
             if (response.status === 200) {
                 setOurStats(response.data.data);
-                
+
             }
         }
         catch (error) {
@@ -209,9 +207,9 @@ function Banner() {
                                         animationDuration: "3s",
                                     }}
                                     dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.bannerHeading) }}
-                                    
-                                    
-                                    >
+
+
+                                >
                                     {/* <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
                                         Unlock
                                         <span className="text-[#1aaef4]"> Your Potential </span>
@@ -222,7 +220,7 @@ function Banner() {
                                     </h1> */}
 
 
-                                {/* </div>
+                                    {/* </div>
                                 <div className="mt-[32px] box-border"> */}
                                     {/* <p className="text-[16px] leading-[34px] font-[400] tracking-normal">
                                         Welcome to IT Training Indore, your premier destination for comprehensive IT training and placements in Indore.
@@ -290,7 +288,7 @@ function Banner() {
                             <div ref={mainImage}
 
 
-                                style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`,backgroundRepeat:'no-repeat',backgroundPositionX:'84%', backgroundPositionY:'25%'}} className={` w-[39%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-h-[687px] relative float-right box-border`}>
+                                style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, backgroundRepeat: 'no-repeat', backgroundPositionX: '84%', backgroundPositionY: '25%' }} className={` w-[39%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-h-[687px] relative float-right box-border`}>
                                 <figure
 
                                 >
@@ -527,20 +525,25 @@ function Banner() {
                 <section className="pt-[116px] text-center ">
                     <div className="wrapper">
 
-                        <div style={{ visibility: "visible" }}>
-                            <h3 ref={chooseCourse} className={`text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000000] ${isChooseCourse && "animate__fadeInDown"}`}
+                        <div style={{ visibility: "visible", animationDuration: '3s' }}
+                            ref={chooseCourse}
+                            className={` w-[82%] mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
+                         
+                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.chooseCourseHead) }}
+                        >
+                            {/* <h3 ref={chooseCourse} className={`text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000000] ${isChooseCourse && "animate__fadeInDown"}`}
                                 style={{ animationDuration: '3s' }}
                             >
 
                                 Choose Your Course & IT Training Institute Carefully
                                 <br />
                                 For Your Better Placement!
-                            </h3>
+                            </h3> */}
 
-                        </div>
+                            {/* </div>
 
-                        <div className="w-[82%] mt-[10px] ml-auto mr-auto mb-0  ">
-                            <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
+                        <div className="w-[82%] mt-[10px] ml-auto mr-auto mb-0  "> */}
+                            {/* <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
                                 IT Training Indore, we understand the importance of quality education and career growth. Our institute stands out as a trusted destination for
                                 <strong> software training institute in Indore</strong>
                                 . With a team of industry experts, we offer comprehensive industrial or corporate training programs that cover the latest software development technologies. Our hands-on training approach ensures that you gain practical skills and industry-specific knowledge.
@@ -556,7 +559,7 @@ function Banner() {
 
                                 <strong> Look no further if your skills offering placements. </strong>
                                 These remarkable programs provide you related and problem solving skills you need to excel in your field and offer the opportunity to gain placements based on your knowledge and skill.
-                            </p>
+                            </p> */}
 
 
                         </div>
@@ -592,23 +595,25 @@ function Banner() {
 
                 {/* student placed section starts */}
 
-                <section className={`pt-[100px] pr-0 pl-0 pb-[72px] ${isUpliftHead && "animate__fadeIn"} `}
+                <section className={`pt-[0px] pr-0 pl-0 pb-[72px] ${isUpliftHead && "animate__fadeIn"} `}
                     ref={upliftHead}
                     style={{ animationDuration: '4s' }}>
                     <div className="wrapper">
-                        <div className="visible text-center">
-                            <h3 className={`text-[36px]  leading-[52px] tracking-[0.72px] text-[#000000] font-[800]  `}
+                        <div className=" pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto"
+                         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.upliftYourCareerHead) }}
+                        >
+                            {/* <h3 className={`text-[36px]  leading-[52px] tracking-[0.72px] text-[#000000] font-[800]  `}
 
                             >
                                 How will IT career training uplift your career?
-                            </h3>
+                            </h3> */}
 
 
-                        </div>
-                        <div className="text-center pt-[21px] pl-0 pr-0 pb-[43px] w-[75%] mt-0 mb-0 mr-auto ml-auto border-box">
-                            <p className="text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal">
+                        {/* </div>
+                        <div className="text-center pt-[21px] pl-0 pr-0 pb-[43px] w-[75%] mt-0 mb-0 mr-auto ml-auto border-box"> */}
+                            {/* <p className="text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal">
                                 Whether you're a recent graduate looking to kick-start your career or a professional seeking to upskill and stay ahead, courses offering placements can give you the edge you need. By combining classroom learning with real work environments, these programs allow you a head start in your career. Additionally, the chance to build networks and connections within the industry can lead to job offers and long-term career opportunities.
-                            </p>
+                            </p> */}
 
                         </div>
 
@@ -1008,14 +1013,16 @@ function Banner() {
                 <section className="pt-[62px] mt-[80px] pb-[92px] pl-0 pr-0 overflow-hidden " >
                     <div className="wrapper">
                         <div className="">
-                            <div className="w-[55%] float-left ">
-                                <div className={`${isMaximizeCareer && "animate__fadeInDown"}  `}
+                            <div className="w-[55%] float-left mb-[25px] ">
+                                <div className={`maximizeYourCareerHead ${isMaximizeCareer && "animate__fadeInDown"}  `}
                                     ref={maximizeCareer}
                                     style={{ animationDuration: "3s" }}
+                                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.maximizeCareerHead) }}
+
                                 >
-                                    <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">Maximize Your Career with IT Education</h3>
+                                    {/* <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">Maximize Your Career with IT Education</h3> */}
                                 </div>
-                                <div className="mt-[26px] mb-[25px] ">
+                                {/* <div className="mt-[26px] mb-[25px] ">
                                     <p className="mt-[25px] text-[16px] leading-[34px] tracking-normal">IT training strives to make students or professionals more alert about their careers. And understands tech industries’ needs in their candidates.</p>
                                     <ul className="mt-[26px] ">
                                         <li className="font-[400] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
@@ -1043,7 +1050,7 @@ function Banner() {
 
                                     </ul>
 
-                                </div>
+                                </div> */}
                                 <div className="mt-[48px] ">
                                     <a className="pt-[13px] font-[700] border-none rounded-[24px] relative z-[11]  pb-[13px] pl-[34px] pr-[34px] text-[16px] leading-[21px] text-[#fff] bg-[linear-gradient(180deg,_#1AAEF4_0%,_#1AAEF4_0.01%,_#0096EB_100%)] h-[64px] w-full">
                                         Read More
@@ -1060,7 +1067,7 @@ function Banner() {
 
                             >
                                 <figure className="m-0">
-                                    <img className="max-w-[100%] block " src="/best-educators-image.svg" />
+                                    <img className="max-w-[100%] block " src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.maximizeCareerImg}`} />
                                 </figure>
                             </div>
                         </div>
@@ -1157,7 +1164,7 @@ function Banner() {
                         <figure className={`m-0   ${isLatestBimg ? "transform duration-[2s] " : " translate-x-[-25px] translate-y-[-25px] "}`}
                             ref={latestBimag}
                             style={{ animationDuration: "3s" }}>
-                            <img className="w-[100%]" src="/ibest-it-training-indore-latest-blog.jpg" />
+                            <img className="w-[100%]" src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.blogImg}`} />
                         </figure>
                     </div>
 
@@ -1165,22 +1172,23 @@ function Banner() {
                     <div className=" w-[686px] ml-10 mt-auto mb-auto">
                         <div className="">
                             <div className=" ">
-                                <h3 className={`text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
+                                <div className={`w-[90%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
                                     ref={latestBhead}
                                     style={{ animationDuration: "3s" }}
+                                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.blogHead) }}
 
-                                >Our Latest Blogs</h3>
-                            </div>
+                                ></div>
+                            {/* </div>
                             <div className={`${isLatestBside ? " transform duration-[3s] " : "transform translate-x-[20px] translate-y-[-20px] "}`}
                                 ref={latestBside}
                                 style={{ animationDuration: "3s" }}
-                            >
-                                <div className="mt-[15px] w-[90%] ">
+                            > */}
+                                {/* <div className="mt-[15px] w-[90%] ">
                                     <p>
                                         Check out the updated <strong><a href="/">blog</a></strong> of IT and tech related to your areas of interest and explore where you are lacking while learning. We work like pillars for building the students' career life.
                                     </p>
 
-                                </div>
+                                </div> */}
 
                                 <div className="mt-[52px] w-[95%] ">
                                     <div className=" flex justify-between ">
@@ -1275,18 +1283,20 @@ function Banner() {
                 <section className="pt-[50px] pb-[180px]">
                     <div className="wrapper">
                         <div className="text-center ">
-                            <div className={`${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
+                            <div className={`w-[80%] mx-auto ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
                                 ref={jobRedyRef}
                                 style={{ animationDuration: "3s" }}
+                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.jobReadyHead) }}
+
                             >
-                                <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">How IT Training Indore, will make your JOB Ready?</h3>
+                                {/* <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">How IT Training Indore, will make your JOB Ready?</h3> */}
 
                             </div>
-                            <div className="w-[63%] mt-[22px] mb-0 ml-auto mr-auto">
+                            {/* <div className="w-[63%] mt-[22px] mb-0 ml-auto mr-auto">
                                 <p>
                                     IT Training Indore and your IT skills can help you to land your dream job. We believe in the process of learning and expertise rather than ensuring. We are here to help you to gain practical expertise in your career.
                                 </p>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={`mt-[95px] flex w-[100%] ${isJobReadyCard && "animate__fadeIn"}`}
                             ref={jobRedyCardRef}
@@ -1298,15 +1308,20 @@ function Banner() {
                                     <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] ">
-                                    <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Interview Preparation</h4>
+                                <div className="mt-[17px] "
+                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.interviewPrepHead) }}
+
+                                >
+                                    {/* <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Interview Preparation</h4> */}
+                              
+                              
                                 </div>
-                                <div className="mt-[15px]">
+                                {/* <div className="mt-[15px]">
                                     <p>
                                         We make you <strong>job-ready</strong> while providing relevant study material in the from basic to advanced level <strong className="hover:text-[#1AAEF4] transition-all delay-75"><a href="/"> courses </a></strong>, we offer tips and tricks to get your <strong>dream job.</strong>
                                     </p>
 
-                                </div>
+                                </div> */}
 
                             </div>
                             <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
@@ -1314,15 +1329,19 @@ function Banner() {
                                     <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] ">
-                                    <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Mentors with experience
-                                    </h4>
+                                <div className="mt-[17px] "
+                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.mentorsHead) }}
+                                >
+                                    {/* <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Mentors with experience
+                                    </h4> */}
+
+
                                 </div>
-                                <div className="mt-[15px]">
+                                {/* <div className="mt-[15px]">
                                     <p>
                                         Mentors at IT Training Indore share their practical and theoretical knowledge into their whole working experience, so you can become more advance in your skills.  </p>
 
-                                </div>
+                                </div> */}
 
                             </div>
                             <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
@@ -1330,15 +1349,17 @@ function Banner() {
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] ">
-                                    <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Career Counselling</h4>
+                                <div className="mt-[17px] "
+                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.careerCounsilHead) }}
+                                >
+                                    {/* <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Career Counselling</h4> */}
                                 </div>
-                                <div className="mt-[15px]">
+                                {/* <div className="mt-[15px]">
                                     <p>
                                         The IT Training Indore career counsellors and mentors will guide you in making career decisions based on their interest and skillsets.
                                     </p>
 
-                                </div>
+                                </div> */}
 
                             </div>
 
@@ -1362,8 +1383,10 @@ function Banner() {
 
                 <section className="pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
                     <div className="wrapper ">
-                        <div className="mt-[40px] w-[60%] float-left">
-                            <h3 className="mb-[20px] ">Want to get placed before completion of College Life?</h3>
+                        <div className="mt-[40px] w-[60%] float-left"
+                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.beforeCollegeHead) }}
+                        >
+                            {/* <h3 className="mb-[20px] ">Want to get placed before completion of College Life?</h3>
                             <p className="mb-[23px]">
                                 Everybody wants to get <strong>placed with a good salary package</strong> in the field of their interest area, we come up with the best out of the best courses for those who want to apply their theoretical knowledge on the project work and upgrade their <strong>skills</strong>
                             </p>
@@ -1373,12 +1396,12 @@ function Banner() {
                                 </strong><span> </span>
                                 with the best examples and unique learning techniques for the basic and technical terms.
 
-                            </p>
+                            </p> */}
                         </div>
 
                         <div className="w-[35%] float-right cle">
                             <figure className="m-0 ">
-                                <img src="/College-placement-coaching-class-institute.png" alt="College ,placement coaching class institute" />
+                                <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.beforeCollegeImg}`} alt="College ,placement coaching class institute" />
 
                             </figure>
 
@@ -1398,7 +1421,7 @@ function Banner() {
                             <path d="M1.6665 12.2923L11.9998 1.95898L22.3332 12.2923" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                             <path d="M1.6665 20.0423L11.9998 9.70898L22.3332 20.0423" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                         </svg>
-                       
+
                     </Link>
                     <span className="block text-[14px] leading-[19px] font-[500] mt-[12px]  ">Back To Top</span>
                 </div>
