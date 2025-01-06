@@ -19,7 +19,6 @@ import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
 import CourseCard from "../Common/CourseCard";
 import { Link } from "react-router-dom";
-import DOMPurify from "dompurify";
 import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
 import { useContactDetails } from "../../Redux/rTKFunction";
 
@@ -209,7 +208,7 @@ function Banner() {
                                 </div>
                                 <div
                                     ref={mainHeading}
-                                    className={`mt-[28px] ${isMainHeading && "animate__fadeIn"} `} style={{
+                                    className={`hoverBlue  mt-[28px] ${isMainHeading && "animate__fadeIn"} `} style={{
                                         animationDuration: "3s",
                                     }}
 
@@ -533,7 +532,7 @@ function Banner() {
 
                         <div style={{ visibility: "visible", animationDuration: '3s' }}
                             ref={chooseCourse}
-                            className={` w-[82%] mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
+                            className={` hoverBlue listBgImage w-[82%] mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
                         >
                             {ConvertAnchorToLink(String(homeData?.chooseCourseHead))}
                         </div>
@@ -573,20 +572,9 @@ function Banner() {
                     ref={upliftHead}
                     style={{ animationDuration: '4s' }}>
                     <div className="wrapper">
-                        <div className=" pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
+                        <div className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
                             {ConvertAnchorToLink(String(homeData?.upliftYourCareerHead))}
-                            {/* <h3 className={`text-[36px]  leading-[52px] tracking-[0.72px] text-[#000000] font-[800]  `}
-
-                            >
-                                How will IT career training uplift your career?
-                            </h3> */}
-
-
-                            {/* </div>
-                        <div className="text-center pt-[21px] pl-0 pr-0 pb-[43px] w-[75%] mt-0 mb-0 mr-auto ml-auto border-box"> */}
-                            {/* <p className="text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal">
-                                Whether you're a recent graduate looking to kick-start your career or a professional seeking to upskill and stay ahead, courses offering placements can give you the edge you need. By combining classroom learning with real work environments, these programs allow you a head start in your career. Additionally, the chance to build networks and connections within the industry can lead to job offers and long-term career opportunities.
-                            </p> */}
+                           
 
                         </div>
 
@@ -987,7 +975,7 @@ function Banner() {
                     <div className="wrapper">
                         <div className="">
                             <div className="w-[55%] float-left mb-[25px] ">
-                                <div className={`maximizeYourCareerHead ${isMaximizeCareer && "animate__fadeInDown"}  `}
+                                <div className={` hoverBlue listBgImage maximizeYourCareerHead ${isMaximizeCareer && "animate__fadeInDown"}  `}
                                     ref={maximizeCareer}
                                     style={{ animationDuration: "3s" }}
                                 >
@@ -1115,7 +1103,7 @@ function Banner() {
                     <div className=" w-[686px] ml-10 mt-auto mb-auto">
                         <div className="">
                             <div className=" ">
-                                <div className={`w-[90%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
+                                <div className={` hoverBlue listBgImage w-[90%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
                                     ref={latestBhead}
                                     style={{ animationDuration: "3s" }}
                                 ></div>
@@ -1213,7 +1201,7 @@ function Banner() {
                 <section className="pt-[50px] pb-[180px]">
                     <div className="wrapper">
                         <div className="text-center ">
-                            <div className={`w-[80%] mx-auto ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
+                            <div className={` hoverBlue listBgImage w-[80%] mx-auto ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
                                 ref={jobRedyRef}
                                 style={{ animationDuration: "3s" }}
                             >
@@ -1230,7 +1218,7 @@ function Banner() {
                                     <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] " >
+                                <div className=" hoverBlue listBgImage mt-[17px] " >
                                     {ConvertAnchorToLink(String(homeData?.interviewPrepHead))}
                                 </div>
 
@@ -1241,7 +1229,7 @@ function Banner() {
                                     <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] " >
+                                <div className=" hoverBlue listBgImage mt-[17px] " >
                                      {ConvertAnchorToLink(String(homeData?.mentorsHead))}
                                 </div>
                                 
@@ -1252,7 +1240,7 @@ function Banner() {
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] ">
+                                <div className= " hoverBlue listBgImage mt-[17px] ">
                                       {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
                                 </div>
                                
@@ -1279,7 +1267,7 @@ function Banner() {
 
                 <section className="pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
                     <div className="wrapper ">
-                        <div className="mt-[40px] w-[60%] float-left">
+                        <div className=" hoverBlue listBgImage mt-[40px] w-[60%] float-left">
                             {ConvertAnchorToLink(String(homeData?.beforeCollegeHead))}                        
                         </div>
 

@@ -1,8 +1,28 @@
 import React,{useState} from "react";
 import { useInView } from 'react-intersection-observer';
 import CountUp from "react-countup";
+import { useEffect } from "react";
+import { ittrainingDataSerivice } from "../../Services/dataService";
 
 const CounterPage=()=>{
+
+    const [ourStats,setOurStats] = useState([]);
+
+    async function getOurStats() {
+        try {
+            const response = await ittrainingDataSerivice.getOurStats();
+
+            if (response.status === 200) {
+                setOurStats(response.data.data);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+    useEffect(()=>{
+        getOurStats();
+    },[])
 
     const { ref: countRef, inView: isCountRef } = useInView({
         threshold: 0.2,
@@ -24,7 +44,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={10}
+                                            end={ourStats[0]?.mentors}
                                             duration={5}
 
                                         />}
@@ -37,7 +57,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={10}
+                                            end={ourStats[0]?.experience}
                                             duration={5}
 
                                         />}
@@ -50,7 +70,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={60}
+                                            end={ourStats[0]?.placedStudent}
                                             duration={5}
 
                                         />}<span className="ml-[2px]">+</span>
@@ -63,7 +83,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={5}
+                                            end={ourStats[0]?.yearsOfJourney}
                                             duration={5}
 
                                         />}

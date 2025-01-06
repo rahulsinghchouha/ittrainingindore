@@ -5,12 +5,13 @@ import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import "animate.css";
 import { NavLink } from "react-router-dom";
+import { useContactDetails } from "../../Redux/rTKFunction";
 
 
 function Navbar() {
 
-    
-
+    const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
+    console.log("contact data ",contactUsData);
     return (
         <header className="w-[100%] border-b-[1px] border-[white] fixed  bg-[#fff] z-[111]  box-border  shadow-navShadow overflow-hidden">
             <section className="wrapper  flex justify-between items-center  pt-[10px] pb-[19px]">
@@ -51,7 +52,7 @@ function Navbar() {
                                     <img src="/Navbar/phone-icon.svg" alt="phone-icon" loading="lazy" className="h-[20px] w-[20px] " />
                                 </span>
                                 <span className="header-call-us">Call Us Now</span>
-                                <a href="tel:+91 8269600400" className="text-[14px] hover:text-[#1aaef4] transition-all delay-75 duration-200 ease-linear">+91 8269600400</a>
+                                <a href={`tel:+91 ${contactUsData?.data?.contactUsNumber}`} className="text-[14px] hover:text-[#1aaef4] transition-all delay-75 duration-200 ease-linear">+91 {contactUsData?.data?.contactUsNumber}</a>
                             </div>
                            
                            
@@ -59,7 +60,7 @@ function Navbar() {
                                 <span className="">
                                     <img src="/Navbar/email-icon.svg" alt="email-icon" loading="lazy" />
                                 </span>
-                                <a href="mailto:info@ittrainingindore.in" className="text-[14px] hover:text-[#1aaef4] transition-all delay-75 duration-200 ease-linear">info@ittrainingindore.in</a>
+                                <a href={` mailto:${contactUsData?.data?.contactUsEmail}`} className="text-[14px] hover:text-[#1aaef4] transition-all delay-75 duration-200 ease-linear">{contactUsData?.data?.contactUsEmail}</a>
 
                             </div>
 
