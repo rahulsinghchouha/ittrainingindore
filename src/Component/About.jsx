@@ -14,7 +14,8 @@ import { useInView } from "react-intersection-observer";
 import { useSelector, useDispatch } from "react-redux";
 import { getPlacedStudent } from "../Redux/functionsSlics";
 import PageBanner from "./Common/PageBanner";
-import DOMPurify from "dompurify";
+import convertAnchorToLink from "./Common/ConvertAnchorToLink";
+
 
 const About = () => {
 
@@ -28,6 +29,7 @@ const About = () => {
             const response = await ittrainingDataSerivice.getAboutUs();
 
             if (response.status === 200) {
+                console.log(response.data.data)
                 setAboutData(response.data.data);
             }
         }
@@ -179,21 +181,19 @@ const About = () => {
                         <div className="w-[48.7%]">
                             <div className="w-[87%] ">
                                 <div>
-                                    <div className={`${isOpportunityHead ? "transform translate-y-0 duration-700 opacity-[1]" : "transform translate-y-[-15px] opacity-0"}`}
+                                    <div className={`hoverBlue ${isOpportunityHead ? "transform translate-y-0 duration-700 opacity-[1]" : "transform translate-y-[-15px] opacity-0"}`}
                                         ref={opportunityHead}
                                         style={{ animationDuration: '3s' }}
-                                        dangerouslySetInnerHTML={{
-                                            __html: DOMPurify.sanitize(aboutUsData?.yourImaginationHead
-                                            )
-                                        }}
+
                                     >
+                                        {convertAnchorToLink(String(aboutUsData?.yourImaginationHead))}
 
 
 
 
                                     </div>
                                 </div>
-                               
+
                                 <div className={`mt-[35px] `}>
                                     <Link to="/course" className="btnAfter  cursor-pointer" >
                                         View More
@@ -221,14 +221,10 @@ const About = () => {
                         <div className={`w-[50%] mt-[51px] ${isOurJourney ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : " transform translate-x-[-25px] opacity-0"}`}
                             ref={ourJourney}
                         >
-                            <div className="w-[100%] "
-                                dangerouslySetInnerHTML={{
-                                    __html: DOMPurify.sanitize(aboutUsData?.ourJourneyHead
-                                    )
-                                }}
+                            <div className="w-[100%] hoverBlue"
 
                             >
-
+                                {convertAnchorToLink(String(aboutUsData?.ourJourneyHead))}
                             </div>
 
                         </div>
@@ -312,9 +308,10 @@ const About = () => {
                         <div className={`w-[50%] ${isOurBeliefRside ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : "transform translate-x-[-20px] opacity-0"}`}
                             ref={ourBeliefRside}
                         >
-                            <div className="w-[100%]"
-                            dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(aboutUsData?.ourBeliefsHead)}}
+                            <div className="w-[100%] hoverBlue"
+
                             >
+                                {convertAnchorToLink(String(aboutUsData?.ourBeliefsHead))}
 
                             </div>
 
@@ -347,9 +344,10 @@ const About = () => {
                                         </figure>
 
                                     </div>
-                                    <div className="w-[87%]"
-                                    dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(aboutUsData?.missionDetails)}}>
-                                       
+                                    <div className="w-[87%]">
+                                           {convertAnchorToLink(String(aboutUsData?.missionDetails))}
+
+
                                     </div>
                                 </div>
                                 <div className="flex justify-between ">
@@ -360,9 +358,9 @@ const About = () => {
                                         </figure>
 
                                     </div>
-                                    <div className="w-[87%]"
-                                      dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(aboutUsData?.visionDetails)}}>
-                                       
+                                    <div className="w-[87%]">
+                                            {convertAnchorToLink(String(aboutUsData?.visionDetails))}
+
                                     </div>
                                 </div>
                                 <div className="flex justify-between mt-[25px]">
@@ -373,9 +371,9 @@ const About = () => {
                                         </figure>
 
                                     </div>
-                                    <div className="w-[87%]"
-                                    dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(aboutUsData?.valuesDetails)}}>
-                                        
+                                    <div className="w-[87%]">
+                                             {convertAnchorToLink(String(aboutUsData?.valuesDetails))}
+
                                     </div>
                                 </div>
 

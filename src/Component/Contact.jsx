@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "./Common/Navbar";
 import PageBanner from "./Common/PageBanner";
-import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import { Select } from "antd";
 import { Blocks } from "react-loader-spinner";
@@ -25,14 +24,12 @@ const Contact = () => {
 
     const [contactUs, setContactUs] = useState();
 
-    //const messageBackend = useSelector((state) => state.backendFunction.studentFormMessage);
-
     async function getContactUs() {
         try {
             const response = await ittrainingDataSerivice.getContactUs();
 
             if (response.status === 200) {
-            setContactUs(response.data.data);
+                setContactUs(response.data.data);
             }
 
         }
@@ -59,7 +56,7 @@ const Contact = () => {
         threshold: 0.1,
         triggerOnce: true
     })
- // Destructure the data object to extract the required properties
+    // Destructure the data object to extract the required properties
 
 
     return (
@@ -69,14 +66,13 @@ const Contact = () => {
 
             <section className="py-[80px] ">
                 <div className="wrapper">
-                    <div className={`text-center ${isYourOneClick ? " transform translate-y-0 opacity-1 ease-in duration-500 " : "transform translate-y-[-15px] opacity-0"}`}
+                    <div className={` hoverBlue text-center ${isYourOneClick ? " transform translate-y-0 opacity-1 ease-in duration-500 " : "transform translate-y-[-15px] opacity-0"}`}
                         ref={yourOneClick}
-                        style={{ animationDuration: "5s" }}       
-                                   
+                        style={{ animationDuration: "5s" }}
                     >
                         {convertAnchorToLink(String(contactUs?.contactUsHead))}
-                         
-                    </div>
+
+                  </div>
 
                     <div className={`mt-[92px] flex ${isContactCard ? "animate__fadeIn" : ""}`}
                         ref={contactCard}

@@ -742,3 +742,7 @@ background-color: #1AAEF4;
 .listBgImage, .maximizeYourCareerHead ul li {
   background: url('../public/arrow-right-blue (1).svg') no-repeat 0% 10px !important;
 }
+.hoverBlue a:hover {
+color: #1AAEF4;
+transition: all 0.3s ease;
+}
