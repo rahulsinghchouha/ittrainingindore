@@ -136,30 +136,15 @@ const About = () => {
                                 <div className="w-[54%] pt-[22px] pr-0 pb-0 pl-0 inline-block align-middle">
                                     <div className="flex">
                                         <div className="w-[40%] ml-[30px] flex ">
-                                            <figure className=" flex-shrink-0 border-[3px] border-solid border-[#fff] w-[48px] h-[48px] rounded-[50%]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out">
-                                                <Link to="/about-us">
-                                                    <img src="/It_training_user_profile_3.png" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
-                                                </Link>
+                                            {stuPlaced.slice(stuPlaced.length - 4, stuPlaced.length).map((student, index) => (
+                                                <figure key={index} className={` ${index != 0 ? "ml-[-19px]" : ""} flex-shrink-0 border-[3px] border-solid border-[#fff] w-[48px] h-[48px] rounded-[50%]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out`}>
+                                                    <Link to="/about-us">
+                                                        <img src={`${ittrainingDataSerivice.backendUrl}/${student?.img}`} className="rounded-[50%]" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
+                                                    </Link>
 
-                                            </figure>
-                                            <figure className=" flex-shrink-0 border-[3px] border-solid border-[#fff] w-[48px] h-[48px] rounded-[50%] ml-[-21px] transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out ">
-                                                <Link to="/about-us">
-                                                    <img src="/It_training_user_profile_2.png" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
-                                                </Link>
+                                                </figure>
 
-                                            </figure>
-                                            <figure className=" flex-shrink-0 border-[3px] border-solid border-[#fff] w-[48px] h-[48px]  rounded-[50%] ml-[-21px] transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out ">
-                                                <Link to="/about-us">
-                                                    <img src="/It_training_user_profile_1.png" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
-                                                </Link>
-
-                                            </figure>
-                                            <figure className=" flex-shrink-0 border-[3px] border-solid border-[#fff] w-[48px] h-[48px] rounded-[50%] ml-[-21px]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out ">
-                                                <Link to="/about-us">
-                                                    <img className="" src="/It_training_user_profile_4.png" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
-                                                </Link>
-
-                                            </figure>
+                                            ))}
                                         </div>
                                         <div className="w-[42%] ml-[15px] ">
                                             <div>
@@ -181,7 +166,7 @@ const About = () => {
                         <div className="w-[48.7%]">
                             <div className="w-[87%] ">
                                 <div>
-                                    <div className={`hoverBlue ${isOpportunityHead ? "transform translate-y-0 duration-700 opacity-[1]" : "transform translate-y-[-15px] opacity-0"}`}
+                                    <div className={` listBgImage hoverBlue ${isOpportunityHead ? "transform translate-y-0 duration-700 opacity-[1]" : "transform translate-y-[-15px] opacity-0"}`}
                                         ref={opportunityHead}
                                         style={{ animationDuration: '3s' }}
 
@@ -345,7 +330,7 @@ const About = () => {
 
                                     </div>
                                     <div className="w-[87%]">
-                                           {convertAnchorToLink(String(aboutUsData?.missionDetails))}
+                                        {convertAnchorToLink(String(aboutUsData?.missionDetails))}
 
 
                                     </div>
@@ -359,7 +344,7 @@ const About = () => {
 
                                     </div>
                                     <div className="w-[87%]">
-                                            {convertAnchorToLink(String(aboutUsData?.visionDetails))}
+                                        {convertAnchorToLink(String(aboutUsData?.visionDetails))}
 
                                     </div>
                                 </div>
@@ -372,7 +357,7 @@ const About = () => {
 
                                     </div>
                                     <div className="w-[87%]">
-                                             {convertAnchorToLink(String(aboutUsData?.valuesDetails))}
+                                        {convertAnchorToLink(String(aboutUsData?.valuesDetails))}
 
                                     </div>
                                 </div>
