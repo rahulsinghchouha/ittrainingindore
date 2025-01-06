@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import parse, { domToReact } from 'html-react-parser';
 
-function convertAnchorToLink(htmlString) {
-       
+function ConvertAnchorToLink(htmlString) {
+
     if (typeof htmlString !== 'string') {
         console.error('Expected a string, but received:', typeof htmlString);
         return null;
@@ -24,4 +24,4 @@ function convertAnchorToLink(htmlString) {
   return parse(htmlString, options);
 }
 
-export default convertAnchorToLink;
+export default ConvertAnchorToLink;

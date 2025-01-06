@@ -20,10 +20,16 @@ import Footer from "../Common/Footer";
 import CourseCard from "../Common/CourseCard";
 import { Link } from "react-router-dom";
 import DOMPurify from "dompurify";
+import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
+import { useContactDetails } from "../../Redux/rTKFunction";
 
 
 
 function Banner() {
+
+    const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
+
+
 
     const [isActive1, setIsActive1] = useState(true);
     const [isActive2, setIsActive2] = useState(false);
@@ -206,8 +212,10 @@ function Banner() {
                                     className={`mt-[28px] ${isMainHeading && "animate__fadeIn"} `} style={{
                                         animationDuration: "3s",
                                     }}
-                                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.bannerHeading) }}
+
                                 >
+                                    {ConvertAnchorToLink(String(homeData?.bannerHeading))}
+
                                     {/* <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
                                         Unlock
                                         <span className="text-[#1aaef4]"> Your Potential </span>
@@ -296,7 +304,7 @@ function Banner() {
                                             <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%] block" />
                                         </div>
                                         <div className="mt-[5px] visible text-[14px] leading-[20px] font-[600] text-[#1aaef4]">
-                                            <a href="tel:+91 8269600400" className="hover:text-[#000000] transition-all delay-75">+91 8269600400</a>
+                                            <a href={`tel:+91 ${contactUsData?.data?.contactUsNumber}`} className="hover:text-[#000000] transition-all delay-75">+91 {contactUsData?.data?.contactUsNumber}</a>
 
                                         </div>
                                     </figcaption>
@@ -526,40 +534,8 @@ function Banner() {
                         <div style={{ visibility: "visible", animationDuration: '3s' }}
                             ref={chooseCourse}
                             className={` w-[82%] mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
-                         
-                            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.chooseCourseHead) }}
                         >
-                            {/* <h3 ref={chooseCourse} className={`text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000000] ${isChooseCourse && "animate__fadeInDown"}`}
-                                style={{ animationDuration: '3s' }}
-                            >
-
-                                Choose Your Course & IT Training Institute Carefully
-                                <br />
-                                For Your Better Placement!
-                            </h3> */}
-
-                            {/* </div>
-
-                        <div className="w-[82%] mt-[10px] ml-auto mr-auto mb-0  "> */}
-                            {/* <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
-                                IT Training Indore, we understand the importance of quality education and career growth. Our institute stands out as a trusted destination for
-                                <strong> software training institute in Indore</strong>
-                                . With a team of industry experts, we offer comprehensive industrial or corporate training programs that cover the latest software development technologies. Our hands-on training approach ensures that you gain practical skills and industry-specific knowledge.
-                            </p>
-                            <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
-                                Whether you want to learn programming languages,
-                                <a href="/" className=" hover:text-[#009ce5] transition-all ease delay-[0.3s]"><strong><span> </span>web development,</strong></a>
-                                <a href="/" className=" hover:text-[#009ce5] transition-all ease delay-[0.3s]"><strong><span> </span>app development, </strong></a>
-                                <strong>check out our courses and learn from Indore’s best software training coaching center. </strong>
-                                Our courses focus on preparing students to ensure that they are ready to defeat the upcoming challenges in their career lives.
-                            </p>
-                            <p className="mt-[17px] mr-0 ml-0 mb-0 text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal ">
-
-                                <strong> Look no further if your skills offering placements. </strong>
-                                These remarkable programs provide you related and problem solving skills you need to excel in your field and offer the opportunity to gain placements based on your knowledge and skill.
-                            </p> */}
-
-
+                            {ConvertAnchorToLink(String(homeData?.chooseCourseHead))}
                         </div>
 
                         <div className={`text-center relative mt-[47px] ${isCourseCard && "animate__fadeIn"}  `}
@@ -597,9 +573,8 @@ function Banner() {
                     ref={upliftHead}
                     style={{ animationDuration: '4s' }}>
                     <div className="wrapper">
-                        <div className=" pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto"
-                         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.upliftYourCareerHead) }}
-                        >
+                        <div className=" pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
+                            {ConvertAnchorToLink(String(homeData?.upliftYourCareerHead))}
                             {/* <h3 className={`text-[36px]  leading-[52px] tracking-[0.72px] text-[#000000] font-[800]  `}
 
                             >
@@ -607,7 +582,7 @@ function Banner() {
                             </h3> */}
 
 
-                        {/* </div>
+                            {/* </div>
                         <div className="text-center pt-[21px] pl-0 pr-0 pb-[43px] w-[75%] mt-0 mb-0 mr-auto ml-auto border-box"> */}
                             {/* <p className="text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal">
                                 Whether you're a recent graduate looking to kick-start your career or a professional seeking to upskill and stay ahead, courses offering placements can give you the edge you need. By combining classroom learning with real work environments, these programs allow you a head start in your career. Additionally, the chance to build networks and connections within the industry can lead to job offers and long-term career opportunities.
@@ -1015,40 +990,10 @@ function Banner() {
                                 <div className={`maximizeYourCareerHead ${isMaximizeCareer && "animate__fadeInDown"}  `}
                                     ref={maximizeCareer}
                                     style={{ animationDuration: "3s" }}
-                                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.maximizeCareerHead) }}
-
                                 >
-                                    {/* <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">Maximize Your Career with IT Education</h3> */}
+                                    {ConvertAnchorToLink(String(homeData?.maximizeCareerHead))}
                                 </div>
-                                {/* <div className="mt-[26px] mb-[25px] ">
-                                    <p className="mt-[25px] text-[16px] leading-[34px] tracking-normal">IT training strives to make students or professionals more alert about their careers. And understands tech industries’ needs in their candidates.</p>
-                                    <ul className="mt-[26px] ">
-                                        <li className="font-[400] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
-                                            style={{ background: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
 
-                                            <b>Classroom training </b>
-                                            <span className="font-[400] "> is a structured learning experience with direct interaction between instructors and students. And it is the most intensive learning experience.</span>
-
-                                        </li>
-                                        <li className="font-[400] mt-[20px] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
-                                            style={{ background: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
-
-                                            <b>Industrial training </b>
-                                            <span className="font-[400] "> is generally for those who want to enter technical fields. And they should want experience in real projects and practical experiences.</span>
-
-                                        </li>
-                                        <li className="font-[400] mt-[20px] text-[16px] leading-[28px] text-[#000] pl-[35px]  "
-                                            style={{ background: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
-
-                                            <b>Corporate training</b>
-                                            <span className="font-[400] ">focuses on upskilling employees for need to excel in their roles and responsibilities. This specific need of a company or improve team performance and productivity.</span>
-
-                                        </li>
-
-
-                                    </ul>
-
-                                </div> */}
                                 <div className="mt-[48px] ">
                                     <a className="pt-[13px] font-[700] border-none rounded-[24px] relative z-[11]  pb-[13px] pl-[34px] pr-[34px] text-[16px] leading-[21px] text-[#fff] bg-[linear-gradient(180deg,_#1AAEF4_0%,_#1AAEF4_0.01%,_#0096EB_100%)] h-[64px] w-full">
                                         Read More
@@ -1173,21 +1118,8 @@ function Banner() {
                                 <div className={`w-[90%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
                                     ref={latestBhead}
                                     style={{ animationDuration: "3s" }}
-                                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.blogHead) }}
-
                                 ></div>
-                            {/* </div>
-                            <div className={`${isLatestBside ? " transform duration-[3s] " : "transform translate-x-[20px] translate-y-[-20px] "}`}
-                                ref={latestBside}
-                                style={{ animationDuration: "3s" }}
-                            > */}
-                                {/* <div className="mt-[15px] w-[90%] ">
-                                    <p>
-                                        Check out the updated <strong><a href="/">blog</a></strong> of IT and tech related to your areas of interest and explore where you are lacking while learning. We work like pillars for building the students' career life.
-                                    </p>
-
-                                </div> */}
-
+                                {ConvertAnchorToLink(String(homeData?.blogHead))}
                                 <div className="mt-[52px] w-[95%] ">
                                     <div className=" flex justify-between ">
                                         <div className=" flex">
@@ -1284,17 +1216,9 @@ function Banner() {
                             <div className={`w-[80%] mx-auto ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
                                 ref={jobRedyRef}
                                 style={{ animationDuration: "3s" }}
-                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.jobReadyHead) }}
-
                             >
-                                {/* <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">How IT Training Indore, will make your JOB Ready?</h3> */}
-
+                                {ConvertAnchorToLink(String(homeData?.jobReadyHead))}
                             </div>
-                            {/* <div className="w-[63%] mt-[22px] mb-0 ml-auto mr-auto">
-                                <p>
-                                    IT Training Indore and your IT skills can help you to land your dream job. We believe in the process of learning and expertise rather than ensuring. We are here to help you to gain practical expertise in your career.
-                                </p>
-                            </div> */}
                         </div>
                         <div className={`mt-[95px] flex w-[100%] ${isJobReadyCard && "animate__fadeIn"}`}
                             ref={jobRedyCardRef}
@@ -1306,20 +1230,10 @@ function Banner() {
                                     <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] "
-                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.interviewPrepHead) }}
-
-                                >
-                                    {/* <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Interview Preparation</h4> */}
-                              
-                              
+                                <div className="mt-[17px] " >
+                                    {ConvertAnchorToLink(String(homeData?.interviewPrepHead))}
                                 </div>
-                                {/* <div className="mt-[15px]">
-                                    <p>
-                                        We make you <strong>job-ready</strong> while providing relevant study material in the from basic to advanced level <strong className="hover:text-[#1AAEF4] transition-all delay-75"><a href="/"> courses </a></strong>, we offer tips and tricks to get your <strong>dream job.</strong>
-                                    </p>
 
-                                </div> */}
 
                             </div>
                             <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
@@ -1327,19 +1241,10 @@ function Banner() {
                                     <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] "
-                                dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.mentorsHead) }}
-                                >
-                                    {/* <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Mentors with experience
-                                    </h4> */}
-
-
+                                <div className="mt-[17px] " >
+                                     {ConvertAnchorToLink(String(homeData?.mentorsHead))}
                                 </div>
-                                {/* <div className="mt-[15px]">
-                                    <p>
-                                        Mentors at IT Training Indore share their practical and theoretical knowledge into their whole working experience, so you can become more advance in your skills.  </p>
-
-                                </div> */}
+                                
 
                             </div>
                             <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
@@ -1347,17 +1252,10 @@ function Banner() {
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className="mt-[17px] "
-                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.careerCounsilHead) }}
-                                >
-                                    {/* <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Career Counselling</h4> */}
+                                <div className="mt-[17px] ">
+                                      {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
                                 </div>
-                                {/* <div className="mt-[15px]">
-                                    <p>
-                                        The IT Training Indore career counsellors and mentors will guide you in making career decisions based on their interest and skillsets.
-                                    </p>
-
-                                </div> */}
+                               
 
                             </div>
 
@@ -1381,20 +1279,8 @@ function Banner() {
 
                 <section className="pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
                     <div className="wrapper ">
-                        <div className="mt-[40px] w-[60%] float-left"
-                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(homeData?.beforeCollegeHead) }}
-                        >
-                            {/* <h3 className="mb-[20px] ">Want to get placed before completion of College Life?</h3>
-                            <p className="mb-[23px]">
-                                Everybody wants to get <strong>placed with a good salary package</strong> in the field of their interest area, we come up with the best out of the best courses for those who want to apply their theoretical knowledge on the project work and upgrade their <strong>skills</strong>
-                            </p>
-                            <p className="mb-[23px]">
-                                <strong>
-                                    IT Training Indore has easy to understand <a className="hover:text-[#1AAEF4] transition-all delay-75" href="/">courses with Hindi and English </a> mixed lecture,
-                                </strong><span> </span>
-                                with the best examples and unique learning techniques for the basic and technical terms.
-
-                            </p> */}
+                        <div className="mt-[40px] w-[60%] float-left">
+                            {ConvertAnchorToLink(String(homeData?.beforeCollegeHead))}                        
                         </div>
 
                         <div className="w-[35%] float-right cle">
