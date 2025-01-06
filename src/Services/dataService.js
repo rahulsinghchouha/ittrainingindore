@@ -34,6 +34,9 @@ class DataService {
     getBlogs() {
         return axios.get(`${this.backendUrl}/api/v1/get/get-blogs`);
     }
+    getContactUs(){
+        return axios.get(`${this.backendUrl}/api/v1/get/get-contact-us`);
+    }
 }
 
 export const ittrainingDataSerivice = new DataService();

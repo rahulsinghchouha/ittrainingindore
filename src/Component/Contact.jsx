@@ -10,6 +10,10 @@ import CounterPage from "./Common/CounterPage";
 import { useSelector, useDispatch } from "react-redux";
 import { studentForm } from "../Redux/functionsSlics";
 import { useInView } from "react-intersection-observer";
+import { ittrainingDataSerivice } from "../Services/dataService";
+import { useEffect, useState } from "react";
+//import DOMPurify from "dompurify";
+import convertAnchorToLink from "./Common/ConvertAnchorToLink";
 
 
 const Contact = () => {
@@ -18,7 +22,29 @@ const Contact = () => {
     async function traineeDetailsForm(values) {
         dispatch(studentForm(values));
     }
+
+    const [contactUs, setContactUs] = useState();
+
     //const messageBackend = useSelector((state) => state.backendFunction.studentFormMessage);
+
+    async function getContactUs() {
+        try {
+            const response = await ittrainingDataSerivice.getContactUs();
+
+            if (response.status === 200) {
+            setContactUs(response.data.data);
+            }
+
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        getContactUs();
+    }, [])
+
 
     const { ref: yourOneClick, inView: isYourOneClick } = useInView({
         threshold: 0.1,
@@ -28,38 +54,33 @@ const Contact = () => {
         threshold: 0.1,
         triggerOnce: true
     })
- 
+
     const { ref: getInTouchForm, inView: isGetInTouchForm } = useInView({
         threshold: 0.1,
         triggerOnce: true
     })
+ // Destructure the data object to extract the required properties
 
 
     return (
         <div>
             <Navbar />
-            <PageBanner heading={"Contact Us"} img={"/Contact_IT_Training_Indore.jpg"} />
+            <PageBanner heading={"Contact Us"} img={`${ittrainingDataSerivice.backendUrl}/${contactUs?.bannerImg}`} />
 
             <section className="py-[80px] ">
                 <div className="wrapper">
                     <div className={`text-center ${isYourOneClick ? " transform translate-y-0 opacity-1 ease-in duration-500 " : "transform translate-y-[-15px] opacity-0"}`}
-                    ref={yourOneClick}
-                    style={{animationDuration:"5s"}}
+                        ref={yourOneClick}
+                        style={{ animationDuration: "5s" }}       
+                                   
                     >
-                        <h3>Your One Click</h3>
-                        <h4 className="text-[#1AAEF4] text-[24px] leading-[30px] my-[20px] ">Will connect your career to the bright FUTURE!</h4>
-
-                    </div>
-                    <div className="w-[92%] my-[10px] mx-auto text-center">
-                        <p>
-                            <strong><Link to='/' className="hover:text-[#1AAEF4] transition-all duration-300 ease-out">IT Training Indore</Link></strong> trainers and experts have many years of real-time work experience in their domain. Our trainer will teach in such an easy way that anyone can learn easily. The emphasis is placed on learning core techniques and principles to create a solid foundation. We concentrate on live projects with real examples. All these
-                            <strong> <Link to='/courses' className="hover:text-[#1AAEF4] transition-all duration-300 ease-out"> online courses </Link></strong> are accompanied with live project implementation.
-                        </p>
+                        {convertAnchorToLink(String(contactUs?.contactUsHead))}
+                         
                     </div>
 
-                    <div className={`mt-[92px] flex ${isContactCard ? "animate__fadeIn" :""}`}
-                    ref={contactCard}
-                    style={{animationDuration:"3s"}}
+                    <div className={`mt-[92px] flex ${isContactCard ? "animate__fadeIn" : ""}`}
+                        ref={contactCard}
+                        style={{ animationDuration: "3s" }}
                     >
                         <div className="pt-[100px] pb-[23px] pr-[19px] pl-[20px] rounded-[21px] shadow-contactUsCardShad w-[31.3%] my-0 ml-0 mr-[2%]  ">
                             <div>
@@ -73,7 +94,7 @@ const Contact = () => {
                             <div className="mt-[15px] text-center ">
                                 <p>
                                     <a className="hover:text-[#009ce5] transition-all duration-300 ease-out cursor-pointer">
-                                        Office No. 217-218, 3rd Floor, Onam Plaza, Besides Industry house, Infront of iBus Stop, New Palasia, Indore (M.P.), 452001, India
+                                        {contactUs?.officeAddress}
                                     </a>
                                 </p>
 
@@ -93,7 +114,9 @@ const Contact = () => {
                             </div>
                             <div className="mt-[15px] text-center ">
                                 <ul>
-                                    <li className="my-[13px] ">Call On: <a href="tel: +91 8269600400" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out">+91 8269600400</a></li><li className="my-[13px] ">Email Us: <a href="mailto: info@ittrainingindore.in" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out">info@ittrainingindore.in</a></li>
+                                    <li className="my-[13px] ">Call On: <a href="tel: +91 8269600400" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out"
+
+                                    >+91 {contactUs?.contactUsNumber}</a></li><li className="my-[13px] ">Email Us: <a href={`mailto: ${contactUs?.contactUsEmail}`} className="hover:text-[#1AAEF4] transition-all duration-300 ease-out">{contactUs?.contactUsEmail}</a></li>
                                 </ul>
 
 
@@ -111,8 +134,8 @@ const Contact = () => {
                                 <h6>Office Timing</h6>
                             </div>
                             <div className="mt-[15px] text-center ">
-                                <p>
-                                    Morning 10:00 am to 07:00 pm <br /> Saturday and Sunday Off
+                                <p className="w-[70%] mx-auto">
+                                    {contactUs?.officeTiming}
                                 </p>
                             </div>
                         </div>
@@ -128,8 +151,8 @@ const Contact = () => {
                 <div className="w-[43%]">
                     <div className=" pt-[62px] pb-[68px] px-0 ml-[60px]">
                         <div className={`w-[75%] ${isGetInTouchForm ? "transform translate-x-0 opacity-[1] duration-1000" : "transform translate-x-5 opacity-0"}`}
-                         ref={getInTouchForm}
-                         style={{animationDuration:"5s"}}
+                            ref={getInTouchForm}
+                            style={{ animationDuration: "5s" }}
                         >
                             <div>
                                 <h3>Get in Touch</h3>
@@ -138,7 +161,7 @@ const Contact = () => {
                                 <p className="font-[500]">We read each e-mail and reply within a maximum of 2 business days. Please enter correct e-mail address so that we can back to you.</p>
                             </div>
                             <div className={`mt-[42px]  `}
-                           
+
                             >
                                 <Formik
                                     initialValues={{ name: '', email: '', phone: '', course: '', joiningTime: '', message: '' }}

@@ -336,9 +336,7 @@ const About = () => {
                             ref={ourMissionRSide}
                         >
                             <div>
-                                <h3
-                                dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(aboutUsData?.ourMissionHead)}}
-                                ></h3>
+                                <h3>{aboutUsData?.ourMissionHead}</h3>
                             </div>
                             <div className="mt-[25px] ">
                                 <div className="flex justify-between">
