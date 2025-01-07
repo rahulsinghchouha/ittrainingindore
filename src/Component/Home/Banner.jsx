@@ -937,7 +937,7 @@ function Banner() {
                                                         <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
                                                             <div className={`absolute border-t-[2px] border-l-[2px] rounded-[2px] solid w-[80px] h-[80px] top-0 left-0 transform   origin-top-left duration-[0.5s]  ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
                                                             <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] rounded-[22px] shadow-exploreCardShad flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
-                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage: `url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
+                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage:`url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
                                                                     <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
                                                                 </figure>
                                                                 <div className="mt-[16px] ">

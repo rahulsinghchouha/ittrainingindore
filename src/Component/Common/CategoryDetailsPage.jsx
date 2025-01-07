@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
+import { useLocation } from "react-router-dom";
+import { ittrainingDataSerivice } from "../../Services/dataService";
 
 
 
 const CategoryDetails = () => {
+
+    const [category,setCategory] = useState([]);
+
+    const categoryDetails = useLocation().state;
+
+    useMemo(()=> setCategory(categoryDetails),[categoryDetails]); //if new category then it update and then this component will be re-render
+
+
+console.log("category",category);
+
 
     return (
         <div>
@@ -14,7 +26,7 @@ const CategoryDetails = () => {
             <section className="m-0 pt-[125px]">
                 <div className="relative">
                     <figure className=" z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%] " src="/Software_Development_Course__Coaching_Indore.jpg" />
+                        <img className="w-[100%]" src={`${ittrainingDataSerivice.backendUrl}/${category?.bannerImg}`} />
                     </figure>
                     <div className="wrapper">
                         <div className="absolute top-[50%] transform translate-y-[-50%] ">

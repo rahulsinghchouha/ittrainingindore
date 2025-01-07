@@ -29,7 +29,7 @@ function App() {
           <Route path='/contact-us' element={<Contact/>}/> 
           <Route path='/course-details/:course' element={<CourseDetails/>} key={Math.random()}/>
           <Route path='/blog-details/:blog' element={<BlogDetails/>} key={Math.random()}/>
-          <Route path='/categories-details' element={<CategoryDetails/>} key={Math.random()}/>
+          <Route path='/categories-details/:category' element={<CategoryDetails/>} key={Math.random()}/>
         </Routes>
       </Router>
    </div>

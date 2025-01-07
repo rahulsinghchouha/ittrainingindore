@@ -86,6 +86,14 @@ const Blog = () => {
         threshold: 0.5,
         triggerOnce: true,
     });
+    
+    function categoryDetails(categoryDetails){
+       // console.log(categoryDetails);
+        navigate("/categories-details/" + categoryDetails.heading, {state:categoryDetails})
+    }
+
+
+
 
     return (
         <div>
@@ -260,7 +268,7 @@ const Blog = () => {
                                                     </div>
                                                     <div className="w-[68%] ml-[24px]">
                                                         <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                            <Link to="/course" className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</Link>
+                                                            <button onClick={()=>categoryDetails(item)}  className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
                                                         </h4>
 
                                                     </div>
