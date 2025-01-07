@@ -18,9 +18,10 @@ import { getPlacedStudent, getExploreCards, studentForm } from "../../Redux/func
 import Navbar from "../Common/Navbar";
 import Footer from "../Common/Footer";
 import CourseCard from "../Common/CourseCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
 import { useContactDetails } from "../../Redux/rTKFunction";
+
 
 
 
@@ -28,7 +29,7 @@ function Banner() {
 
     const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
 
-
+    const navigate = useNavigate();
 
     const [isActive1, setIsActive1] = useState(true);
     const [isActive2, setIsActive2] = useState(false);
@@ -96,6 +97,11 @@ function Banner() {
     }, [dispatch])
 
 
+    function categoryDetail(categoryDetail)
+    {
+        console.log("categoryDetail",categoryDetail);
+        navigate("/categories-details/" + categoryDetail?.heading, {state : categoryDetail});
+    }
 
 
     //  $$$$$$$$$$$$$$     ANIMATION      $$$$$$$$$$$$$$$$
@@ -949,7 +955,7 @@ function Banner() {
                                                                 </div>
                                                                 <div className="mt-[18px] ">
                                                                     <h5 className="text-[18px] leading-[23px] text-[#000] font-[700]  ">
-                                                                        <a className={` ${(index % 4 === 0 && (`text-[#ddac00]`)) || (index % 4 === 1 && (`text-[#0089ca]`)) || (index % 4 === 2 && (`text-[#109304]`)) || (index % 4 === 3 && (`text-[#7b57c6]`))} `} href="/">Explore</a>
+                                                                        <button onClick={()=>categoryDetail(card)} className={` ${(index % 4 === 0 && (`text-[#ddac00]`)) || (index % 4 === 1 && (`text-[#0089ca]`)) || (index % 4 === 2 && (`text-[#109304]`)) || (index % 4 === 3 && (`text-[#7b57c6]`))} `} href="/">Explore</button>
                                                                     </h5>
                                                                 </div>
                                                                 <div className={`absolute border-b-[2px] border-r-[2px] rounded-[2px] solid w-[80px] h-[80px] bottom-0 right-0 transform   origin-top-left duration-[0.5s] ${(index) % 2 === 1 && (`mt-[-65px]`)} ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
