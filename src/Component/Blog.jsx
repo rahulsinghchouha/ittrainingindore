@@ -92,6 +92,12 @@ const Blog = () => {
         // console.log(categoryDetails);
         navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
     }
+    // for handle the course
+    function handleCourseDetails(course)
+    {
+       // console.log("card",course);
+        navigate("/course-details/" + course.courseName,{state :course });
+    }
 
 
 
@@ -156,7 +162,6 @@ const Blog = () => {
                                     breakLabel="..."
                                     nextLabel={currentPage + 1 === totalPages ? "" : <FaArrowRightLong />}
                                     onPageChange={handlePageChange}
-
                                     pageCount={totalPages}
                                     previousLabel={currentPage === 0 ? "" : <FaArrowLeftLong />}
                                     renderOnZeroPageCount={null}
@@ -186,11 +191,16 @@ const Blog = () => {
 
                                         {
                                             courses?.slice(courses.length - 3, courses.length).map((course, index) => {
-                                                const formattedDate = new Date(course?.updatedAt).toISOString().split('T')[0];
+                                                const dateObj = new Date(course?.updatedAt); // Create a Date object
+                                                const day = dateObj.getDate(); // Get the day of the month (1-31)
+                                                const month = dateObj.toLocaleString('en-US', { month: 'long' }); // Get the month 
+                                                const year = dateObj.getFullYear(); // Get the year (e.g., 2024)
+                                                const formattedDate = `${month} ${day}, ${year}`; // Format the date as "19 Dec, 2024"
+
                                                 return (<div className="mt-[25px] flex" key={index}>
                                                     <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
                                                         <figure className="m-0">
-                                                            <button className="w-[100%] h-[77px] block">
+                                                            <button className="w-[100%] h-[77px] block" onClick={()=>handleCourseDetails(course)}>
                                                                 <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} />
                                                             </button>
                                                         </figure>
@@ -203,7 +213,7 @@ const Blog = () => {
 
                                                         <div className="mt-[10px]">
                                                             <h4 className="leading-[24px] text-[16px] font-[600] ">
-                                                                <button to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">{course?.courseName}
+                                                                <button onClick={()=>handleCourseDetails(course)}  className="hover:text-[#009ce5] transition-all duration-300 ease-out">{course?.courseName}
                                                                 </button>
 
                                                             </h4>

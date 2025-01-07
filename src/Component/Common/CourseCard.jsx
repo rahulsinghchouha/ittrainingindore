@@ -40,9 +40,9 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
                     <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
                         <div className="mb-[15px] ">
                             <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                <a href="/">
+                                <button onClick={()=>handleCourseDetails(card)}>
                                     {card.courseName}
-                                </a>
+                                </button>
 
                             </h4>
                         </div>
@@ -79,9 +79,9 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
                         <div className=" w-[69%] pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
                             <div className="mb-[15px] ">
                                 <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                    <a href="/">
+                                    <button onClick={()=>handleCourseDetails(card)}>
                                         {card.courseName}
-                                    </a>
+                                    </button>
 
                                 </h4>
                             </div>
