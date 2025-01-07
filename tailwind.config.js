@@ -29,7 +29,7 @@ module.exports = {
         whatsappButtonShad:'0px 2px 6px 1px rgba(0, 0, 0, 0.20)',
         courseDetailsCatShad:'3px 4px 30px 0 rgb(0 0 0 / 20%)',
         courseDetailsRightFormShad:'3px 6px 40px 0 rgba(0, 0, 0, 0.12);',
-        reletedCardShad:'3px 4px 35px 0 rgba(0, 0, 0, 0.08);'
+        reletedCardShad:'3px 4px 35px 0 rgba(0, 0, 0, 0.08);',
       },
      
     

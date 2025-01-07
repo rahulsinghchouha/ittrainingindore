@@ -1,6 +1,4 @@
-
 import './App.css';
-
 import Banner from './Component/Home/Banner';
 import Course from './Component/Course';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
