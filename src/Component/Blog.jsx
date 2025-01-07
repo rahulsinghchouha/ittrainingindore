@@ -7,7 +7,7 @@ import ReactPaginate from 'react-paginate';
 import { FaArrowRightLong, FaRegClock } from "react-icons/fa6";
 
 import { useSelector, useDispatch } from "react-redux";
-import { getExploreCards } from "../Redux/functionsSlics";
+import { getExploreCards, fetchCards } from "../Redux/functionsSlics";
 
 import { FaArrowLeftLong } from "react-icons/fa6";
 import CounterPage from "./Common/CounterPage";
@@ -21,6 +21,7 @@ const Blog = () => {
     const navigate = useNavigate();
 
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
+    const courses = useSelector((state) => state.backendFunction.webCard)
 
     const [blog, setBlog] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
@@ -49,27 +50,27 @@ const Blog = () => {
         }
     }
 
+
+
+
     useEffect(() => {
         fetchBlog();
     }, [])
 
     useEffect(() => {
         dispatch(getExploreCards());
+        dispatch(fetchCards());
     }, [dispatch])
 
     function blogDetails(blogDetail) {
 
-        console.log("blog--",blogDetail);
+        console.log("blog--", blogDetail);
 
         navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
 
     }
 
 
-    const { ref: mainPageHead, inView: isMainPageHead } = useInView({
-        threshold: 0.5,
-        triggerOnce: true,
-    });
     const { ref: pagination, inView: isPagination } = useInView({
         threshold: 0.5,
         triggerOnce: true,
@@ -86,10 +87,10 @@ const Blog = () => {
         threshold: 0.5,
         triggerOnce: true,
     });
-    
-    function categoryDetails(categoryDetails){
-       // console.log(categoryDetails);
-        navigate("/categories-details/" + categoryDetails.heading, {state:categoryDetails})
+
+    function categoryDetails(categoryDetails) {
+        // console.log(categoryDetails);
+        navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
     }
 
 
@@ -181,65 +182,38 @@ const Blog = () => {
                                         <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Latest Courses</h6>
 
                                     </div>
-                                    <div className="mt-[25px] ">
-                                        <div className="flex">
-                                            <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
-                                                <figure className="m-0">
-                                                    <Link className="w-[100%] h-[77px] block">
-                                                        <img className="w-[100%] h-[100%] object-cover" src="/best-web-api-development-coaching-class-indore-1.jpg" />
-                                                    </Link>
-                                                </figure>
-                                            </div>
-                                            <div className="ml-[10px] w-[68%] ">
-                                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">April 28, 2023</h4>
-                                                <div className="mt-[10px]">
-                                                    <h4 className="leading-[24px] text-[16px] font-[600] ">
-                                                        <Link to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Web API Development
-                                                        </Link>
+                                    <div className=" ">
 
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="flex mt-[25px]">
-                                            <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
-                                                <figure className="m-0">
-                                                    <Link className="w-[100%] h-[77px] block">
-                                                        <img className="w-[100%] h-[100%] object-cover" src="/best-cake-php-coaching-class-indore.jpg" />
-                                                    </Link>
-                                                </figure>
-                                            </div>
-                                            <div className="ml-[10px] w-[68%] ">
-                                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">April 28, 2023</h4>
-                                                <div className="mt-[10px]">
-                                                    <h4 className="leading-[24px] text-[16px] font-[600] ">
-                                                        <Link to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Cake PHP Course
-                                                        </Link>
+                                        {
+                                            courses?.slice(courses.length - 3, courses.length).map((course, index) => {
+                                                const formattedDate = new Date(course?.updatedAt).toISOString().split('T')[0];
+                                                return (<div className="mt-[25px] flex" key={index}>
+                                                    <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
+                                                        <figure className="m-0">
+                                                            <button className="w-[100%] h-[77px] block">
+                                                                <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} />
+                                                            </button>
+                                                        </figure>
+                                                    </div>
+                                                    <div className="ml-[10px] w-[68%] ">
 
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="flex mt-[25px]">
-                                            <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
-                                                <figure className="m-0">
-                                                    <Link className="w-[100%] h-[77px] block">
-                                                        <img className="w-[100%] h-[100%] object-cover" src="/best-vue-js-coaching-class-indore.jpg" />
-                                                    </Link>
-                                                </figure>
-                                            </div>
-                                            <div className="ml-[10px] w-[68%] ">
-                                                <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">April 28, 2023</h4>
-                                                <div className="mt-[10px]">
-                                                    <h4 className="leading-[24px] text-[16px] font-[600] ">
-                                                        <Link to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">Vue.js course
-                                                        </Link>
 
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                        <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500]">{formattedDate}</h4>
 
+
+                                                        <div className="mt-[10px]">
+                                                            <h4 className="leading-[24px] text-[16px] font-[600] ">
+                                                                <button to="courses" className="hover:text-[#009ce5] transition-all duration-300 ease-out">{course?.courseName}
+                                                                </button>
+
+                                                            </h4>
+                                                        </div>
+                                                    </div>
+                                                </div>)
+
+
+                                            })
+                                        }
                                     </div>
                                 </div>
                                 <div className={`mt-[65px] ${isCourseCategories && "animate__fadeIn"}`}
@@ -268,7 +242,7 @@ const Blog = () => {
                                                     </div>
                                                     <div className="w-[68%] ml-[24px]">
                                                         <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                            <button onClick={()=>categoryDetails(item)}  className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
+                                                            <button onClick={() => categoryDetails(item)} className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
                                                         </h4>
 
                                                     </div>
