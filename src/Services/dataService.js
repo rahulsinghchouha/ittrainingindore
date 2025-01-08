@@ -37,6 +37,9 @@ class DataService {
     getContactUs(){
         return axios.get(`${this.backendUrl}/api/v1/get/get-contact-us`);
     }
+    getTags(){
+        return axios.get(`${this.backendUrl}/api/v1/get/get-tags`)
+    }
 }
 
 export const ittrainingDataSerivice = new DataService();

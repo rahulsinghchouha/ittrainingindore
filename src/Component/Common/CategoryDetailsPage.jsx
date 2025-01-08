@@ -31,7 +31,7 @@ const CategoryDetails = () => {
                     </figure>
                     <div className="wrapper">
                         <div className="absolute top-[50%] transform translate-y-[-50%] ">
-                            <h1 className="text-[54px] leading-[60px] font-extrabold text-[#ffffff] tracking-[1.62px] ">Software Development</h1>
+                            <h1 className="text-[54px] leading-[60px] font-extrabold text-[#ffffff] tracking-[1.62px] ">{category?.heading}</h1>
                         </div>
 
                     </div>
