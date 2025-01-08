@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import ConvertAnchorToLink from "./ConvertAnchorToLink";
 import { useEffect } from "react";
@@ -10,6 +10,8 @@ import { FiUser } from "react-icons/fi";
 
 
 const TagDetails = () => {
+
+    const navigate = useNavigate();
 
     const params = useParams();
 
@@ -42,6 +44,10 @@ const TagDetails = () => {
     useEffect(() => {
         fetchBlog();
     }, [])
+    function showTagsBlog(tag) {
+        navigate("/tag-details/" + tag );
+    }
+
 
     return (
         <div>
@@ -69,19 +75,25 @@ const TagDetails = () => {
                     </div>
                 </header>
 
-                <article className="w-[1200px] my-[40px] mx-auto">
-                    <header className="mb-[15px] ">
-                        <div className="mt-[29px] ">
-                            <h2 className="text-[26px] font-[600] ">Choose Digital Marketing Courses For a Rewarding Career Ahead</h2>
+                <div>
+
+                    {filterBlog?.map((blog, index) => (
+                        <article className="w-[1200px] my-[40px]  mx-auto border-b-[1px] border-solid border-opacity90" key={index}>
+                            <header className="mb-[15px] ">
+                                <div className="mt-[29px] ">
+                                    <h2 className="text-[26px] font-[600] ">{blog?.heading}</h2>
+                                </div>
+                            </header>
+
                             <div className="mt-[21px] flex gap-1 items-center">
-                                <FiUser style={{fontSize:"24px", fontWeight:"bold" }} />
+                                <FiUser style={{ fontSize: "24px", fontWeight: "bold" }} />
                                 <p className=" text-[16px] opacity-60 font-[400] ">By</p>
                                 <Link to="/" className="hover:text-[#1AAEF4] font-[500]"> IT Training Indore</Link>
                             </div>
                             <div className="flex items-center">
                                 <figure className="mt-0 mb-0 mr-[30px] ml-0 w-[27%] ">
                                     <div className="mt-[29px] ">
-                                        <img src={`${ittrainingDataSerivice.backendUrl}/${blog[0]?.img}`}/>
+                                        <img src={`${ittrainingDataSerivice.backendUrl}/${blog?.img}`} />
 
                                     </div>
 
@@ -89,7 +101,7 @@ const TagDetails = () => {
                                 <div className="w-[70%] ">
                                     <div className="my-[20px] mx-0">
                                         <p>
-                                        Digital marketing is a technique that covers all of the advertising and marketing techniques and techniques through an internet platform. This advertising technique additionally defined as an umbrella for all marketing activities for services or products follows various online platforms. Digital marketing is the modern-day tool for optimising business capacity, there are various options like […]
+                                            {ConvertAnchorToLink(String(blog?.details))}
                                         </p>
 
                                     </div>
@@ -98,15 +110,25 @@ const TagDetails = () => {
 
                             </div>
 
-                        </div>
+                            {/* Post Inner Section */}
+                            <div className="mt-[29px] ">
+                                <div className="mt-0 mr-[3%] mb-[20px] ml-0 inline-block">
+                                    {
+                                        blog?.tags?.map((tag, index) =>
+                                            <button onClick={() => showTagsBlog(tag)} key={index} className="hover:text-[#fff] hover:bg-[#1AAEF4] ml-[30px] text-[14px] leading-[20px] font-[500]  py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898]">
+                                                {tag}
+                                            </button>
+                                        )
+                                    }
 
-                    </header>
+                                </div>
 
-                </article>
+                            </div>
+                        </article>
+                    ))
+                    }
 
-
-
-
+                </div>
             </section>
 
 
