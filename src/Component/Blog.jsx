@@ -64,10 +64,6 @@ const Blog = () => {
         }
 
     }
-
-
-
-
     useEffect(() => {
         fetchBlog();
         getTag();

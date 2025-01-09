@@ -746,3 +746,22 @@ background-color: #1AAEF4;
 color: #1AAEF4;
 transition: all 0.3s ease;
 }
+.listBgImage ul li:hover {
+  color: #1AAEF4;
+  transition: all 0.3s ease;
+}
+.sitemapBtn {
+  background: url('../public//exolore-slider-prev (1).svg') no-repeat 0 5px  ;
+  animation: leftRight 1s linear infinite  ;
+}
+@keyframes  leftRight{
+  0%{
+    background-position-x: 0;
+    background-position-y: center;
+  }
+  80%{
+    background-position-x: 8px;
+    background-position-y: center;
+  }
+
+}
