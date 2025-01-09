@@ -10,6 +10,7 @@ import CourseDetails from './Component/CourseDetails';
 import BlogDetails from './Component/BlogDetails';
 import CategoryDetails from './Component/Common/CategoryDetailsPage';
 import TagDetails from "./Component/Common/TagDetails";
+import Sitemap from './Component/Sitemap';
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='/blog-details/:blog' element={<BlogDetails/>} key={Math.random()}/>
           <Route path='/categories-details/:category' element={<CategoryDetails/>} key={Math.random()}/>
           <Route path='/tag-details/:tag' element={<TagDetails/>} key={Math.random()}/>
+          <Route path='/sitemap' element={<Sitemap/>}/>
         </Routes>
       </Router>
    </div>
