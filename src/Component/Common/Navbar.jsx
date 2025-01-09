@@ -27,21 +27,21 @@ function Navbar() {
                 <div className="  mt-[14px] flex flex-col gap-3 text-right float-right ">
                     <div className=" w-[100%] flex justify-end items-center text-right  ">
                         <div className="  flex  items-center gap-[3px] z-10 ">
-                            <a href="/" className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
+                            <a href="https://www.facebook.com/ittrainingindore?ref=hl" target="_blank"  className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
                             <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight:400,  }} />
 
                             </a>
-                            <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
+                            <a href="https://www.linkedin.com/company/it-training-indore" target="_blank" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
                             <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight:400  }} />
                             </a>
-                            <a  href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
+                            <a  href="https://www.instagram.com/ittrainingindore/" target="_blank" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
                             <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight:400  }} />
                             </a>
-                            <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
+                            <a href="https://twitter.com/ITIndore" target="_blank" className="h-[40px] w-[40px] rounded-full relative overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
                             <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px",  fontWeight:400  }} />
 
                             </a>
-                            <a href="/" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
+                            <a href="https://www.pinterest.com/ittrainingindor/" target="_blank" className="h-[40px] w-[40px] rounded-full relative overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
                             <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight:400  }} />
                             </a></div>
                         <div className="flex ">

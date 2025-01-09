@@ -178,10 +178,6 @@ function Banner() {
         threshold: 0.1,
         triggerOnce: true,
     });
-    const { ref: latestBside, inView: isLatestBside } = useInView({
-        threshold: 0.1,
-        triggerOnce: true,
-    });
     const { ref: jobRedyRef, inView: isJobReady } = useInView({
         threshold: 0.1,
         triggerOnce: true,
@@ -246,21 +242,7 @@ function Banner() {
                                 >
                                     {ConvertAnchorToLink(String(homeData?.bannerHeading))}
 
-                                    {/* <h1 className=" text-[2.6em] leading-[1.3em] block font-[800] text-[#000000] ">
-                                        Unlock
-                                        <span className="text-[#1aaef4]"> Your Potential </span>
-                                        Choose the Best
-                                        <span className="text-[#1aaef4]"> Software Training </span>
-                                        Institute in Indore
-
-                                    </h1> */}
-
-
-                                    {/* </div>
-                                <div className="mt-[32px] box-border"> */}
-                                    {/* <p className="text-[16px] leading-[34px] font-[400] tracking-normal">
-                                        Welcome to IT Training Indore, your premier destination for comprehensive IT training and placements in Indore.
-                                    </p> */}
+                                  
                                 </div>
                                 {/* banner search form */}
                                 <div className="w-[100%] mt-[16px] ">

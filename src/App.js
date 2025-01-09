@@ -11,6 +11,7 @@ import BlogDetails from './Component/BlogDetails';
 import CategoryDetails from './Component/Common/CategoryDetailsPage';
 import TagDetails from "./Component/Common/TagDetails";
 import Sitemap from './Component/Sitemap';
+import Search from './Component/Search';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path='/categories-details/:category' element={<CategoryDetails/>} key={Math.random()}/>
           <Route path='/tag-details/:tag' element={<TagDetails/>} key={Math.random()}/>
           <Route path='/sitemap' element={<Sitemap/>}/>
+          <Route path='/search' element={<Search/>}/>
         </Routes>
       </Router>
    </div>
