@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Field, Formik, Form } from "formik";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -8,14 +8,27 @@ import { Blocks } from 'react-loader-spinner';
 import { useInView } from 'react-intersection-observer';
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import { useDispatch,useSelector } from "react-redux";
-import { studentForm } from "../../Redux/functionsSlics";
-
-
+import { fetchCards, getExploreCards, studentForm } from "../../Redux/functionsSlics";
 import { Select } from "antd";
+import { useContactDetails } from "../../Redux/rTKFunction";
 
 const Footer = () =>{
-  
+    const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
+
     const dispatch = useDispatch();
+
+
+    
+    const webCard = useSelector((state) => state.backendFunction.webCard);
+    const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
+
+
+
+
+    useEffect(() => {
+        dispatch(fetchCards());
+        dispatch(getExploreCards());
+    }, [dispatch])
     
     async function traineeDetailsForm(values) {
         dispatch(studentForm(values));
