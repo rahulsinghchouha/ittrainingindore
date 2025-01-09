@@ -35,7 +35,7 @@ function App() {
           <Route path='/categories-details/:category' element={<CategoryDetails/>} key={Math.random()}/>
           <Route path='/tag-details/:tag' element={<TagDetails/>} key={Math.random()}/>
           <Route path='/sitemap' element={<Sitemap/>}/>
-          <Route path='/search' element={<Search/>}/>
+          <Route path='/search/:searchvalue' element={<Search/>} key={Math.random()}/>
         </Routes>
       </Router>
    </div>

@@ -4,7 +4,7 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-svg-icons";
 import "animate.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useContactDetails } from "../../Redux/rTKFunction";
 
 
@@ -18,7 +18,10 @@ function Navbar() {
 
                 <div className="mt-[6px] w-[24%] float-left">
                     <figure className="w-[307px] h-[83px]">
+                        <Link to="/">
                         <img src="/Navbar/It_training_logo.svg" alt="navbar-image" loading="lazy" />
+                        </Link>
+                       
                     </figure>
 
 

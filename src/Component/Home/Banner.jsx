@@ -207,7 +207,11 @@ function Banner() {
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
 
-    const handleSearch = () => {
+    const handleSearch = (search) => {
+      
+      console.log(search);
+      
+        // navigate("/search/" + search);
     }
 
     async function traineeDetailsForm(values) {
@@ -219,8 +223,6 @@ function Banner() {
         navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
 
     }
-
-
 
     return (
         <div>
@@ -242,19 +244,23 @@ function Banner() {
                                 >
                                     {ConvertAnchorToLink(String(homeData?.bannerHeading))}
 
-                                  
+
                                 </div>
                                 {/* banner search form */}
                                 <div className="w-[100%] mt-[16px] ">
                                     <Formik
                                         initialValues={{ query: "" }}
-                                        onSubmit={(values) => handleSearch(values)}
-
+                                        onSubmit={(values, { setSubmitting }) => {
+                                            setTimeout(() => {
+                                                handleSearch(values);
+                                                setSubmitting(false);
+                                            }, 400);
+                                        }}
                                     >
-                                        {() => (
-                                            <form className="w-[98%] flex ">
+                                        {(handleSubmit) => (
+                                            <form className="w-[98%] flex " onSubmit={handleSubmit}>
                                                 <input type="text" name="query" placeholder="Search Course" className="bg-[#ffffff] py-[15px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent" />
-                                                <button className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
+                                                <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
                                                     <input className="search-submit ml-8 focus:outline-none cursor-pointer " />
                                                 </button>
 
@@ -271,9 +277,11 @@ function Banner() {
 
                                     </div>
                                     <div className="ml-[10px] inline-block cursor-pointer">
-                                        <a href="" className=" text-[14px] py-[9px] px-[15px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] ">Web Development</a>
-                                        <a href="" className=" text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] ">Graphic Design</a>
-                                        <a href="" className=" text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] ">Animation</a>
+                                        {
+                                            exploreCat.slice(exploreCat.length - 3, exploreCat.length).reverse().map((category, index) => (
+                                                <button onClick={() => handleSearch(category?.heading)} key={index} className={` ${index != 0 ? "ml-[15px]" : ""} inline-block text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] `}>{category?.heading}</button>
+                                            ))
+                                        }
                                     </div>
                                 </div>
 
@@ -1142,7 +1150,7 @@ function Banner() {
                                                             </div>
                                                         </div>
                                                         <div className="ml-[8px] ">
-                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#1AAEF4]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#4800E2]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700]`}>{latestBlog?.heading.slice(0, 30)}...</button>
+                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700]`}>{latestBlog?.heading.slice(0, 30)}...</button>
                                                             <p className={`${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  text-[16px] leading-[34px] font-[400] `}>{latestBlog?.blogCategory}</p>
                                                         </div>
 
