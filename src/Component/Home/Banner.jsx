@@ -40,6 +40,7 @@ function Banner() {
 
     const [homeData, setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
+    const [blog, setBlog] = useState([]);
 
     const [ourStats, setOurStats] = useState([]);
 
@@ -85,11 +86,25 @@ function Banner() {
             console.log(error);
         }
     }
+    async function fetchBlog() {
+        try {
+            const response = await ittrainingDataSerivice.getBlogs();
+
+            if (response.status === 200) {
+                setBlog(response.data.data);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
     useEffect(() => {
         getHome();
         getOurPartners();
         getOurStats();
-    }, [])
+        fetchBlog();
+    }, []);
+
     useEffect(() => {
         dispatch(fetchCards());
         dispatch(getPlacedStudent());
@@ -97,10 +112,14 @@ function Banner() {
     }, [dispatch])
 
 
-    function categoryDetail(categoryDetail)
-    {
-        console.log("categoryDetail",categoryDetail);
-        navigate("/categories-details/" + categoryDetail?.heading, {state : categoryDetail});
+    function categoryDetail(categoryDetail) {
+        console.log("categoryDetail", categoryDetail);
+        navigate("/categories-details/" + categoryDetail?.heading, { state: categoryDetail });
+    }
+
+    function blogDetails(blogDetail) {
+        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+
     }
 
 
@@ -197,6 +216,12 @@ function Banner() {
 
     async function traineeDetailsForm(values) {
         dispatch(studentForm(values));
+    }
+
+    function blogDetails(blogDetail) {
+
+        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+
     }
 
 
@@ -580,7 +605,7 @@ function Banner() {
                     <div className="wrapper">
                         <div className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
                             {ConvertAnchorToLink(String(homeData?.upliftYourCareerHead))}
-                           
+
 
                         </div>
 
@@ -943,7 +968,7 @@ function Banner() {
                                                         <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
                                                             <div className={`absolute border-t-[2px] border-l-[2px] rounded-[2px] solid w-[80px] h-[80px] top-0 left-0 transform   origin-top-left duration-[0.5s]  ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
                                                             <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] rounded-[22px] shadow-exploreCardShad flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
-                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage:`url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
+                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage: `url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
                                                                     <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
                                                                 </figure>
                                                                 <div className="mt-[16px] ">
@@ -955,7 +980,7 @@ function Banner() {
                                                                 </div>
                                                                 <div className="mt-[18px] ">
                                                                     <h5 className="text-[18px] leading-[23px] text-[#000] font-[700]  ">
-                                                                        <button onClick={()=>categoryDetail(card)} className={` ${(index % 4 === 0 && (`text-[#ddac00]`)) || (index % 4 === 1 && (`text-[#0089ca]`)) || (index % 4 === 2 && (`text-[#109304]`)) || (index % 4 === 3 && (`text-[#7b57c6]`))} `} href="/">Explore</button>
+                                                                        <button onClick={() => categoryDetail(card)} className={` ${(index % 4 === 0 && (`text-[#ddac00]`)) || (index % 4 === 1 && (`text-[#0089ca]`)) || (index % 4 === 2 && (`text-[#109304]`)) || (index % 4 === 3 && (`text-[#7b57c6]`))} `} href="/">Explore</button>
                                                                     </h5>
                                                                 </div>
                                                                 <div className={`absolute border-b-[2px] border-r-[2px] rounded-[2px] solid w-[80px] h-[80px] bottom-0 right-0 transform   origin-top-left duration-[0.5s] ${(index) % 2 === 1 && (`mt-[-65px]`)} ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
@@ -1115,83 +1140,39 @@ function Banner() {
                                 ></div>
                                 {ConvertAnchorToLink(String(homeData?.blogHead))}
                                 <div className="mt-[52px] w-[95%] ">
-                                    <div className=" flex justify-between ">
-                                        <div className=" flex">
-                                            <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
-                                                <div className="mt-[8px] flex flex-col justify-center items-center">
-                                                    <h2 className="text-[18px] leading-[23px] font-[700] text-[#4800E2]">
-                                                        2nd
-                                                    </h2>
-                                                    <h5 className="text-[12px] font-[500] leading-[25px] text-[#000000] ">
-                                                        Aug
-                                                    </h5>
+                                    {
+                                        blog?.slice(blog.length - 3, blog.length).reverse().map((latestBlog, index) => {
+
+                                            const dateObj = new Date(latestBlog?.updatedAt); // Create a Date object
+                                            const day = dateObj.getDate(); // Get the day of the month (1-31)
+                                            const month = dateObj.toLocaleString('en-US', { month: 'short' }); // Get the month 
+                                            return (
+                                                <div className=" flex justify-between mb-[45px]  ">
+                                                    <div className=" flex">
+                                                        <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
+                                                            <div className="mt-[8px] flex flex-col justify-center items-center">
+                                                                <h2 className={`text-[18px] leading-[23px] font-[700] ${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""} `}>
+                                                                    {day}{`${day == 1 ? "st" : "" || day == 2 ? "nd" : "" || day == 3 ? "rd" : "th"}`}
+                                                                </h2>
+                                                                <h5 className={`text-[12px] font-[500] leading-[25px] ${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  `}>
+                                                                    {month}
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                        <div className="ml-[8px] ">
+                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#1AAEF4]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#4800E2]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700]`}>{latestBlog?.heading.slice(0, 30)}...</button>
+                                                            <p className={`${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  text-[16px] leading-[34px] font-[400] `}>{latestBlog?.blogCategory}</p>
+                                                        </div>
+
+                                                    </div>
+                                                    <div className=" flex justify-center items-center " >
+                                                        <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
+                                                            <button onClick={() => blogDetails(latestBlog)} className={`blogBtn itCardBtn  pr-[45px] mt-[33px] ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out `}> Read More   </button> </h6>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="ml-[8px] ">
-                                                <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Top IT Courses after...</h4>
-                                                <span className="text-[#4800E2] text-[16px] leading-[34px] font-[400] ">Mobile App Development</span>
-                                            </div>
-
-                                        </div>
-                                        <div className=" flex justify-center items-center " >
-                                            <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
-                                                <a href="/" className="blogBtn pr-[45px] mt-[33px] text-[#000] "> Read More   </a> </h6>
-                                        </div>
-                                    </div>
-
-
-                                    <div className="mt-[25px] pt-[24px] border-t-[1px] border-solid border-[#d8effa] flex justify-between ">
-                                        <div className=" flex">
-                                            <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
-                                                <div className="mt-[8px] flex flex-col justify-center items-center">
-                                                    <h2 className="text-[18px] leading-[23px] font-[700] text-[#11B400]">
-                                                        19th
-                                                    </h2>
-                                                    <h5 className="text-[12px] font-[500] leading-[25px] text-[#000000] ">
-                                                        Apr
-                                                    </h5>
-                                                </div>
-
-
-                                            </div>
-                                            <div className="ml-[8px] ">
-                                                <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">Become Master of Your....</h4>
-                                                <span className="text-[#11B400] text-[16px] leading-[34px] font-[400] ">Animation</span>
-                                            </div>
-
-                                        </div>
-                                        <div className=" flex justify-center items-center" >
-                                            <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
-                                                <a href="/" className="blogBtn pr-[45px] mt-[33px] text-[#000] "> Read More   </a>
-                                            </h6>
-                                        </div>
-                                    </div>
-                                    <div className="mt-[25px] pt-[24px] border-t-[1px] border-solid border-[#d8effa] flex justify-between">
-                                        <div className=" flex">
-                                            <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
-                                                <div className="mt-[8px] flex flex-col justify-center items-center">
-                                                    <h2 className="text-[18px] leading-[23px] font-[700] text-[#1AAEF4]">
-                                                        10th
-                                                    </h2>
-                                                    <h5 className="text-[12px] font-[500] leading-[25px] text-[#000000] ">
-                                                        Apr
-                                                    </h5>
-                                                </div>
-
-
-                                            </div>
-                                            <div className="ml-[8px] ">
-                                                <h4 className="text-[24px] leading-[27px] text-[#000] font-[700]">How to Choose Right...</h4>
-                                                <span className="text-[#1AAEF4] text-[16px] leading-[34px] font-[400] ">Web Development</span>
-                                            </div>
-
-                                        </div>
-                                        <div className=" align-middle" >
-                                            <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
-                                                <a href="/" className="blogBtn pr-[45px] mt-[33px] text-[#000] "> Read More   </a>
-                                            </h6>
-                                        </div>
-                                    </div>
+                                            )
+                                        })
+                                    }
                                 </div>
                             </div>
 
@@ -1236,9 +1217,9 @@ function Banner() {
 
                                 </figure>
                                 <div className=" hoverBlue listBgImage mt-[17px] " >
-                                     {ConvertAnchorToLink(String(homeData?.mentorsHead))}
+                                    {ConvertAnchorToLink(String(homeData?.mentorsHead))}
                                 </div>
-                                
+
 
                             </div>
                             <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
@@ -1246,10 +1227,10 @@ function Banner() {
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
 
                                 </figure>
-                                <div className= " hoverBlue listBgImage mt-[17px] ">
-                                      {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
+                                <div className=" hoverBlue listBgImage mt-[17px] ">
+                                    {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
                                 </div>
-                               
+
 
                             </div>
 
@@ -1274,7 +1255,7 @@ function Banner() {
                 <section className="pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
                     <div className="wrapper ">
                         <div className=" hoverBlue listBgImage mt-[40px] w-[60%] float-left">
-                            {ConvertAnchorToLink(String(homeData?.beforeCollegeHead))}                        
+                            {ConvertAnchorToLink(String(homeData?.beforeCollegeHead))}
                         </div>
 
                         <div className="w-[35%] float-right cle">
