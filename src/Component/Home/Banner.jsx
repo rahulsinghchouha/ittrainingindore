@@ -21,6 +21,7 @@ import CourseCard from "../Common/CourseCard";
 import { Link, useNavigate } from "react-router-dom";
 import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
 import { useContactDetails } from "../../Redux/rTKFunction";
+import { BsSearch } from "react-icons/bs";
 
 
 
@@ -208,10 +209,10 @@ function Banner() {
     const exploreCatRef = useRef(null);
 
     const handleSearch = (search) => {
-      
-      console.log(search);
-      
-        // navigate("/search/" + search);
+        if (search?.query)
+            navigate("/search/" + search?.query);
+        else
+            navigate("/search/" + search);
     }
 
     async function traineeDetailsForm(values) {
@@ -219,9 +220,7 @@ function Banner() {
     }
 
     function blogDetails(blogDetail) {
-
         navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
-
     }
 
     return (
@@ -250,6 +249,12 @@ function Banner() {
                                 <div className="w-[100%] mt-[16px] ">
                                     <Formik
                                         initialValues={{ query: "" }}
+                                        validate={value => {
+                                            const error = {};
+                                            if (!value.query) error.query = "Please Enter a Course Name"
+                                            return error;
+                                        }
+                                        }
                                         onSubmit={(values, { setSubmitting }) => {
                                             setTimeout(() => {
                                                 handleSearch(values);
@@ -257,13 +262,15 @@ function Banner() {
                                             }, 400);
                                         }}
                                     >
-                                        {(handleSubmit) => (
-                                            <form className="w-[98%] flex " onSubmit={handleSubmit}>
-                                                <input type="text" name="query" placeholder="Search Course" className="bg-[#ffffff] py-[15px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent" />
-                                                <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
-                                                    <input className="search-submit ml-8 focus:outline-none cursor-pointer " />
-                                                </button>
-
+                                        {({ handleSubmit, handleChange, values, errors }) => (
+                                            <form className="w-[98%]" onSubmit={handleSubmit}>
+                                                <div className="flex w-[100%]">
+                                                    <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} bg-[#ffffff] py-[15px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
+                                                    <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
+                                                        <BsSearch style={{ color: "white", fontSize: "20px", marginLeft: "25px" }} />
+                                                    </button>
+                                                </div>
+                                                {errors.query && <span className="text-red-600 inline-block">{errors.query}</span>}
                                             </form>
 
                                         )}

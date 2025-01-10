@@ -379,7 +379,7 @@ const Footer = () => {
                                         {
                                             webCard?.slice(webCard.length - 8, webCard.length).reverse().map((course, index) => (
                                                
-                                                    <button onClick={()=>handleCourseDetails(course)}  className="mt-[30px] text-start text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
+                                                    <button onClick={()=>handleCourseDetails(course)} key={index} className="mt-[30px] text-start text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                         {course?.courseName}
                                                     </button>
                                                
