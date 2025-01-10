@@ -75,8 +75,8 @@ const CourseDetails = () => {
 
                         </div>
                         <div className="mt-[80px] ">
-                            <h3>Overview</h3>
-                            <div className="mt-[26px] ">
+                            {/* <h3>Overview</h3> */}
+                            <div className="mt-[26px] listBgImage hoverBlue ">
                                 <p id="description">
                                     
                                     {
@@ -108,7 +108,7 @@ const CourseDetails = () => {
 
                         </div>
 
-                        <div className="mt-[55px] pt-[25px] pb-[89px] px-0">
+                        <div className="mt-[55px]   pt-[25px] pb-[89px] px-0">
                             <div>
                                 <h3 className="mb-[16px]">Tools to hands-on</h3>
                                 <ul className="flex flex-wrap gap-[23px]">
@@ -121,44 +121,11 @@ const CourseDetails = () => {
                             </div>
 
                         </div>
-                        <div className="pt-[25px] pb-[89px] px-0" >
+                        <div  className="mt-[10px]  pt-[25px] listBgImage hoverBlue pb-[89px] px-0" >
 
                             {
                                 ConvertAnchorToLink(String(course?.benefits))
                             }
-                            {/* <h3 className="mt-[25px] mb-[25px] text-[36px] ">Benefits To Enroll {course?.courseName} Classes at IT Training Indore</h3>
-
-                            <ul>
-                                {
-                                    course?.benefits?.map((benefits, index) => <li key={index} className="w-[100%] mt-[20px] mb-[5px] font-[400] pl-[35px] inline-block" style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '6px' }}>
-                                        {benefits}
-
-                                    </li>
-                                    )
-                                }
-                            </ul> */}
-                            {/* <h3 className="mt-[50px] mb-[25px]">Enroll in Our {course?.courseName} & Management Training Program
-                            </h3> */}
-
-                            {/* <p className="mt-[20px] ">
-                                <span className="font-[400]">Join our <strong>Training Program</strong> and upskill with the {course?.courseName} Course.</span>
-                            </p> */}
-
-                            {/* <ul className="m-0">
-
-                                <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
-                                    <b>Eligibility: </b>{course?.eligibility}
-                                </li>
-                                <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
-                                    <b>Course Duration: </b>{course?.courseDuration}
-                                </li>
-                                <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
-                                    <b>Affordable & Flexible Fee: </b>{course?.feeOptions}
-                                </li>
-
-
-                            </ul> */}
-
                         </div>
                         <div>
                             <h3>Course Curriculum</h3>
@@ -190,7 +157,7 @@ const CourseDetails = () => {
                                 </ul>
 
 
-                                    <div>
+                                    <div className="listBgImage hoverBlue">
                                         {ConvertAnchorToLink(String(course?.benefits))}
                                     </div>
 
@@ -331,7 +298,8 @@ const CourseDetails = () => {
                                         </a>
                                         <a href="/" className="h-[40px] w-[40px] rounded-full relative  z-0  overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
                                             <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight: 400 }} />
-                                        </a></div>
+                                        </a>
+                                    </div>
 
                                 </div>
 

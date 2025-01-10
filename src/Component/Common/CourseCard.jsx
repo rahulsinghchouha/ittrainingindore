@@ -4,6 +4,10 @@ import { ittrainingDataSerivice } from "../../Services/dataService";
 
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import ConvertAnchorToLink from "./ConvertAnchorToLink";
+
+
+
 
 
 
@@ -17,6 +21,10 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
         console.log("card",course);
         navigate("/course-details/" + course.courseName,{state :course });
     }
+
+    const value = ConvertAnchorToLink(String(webCard[0]?.overview));
+
+    console.log("Value",value.slice(0,5));
 
     return (
         <div className="flex flex-wrap justify-center items-center">
@@ -48,9 +56,10 @@ const CourseCard = ({ cardLimit, square, horizontal,webCard }) => {
                         </div>
                         <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
                             <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                {card.overview.slice(0,70)} .....
+                                {
+                                 ConvertAnchorToLink(String(card?.overview)).slice(0,5)
+                                }
                             </p>
-
                         </div>
                         <div className="mt-[21px] ">
                             <button onClick={()=>handleCourseDetails(card)} className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
