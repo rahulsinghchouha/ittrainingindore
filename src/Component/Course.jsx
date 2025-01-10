@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchCards } from "../Redux/functionsSlics";
 import PageBanner from "./Common/PageBanner";
+import { ittrainingDataSerivice } from "../Services/dataService";
 
 
 function Course() {
@@ -18,6 +19,7 @@ function Course() {
     const [horizontalCard, setHorizontalCard] = useState(false);
     const [cardLimit, setCardLimit] = useState(12);
     const [courses, setCourses] = useState([]);
+    const [bannerImg,setBannerImg] = useState();
 
 
     const dispatch = useDispatch();
@@ -27,6 +29,21 @@ function Course() {
         setSquareCard(false);
         setHorizontalCard(true);
     }
+
+    async function getBannerImg(){
+        try{
+            const response = await ittrainingDataSerivice.getCourseBanner();
+            setBannerImg(response?.data?.data?.img)
+        
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    }
+    useEffect(()=>{
+        getBannerImg();
+    },[]);
 
     function showSquareCard() {
 
@@ -69,7 +86,7 @@ function Course() {
         <div>
             <Navbar />
             {/* page banner start */}
-            <PageBanner heading={"Courses"} img={"/Best-IT-Courses-Coaching-Class-Institute.jpg"}/>
+            <PageBanner heading={"Courses"} img={`${ittrainingDataSerivice.backendUrl}/${bannerImg}`}/>
             {/* Page banner End */}
             <section className="py-[4em] m-0">
                 <div className="wrapper">

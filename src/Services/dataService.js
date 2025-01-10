@@ -40,6 +40,9 @@ class DataService {
     getTags(){
         return axios.get(`${this.backendUrl}/api/v1/get/get-tags`)
     }
+    getCourseBanner(){
+        return axios.get(`${this.backendUrl}/api/v1/get/course-banner-img`)
+    }
 }
 
 export const ittrainingDataSerivice = new DataService();
