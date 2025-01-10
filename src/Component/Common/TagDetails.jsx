@@ -16,6 +16,8 @@ const TagDetails = () => {
     const params = useParams();
 
     const [tag, setTag] = useState();
+   // const [currentPage, setCurrentPage] = useState(0);
+
     console.log("tag", tag);
 
     const [blog, setBlog] = useState([]);
@@ -47,6 +49,17 @@ const TagDetails = () => {
     function showTagsBlog(tag) {
         navigate("/tag-details/" + tag );
     }
+
+
+    // const itemsPerPage = 10;
+
+    // const totalPages = Math.ceil(courseFind.length / 10);
+
+    // const currentItems = courseFind?.slice(currentPage * itemsPerPage, currentPage * itemsPerPage + itemsPerPage);
+
+    // function handlePageChange(page) {
+    //     setCurrentPage(page.selected); // Only update currentPage
+    // }
 
 
     return (

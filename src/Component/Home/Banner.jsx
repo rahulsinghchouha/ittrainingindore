@@ -294,25 +294,19 @@ function Banner() {
 
                                 {/* banner course link */}
                                 <div className="mt-[60px] box-border flex">
+                                    {/* Dynamic category Pending */}
                                     <div className="w-[32.7%]  border-r-[1px] border-solid border-[#e0e0e0]">
                                         <img src="/Home/web_development_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
                                         <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Development</a>
-
-
                                     </div>
                                     <div className="w-[32.7%] pl-[13px] border-r-[1px] border-solid border-[#e0e0e0]">
                                         <img src="/Home/graphic_design_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
                                         <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Designing</a>
-
-
                                     </div>
                                     <div className="w-[33%] pl-[13px]  border-solid border-[#e0e0e0] pr-0 box-border">
                                         <img src="/Home/digital_marketing_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
                                         <a href="/" className="text-[16px] leading-[20px] font-[500] text-[#000000] w-[70%] ml-[10px] whitespace-nowrap focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Digital Marketing</a>
-
-
                                     </div>
-
                                 </div>
 
                             </div>

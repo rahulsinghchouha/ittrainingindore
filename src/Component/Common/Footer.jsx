@@ -445,7 +445,7 @@ const Footer = () => {
                 <div className="bg-[#2e2e2e] pt-[23px] pb-[23px] mt-[-10px] border-t-[1px] border-[#fff] border-opacity-25">
                     <div className="wrapper text-center">
                         <p className="text-[14px] leading-[19px] font-[400] text-[#ffffff] ">
-                            © {new Date().getFullYear()} <Link href="/" className="hover:text-[#c4c4c4] transition-all ease-linear delay-75">IT Training Indore</Link> Center for Excellence. All Rights Reserved.
+                            © {new Date().getFullYear()} <Link to="/" className="hover:text-[#c4c4c4] transition-all ease-linear delay-75">IT Training Indore</Link> Center for Excellence. All Rights Reserved.
 
                         </p>
 
