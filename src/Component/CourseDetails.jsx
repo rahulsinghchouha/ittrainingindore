@@ -14,6 +14,7 @@ import 'swiper/css';
 import { Autoplay } from "swiper/modules";
 import CounterPage from "../Component/Common/CounterPage";
 import Footer from "./Common/Footer";
+import ConvertAnchorToLink from "./Common/ConvertAnchorToLink";
 
 
 const { Panel } = Collapse;
@@ -77,7 +78,11 @@ const CourseDetails = () => {
                             <h3>Overview</h3>
                             <div className="mt-[26px] ">
                                 <p id="description">
-                                    {course?.overview}
+                                    
+                                    {
+                                        ConvertAnchorToLink(String(course?.overview))
+                                    }
+                                   
                                 </p>
 
                             </div>
@@ -117,7 +122,11 @@ const CourseDetails = () => {
 
                         </div>
                         <div className="pt-[25px] pb-[89px] px-0" >
-                            <h3 className="mt-[25px] mb-[25px] text-[36px] ">Benefits To Enroll {course?.courseName} Classes at IT Training Indore</h3>
+
+                            {
+                                ConvertAnchorToLink(String(course?.benefits))
+                            }
+                            {/* <h3 className="mt-[25px] mb-[25px] text-[36px] ">Benefits To Enroll {course?.courseName} Classes at IT Training Indore</h3>
 
                             <ul>
                                 {
@@ -127,15 +136,15 @@ const CourseDetails = () => {
                                     </li>
                                     )
                                 }
-                            </ul>
-                            <h3 className="mt-[50px] mb-[25px]">Enroll in Our {course?.courseName} & Management Training Program
-                            </h3>
+                            </ul> */}
+                            {/* <h3 className="mt-[50px] mb-[25px]">Enroll in Our {course?.courseName} & Management Training Program
+                            </h3> */}
 
-                            <p className="mt-[20px] ">
+                            {/* <p className="mt-[20px] ">
                                 <span className="font-[400]">Join our <strong>Training Program</strong> and upskill with the {course?.courseName} Course.</span>
-                            </p>
+                            </p> */}
 
-                            <ul className="m-0">
+                            {/* <ul className="m-0">
 
                                 <li className="w-[100%] mt-[20px] font-[400] inline-block text-[16px] leading-[28px] pl-[35px] " style={{ backgroundImage: `url('/arrow-right-blue.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '10px' }}>
                                     <b>Eligibility: </b>{course?.eligibility}
@@ -148,7 +157,7 @@ const CourseDetails = () => {
                                 </li>
 
 
-                            </ul>
+                            </ul> */}
 
                         </div>
                         <div>
@@ -181,11 +190,15 @@ const CourseDetails = () => {
                                 </ul>
 
 
-                                <h3 className="mt-[50px] mb-[16px]  ">
+                                    <div>
+                                        {ConvertAnchorToLink(String(course?.benefits))}
+                                    </div>
+
+                                {/* <h3 className="mt-[50px] mb-[16px]  ">
                                     Get {course?.courseName} Course Certification in Indore
                                 </h3>
 
-                                <p>After the course, your will get your <strong>{course?.courseName} course certification and</strong>  It will strengthen your resume and portfolio to stand out in your {course?.category} career.</p>
+                                <p>After the course, your will get your <strong>{course?.courseName} course certification and</strong>  It will strengthen your resume and portfolio to stand out in your {course?.category} career.</p> */}
 
                                 <h3 className="mt-[50px] mb-[25px] text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">What Job Roles Offer With {course?.courseName} Training in Indore
                                 </h3>
