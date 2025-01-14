@@ -898,8 +898,8 @@ function Banner() {
                                 >
                                     {partnerImage?.map((partner, index) => (
                                         <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
-                                            <figure className="w-[315.3px] min-h-[74px] flex justify-center items-center}">
-                                                <img className=" mt-auto  mb-auto " src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
+                                            <figure className="w-[315.3px] h-[74px] flex justify-center items-center}">
+                                                <img className=" mt-auto  mb-auto max-w-[100%] max-h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
                                             </figure>
                                         </SwiperSlide>
                                     ))}
