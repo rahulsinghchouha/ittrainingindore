@@ -26,8 +26,8 @@ const CategoryDetails = () => {
             {/* Categories Banner Page Start */}
             <section className="m-0 pt-[125px]">
                 <div className="relative">
-                    <figure className=" z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%]" src={`${ittrainingDataSerivice.backendUrl}/${category?.bannerImg}`} />
+                    <figure className=" z-[-1] h-[372.66px] relative mainImageAfter">
+                        <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${category?.bannerImg}`} />
                     </figure>
                     <div className="wrapper">
                         <div className="absolute top-[50%] transform translate-y-[-50%] ">
@@ -40,7 +40,7 @@ const CategoryDetails = () => {
             {/* Category Banner Page End */}
             <section className="pt-[69px] pb-[77px] px-auto">
                 <div className="wrapper">
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center ">
                         <div className="w-[53%]">
                             {ConvertAnchorToLink(String(category?.categoryDetailsWhy))}
                         </div>
@@ -57,7 +57,15 @@ const CategoryDetails = () => {
             <section className="mb-[40px] ">
                 <div className="wrapper">
                     {/* Importance of software development section */}
-                    <div className="mb-[100px] text-center w-[70%] mx-auto"> {ConvertAnchorToLink(String(category?.importance))}  </div>
+                    <div className="mb-[100px] w-[90%] mx-auto flex justify-between ">
+                        <div className="w-[39%]">
+                            <h1 className="text-[36px] leading-[54px] font-[800] text-[#000]">What are the Importances of {category?.heading}</h1>
+                        </div>
+                         
+                         <div className="w-[58%] mt-[10px] "> {ConvertAnchorToLink(String(category?.importance))} </div>
+                         
+                         
+                     </div>
                     {/* Category features card */}
                     <div className="mb-[15px] text-center m-4">
                         <div>
@@ -68,7 +76,7 @@ const CategoryDetails = () => {
                                     category?.detailsCard?.map((card, index) => (
                                         <div key={index} className={`className=" w-[30%] mr-0 ml-0 mb-[80px] mt-0 shadow-reletedCardShad rounded-[18px] min-h-[376px] bg-[#fff] pt-[70px] pb-[38px] px-[20px] relative ${index % 3 === 2 ? "" : "mr-[2%]"} `}>
                                             <figure className="absolute w-[87px] h-[87px] left-0 right-0 top-[-35px] my-0 mx-auto rounded-[13px] " style={{ backgroundColor: `${card?.bgColor}` }}>
-                                                <img className="block text-center absolute top-[50%] left-[25%] translate-y-[-50%] max-w-[100%] my-0 mx-auto" src={`${ittrainingDataSerivice.backendUrl}/${card?.img}`} />
+                                                <img className="w-[42px] h-[42px] object-cover block text-center absolute top-[50%] left-[25%] translate-y-[-50%] max-w-[100%] my-0 mx-auto" src={`${ittrainingDataSerivice.backendUrl}/${card?.img}`} />
 
                                             </figure>
                                            <div>

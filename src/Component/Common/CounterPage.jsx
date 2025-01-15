@@ -6,7 +6,7 @@ import { ittrainingDataSerivice } from "../../Services/dataService";
 
 const CounterPage=()=>{
 
-    const [ourStats,setOurStats] = useState([]);
+    const [ourStats,setOurStats] = useState();
 
     async function getOurStats() {
         try {
@@ -44,7 +44,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0]?.mentors}
+                                            end={ourStats?.mentors}
                                             duration={5}
 
                                         />}
@@ -57,7 +57,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0]?.experience}
+                                            end={ourStats?.experience}
                                             duration={5}
 
                                         />}
@@ -70,7 +70,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0]?.placedStudent}
+                                            end={ourStats?.placedStudent}
                                             duration={5}
 
                                         />}<span className="ml-[2px]">+</span>
@@ -83,7 +83,7 @@ const CounterPage=()=>{
                             <h4 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">0
                             {isCountRef && <CountUp
                                             start={0}
-                                            end={ourStats[0]?.yearsOfJourney}
+                                            end={ourStats?.yearsOfJourney}
                                             duration={5}
 
                                         />}
