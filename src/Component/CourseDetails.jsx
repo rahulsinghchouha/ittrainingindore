@@ -62,8 +62,8 @@ const CourseDetails = () => {
 
                         </div>
                         <div className="mt-[68px] ">
-                            <figure className="m-0">
-                                <img src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} alt="Best Web API Development Training Course indore" className="w-[100%] block" />
+                            <figure className="m-0  w-[868px] h-[451px]" >
+                                <img src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} alt="Best Web API Development Training Course indore" className="w-[100%] h-[100%] object-cover block" />
 
                             </figure>
 
