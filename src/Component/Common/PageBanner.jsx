@@ -10,8 +10,8 @@ const PageBanner = ({ heading, img }) => {
         <div>
             <section className="m-0 pt-[125px]">
                 <div className="relative">
-                    <figure className=" z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%] " src={img} />
+                    <figure className=" z-[-1] h-[372.66px]  relative mainImageAfter">
+                        <img className="w-[100%] h-[100%] object-cover" src={img} />
                     </figure>
 
                     <div >

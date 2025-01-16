@@ -309,8 +309,8 @@ const About = () => {
                             ref={ourMissionImg}
 
                         >
-                            <figure>
-                                <img className="w-[100%]" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourMissionImg}`} alt="best it training team coaching class indore" />
+                            <figure className="h-[525.69px]">
+                                <img className="w-[100%] h-[100%] object-cover " src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourMissionImg}`} alt="best it training team coaching class indore" />
                             </figure>
 
                         </div>
