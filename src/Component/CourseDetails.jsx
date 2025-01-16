@@ -330,7 +330,7 @@ const CourseDetails = () => {
                             <Swiper
                                 modules={[Autoplay]}
                                 loop={true}
-                                slidesPerView={4}
+                                slidesPerView={1}
                                 autoplay={
                                     {
                                         delay: 1000,
