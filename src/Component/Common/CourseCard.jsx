@@ -27,7 +27,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
 
     //Function to safely slice HTML Content
     const stripHtmlTags = (htmlContent) => {
-        const doc = new DOMParser().parseFromString(htmlContent, 'text/html');
+        const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
         return doc.body.textContent || "";
     };
 
@@ -100,7 +100,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
                             </div>
                             <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
                                 <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                    {card.overview.slice(0, 120)} .....
+                                { stripHtmlTags(card.overview).slice(0, 160) }....
                                 </p>
 
                             </div>
