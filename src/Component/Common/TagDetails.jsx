@@ -37,6 +37,12 @@ const TagDetails = () => {
         }
     }
 
+    function blogDetails(blogDetail) {
+
+        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+
+    }
+
     const filterBlog = blog?.filter((blog) => {
         // Check if any tag matches the provided tag
         return blog?.tags?.some(element => element === tag);
@@ -49,6 +55,12 @@ const TagDetails = () => {
     function showTagsBlog(tag) {
         navigate("/tag-details/" + tag );
     }
+
+    //Function to safely slice HTML Content
+    const stripHtmlTags = (htmlContent) => {
+        const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
+        return doc.body.textContent || "";
+    };
 
 
     // const itemsPerPage = 10;
@@ -94,7 +106,7 @@ const TagDetails = () => {
                         <article className="w-[1200px] my-[40px]  mx-auto border-b-[1px] border-solid border-opacity90" key={index}>
                             <header className="mb-[15px] ">
                                 <div className="mt-[29px] ">
-                                    <h2 className="text-[26px] font-[600] ">{blog?.heading}</h2>
+                                    <button onClick={() => blogDetails(blog)}  className="text-[26px] font-[600] ">{blog?.heading}</button>
                                 </div>
                             </header>
 
@@ -114,7 +126,7 @@ const TagDetails = () => {
                                 <div className="w-[70%] ">
                                     <div className="my-[20px] mx-0">
                                         <p>
-                                            {ConvertAnchorToLink(String(blog?.details))}
+                                        { stripHtmlTags(blog?.details).slice(0, 300) }....
                                         </p>
 
                                     </div>
@@ -128,7 +140,7 @@ const TagDetails = () => {
                                 <div className="mt-0 mr-[3%] mb-[20px] ml-0 inline-block">
                                     {
                                         blog?.tags?.map((tag, index) =>
-                                            <button onClick={() => showTagsBlog(tag)} key={index} className="hover:text-[#fff] hover:bg-[#1AAEF4] ml-[30px] text-[14px] leading-[20px] font-[500]  py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898]">
+                                            <button onClick={() => showTagsBlog(tag)} key={index} className="hover:text-[#fff] hover:bg-[#1AAEF4] ml-[30px] mt-[15px] text-[14px] leading-[20px] font-[500]  py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898]">
                                                 {tag}
                                             </button>
                                         )
