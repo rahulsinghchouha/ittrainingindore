@@ -17,13 +17,23 @@ const CategoryDetails = () => {
 
 
     async function getCategoryByName(){
-        
-
-
+        if(name)
+        {
+                try{
+                  const response = await ittrainingDataSerivice.getCategoryByName({name});
+                 
+                  if(response.status === 200)
+                        setCategory(response.data.data); 
+                }
+                catch(error)
+                {
+                    console.log("error to get the category : ",error)
+                }
+        }
     }
 
     useEffect(() => {
-
+        getCategoryByName();
     }, [name])
 
 
@@ -33,10 +43,7 @@ const CategoryDetails = () => {
 
     useMemo(() => { if (categoryDetails) setCategory(categoryDetails) }, [categoryDetails]); //if new category then it update and then this component will be re-render
 
-
-    console.log("category", category);
-
-
+    
     return (
         <div>
             <Navbar />

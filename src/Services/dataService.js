@@ -28,6 +28,9 @@ class DataService {
     getExploreCards() {
         return axios.get(`${this.backendUrl}/api/v1/get/get-explore-card`);
     }
+    getCategoryByName(name) {
+        return axios.get(`${this.backendUrl}/api/v1/get/get-category-by-name`,{params:name});
+    }
     getOurStats() {
         return axios.get(`${this.backendUrl}/api/v1/get/get-our-stats`);
     }
