@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
@@ -10,11 +10,28 @@ import ConvertAnchorToLink from "./ConvertAnchorToLink";
 
 const CategoryDetails = () => {
 
-    const [category, setCategory] = useState([]);
+    const [category, setCategory] = useState({});
+
+    const queryParams = new URLSearchParams(useLocation().search);
+    const name = queryParams.get('name');
+
+
+    async function getCategoryByName(){
+        
+
+
+    }
+
+    useEffect(() => {
+
+    }, [name])
+
+
+
 
     const categoryDetails = useLocation().state;
 
-    useMemo(() => setCategory(categoryDetails), [categoryDetails]); //if new category then it update and then this component will be re-render
+    useMemo(() => { if (categoryDetails) setCategory(categoryDetails) }, [categoryDetails]); //if new category then it update and then this component will be re-render
 
 
     console.log("category", category);
@@ -61,11 +78,11 @@ const CategoryDetails = () => {
                         <div className="w-[39%]">
                             <h1 className="text-[36px] leading-[54px] font-[800] text-[#000]">What are the Importances of {category?.heading}</h1>
                         </div>
-                         
-                         <div className="w-[58%] mt-[10px] "> {ConvertAnchorToLink(String(category?.importance))} </div>
-                         
-                         
-                     </div>
+
+                        <div className="w-[58%] mt-[10px] "> {ConvertAnchorToLink(String(category?.importance))} </div>
+
+
+                    </div>
                     {/* Category features card */}
                     <div className="mb-[15px] text-center m-4">
                         <div>
@@ -79,10 +96,10 @@ const CategoryDetails = () => {
                                                 <img className="w-[42px] h-[42px] object-cover block text-center absolute top-[50%] left-[25%] translate-y-[-50%] max-w-[100%] my-0 mx-auto" src={`${ittrainingDataSerivice.backendUrl}/${card?.img}`} />
 
                                             </figure>
-                                           <div>
-                                            {
-                                               ConvertAnchorToLink(String(card?.cardHeadandDetail))
-                                            }
+                                            <div>
+                                                {
+                                                    ConvertAnchorToLink(String(card?.cardHeadandDetail))
+                                                }
                                             </div>
                                         </div>
 
@@ -97,7 +114,7 @@ const CategoryDetails = () => {
 
                     <div className="py-[68px] px-[48px] bg-[#E1F5FF] rounded-[12px] mb-[79px] ">
                         <p className="text-[#1AAEF4] font-[600] italic">
-                          {ConvertAnchorToLink(String(category?.impPara))}
+                            {ConvertAnchorToLink(String(category?.impPara))}
                         </p>
                     </div>
 

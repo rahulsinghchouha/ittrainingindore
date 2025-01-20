@@ -15,33 +15,41 @@ import { Autoplay } from "swiper/modules";
 import CounterPage from "../Component/Common/CounterPage";
 import Footer from "./Common/Footer";
 import ConvertAnchorToLink from "./Common/ConvertAnchorToLink";
-
-
 const { Panel } = Collapse;
+
 
 const CourseDetails = () => {
 
-
-    const [course,setCourse] = useState([]);
+    const [course, setCourse] = useState([]);
 
     const dispatch = useDispatch();
 
-    const courseDetails = useLocation().state;
+    const location = useLocation();
 
-   useMemo(()=> setCourse(courseDetails),[courseDetails]);
+    const queryParams = new URLSearchParams(location?.search);
+    const name = queryParams?.get("name");
+    const courseDetails = location?.state;
 
-    const allCourse = useSelector((state) => state.backendFunction.webCard)
+    useMemo(() => { if (courseDetails) setCourse(courseDetails) }, [courseDetails]);
+
+    const allCourse = useSelector((state) => state.backendFunction.webCard);
+
+    const courseQueryParam = useMemo(() => {
+        if (name) {
+            return allCourse?.find(course => course.courseName.toLowerCase() === name.toLowerCase());
+        }
+    }, [allCourse,name])
+
+    useMemo(() => { if (courseQueryParam) setCourse(courseQueryParam) }, [courseQueryParam]);
+   
 
     useEffect(() => {
         dispatch(fetchCards());
     }, [dispatch]);
 
-
     const relatedCourses = useMemo(() =>
-
         allCourse?.filter(related => related.category === course?.category),
         [allCourse, course?.category]
-   
     );
 
     return (
@@ -78,11 +86,11 @@ const CourseDetails = () => {
                             {/* <h3>Overview</h3> */}
                             <div className="mt-[26px] listBgImage hoverBlue ">
                                 <p id="description">
-                                    
+
                                     {
                                         ConvertAnchorToLink(String(course?.overview))
                                     }
-                                   
+
                                 </p>
 
                             </div>
@@ -121,7 +129,7 @@ const CourseDetails = () => {
                             </div>
 
                         </div>
-                        <div  className="mt-[10px]  pt-[25px] listBgImage hoverBlue pb-[89px] px-0" >
+                        <div className="mt-[10px]  pt-[25px] listBgImage hoverBlue pb-[89px] px-0" >
 
                             {
                                 ConvertAnchorToLink(String(course?.benefits))
@@ -157,15 +165,9 @@ const CourseDetails = () => {
                                 </ul>
 
 
-                                    <div className="listBgImage hoverBlue">
-                                        {ConvertAnchorToLink(String(course?.benefits))}
-                                    </div>
-
-                                {/* <h3 className="mt-[50px] mb-[16px]  ">
-                                    Get {course?.courseName} Course Certification in Indore
-                                </h3>
-
-                                <p>After the course, your will get your <strong>{course?.courseName} course certification and</strong>  It will strengthen your resume and portfolio to stand out in your {course?.category} career.</p> */}
+                                <div className="listBgImage hoverBlue">
+                                    {ConvertAnchorToLink(String(course?.benefits))}
+                                </div>
 
                                 <h3 className="mt-[50px] mb-[25px] text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">What Job Roles Offer With {course?.courseName} Training in Indore
                                 </h3>
@@ -254,20 +256,7 @@ const CourseDetails = () => {
                                             <p className="leading-[21px] font-[400] text-[16px] ">
                                                 <button type="submit" className=" w-[100%] cursor-pointer pt-[9px] pb-[9px] pl-[90px] pr-[90px]
                                                              text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
-                                                    {/* {isSubmitting ?
-                                                        (
-                                                            <Blocks
-                                                                height={24}
-                                                                width={30}
-                                                                color="#4fa94d"
-                                                                ariaLabel="blocks-loading"
-                                                                wrapperStyle={{}}
-                                                                wrapperClass="blocks-wrapper"
-                                                                visible={true}
 
-                                                            />
-                                                        ) : 'Send'
-                                                    } */}
                                                     Send Form
                                                 </button>
 
@@ -325,12 +314,12 @@ const CourseDetails = () => {
                         <div>
                             <h3 id="related-courses">Related Courses</h3>
                         </div>
-                        <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff]  ">
+                        <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff] justify-center items-center  ">
 
                             <Swiper
                                 modules={[Autoplay]}
-                                loop={true}
-                                slidesPerView={1}
+                                loop={relatedCourses.length > 4} 
+                                slidesPerView={Math.min(4, relatedCourses.length)} // Show up to 4 slides but adapt to fewer
                                 autoplay={
                                     {
                                         delay: 1000,

@@ -21,20 +21,28 @@ function BlogDetails() {
     const dispatch = useDispatch();
 
     const [blogLatest, setLatestBlog] = useState([]);
-    const [blogDetails, setBlogDetails] = useState();
+    const [blogDetails, setBlogDetails] = useState(null);
     const [tag, setTag] = useState([]);
+   
 
-    const blog = useLocation().state;
+    
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location?.search);
+    const name = queryParams?.get("name");
+   
+   
+    const blog = location?.state;
 
-    console.log("blog details", blog);
     useEffect(() => {
         dispatch(getExploreCards());
     }, [dispatch])
 
     async function fetchBlog() {
         try {
+
             const response = await ittrainingDataSerivice.getBlogs();
 
+            console.log("Blog ", response);
             if (response.status === 200) {
                 setLatestBlog(response.data.data);
             }
@@ -48,16 +56,13 @@ function BlogDetails() {
     async function getTag() {
         try {
             const response = await ittrainingDataSerivice.getTags();
-
             if (response.status === 200) {
-                //console.log("tags",response.data.data);
                 setTag(response.data?.data);
             }
         }
         catch (error) {
             console.log("tag error", error);
         }
-
     }
 
     useEffect(() => {
@@ -67,8 +72,18 @@ function BlogDetails() {
 
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
 
-    useMemo(() => setBlogDetails(blog), [blog])
+    useMemo(() => {if(blog) setBlogDetails(blog)}, [blog])
     //console.log(blog);
+    const blogQueryParam = useMemo(() => {
+        if (name) 
+            return blogLatest?.find(blog => blog.heading.toLowerCase() === name.toLowerCase());
+        
+    }, [blogLatest,name])
+
+    useMemo(() => { if (blogQueryParam)
+         setBlogDetails(blogQueryParam) }, [blogQueryParam]);
+   
+
 
     const { ref: latestCourse, inView: isLatestCourse } = useInView({
         threshold: 0.5,
@@ -108,12 +123,11 @@ function BlogDetails() {
                 <div className="wrapper flex">
                     <div className="w-[66%] ">
                         <div className="mb-[50px]">
-                            <h2 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">Top IT Courses after 12th for Successful Career in 2025</h2>
+                            <h2 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">{blogDetails?.heading}</h2>
 
                         </div>
                         <div className="mb-[40px] ">
-                            <img src={`${ittrainingDataSerivice.backendUrl}/${blogDetails?.img}`} className="w-[100%]" />
-
+                            <img src={`${ittrainingDataSerivice.backendUrl}/${blogDetails?.img}`} className="w-[100%]" alt="blog image" />
                         </div>
                         {/* blog details */}
                         <div className="mt-[40px] listBgImage"
@@ -122,7 +136,7 @@ function BlogDetails() {
 
                         </div>
                         {/* Show particular Blog Tags */}
-                        <div className="pt-[33px] border-t-[1px] border-solid border-[#EBEBEB] flex">
+                        <div className="w-[100%]  flex">
                             <div className="w-[70%] ">
                                 {
                                     blogDetails?.tags?.map((item, index) => (
@@ -508,8 +522,8 @@ function BlogDetails() {
 
             </section>
 
-            <CounterPage/>
-            <Footer/>
+            <CounterPage />
+            <Footer />
 
 
         </div>
