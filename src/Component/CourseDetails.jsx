@@ -27,7 +27,8 @@ const CourseDetails = () => {
     const location = useLocation();
 
     const queryParams = new URLSearchParams(location?.search);
-    const name = queryParams?.get("name");
+    const name = queryParams?.get("course");
+    console.log("name", name);
     const courseDetails = location?.state;
 
     useMemo(() => { if (courseDetails) setCourse(courseDetails) }, [courseDetails]);

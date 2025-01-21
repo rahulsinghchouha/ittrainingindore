@@ -13,7 +13,7 @@ const CategoryDetails = () => {
     const [category, setCategory] = useState({});
 
     const queryParams = new URLSearchParams(useLocation().search);
-    const name = queryParams.get('name');
+    const name = queryParams.get('category');
 
 
     async function getCategoryByName(){
@@ -37,10 +37,7 @@ const CategoryDetails = () => {
     }, [name])
 
 
-
-
     const categoryDetails = useLocation().state;
-
     useMemo(() => { if (categoryDetails) setCategory(categoryDetails) }, [categoryDetails]); //if new category then it update and then this component will be re-render
 
     

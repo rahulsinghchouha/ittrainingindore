@@ -30,13 +30,11 @@ function App() {
           <Route path='/blog' element={<Blog/>}/>
           <Route path='/testimonials' element={<Testimonial/>}/> 
           <Route path='/contact-us' element={<Contact/>}/> 
-          <Route path='/course-details/:course' element={<CourseDetails/>} key={Math.random()}/>
-          <Route path='/course-detail' element={<CourseDetails/>} />
-          <Route path='/blog-details/:blog' element={<BlogDetails/>} key={Math.random()}/>
-          <Route path='/blog-details' element={<BlogDetails/>} />
+          
+          <Route path='/course-details/:course?' element={<CourseDetails/>} key={Math.random()}/>
+          <Route path='/blog-details/:blog?' element={<BlogDetails/>} key={Math.random()}/>
+          <Route path='/categories-details/:category?' element={<CategoryDetails/>} key={Math.random()}/>
 
-          <Route path='/categories-details/:category' element={<CategoryDetails/>} key={Math.random()}/>
-          <Route path='/categories-details' element={<CategoryDetails/>} />
           <Route path='/tag-details/:tag' element={<TagDetails/>} key={Math.random()}/>
           <Route path='/sitemap' element={<Sitemap/>}/>
           <Route path='/search/:searchvalue' element={<Search/>} key={Math.random()}/>

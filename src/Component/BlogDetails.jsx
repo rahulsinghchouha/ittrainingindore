@@ -26,12 +26,12 @@ function BlogDetails() {
    
 
     
-    const location = useLocation();
-    const queryParams = new URLSearchParams(location?.search);
-    const name = queryParams?.get("name");
+    
+    const queryParams = new URLSearchParams(useLocation()?.search);
+    const name = queryParams?.get("blog");
    
    
-    const blog = location?.state;
+    const blog = useLocation()?.state;
 
     useEffect(() => {
         dispatch(getExploreCards());
@@ -42,7 +42,7 @@ function BlogDetails() {
 
             const response = await ittrainingDataSerivice.getBlogs();
 
-            console.log("Blog ", response);
+            //console.log("Blog ", response);
             if (response.status === 200) {
                 setLatestBlog(response.data.data);
             }
@@ -80,8 +80,7 @@ function BlogDetails() {
         
     }, [blogLatest,name])
 
-    useMemo(() => { if (blogQueryParam)
-         setBlogDetails(blogQueryParam) }, [blogQueryParam]);
+    useMemo(() => { if (blogQueryParam) setBlogDetails(blogQueryParam) }, [blogQueryParam]);
    
 
 
