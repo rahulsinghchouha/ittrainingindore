@@ -41,13 +41,16 @@ class DataService {
         return axios.get(`${this.backendUrl}/api/v1/get/get-contact-us`);
     }
     getTags(){
-        return axios.get(`${this.backendUrl}/api/v1/get/get-tags`)
+        return axios.get(`${this.backendUrl}/api/v1/get/get-tags`);
     }
     getCourseBanner(){
-        return axios.get(`${this.backendUrl}/api/v1/get/course-banner-img`)
+        return axios.get(`${this.backendUrl}/api/v1/get/course-banner-img`);
     }
     getCourseDetailsBanner(){
-        return axios.get(`${this.backendUrl}/api/v1/get/course-details-banner`)
+        return axios.get(`${this.backendUrl}/api/v1/get/course-details-banner`);
+    }
+    getBlogBanner(){
+        return axios.get(`${this.backendUrl}/api/v1/get/get-blog-banner`);
     }
 }
 

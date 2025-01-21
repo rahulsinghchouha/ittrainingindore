@@ -24,6 +24,7 @@ const Blog = () => {
     const courses = useSelector((state) => state.backendFunction.webCard)
 
     const [blog, setBlog] = useState([]);
+    const [bannerImg,setBannerImg] = useState();
     const [tag, setTag] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
 
@@ -64,9 +65,22 @@ const Blog = () => {
         }
 
     }
+    async function banner(){
+        try{
+                const response = await ittrainingDataSerivice.getBlogBanner();
+                if(response.status === 200)
+                    setBannerImg(response.data.data);
+
+        }
+        catch(error)
+        {
+            console.log("error to get course details banner",error);
+        }
+    }
     useEffect(() => {
         fetchBlog();
         getTag();
+        banner();
     }, [])
 
     useEffect(() => {
@@ -119,7 +133,7 @@ const Blog = () => {
         <div>
             <Navbar />
             {/* page banner start */}
-            <PageBanner heading={"Blogs"} img={"/Top_IT_Training_Indore_Blogs_2.jpg"} />
+            <PageBanner heading={"Blogs"} img={`${ittrainingDataSerivice?.backendUrl}/${bannerImg?.img}`} />
             {/* Page banner End */}
 
             {/* Page Blog Section start */}
