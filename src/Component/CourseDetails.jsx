@@ -21,6 +21,7 @@ const { Panel } = Collapse;
 const CourseDetails = () => {
 
     const [course, setCourse] = useState([]);
+    const [bannerImg,setBannerImg] = useState();
 
     const dispatch = useDispatch();
 
@@ -48,6 +49,22 @@ const CourseDetails = () => {
         dispatch(fetchCards());
     }, [dispatch]);
 
+    async function banner(){
+        try{
+                const response = await ittrainingDataSerivice.getCourseDetailsBanner();
+                if(response.status === 200)
+                    setBannerImg(response.data.data);
+
+        }
+        catch(error)
+        {
+            console.log("error to get course details banner",error);
+        }
+    }
+    useEffect(()=>{
+        banner();
+    },[]);
+
     const relatedCourses = useMemo(() =>
         allCourse?.filter(related => related.category === course?.category),
         [allCourse, course?.category]
@@ -57,7 +74,7 @@ const CourseDetails = () => {
         <div>
             <Navbar />
 
-            <PageBanner heading={"Courses"} img={"/Best-IT-Courses-Coaching-Class-Institute.jpg"} />
+            <PageBanner heading={"Courses"} img={`${ittrainingDataSerivice?.backendUrl}/${bannerImg?.img}`} />
 
             {/* course details section start */}
             <section className="pt-[83px] pb-[36px] px-0 " >
