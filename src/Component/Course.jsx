@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { fetchCards } from "../Redux/functionsSlics";
 import PageBanner from "./Common/PageBanner";
 import { ittrainingDataSerivice } from "../Services/dataService";
+import ConvertAnchorToLink from "./Common/ConvertAnchorToLink";
 
 
 function Course() {
@@ -19,7 +20,7 @@ function Course() {
     const [horizontalCard, setHorizontalCard] = useState(false);
     const [cardLimit, setCardLimit] = useState(12);
     const [courses, setCourses] = useState([]);
-    const [bannerImg,setBannerImg] = useState();
+    const [bannerImg,setBannerImg] = useState({});
 
 
     const dispatch = useDispatch();
@@ -33,7 +34,7 @@ function Course() {
     async function getBannerImg(){
         try{
             const response = await ittrainingDataSerivice.getCourseBanner();
-            setBannerImg(response?.data?.data?.img)
+            setBannerImg(response?.data?.data)
         
         }
         catch(error)
@@ -86,20 +87,12 @@ function Course() {
         <div>
             <Navbar />
             {/* page banner start */}
-            <PageBanner heading={"Courses"} img={`${ittrainingDataSerivice.backendUrl}/${bannerImg}`}/>
+            <PageBanner heading={"Courses"} img={`${ittrainingDataSerivice.backendUrl}/${bannerImg?.img}`}/>
             {/* Page banner End */}
             <section className="py-[4em] m-0">
                 <div className="wrapper">
                     <div className="">
-                        <h2 className="mb-[1.2em] leading-[1.7em] text-[36px] tracking-[0.72px] text-[#000000] text-center font-[800] ">Choose the Best Coding Classes in Indore</h2>
-
-                        <p className="mt-[20px] px-[20px] py-0">Finding a course with placement opportunities can give you a significant advantage in your job search. Here in IT training coding classes you will explore our IT Courses that provide coding skills and knowledge to get placement opportunities. And you gain practical and problem solving experience.</p>
-
-                        <p className="mt-[20px] px-[20px] py-0 ">You'll learn the most demanding programming languages in {new Date().getFullYear()}, like <a href="https://en.wikipedia.org/wiki/HTML" target="_blank" rel="noreferrer noopener" className="hover:text-[#1AAEF4] transition-all duration-300 ease-linear"><strong>HTML</strong> </a> and <a href="https://en.wikipedia.org/wiki/CSS" target="_blank" rel="noreferrer noopener" className="hover:text-[#1AAEF4] transition-all duration-300 ease-linear"> <strong> CSS</strong></a>, <a href="https://www.javascript.com/" target="_blank" rel="noreferrer noopener" className="hover:text-[#1AAEF4] transition-all duration-300 ease-linear"> <strong> JavaScript </strong></a>and <a href="https://www.python.org/" target="_blank" rel="noreferrer noopner" className="hover:text-[#1AAEF4] transition-all duration-300 ease-linear"> <strong>Python</strong> </a> . we are offering a wide range of courses with placement opportunities. These courses not only provide you with the necessary theoretical knowledge but also give you hands-on experience, allowing you to develop relevant skills and build a network of industry connections.</p>
-
-                        <p className="mt-[20px] px-[20px] py-0 ">You will gain practical coding skills in daily classes and have the opportunity to work on our real projects and collaborate with our senior development team. Whether you're looking to start a career in software development or enhance your coding career, <strong> We are the best coding classes in Indore </strong>and will provide the proper tools installation guide, and support. With guaranteed placements, you can confidently invest your time and money in the right future and the right institute.</p>
-
-                        <h3 className="mt-[20px] px-[20px] py-0 text-center text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000] ">Explore Our Courses with Placement Opportunities</h3>
+                       {ConvertAnchorToLink(String(bannerImg?.coursePageHeading))}
                     </div>
 
                 </div>
