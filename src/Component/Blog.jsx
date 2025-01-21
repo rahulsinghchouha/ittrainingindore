@@ -99,17 +99,17 @@ const Blog = () => {
     });
 
     function categoryDetails(categoryDetails) {
-       
+
         navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
     }
-   
+
     function handleCourseDetails(course) {
-       
+
         navigate("/course-details/" + course.courseName, { state: course });
     }
 
     function showTagsBlog(tag) {
-        navigate("/tag-details/" + tag );
+        navigate("/tag-details/" + tag);
     }
 
 
@@ -132,8 +132,10 @@ const Blog = () => {
 
                         >
                             <div className="flex flex-wrap">
-                                {currentItems?.map((blog, index) => (
-                                    <div key={index} className={` w-[47.7%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
+                                {currentItems?.map((blog, index) => {
+                                    const date = new Date(blog?.updatedAt)
+                                   
+                                     return <div key={index} className={` w-[47.7%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
                                         <div className="min-h-[282px] ">
                                             <figure>
                                                 <img src={`${ittrainingDataSerivice.backendUrl}/${blog.img}`} className="w-[100%] rounded-t-[23px] rounded-b-none " alt="IT Courses after 12th" />
@@ -142,7 +144,9 @@ const Blog = () => {
                                         </div>
                                         <div className="shadow-blogCardShado bg-[#fff] pt-[23px] pb-[30px] px-[23px] rounded-b-[23px] rounded-t-none">
                                             <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500] flex items-center">
-                                                <span><FaRegClock style={{ fontSize: '17px' }} /></span> <span className="ml-[7px]"> {blog.date}</span>
+                                                <span><FaRegClock style={{ fontSize: '17px' }} /></span> <span className="ml-[7px]">
+
+                                                   {date.toLocaleString('en-US',{month:'long'})}, {date.getFullYear()}</span>
 
                                             </h4>
                                             <div className="mt-[14px]">
@@ -167,7 +171,7 @@ const Blog = () => {
                                         </div>
 
                                     </div>
-                                ))
+                                })
                                 }
                             </div>
                             <div className="mt-[20px] ">
