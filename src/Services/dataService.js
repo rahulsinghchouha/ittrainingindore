@@ -58,6 +58,9 @@ class DataService {
     getTagBanner(){
         return axios.get(`${this.backendUrl}/api/v1/get/get-tag-banner`);
     }
+    getTestimonialBanner(){
+        return axios.get(`${this.backendUrl}/api/v1/get/testimonial-banner`);
+    }
 }
 
 export const ittrainingDataSerivice = new DataService();
