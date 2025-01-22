@@ -23,6 +23,7 @@ function BlogDetails() {
     const [blogLatest, setLatestBlog] = useState([]);
     const [blogDetails, setBlogDetails] = useState(null);
     const [tag, setTag] = useState([]);
+    const [banner,setBanner] = useState(null);
    
 
     
@@ -64,10 +65,24 @@ function BlogDetails() {
             console.log("tag error", error);
         }
     }
+    async function blogBanner(){
+        try{
+                const response = await ittrainingDataSerivice.getBlogDetailBanner();
+              
+                if(response.status===200)
+                    setBanner(response.data?.data);
+
+        }
+        catch(error)
+        {
+            console.log("error to get the banner", error);
+        }
+    }
 
     useEffect(() => {
         fetchBlog();
         getTag();
+        blogBanner();
     }, [])
 
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
@@ -114,7 +129,7 @@ function BlogDetails() {
     return (
         <div>
             <Navbar />
-            <PageBanner heading={"Blog"} img={"/default-banner.jpg"} />
+            <PageBanner heading={"Blog"} img={`${ittrainingDataSerivice?.backendUrl}/${banner?.img}`} />
 
             {/* Blog Section start */}
 
