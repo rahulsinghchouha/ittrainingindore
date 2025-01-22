@@ -21,6 +21,7 @@ const TagDetails = () => {
     console.log("tag", tag);
 
     const [blog, setBlog] = useState([]);
+    const [banner, setBanner] = useState({});
 
     useMemo(() => setTag(params?.tag), [params]);
 
@@ -34,6 +35,21 @@ const TagDetails = () => {
         }
         catch (error) {
             console.log(error);
+        }
+    }
+
+    async function tagBanner(){
+        try{
+                const response = await ittrainingDataSerivice.getTagBanner();
+
+                if(response.status === 200)
+                    setBanner(response.data?.data);
+
+
+        }
+        catch(error)
+        {
+            console.log("error to get tag",error);
         }
     }
 
@@ -51,6 +67,7 @@ const TagDetails = () => {
 
     useEffect(() => {
         fetchBlog();
+        tagBanner();
     }, [])
     function showTagsBlog(tag) {
         navigate("/tag-details/" + tag );
@@ -81,7 +98,7 @@ const TagDetails = () => {
             <section className="m-0 pt-[125px]">
                 <div className="relative">
                     <figure className=" z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%]" src="/About-Us-Coaching-Class-Institute.jpg" />
+                        <img className="w-[100%]" src={`${ittrainingDataSerivice?.backendUrl}/${banner?.img}`} />
                     </figure>
                     <div className="wrapper">
                         <div className="absolute top-[50%] transform translate-y-[-50%] ">

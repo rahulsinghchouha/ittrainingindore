@@ -55,6 +55,9 @@ class DataService {
     getBlogDetailBanner(){
         return axios.get(`${this.backendUrl}/api/v1/get/get-blog-detail-banner`);
     }
+    getTagBanner(){
+        return axios.get(`${this.backendUrl}/api/v1/get/get-tag-banner`);
+    }
 }
 
 export const ittrainingDataSerivice = new DataService();
