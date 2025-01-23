@@ -20,9 +20,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
         navigate("/course-details/" + course.courseName, { state: course });
     }
 
-    const value = ConvertAnchorToLink(String(webCard[0]?.overview));
-
-    console.log("Value", value.slice(0, 5));
+      
 
     //Function to safely slice HTML Content
     const stripHtmlTags = (htmlContent) => {
