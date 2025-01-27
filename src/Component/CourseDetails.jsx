@@ -21,7 +21,7 @@ const { Panel } = Collapse;
 const CourseDetails = () => {
 
     const [course, setCourse] = useState([]);
-    const [bannerImg,setBannerImg] = useState();
+    const [bannerImg,setBannerImg] = useState(null);
 
     const dispatch = useDispatch();
 

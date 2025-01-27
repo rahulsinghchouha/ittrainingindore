@@ -12,6 +12,7 @@ import CategoryDetails from './Component/Common/CategoryDetailsPage';
 import TagDetails from "./Component/Common/TagDetails";
 import Sitemap from './Component/Sitemap';
 import Search from './Component/Search';
+import NotFoundResponse from './Component/Common/NotFoundResponse';
 
 
 
@@ -38,6 +39,7 @@ function App() {
           <Route path='/tag-details/:tag' element={<TagDetails/>} key={Math.random()}/>
           <Route path='/sitemap' element={<Sitemap/>}/>
           <Route path='/search/:searchvalue' element={<Search/>} key={Math.random()}/>
+          <Route path='*' element={<NotFoundResponse/>} />
         </Routes>
       </Router>
    </div>

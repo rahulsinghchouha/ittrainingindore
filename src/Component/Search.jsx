@@ -8,6 +8,8 @@ import { getPlacedStudent } from "../Redux/functionsSlics";
 import { ittrainingDataSerivice } from "../Services/dataService";
 import ReactPaginate from "react-paginate";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { BsSearch } from "react-icons/bs";
+import { Formik } from "formik";
 
 const Search = () => {
 
@@ -20,10 +22,9 @@ const Search = () => {
 
     const navigate = useNavigate();
 
-    function handleCourseDetails (course)
-    {
-        console.log("card",course);
-        navigate("/course-details/" + course.courseName,{state :course });
+    function handleCourseDetails(course) {
+        console.log("card", course);
+        navigate("/course-details/" + course.courseName, { state: course });
     }
 
     useEffect(() => {
@@ -43,8 +44,16 @@ const Search = () => {
         setCurrentPage(page.selected); // Only update currentPage
     }
 
+    const handleSearch = (search) => {
+        if (search?.query)
+            navigate("/search/" + search?.query);
+        else
+            navigate("/search/" + search);
+    }
+
     return (
         <div>
+
             <Navbar />
             {/* Search Banner Page Start */}
             <section className="m-0 pt-[125px]">
@@ -67,26 +76,47 @@ const Search = () => {
                     <div className="mt-0 mb-[50px] mx-auto">
 
                         <div>
-                            <header className="mb-[50px] text-[#000] text-center">
+                            <header className=" text-[#000] text-center">
                                 <div className="mt-[29px]">
                                     <h1 className="text-[54px] leading-[60px] font-[800] text-[#1AAEF4] "> Search : <span className="text-[#000] ">“{searchValue}”</span></h1>
                                     <div className="mt-[29px] ">
                                         {
                                             courseFind?.length > 0 ? <p>We found {courseFind?.length} results for your search.</p>
                                                 : <div>
-                                                    <p>We could not find any results for your search. You can give it another try through the search form below.
+                                                    <p className="mb-[40px]">We could not find any results for your search. You can give it another try through the search form below.
                                                     </p>
 
-                                                    <button onClick={()=>navigate(-1)} type="button"  className=" mt-[30px] cursor-pointer ml-[22px] pt-[13px] pb-[13px] pl-[45px] pr-[45px]
-                                                             text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
-                                                               Back
-                                                            </button>
-                                                    </div>
+                                                    <Formik
+                                                        initialValues={{ query: "" }}
+                                                        validate={value => {
+                                                            const error = {};
+                                                            if (!value.query) error.query = "Please Enter a Course Name"
+                                                            return error;
+                                                        }
+                                                        }
+                                                        onSubmit={(values, { setSubmitting }) => {
+                                                            setTimeout(() => {
+                                                                handleSearch(values);
+                                                                setSubmitting(false);
+                                                            }, 400);
+                                                        }}
+                                                    >
+                                                        {({ handleSubmit, handleChange, values, errors }) => (
+                                                            <form className="w-[98%]" onSubmit={handleSubmit}>
+                                                                <div className="flex w-[95%] ml-auto">
+                                                                    <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} bg-[#ffffff] py-[15px]  px-[30px] w-[92%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
+                                                                    <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[8%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
+                                                                        <BsSearch style={{ color: "white", fontSize: "20px", marginLeft: "25px" }} />
+                                                                    </button>
+                                                                </div>
+                                                                {errors.query && <span className="text-red-600 inline-block">{errors.query}</span>}
+                                                            </form>
+
+                                                        )}
+                                                    </Formik>
+                                                </div>
                                         }
-
-
                                     </div>
-
                                 </div>
                             </header>
                             {
@@ -97,7 +127,7 @@ const Search = () => {
                                                 <header>
                                                     <div className="mt-[29px] ">
 
-                                                        <button onClick={()=>handleCourseDetails (course)} className="text-[#1AAEF4] font-bold text-[24px] leading-[30px] ">{course?.courseName}
+                                                        <button onClick={() => handleCourseDetails(course)} className="text-[#1AAEF4] font-bold text-[24px] leading-[30px] ">{course?.courseName}
                                                         </button>
 
                                                     </div>
@@ -149,12 +179,8 @@ const Search = () => {
                 </div>
 
             </section>
-
             <CounterPage />
             <Footer />
-
-
-
         </div>
     )
 

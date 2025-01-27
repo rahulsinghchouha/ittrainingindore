@@ -191,20 +191,6 @@ function Banner() {
 
 
 
-    // function setActive1() { setIsActive1(true); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
-
-    // function setActive2() { setIsActive1(false); setIsActive2(true); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
-
-    // function setActive3() { setIsActive1(false); setIsActive2(false); setIsActive3(true); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
-
-    // function setActive4() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(true); setIsActive5(false); setIsActive6(false); }
-
-    // function setActive5() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(true); setIsActive6(false); }
-
-    // function setActive6() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(true); }
-
-
-
     const swiperRef = useRef(null);
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
