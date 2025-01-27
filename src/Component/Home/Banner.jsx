@@ -1,6 +1,6 @@
 import { Field, Formik, Form } from "formik";
 import React, { useEffect, useRef, useState } from "react";
-import { Select } from "antd";
+import { Collapse, Select } from "antd";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -22,6 +22,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
 import { useContactDetails } from "../../Redux/rTKFunction";
 import { BsSearch } from "react-icons/bs";
+const { Panel } = Collapse;
 
 
 
@@ -32,12 +33,12 @@ function Banner() {
 
     const navigate = useNavigate();
 
-    const [isActive1, setIsActive1] = useState(true);
-    const [isActive2, setIsActive2] = useState(false);
-    const [isActive3, setIsActive3] = useState(false);
-    const [isActive4, setIsActive4] = useState(false);
-    const [isActive5, setIsActive5] = useState(false);
-    const [isActive6, setIsActive6] = useState(false);
+    const [activeKey,setActiveKey] = useState('0');
+
+    const handleToggle = (key) => {      
+        setActiveKey((prev) => (  key.length === 0 ? prev : key));
+      };
+    
 
     const [homeData, setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
@@ -190,17 +191,17 @@ function Banner() {
 
 
 
-    function setActive1() { setIsActive1(true); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
+    // function setActive1() { setIsActive1(true); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
 
-    function setActive2() { setIsActive1(false); setIsActive2(true); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
+    // function setActive2() { setIsActive1(false); setIsActive2(true); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
 
-    function setActive3() { setIsActive1(false); setIsActive2(false); setIsActive3(true); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
+    // function setActive3() { setIsActive1(false); setIsActive2(false); setIsActive3(true); setIsActive4(false); setIsActive5(false); setIsActive6(false); }
 
-    function setActive4() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(true); setIsActive5(false); setIsActive6(false); }
+    // function setActive4() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(true); setIsActive5(false); setIsActive6(false); }
 
-    function setActive5() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(true); setIsActive6(false); }
+    // function setActive5() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(true); setIsActive6(false); }
 
-    function setActive6() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(true); }
+    // function setActive6() { setIsActive1(false); setIsActive2(false); setIsActive3(false); setIsActive4(false); setIsActive5(false); setIsActive6(true); }
 
 
 
@@ -603,7 +604,22 @@ function Banner() {
                         <div className="flex justify-between">
                             {/* start from scratch  */}
                             <div className="float-left w-[45.7%] mt-[30px] ">
-                                <div className="mt-0 ">
+                                <div className="mt-0">
+                                    <Collapse bordered={false} activeKey={activeKey} onChange={handleToggle} accordion style={{ backgroundColor: "#fff" }} className="howToStartCollapse">
+                                        {
+                                            homeData?.howToStart?.map((keyArea, index) =>
+                                                <Panel header={keyArea.heading} key={index} >
+                                                    <p>{keyArea.details}</p>
+
+                                                </Panel>
+                                            )
+                                        }
+                                    </Collapse>
+                                </div>
+
+
+
+                                {/* <div className="mt-0 ">
 
                                     {
                                         isActive1 ?
@@ -788,7 +804,7 @@ function Banner() {
                                         </div>
                                     }
 
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="w-[48.5%] relative text-center float-right stuPlacShad">
@@ -1138,7 +1154,7 @@ function Banner() {
                                             const day = dateObj.getDate(); // Get the day of the month (1-31)
                                             const month = dateObj.toLocaleString('en-US', { month: 'short' }); // Get the month 
                                             return (
-                                                <div className=" flex justify-between mb-[45px]  ">
+                                                <div className=" flex justify-between mb-[45px]" key={index}>
                                                     <div className=" flex">
                                                         <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
                                                             <div className="mt-[8px] flex flex-col justify-center items-center">
