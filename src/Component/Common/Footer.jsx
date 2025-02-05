@@ -26,7 +26,7 @@ const Footer = () => {
 
     function categoryDetails(categoryDetails) {
 
-        navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
+        navigate("/course-category/" + categoryDetails.heading.split(" ").join("-"), { state: categoryDetails })
     }
 
 
@@ -58,7 +58,7 @@ const Footer = () => {
     }
     function handleCourseDetails(course) {
        
-        navigate("/course-details/" + course.courseName, { state: course });
+        navigate("/course/" + course.courseName.split(" ").join("-"), { state: course });
     }
 
     return (
@@ -402,7 +402,7 @@ const Footer = () => {
                                             </Link>
                                         </li>
                                         <li className="mt-[30px] ">
-                                            <Link to="/course" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
+                                            <Link to="/courses" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                 Courses
                                             </Link>
                                         </li>
@@ -412,7 +412,7 @@ const Footer = () => {
                                             </Link>
                                         </li>
                                         <li className="mt-[30px] ">
-                                            <Link to="/blog" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
+                                            <Link to="/blogs" className="text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                 Blogs
                                             </Link>
                                         </li>

@@ -79,7 +79,7 @@ function Navbar() {
                                     </NavLink>
                                 </li>
                                 <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden "  > 
-                                    <NavLink to="/course" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
+                                    <NavLink to="/courses" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Courses
                                     </NavLink>
                                 </li>
@@ -89,7 +89,7 @@ function Navbar() {
                                     </NavLink>
                                 </li>
                                 <li className=" text-[16px] cursor-pointer leading-[21px] font-[700] pt-[1px]  ml-[67px] overflow-hidden " >
-                                    <NavLink to="/blog" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
+                                    <NavLink to="/blogs" style={({isActive})=>isActive ? {color:"#1AAEF4"} :{ color:"#000"} }>
                                         Blog
                                     </NavLink>
                                 </li>

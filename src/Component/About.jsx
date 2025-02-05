@@ -128,7 +128,7 @@ const About = () => {
                                         <h4 className="text-[#b2b2b2] text-[14px] leading-[20px] font-[500] ">Batch starting from</h4>
                                     </div>
                                     <div className="w-[81.2px] h-[66.5px] rounded-tl-[16px] rounded-tr-0 rounded-br-[72px] rounded-bl-0 shadow-aboutEnrollnow bg-[#000] absolute top-0 left-0 text-center flex justify-center pt-[14px] pr-[23.8px] pb-[18.5px] pl-[14.4px] ">
-                                        <Link to="/course" className="text-[white] text-[14px] leading-[20px] font-[700] hover:text-[#009ce5] transition-all duration-[0.3s] ease-linear  " >Enroll now</Link>
+                                        <Link to="/courses" className="text-[white] text-[14px] leading-[20px] font-[700] hover:text-[#009ce5] transition-all duration-[0.3s] ease-linear  " >Enroll now</Link>
 
                                     </div>
 
@@ -180,7 +180,7 @@ const About = () => {
                                 </div>
 
                                 <div className={`mt-[35px] `}>
-                                    <Link to="/course" className="btnAfter  cursor-pointer" >
+                                    <Link to="/courses" className="btnAfter  cursor-pointer" >
                                         View More
                                     </Link>
 

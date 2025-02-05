@@ -90,7 +90,7 @@ const Blog = () => {
 
     function blogDetails(blogDetail) {
 
-        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading, { state: blogDetail });
 
     }
 
@@ -114,16 +114,16 @@ const Blog = () => {
 
     function categoryDetails(categoryDetails) {
 
-        navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
+        navigate("/course-category/" + categoryDetails.heading.split(" ").join("-"), { state: categoryDetails })
     }
 
     function handleCourseDetails(course) {
 
-        navigate("/course-details/" + course.courseName, { state: course });
+        navigate("/course/" + course.courseName.split(" ").join("-"), { state: course });
     }
 
     function showTagsBlog(tag) {
-        navigate("/tag-details/" + tag);
+        navigate("/tag/" + tag);
     }
 
 
@@ -274,7 +274,7 @@ const Blog = () => {
                                                 <div className="mt-[29px] flex items-center" key={index}>
                                                     <div className="w-[77px] rounded-[10px]">
                                                         <figure className={`w-[77px] h-[75px] ${index % 4 === 0 && "bg-[#FFF7DB]" || index % 4 === 1 && "bg-[#D9F3FF]" || index % 4 === 2 && "bg-[#E3FFE0]" || index % 4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
-                                                            <button onClick={() => categoryDetails(item)} to="/" className="block">
+                                                            <button onClick={() => categoryDetails(item)}  className="block">
                                                                 <img className="w-[35px] " src={`${ittrainingDataSerivice.backendUrl}/${item.img}`} />
                                                             </button>
 
@@ -309,7 +309,7 @@ const Blog = () => {
                                                 tag?.map((item, index) => (
                                                     <div onClick={() => showTagsBlog(item?.tag)} key={index} className="mr-[3%] mt-0 ml-0 mb-5  inline-block  ">
                                                         <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                            <button to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
+                                                            <button to="/courses" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
                                                                 {item?.tag}
                                                             </button>
 

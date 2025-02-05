@@ -46,17 +46,17 @@ const Sitemap = () => {
 
     function blogDetails(blogDetail) {
 
-        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading?.split(" ").join("-"), { state: blogDetail });
 
     }
     function categoryDetails(categoryDetails) {
 
-        navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
+        navigate("/course-category/" + categoryDetails.heading?.split(" ").join("-"), { state: categoryDetails })
     }
 
     function handleCourseDetails(course) {
 
-        navigate("/course-details/" + course.courseName, { state: course });
+        navigate("/course/" + course.courseName?.split(" ")?.join("-"), { state: course });
     }
 
 
@@ -78,13 +78,13 @@ const Sitemap = () => {
                                     <Link className=" ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/">Home</Link>
                                 </li>
                                 <li className="mt-[20px]">
-                                    <Link className=" ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/course">Courses</Link>
+                                    <Link className=" ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/courses">Courses</Link>
                                 </li>
                                 <li className="mt-[20px]">
                                     <Link className=" ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/about-us">About Us</Link>
                                 </li>
                                 <li className="mt-[20px]">
-                                    <Link className="ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/blog">Blogs</Link>
+                                    <Link className="ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/blogs">Blogs</Link>
                                 </li>
                                 <li className="mt-[20px]">
                                     <Link className=" ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" to="/testimonials">Testimonials

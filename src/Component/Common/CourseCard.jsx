@@ -16,12 +16,10 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
     const navigate = useNavigate();
 
     function handleCourseDetails(course) {
-        console.log("card", course);
-        navigate("/course-details/" + course.courseName, { state: course });
+       // console.log("card", course);
+        navigate("/course/" + course?.courseName.split(" ").join("-"), { state: course });
     }
-
-      
-
+   
     //Function to safely slice HTML Content
     const stripHtmlTags = (htmlContent) => {
         const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
@@ -79,7 +77,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
                             <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] rounded-[20px] object-cover" />
                             <figcaption className={`absolute top-[12%] left-[4%]`}>
 
-                                <NavLink to="/course" className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
+                                <NavLink to="/courses" className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
                                     {card.category}
                                 </NavLink>
 

@@ -26,19 +26,19 @@ function App() {
         <Routes>
           {/* static Routes */}
           <Route path='/' element={<Banner />} />
-          <Route path='/course' element={<Course/>}/>
+          <Route path='/courses' element={<Course/>}/>
           <Route path='/about-us' element={<About/>} />
-          <Route path='/blog' element={<Blog/>}/>
+          <Route path='/blogs' element={<Blog/>}/>
           <Route path='/testimonials' element={<Testimonial/>}/> 
           <Route path='/contact-us' element={<Contact/>}/> 
-          
-          <Route path='/course-details/:course?' element={<CourseDetails/>} key={Math.random()}/>
-          <Route path='/blog-details/:blog?' element={<BlogDetails/>} key={Math.random()}/>
-          <Route path='/categories-details/:category?' element={<CategoryDetails/>} key={Math.random()}/>
 
-          <Route path='/tag-details/:tag' element={<TagDetails/>} key={Math.random()}/>
+          <Route path='/course/:courseName' element={<CourseDetails/>}/>
+          <Route path='/:blog' element={<BlogDetails/>}/>
+          <Route path='/course-category/:categories' element={<CategoryDetails/>}/>
+          
+          <Route path='/tag/:tag' element={<TagDetails/>}/>
           <Route path='/sitemap' element={<Sitemap/>}/>
-          <Route path='/search/:searchvalue' element={<Search/>} key={Math.random()}/>
+          <Route path='/search/:searchvalue' element={<Search/>}/>
           <Route path='*' element={<NotFoundResponse/>} />
         </Routes>
       </Router>

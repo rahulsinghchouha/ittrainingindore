@@ -55,7 +55,7 @@ const TagDetails = () => {
 
     function blogDetails(blogDetail) {
 
-        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading, { state: blogDetail });
 
     }
 
@@ -70,7 +70,7 @@ const TagDetails = () => {
         tagBanner();
     }, [])
     function showTagsBlog(tag) {
-        navigate("/tag-details/" + tag );
+        navigate("/tag/" + tag );
     }
 
     //Function to safely slice HTML Content

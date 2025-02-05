@@ -915,7 +915,7 @@ padding-left: 70PX  !important;
   display: block;
 }
 
-.howToStartCollapse  .ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon .anticon::after
+.howToStartCollapse .ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon .anticon::after
 {
   content: '-' ;
   position: absolute ;

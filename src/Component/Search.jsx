@@ -23,8 +23,8 @@ const Search = () => {
     const navigate = useNavigate();
 
     function handleCourseDetails(course) {
-        console.log("card", course);
-        navigate("/course-details/" + course.courseName, { state: course });
+      //  console.log("card", course);
+        navigate("/course/" + course.courseName?.split(" ")?.join("-"), { state: course });
     }
 
     useEffect(() => {

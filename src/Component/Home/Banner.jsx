@@ -116,13 +116,10 @@ function Banner() {
 
     function categoryDetail(categoryDetail) {
         console.log("categoryDetail", categoryDetail);
-        navigate("/categories-details/" + categoryDetail?.heading, { state: categoryDetail });
+        navigate("/course-category/" + categoryDetail?.heading.split(" ").join("-"), { state: categoryDetail });
     }
 
-    function blogDetails(blogDetail) {
-        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
-
-    }
+    
 
 
     //  $$$$$$$$$$$$$$     ANIMATION      $$$$$$$$$$$$$$$$
@@ -206,8 +203,10 @@ function Banner() {
         dispatch(studentForm(values));
     }
 
+  
     function blogDetails(blogDetail) {
-        navigate("/blog-details/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading?.split(" ").join("-"), { state: blogDetail });
+
     }
 
     return (
@@ -562,10 +561,9 @@ function Banner() {
 
                         {/* view all course btn  */}
                         <div className="mt-[21px] ">
-                            <Link to="/course" className="btnAfter">
+                            <Link to="/courses" className="btnAfter">
                                 View all Courses
                             </Link>
-
                         </div>
 
 
@@ -583,10 +581,7 @@ function Banner() {
                     <div className="wrapper">
                         <div className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
                             {ConvertAnchorToLink(String(homeData?.upliftYourCareerHead))}
-
-
                         </div>
-
                         <div className="flex justify-between">
                             {/* start from scratch  */}
                             <div className="float-left w-[45.7%] mt-[30px] ">
@@ -603,202 +598,12 @@ function Banner() {
                                     </Collapse>
                                 </div>
 
-
-
-                                {/* <div className="mt-0 ">
-
-                                    {
-                                        isActive1 ?
-                                            (<div className=" pt-0 pr-0 pb-[13px]   pointer   text-left flex gap-6 items-center ">
-                                                <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease-linear duration-[0.5s] "> - </div>
-
-                                                <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Start from Scratch</h5>
-
-                                            </div>
-                                            )
-                                            :
-                                            (
-                                                <div className="pt-0 pr-0 pb-[13px]   cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-6 items-center">
-                                                    <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease-linear delay-1000 duration-[0.5s]" onClick={() => { setActive1() }}> + </div>
-                                                    <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Start from Scratch</h5>
-                                                </div>)
-
-                                    }
-                                    {
-                                        isActive1 &&
-                                        <div className="accordion-content  transition-all ease-linear delay-1000 duration-[0.5s]" >
-                                            <p className="text-[#000] ">
-                                                Students will be taught and guided by best IT Training institute mentors from the basics to advanced level. We assist them to prepare for the future challenges in their field of interest. Our courses will cover all the updated topics which are in demand in the fast paced IT world.
-                                            </p>
-                                        </div>
-                                    }
-
-                                </div>
-                                <div className="mt-[16px] ">
-
-                                    {
-                                        isActive2 ?
-                                            (<div className=" pt-0 pr-0 pb-[13px]  pointer   text-left flex gap-6 items-center ">
-                                                <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease duration-[0.5s] "> - </div>
-
-                                                <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Upgrade your Knowledge</h5>
-
-                                            </div>
-                                            )
-                                            :
-                                            (
-                                                <div className="pt-0 pr-0 pb-[13px]  cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-6 items-center">
-                                                    <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease duration-[0.5s]" onClick={() => { setActive2() }}> + </div>
-                                                    <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Upgrade your Knowledge</h5>
-                                                </div>)
-
-                                    }
-                                    {
-                                        isActive2 &&
-                                        <div className="accordion-content" >
-                                            <p className="text-[#000] ">
-                                                With our IT Programming teams, grab the opportunity to learn and shine your skills that are crucial for your practical knowledge.
-                                            </p>
-                                        </div>
-                                    }
-
-                                </div>
-                                <div className="mt-[16px]  ">
-
-                                    {
-                                        isActive3 ?
-                                            (<div className=" pt-0 pr-0 pb-[31px]  pointer   text-left flex gap-5 items-center ">
-                                                <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease duration-[0.5s] "> - </div>
-
-                                                <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Easy to Understand</h5>
-
-                                            </div>
-                                            )
-                                            :
-                                            (
-                                                <div className="pt-0 pr-0 pb-[13px]   cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-5 items-center">
-                                                    <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease duration-[0.5s]" onClick={() => { setActive3() }}> + </div>
-                                                    <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Easy to Understand</h5>
-                                                </div>)
-
-                                    }
-                                    {
-                                        isActive3 &&
-                                        <div className="accordion-content" >
-                                            <p className="text-[#000] ">
-                                                Our courses are quite easy to understand for everyone, including multiple thought process mentors who will share their learning from their past working experience. We are ready with 100+ courses with different prospects to make you more career-centric and job ready for a bright future.
-                                            </p>
-                                        </div>
-                                    }
-
-                                </div>
-                                <div className="mt-[16px]  ">
-
-                                    {
-                                        isActive4 ?
-                                            (<div className=" pt-0 pr-0 pb-[13px]   pointer   text-left flex gap-5 items-center ">
-                                                <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease duration-[0.5s] "> - </div>
-
-                                                <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Quick Access for Learning</h5>
-
-                                            </div>
-                                            )
-                                            :
-                                            (
-                                                <div className="pt-0 pr-0 pb-[13px]   cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-5 items-center">
-                                                    <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease duration-[0.5s]" onClick={() => { setActive4() }}> + </div>
-                                                    <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Quick Access for Learning</h5>
-                                                </div>)
-
-                                    }
-                                    {
-                                        isActive4 &&
-                                        <div className="accordion-content" >
-                                            <p className="text-[#000] ">
-                                                We are providing quick access to our multiple courses, search and apply for your course according to your interest. Your career will flourish if you dedicate yourself to it. We at IT Training Indore will turn your thought process into practical knowledge.
-                                            </p>
-                                        </div>
-                                    }
-
-                                </div>
-                                <div className="mt-[16px]  ">
-
-                                    {
-                                        isActive5 ?
-                                            (<div className=" pt-0 pr-0 pb-[13px]   pointer   text-left flex gap-5 items-center ">
-                                                <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease duration-[0.5s] "> - </div>
-
-                                                <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Project based Learning</h5>
-
-                                            </div>
-                                            )
-                                            :
-                                            (
-                                                <div className="pt-0 pr-0 pb-[13px]   cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-5 items-center">
-                                                    <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease duration-[0.5s]" onClick={() => { setActive5() }}> + </div>
-                                                    <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Project based Learning</h5>
-                                                </div>)
-
-                                    }
-                                    {
-                                        isActive5 &&
-                                        <div className="accordion-content" >
-                                            <p className="text-[#000] ">
-                                                To make you technically active and theoretically strong, we deliver live project based learning and develop your skills before starting your career in the IT Industry.
-                                            </p>
-                                        </div>
-                                    }
-
-                                </div>
-                                <div className="mt-[16px]  ">
-
-                                    {
-                                        isActive6 ?
-                                            (<div className=" pt-0 pr-0 pb-[13px]   pointer   text-left flex gap-5 items-center ">
-                                                <div className="text-[#fff] bg-[#1AAEF4] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse
-                                        text-center transition-all ease duration-[0.5s] "> - </div>
-
-                                                <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Learn and Apply</h5>
-
-                                            </div>
-                                            )
-                                            :
-                                            (
-                                                <div className="pt-0 pr-0 pb-[13px]   cursor-pointer border-b-[1px] solid border-[#0000001a] text-left flex gap-5 items-center">
-                                                    <div className="text-[#000] bg-[#fff] w-[46px] h-[46px] rounded-[13px] -top-[14px] left-0 text-[22px] leading-[46px] font-[800] studentFalse 
-                                        text-center transition-all ease duration-[0.5s]" onClick={() => { setActive6() }}> + </div>
-                                                    <h5 className="text-[16px] leading-[20px] font-[700] text-[#000000] ">Learn and Apply</h5>
-                                                </div>)
-
-                                    }
-                                    {
-                                        isActive6 &&
-                                        <div className="accordion-content" >
-                                            <p className="text-[#000] ">
-                                                With IT Training Indore, learners will get the opportunity to work on live projects and grasp the knowledge we are delivering and how it can be applied practically.
-                                            </p>
-                                        </div>
-                                    }
-
-                                </div> */}
                             </div>
 
                             <div className="w-[48.5%] relative text-center float-right stuPlacShad">
                                 <div className="w-[100%]  relative h-[696px]">
                                     <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
                                     <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
-
-
                                     <Swiper
                                         modules={[Autoplay, Pagination, Navigation]}
                                         spaceBetween={0}
@@ -852,14 +657,6 @@ function Banner() {
                                         }
 
                                     </Swiper>
-
-
-
-
-                                    {/* remaining for div */}
-
-
-
                                 </div>
 
 
@@ -896,7 +693,6 @@ function Banner() {
                                     // pagination={{ clickable: true }}
                                     loop={true}
                                     onSwiper={(swiper) => partnerSwipRef.current = swiper}
-
                                 >
                                     {partnerImage?.map((partner, index) => (
                                         <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
@@ -1144,8 +940,8 @@ function Banner() {
                                                     <div className=" flex">
                                                         <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
                                                             <div className="mt-[8px] flex flex-col justify-center items-center">
-                                                                <h2 className={`text-[18px] leading-[23px] font-[700] ${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""} `}>
-                                                                    {day}{`${day == 1 ? "st" : "" || day == 2 ? "nd" : "" || day == 3 ? "rd" : "th"}`}
+                                                                <h2 className={`text-[18px] leading-[23px] font-[700] ${index === 0 ? "text-[#4800E2]" : "" || index === 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""} `}>
+                                                                    {day}{`${day === 1 ? "st" : "" || day === 2 ? "nd" : "" || day === 3 ? "rd" : "th"}`}
                                                                 </h2>
                                                                 <h5 className={`text-[12px] font-[500] leading-[25px] ${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  `}>
                                                                     {month}
