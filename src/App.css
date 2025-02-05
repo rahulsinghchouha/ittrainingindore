@@ -791,8 +791,7 @@ h4 {
   -webkit-text-size-adjust: 100%;
 }
 
-.keyAreas,
-.ant-collapse-item .ant-collapse-header:hover .ant-collapse-header-text {
+.keyAreas,.ant-collapse-item .ant-collapse-header:hover .ant-collapse-header-text {
   color: #1AAEF4;
   transition: all 200ms ease-in;
 }
@@ -871,8 +870,7 @@ h4 {
 
 }
 
-.howToStartCollapse .ant-collapse-content,
-.ant-collapse-content-active {
+.howToStartCollapse .ant-collapse-content-active {
   background-color: #F3FAFD !important;
   padding: 16px 62px 27px 38px;
   border-bottom: 7px solid #1AAEF4;

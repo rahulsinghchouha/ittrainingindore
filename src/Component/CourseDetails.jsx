@@ -32,17 +32,21 @@ const CourseDetails = () => {
 
     let {courseName} = useParams();
     courseName = courseName?.split("-").join(" ");
-   
+    console.log("course name",courseName);
+  
     const courseDetails = location?.state;
+    console.log("course details",courseDetails);
     useMemo(() => { if (courseDetails) setCourse(courseDetails) }, [courseDetails]);
 
     const allCourse = useSelector((state) => state.backendFunction.webCard);
 
     const courseQueryParam = useMemo(() => {
         if (courseName && !courseDetails) {
+            setCourse(null);
             return allCourse?.find(course => course?.courseName?.toLowerCase().includes(courseName?.toLowerCase()));
         }
     }, [allCourse, courseName])
+    console.log("query params",courseQueryParam);
 
     useMemo(() => { if (courseQueryParam) setCourse(courseQueryParam) }, [courseQueryParam]);
 
@@ -74,7 +78,7 @@ const CourseDetails = () => {
         threshold: 0.5,
         triggerOnce: true,
     });
-
+    console.log("course",course);
     return (
 
         <div>
@@ -111,7 +115,7 @@ const CourseDetails = () => {
                         <div className="wrapper flex">
                             <div className="w-[66%]">
                                 <div>
-                                    <Link className="text-[16px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
+                                    <Link to={`/course-category/${course?.category?.replace(/\s|\/+/g,'-')}`} className="text-[16px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
                                 </div>
                                 <div className="mt-[29px] ">
                                     <h2 className="text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000]">{course?.courseName}</h2>
@@ -131,9 +135,9 @@ const CourseDetails = () => {
 
                                 </div>
                                 <div className="mt-[80px] ">
-                                    <h3>Overview</h3> 
+                                    <h3 id="description">Overview</h3> 
                                     <div className="mt-[26px] listBgImage hoverBlue ">
-                                        <p id="description">
+                                        <p >
 
                                             {
                                                 ConvertAnchorToLink(String(course?.overview))
@@ -213,8 +217,8 @@ const CourseDetails = () => {
                                         </ul>
 
 
-                                        <div className="listBgImage hoverBlue">
-                                            {ConvertAnchorToLink(String(course?.benefits))}
+                                        <div className="listBgImage hoverBlue mt-[50px] ">
+                                            {ConvertAnchorToLink(String(course?.certificate))}
                                         </div>
 
                                         <h3 className="mt-[50px] mb-[25px] text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">What Job Roles Offer With {course?.courseName} Training in Indore
@@ -231,9 +235,9 @@ const CourseDetails = () => {
                                 </div>
 
 
-                                <div className="pt-[84px] ">
+                                <div className="pt-[84px] " id="faqs">
                                     <div>
-                                        <h3 className="font-[800] " id="faqs">FAQ’s</h3>
+                                        <h3 className="font-[800] " >FAQ’s</h3>
                                     </div>
                                     <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
                                         <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
@@ -356,11 +360,11 @@ const CourseDetails = () => {
 
                     {/* related course section start */}
 
-                    <section className="py-[50px] px-0">
+                    <section className="py-[50px] px-0" id="related-courses">
                         <div className="wrapper">
                             <div>
                                 <div>
-                                    <h3 id="related-courses">Related Courses</h3>
+                                    <h3 >Related Courses</h3>
                                 </div>
                                 <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff] justify-center items-center  ">
                                     <Swiper

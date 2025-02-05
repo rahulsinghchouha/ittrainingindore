@@ -330,8 +330,6 @@ const Blog = () => {
                     </div>
 
                 </div>
-
-
             </section>
             <CounterPage />
             <Footer />

@@ -15,7 +15,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
 
     function handleCourseDetails(course) {
        // console.log("card", course);
-        navigate("/course/" + course?.courseName?.replace(/\s|\/+/g,'-'), { state: course });
+        navigate("/course/" + course?.courseName?.replace(/\s|\/+|\?/g, "-"), { state: course });
     }
    
     //Function to safely slice HTML Content
