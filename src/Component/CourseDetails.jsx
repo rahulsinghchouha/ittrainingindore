@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./Common/Navbar";
-import PageBanner from "./Common/PageBanner";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { ittrainingDataSerivice } from "../Services/dataService";
@@ -15,6 +14,8 @@ import { Autoplay } from "swiper/modules";
 import CounterPage from "../Component/Common/CounterPage";
 import Footer from "./Common/Footer";
 import ConvertAnchorToLink from "./Common/ConvertAnchorToLink";
+import { useInView } from "react-intersection-observer";
+import { NavLink } from "react-router-dom";
 const { Panel } = Collapse;
 
 
@@ -69,13 +70,39 @@ const CourseDetails = () => {
         allCourse?.filter(related => related.category === course?.category),
         [allCourse, course?.category]
     );
+    const { ref: mainPageHead, inView: isMainPageHead } = useInView({
+        threshold: 0.5,
+        triggerOnce: true,
+    });
 
     return (
         <div>
-            <Navbar />
+            <Navbar />          
+            <section className="m-0 pt-[125px]">
+                <div className="relative">
+                    <figure className=" z-[-1] h-[372.66px]  relative mainImageAfter">
+                        <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice?.backendUrl}/${bannerImg?.img}`} />
+                    </figure>
 
-            <PageBanner heading={"Courses"} img={`${ittrainingDataSerivice?.backendUrl}/${bannerImg?.img}`} />
-
+                    <div >
+                        <div className="wrapper">
+                            <div className="absolute top-[50%] transform translate-y-[-50%]">
+                                <h1 className={`  ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
+                                    ref={mainPageHead}
+                                    style={{
+                                        animationDuration: "3s",
+                                    }}
+                                >Course</h1>
+                                <div className="mt-[5px] block">
+                                    <NavLink to="/" className="hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
+                                    <NavLink to="/course" className="ml-[15px] pl-[17px] hover:text-[#009ce5]  text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">Courses</NavLink>
+                                    <span  className="ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">{course?.courseName}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             {/* course details section start */}
             <section className="pt-[83px] pb-[36px] px-0 " >
                 <div className="wrapper flex">
