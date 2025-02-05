@@ -90,7 +90,7 @@ const Blog = () => {
 
     function blogDetails(blogDetail) {
 
-        navigate("/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g,'-'), { state: blogDetail });
 
     }
 
@@ -114,16 +114,16 @@ const Blog = () => {
 
     function categoryDetails(categoryDetails) {
 
-        navigate("/course-category/" + categoryDetails.heading.split(" ").join("-"), { state: categoryDetails })
+        navigate("/course-category/" + categoryDetails?.heading?.replace(/\s|\/+/g, "-"), { state: categoryDetails })
     }
 
     function handleCourseDetails(course) {
 
-        navigate("/course/" + course.courseName.split(" ").join("-"), { state: course });
+        navigate("/course/" + course.courseName?.replace(/\s|\/+/g,"-"), { state: course });
     }
 
     function showTagsBlog(tag) {
-        navigate("/tag/" + tag);
+        navigate("/tag/" + tag?.replace(/\s|\/+/g,'-'));
     }
 
 

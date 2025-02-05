@@ -55,7 +55,7 @@ const TagDetails = () => {
 
     function blogDetails(blogDetail) {
 
-        navigate("/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g,'-'), { state: blogDetail });
 
     }
 
@@ -70,7 +70,7 @@ const TagDetails = () => {
         tagBanner();
     }, [])
     function showTagsBlog(tag) {
-        navigate("/tag/" + tag );
+        navigate("/tag/" + tag?.replace(/\s|\/+/g,'-') );
     }
 
     //Function to safely slice HTML Content

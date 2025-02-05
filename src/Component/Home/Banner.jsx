@@ -116,7 +116,7 @@ function Banner() {
 
     function categoryDetail(categoryDetail) {
         console.log("categoryDetail", categoryDetail);
-        navigate("/course-category/" + categoryDetail?.heading.split(" ").join("-"), { state: categoryDetail });
+        navigate("/course-category/" + categoryDetail?.heading.replace(/\s|\/+/g,'-'), { state: categoryDetail });
     }
 
     
@@ -205,7 +205,7 @@ function Banner() {
 
   
     function blogDetails(blogDetail) {
-        navigate("/" + blogDetail.heading?.split(" ").join("-"), { state: blogDetail });
+        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g,'-'), { state: blogDetail });
 
     }
 

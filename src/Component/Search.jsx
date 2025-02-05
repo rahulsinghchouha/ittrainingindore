@@ -24,7 +24,7 @@ const Search = () => {
 
     function handleCourseDetails(course) {
       //  console.log("card", course);
-        navigate("/course/" + course.courseName?.split(" ")?.join("-"), { state: course });
+        navigate("/course/" + course.courseName?.replace(/\s|\/+/g,'-'), { state: course });
     }
 
     useEffect(() => {

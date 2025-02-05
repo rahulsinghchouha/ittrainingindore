@@ -2,10 +2,8 @@ import React from "react";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 
 
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import ConvertAnchorToLink from "./ConvertAnchorToLink";
-import ReactDOMServer from 'react-dom/server';
-import parse from 'html-react-parser';
+import {  NavLink, useNavigate } from "react-router-dom";
+
 
 
 
@@ -17,7 +15,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
 
     function handleCourseDetails(course) {
        // console.log("card", course);
-        navigate("/course/" + course?.courseName.split(" ").join("-"), { state: course });
+        navigate("/course/" + course?.courseName?.replace(/\s|\/+/g,'-'), { state: course });
     }
    
     //Function to safely slice HTML Content
@@ -26,18 +24,12 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
         return doc.body.textContent || "";
     };
 
-
-
-
     return (
         <div className="flex flex-wrap justify-center items-center">
             {square && webCard?.slice(0, cardLimit).map((card, index) => (
                 <div
-
                     key={index} className={` w-[31.3%] relative  text-center roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300   ${(index + 1) % 3 === 0 ? "" : "mr-[3%]"} `}
-
                 >
-
                     <figure className="h-[214px] relative webdevelopmentCard">
                         <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] object-contain
                                             rounded-tl-[18px] rounded-tr-[18px]  block "/>

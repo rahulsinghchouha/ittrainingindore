@@ -2,11 +2,10 @@ import React, { useEffect, useMemo } from "react";
 import DOMPurify from "dompurify";
 
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Common/Navbar";
-import PageBanner from "./Common/PageBanner";
 import { ittrainingDataSerivice } from "../Services/dataService";
-import { Link ,NavLink} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 import { useInView } from "react-intersection-observer";
 import { useSelector, useDispatch } from "react-redux";
 import { getExploreCards } from "../Redux/functionsSlics";
@@ -26,14 +25,11 @@ function BlogDetails() {
     const [tag, setTag] = useState([]);
     const [banner,setBanner] = useState(null);
    
+    let { blog } = useParams();
 
-    
-    
-    const queryParams = new URLSearchParams(useLocation()?.search);
-    const name = queryParams?.get("blog");
-   
-   
-    const blog = useLocation()?.state;
+    blog = blog.split("-").join(" "); 
+
+    const blogDetail = useLocation()?.state;
 
     useEffect(() => {
         dispatch(getExploreCards());
@@ -43,7 +39,7 @@ function BlogDetails() {
         try {
 
             const response = await ittrainingDataSerivice.getBlogs();
-
+            
             //console.log("Blog ", response);
             if (response.status === 200) {
                 setLatestBlog(response.data.data);
@@ -88,13 +84,13 @@ function BlogDetails() {
 
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
 
-    useMemo(() => {if(blog) setBlogDetails(blog)}, [blog])
+    useMemo(() => {if(blogDetail) setBlogDetails(blogDetail)}, [blogDetail])
     //console.log(blog);
     const blogQueryParam = useMemo(() => {
-        if (name) 
-            return blogLatest?.find(blog => blog.heading.toLowerCase() === name.toLowerCase());
+        if (blog && !blogDetail ) 
+            return blogLatest?.find(blogData => blogData.heading?.toLowerCase().includes(blog?.toLowerCase()));
         
-    }, [blogLatest,name])
+    }, [blogLatest,blog])
 
     useMemo(() => { if (blogQueryParam) setBlogDetails(blogQueryParam) }, [blogQueryParam]);
    
@@ -118,16 +114,16 @@ function BlogDetails() {
     });
 
     function showTagsBlog(tag) {
-        navigate("/tag/" + tag);
+        navigate("/tag/" + tag?.replace(/\s|\/+/g,'-'));
     }
     function handleBlogDetails(blogDetail) {
 
-        navigate("/" + blogDetail.heading, { state: blogDetail });
+        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g,'-'), { state: blogDetail });
     }
 
     function categoryDetails(categoryDetails) {
 
-        navigate("/categories-details/" + categoryDetails.heading, { state: categoryDetails })
+        navigate("/categories-details/" + categoryDetails.heading?.replace(/\s|\/+/g,'-'), { state: categoryDetails })
     }
 
 

@@ -26,7 +26,7 @@ const Footer = () => {
 
     function categoryDetails(categoryDetails) {
 
-        navigate("/course-category/" + categoryDetails.heading.split(" ").join("-"), { state: categoryDetails })
+        navigate("/course-category/" + categoryDetails.heading?.replace(/\s|\/+/g,'-'), { state: categoryDetails })
     }
 
 
@@ -58,7 +58,7 @@ const Footer = () => {
     }
     function handleCourseDetails(course) {
        
-        navigate("/course/" + course.courseName.split(" ").join("-"), { state: course });
+        navigate("/course/" + course.courseName?.replace(/\s|\/+/g,'-'), { state: course });
     }
 
     return (
