@@ -1,13 +1,6 @@
 import React from "react";
 import { ittrainingDataSerivice } from "../../Services/dataService";
-
-
 import {  NavLink, useNavigate } from "react-router-dom";
-
-
-
-
-
 
 const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
 
@@ -16,6 +9,9 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
     function handleCourseDetails(course) {
        // console.log("card", course);
         navigate("/course/" + course?.courseName?.replace(/\s|\/+|\?/g, "-"), { state: course });
+    }
+    function categoryDetails(categoryDetails) {
+        navigate("/course-category/" + categoryDetails?.replace(/\s|\/+/g, "-"))
     }
    
     //Function to safely slice HTML Content
@@ -34,9 +30,9 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
                         <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] object-contain
                                             rounded-tl-[18px] rounded-tr-[18px]  block "/>
                         <figcaption className="absolute top-[12%] left-[9%] ">
-                            <a href="/" className={`${card.category === "Web Development" && "bg-[#1AAEF4] hover:bg-[#13b440] transition-all delay-0 duration-0 ease-out" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `}>
+                            <button onClick={()=>categoryDetails(card?.category)} className={`${card.category === "Web Development" && "bg-[#1AAEF4] hover:bg-[#13b440] transition-all delay-0 duration-0 ease-out" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `}>
                                 {card.category}
-                            </a>
+                            </button>
                         </figcaption>
                     </figure>
                     <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
@@ -69,9 +65,9 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
                             <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] rounded-[20px] object-cover" />
                             <figcaption className={`absolute top-[12%] left-[4%]`}>
 
-                                <NavLink to="/courses" className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
+                                <button onClick={()=>categoryDetails(card.category)} className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
                                     {card.category}
-                                </NavLink>
+                                </button>
 
                             </figcaption>
                         </figure>

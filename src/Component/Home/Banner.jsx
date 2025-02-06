@@ -930,6 +930,7 @@ function Banner() {
                                 {ConvertAnchorToLink(String(homeData?.blogHead))}
                                 <div className="mt-[52px] w-[95%] ">
                                     {
+                                        
                                         blog?.slice(blog.length - 3, blog.length).reverse().map((latestBlog, index) => {
 
                                             const dateObj = new Date(latestBlog?.updatedAt); // Create a Date object
@@ -949,7 +950,7 @@ function Banner() {
                                                             </div>
                                                         </div>
                                                         <div className="ml-[8px] ">
-                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700]`}>{latestBlog?.heading.slice(0, 30)}...</button>
+                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700]`}>{latestBlog?.heading.slice(0, 25)}...</button>
                                                             <p className={`${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  text-[16px] leading-[34px] font-[400] `}>{latestBlog?.blogCategory}</p>
                                                         </div>
 
