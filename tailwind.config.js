@@ -31,6 +31,11 @@ module.exports = {
         courseDetailsRightFormShad:'3px 6px 40px 0 rgba(0, 0, 0, 0.12);',
         reletedCardShad:'3px 4px 35px 0 rgba(0, 0, 0, 0.08);',
       },
+      screens:{
+        'max-1200':{max:'1199px'},
+        'min-800':{min:'800px'},
+        'max-800':{max:'799px'},
+      },
      
     
     },

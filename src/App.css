@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 
-
-
 * {
   padding: 0;
   margin: 0;
@@ -13,7 +11,6 @@ body {
   -webkit-text-size-adjust: 100%;
   color: #000000;
 }
-
 
 /* scroll bar */
 /* Target the scrollbar container */
@@ -930,3 +927,28 @@ padding-left: 70PX  !important;
 .howToStartCollapse .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .anticon svg{
   display: none;
 }
+
+
+/* Responsiveness */
+@media only screen and (max-width: 1400px) {
+  .wrapper{
+    width :94%;
+  }
+  
+}
+@media only screen and (max-width :1200px)
+{
+  .header-icon{
+    padding-left: 17px;
+    margin-left: 10px;
+  }
+
+}
+
+
+
+
+
+
+
+
