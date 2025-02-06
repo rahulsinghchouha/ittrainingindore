@@ -30,12 +30,12 @@ const CourseDetails = () => {
     const location = useLocation();
 
 
-    let {courseName} = useParams();
+    let { courseName } = useParams();
     courseName = courseName?.split("-").join(" ");
-    console.log("course name",courseName);
-  
+    console.log("course name", courseName);
+
     const courseDetails = location?.state;
-    console.log("course details",courseDetails);
+    console.log("course details", courseDetails);
     useMemo(() => { if (courseDetails) setCourse(courseDetails) }, [courseDetails]);
 
     const allCourse = useSelector((state) => state.backendFunction.webCard);
@@ -46,7 +46,7 @@ const CourseDetails = () => {
             return allCourse?.find(course => course?.courseName?.toLowerCase().includes(courseName?.toLowerCase()));
         }
     }, [allCourse, courseName])
-    console.log("query params",courseQueryParam);
+    console.log("query params", courseQueryParam);
 
     useMemo(() => { if (courseQueryParam) setCourse(courseQueryParam) }, [courseQueryParam]);
 
@@ -71,14 +71,14 @@ const CourseDetails = () => {
     }, []);
 
     const relatedCourses = useMemo(() =>
-        allCourse?.filter(related => related.category === course?.category),
-        [allCourse, course?.category]
+        allCourse?.filter(related => related.category === courseName),
+        [allCourse, courseName]
     );
     const { ref: mainPageHead, inView: isMainPageHead } = useInView({
         threshold: 0.5,
         triggerOnce: true,
     });
-    console.log("course",course);
+    console.log("course", course);
     return (
 
         <div>
@@ -115,7 +115,7 @@ const CourseDetails = () => {
                         <div className="wrapper flex">
                             <div className="w-[66%]">
                                 <div>
-                                    <Link to={`/course-category/${course?.category?.replace(/\s|\/+/g,'-')}`} className="text-[16px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
+                                    <Link to={`/course-category/${course?.category?.replace(/\s|\/+/g, '-')}`} className="text-[16px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
                                 </div>
                                 <div className="mt-[29px] ">
                                     <h2 className="text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000]">{course?.courseName}</h2>
@@ -135,7 +135,7 @@ const CourseDetails = () => {
 
                                 </div>
                                 <div className="mt-[80px] ">
-                                    <h3 id="description">Overview</h3> 
+                                    <h3 id="description">Overview</h3>
                                     <div className="mt-[26px] listBgImage hoverBlue ">
                                         <p >
 
@@ -181,8 +181,8 @@ const CourseDetails = () => {
                                     </div>
 
                                 </div>
+                                {/* Course Benefits section */}
                                 <div className="mt-[10px]  pt-[25px] listBgImage hoverBlue pb-[89px] px-0" >
-
                                     {
                                         ConvertAnchorToLink(String(course?.benefits))
                                     }
@@ -359,61 +359,61 @@ const CourseDetails = () => {
                     {/* course details section end */}
 
                     {/* related course section start */}
-
-                    <section className="py-[50px] px-0" id="related-courses">
-                        <div className="wrapper">
-                            <div>
+                    { relatedCourses.length > 0 && 
+                        <section className="py-[50px] px-0" id="related-courses">
+                            <div className="wrapper">
                                 <div>
-                                    <h3 >Related Courses</h3>
-                                </div>
-                                <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff] justify-center items-center  ">
-                                    <Swiper
-                                        modules={[Autoplay]}
-                                        loop={relatedCourses.length > 4}
-                                        slidesPerView={Math.min(4, relatedCourses.length)} // Show up to 4 slides but adapt to fewer
-                                        autoplay={
-                                            {
-                                                delay: 1000,
-                                                disableOnInteraction: false,
-                                                pauseOnMouseEnter: true
+                                    <div>
+                                        <h3 >Related Courses</h3>
+                                    </div>
+                                    <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff] justify-center items-center  ">
+                                        <Swiper
+                                            modules={[Autoplay]}
+                                            loop={relatedCourses.length > 4}
+                                            slidesPerView={Math.min(4, relatedCourses.length)} // Show up to 4 slides but adapt to fewer
+                                            autoplay={
+                                                {
+                                                    delay: 1000,
+                                                    disableOnInteraction: false,
+                                                    pauseOnMouseEnter: true
+                                                }
                                             }
-                                        }
-                                        speed={2000}
-                                    >
-                                        {
-                                            relatedCourses.map((related, index) => (
-                                                <SwiperSlide key={index} className="w-[100%] h-auto hover:translate-y-[-10px] z-[5] pt-[40px] transition-all duration-800 ease-linear">
-                                                    <div className={`  rounded-[18px] mr-[10%]  shadow-reletedCardShad flex-shrink-0`}  >
-                                                        <div className="w-[100%]">
-                                                            <figure className="w-[100%] ">
-                                                                <img src={`${ittrainingDataSerivice.backendUrl}/${related.img}`} className="w-[297px] h-[198px] object-cover rounded-tr-[18px] rounded-tl-[18px] block" />
-                                                            </figure>
-                                                        </div>
-                                                        <div className="pt-0 pl-[25px] pr-[25px] pb-[25px] w-[100%] ">
-                                                            <div className="mt-[20px] w-[100%]">
-                                                                <h6>{related.courseName}</h6>
+                                            speed={2000}
+                                        >
+                                            {
+                                                relatedCourses.map((related, index) => (
+                                                    <SwiperSlide key={index} className="w-[100%] h-auto hover:translate-y-[-10px] z-[5] pt-[40px] transition-all duration-800 ease-linear">
+                                                        <div className={`  rounded-[18px] mr-[10%]  shadow-reletedCardShad flex-shrink-0`}  >
+                                                            <div className="w-[100%]">
+                                                                <figure className="w-[100%] ">
+                                                                    <img src={`${ittrainingDataSerivice.backendUrl}/${related.img}`} className="w-[297px] h-[198px] object-cover rounded-tr-[18px] rounded-tl-[18px] block" />
+                                                                </figure>
                                                             </div>
-                                                            <div className="pt-[21px] w-[100%]">
+                                                            <div className="pt-0 pl-[25px] pr-[25px] pb-[25px] w-[100%] ">
+                                                                <div className="mt-[20px] w-[100%]">
+                                                                    <h6>{related.courseName}</h6>
+                                                                </div>
+                                                                <div className="pt-[21px] w-[100%]">
 
-                                                                <button className="transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
+                                                                    <button className="transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
 
+                                                                </div>
                                                             </div>
-                                                        </div>
 
-                                                    </div>
-                                                </SwiperSlide>
-                                            )
-                                            )
-                                        }
-                                    </Swiper>
+                                                        </div>
+                                                    </SwiperSlide>
+                                                )
+                                                )
+                                            }
+                                        </Swiper>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-
+                        </section>
+                    }
                     <CounterPage />
                     <Footer />
-                </div>) : (<NotFoundResponse/>)
+                </div>) : (<NotFoundResponse />)
             }
         </div>
     )

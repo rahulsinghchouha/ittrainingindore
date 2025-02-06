@@ -87,9 +87,11 @@ function BlogDetails() {
     useMemo(() => {if(blogDetail) setBlogDetails(blogDetail)}, [blogDetail])
     //console.log(blog);
     const blogQueryParam = useMemo(() => {
-        if (blog && !blogDetail ) 
+        if (blog && !blogDetail) 
+           {
+            setBlogDetails(null); 
             return blogLatest?.find(blogData => blogData.heading?.toLowerCase().includes(blog?.toLowerCase()));
-        
+           }
     }, [blogLatest,blog])
 
     useMemo(() => { if (blogQueryParam) setBlogDetails(blogQueryParam) }, [blogQueryParam]);
@@ -172,7 +174,7 @@ function BlogDetails() {
                                 <img src={`${ittrainingDataSerivice.backendUrl}/${blogDetails?.img}`} className="w-[100%]" alt="blog image" />
                             </div>
                             {/* blog details */}
-                            <div className="mt-[40px] listBgImage"
+                            <div className="mt-[40px] listBgImage hoverBlue"
                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blogDetails?.details) }}
                             >
     

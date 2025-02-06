@@ -2,43 +2,73 @@ import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import ConvertAnchorToLink from "./ConvertAnchorToLink";
 import NotFoundResponse from "./NotFoundResponse";
 import { useParams } from "react-router-dom";
 
 
+import { useDispatch, useSelector } from "react-redux";
+
+import { fetchCards } from "../../Redux/functionsSlics";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Autoplay } from "swiper/modules";
+
 
 const CategoryDetails = () => {
 
     const [category, setCategory] = useState(null);
+
+    const navigate = useNavigate();
 
     let { categories } = useParams(); // Extracting the dynamic parameter
     categories = categories?.split("-").join(" ");
 
 
     async function getCategoryByName() {
-            try {
-                const response = await ittrainingDataSerivice.getCategoryByName( {categories} );
+        try {
+            const response = await ittrainingDataSerivice.getCategoryByName({ categories });
 
-                if (response.status === 200)
-                    setCategory(response.data.data);
-            }
-            catch (error) {
-                console.log("error to get the category : ", error)
-            }
+            if (response.status === 200)
+                setCategory(response.data.data);
+        }
+        catch (error) {
+            console.log("error to get the category : ", error)
+        }
     }
 
     const categoryDetails = useLocation().state;
     useMemo(() => { if (categoryDetails) setCategory(categoryDetails) }, [categoryDetails]); //if new category then it update and then this component will be re-render
 
     useEffect(() => {
-        if(categories && !categoryDetails)
-        { 
+        if (categories && !categoryDetails) {
             getCategoryByName();
         }
     }, [categories])
+    //related 
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCards());
+    }, [dispatch]);
+    const allCourse = useSelector((state) => state.backendFunction.webCard);
+
+    const relatedCourses = useMemo(() =>
+        allCourse?.filter(related => related.category === categories),
+        [allCourse, categories]
+    );
+    function handleCourseDetails(course) {
+        // console.log("card", course);
+         navigate("/course/" + course?.courseName?.replace(/\s|\/+|\?/g, "-"), { state: course });
+     }
+    
+    //Function to safely slice HTML Content
+    const stripHtmlTags = (htmlContent) => {
+        const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
+        return doc.body.textContent || "";
+    };
 
     return (
         <div>
@@ -70,6 +100,64 @@ const CategoryDetails = () => {
                             </div>
                         </div>
                     </section>
+                    {/* Related Courses */}
+                    {
+                        relatedCourses.length > 0 &&
+                        <section className="py-[50px] px-0" id="related-courses">
+                            <div className="wrapper">
+                                <div>
+                                    <div>
+                                        <h3 >Related Courses</h3>
+                                    </div>
+                                    <div className="mt-[58px] flex flex-wrap w-[100%] pt-[10px] pb-[20px] bg-[#fff] justify-center items-center  ">
+                                        <Swiper
+                                            modules={[Autoplay]}
+                                            loop={relatedCourses.length > 4}
+                                            slidesPerView={Math.min(4, relatedCourses.length)} // Show up to 4 slides but adapt to fewer
+                                            autoplay={
+                                                {
+                                                    delay: 1000,
+                                                    disableOnInteraction: false,
+                                                    pauseOnMouseEnter: true
+                                                }
+                                            }
+                                            speed={2000}
+                                        >
+                                            {
+                                                relatedCourses.map((related, index) => (
+                                                    <SwiperSlide key={index} className="max-w-[350px] h-auto hover:translate-y-[-10px] z-[5] pt-[40px] transition-all duration-800 ease-linear">
+                                                        <div className={`  rounded-[18px] mr-[10%]  shadow-reletedCardShad flex-shrink-0`}  >
+                                                            <div className="w-[100%]">
+                                                                <figure className="w-[100%] ">
+                                                                    <img src={`${ittrainingDataSerivice.backendUrl}/${related.img}`} className="w-[100%] h-[198px] object-cover rounded-tr-[18px] rounded-tl-[18px] block" />
+                                                                </figure>
+                                                            </div>
+                                                            <div className="pt-0 pl-[25px] pr-[25px] pb-[25px] w-[100%] ">
+                                                                <div className="mt-[20px] w-[100%]">
+                                                                    <h6 onClick={() => handleCourseDetails(related)} className="cursor-pointer hover:text-[#1AAEF4] transition-all ease delay-75">{related?.courseName}</h6>
+                                                                </div>
+                                                                <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
+                                                                    <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
+                                                                        {stripHtmlTags(related?.overview).slice(0, 70)}....
+                                                                    </p>
+                                                                </div>
+                                                                <div className="pt-[21px] w-[100%]">
+                                                                    <button onClick={() => handleCourseDetails(related)} className="transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </SwiperSlide>
+                                                )
+                                                )
+                                            }
+                                        </Swiper>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    }
+
                     {/* Category content wrapper */}
                     <section className="mb-[40px] ">
                         <div className="wrapper">

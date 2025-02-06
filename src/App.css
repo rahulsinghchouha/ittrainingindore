@@ -842,15 +842,12 @@ h4 {
   background: url('../public/arrow-right-blue (1).svg') no-repeat 0% 10px !important;
 }
 
-.hoverBlue a:hover {
+.hoverBlue  a:hover {
   color: #1AAEF4;
   transition: all 0.3s ease;
 }
 
-.listBgImage ul li:hover {
-  color: #1AAEF4;
-  transition: all 0.3s ease;
-}
+
 
 .sitemapBtn {
   background: url('../public//exolore-slider-prev (1).svg') no-repeat 0 5px;
