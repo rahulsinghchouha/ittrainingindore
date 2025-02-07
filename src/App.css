@@ -150,19 +150,31 @@ body {
 .figShadow {
   box-shadow: -4px 6px 40px #6cd0ff33;
 }
-
-.keyStore {
-  background: url("../public/Home/keystroke-from-bg.svg") no-repeat 0% center;
+.keyStore{
+  position: relative;
   background-color: #ffffff;
-  box-shadow: 3px 4px 57px 0 rgb(0, 0, 0, 0.1);
-
+  box-shadow: 3px 4px 57px 0 rgb(0, 0, 0, 0.1); 
+  border-radius: 31px;
+  overflow: hidden;
 }
+
+/* .keyStore::after {
+  content: "";
+  position: absolute;
+  height: 240px;
+  width: 270px;
+  background-size: contain;
+  background-position: center;
+  object-fit: cover;
+  background: url("../public/Home/keystroke-from-bg.svg") no-repeat 0% ;
+  left: 0;
+  top: 0;
+} */
 
 .keyStore ::before {
   content: '';
   display: table;
   visibility: visible;
-
 }
 
 .Clip {
@@ -971,8 +983,19 @@ h4 {
   .popularSearchBtn {
     margin-left: 10px !important;
   }
+  .homeBannerHeader h1 {
+    display: inline !important;
+  }
+
+  
 }
 
-.homeBannerHeader h1 {
-  display: inline !important;
+
+.formSelectCourse .ant-select {
+  color: transparent !important; /* Make default label transparent */
+  background-color: transparent !important;
+}
+
+.custom-select-color .ant-select-arrow {
+  color: black; /* Ensure arrow remains visible */
 }

@@ -329,17 +329,21 @@ function Banner() {
 
                 {/* key store form section starts */}
 
-                <section ref={keyStoreRef} className={`mt-[-110px] max-1200:mt-[-90px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
+                <section ref={keyStoreRef} className={`mt-[-110px] max-1200:mt-[-90px] max-1024:mt-[64px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
                     animationDuration: "2s", // Custom animation duration
                 }}>
                     <div className="wrapper">
-                        <div className="flex justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] w-[83%] max-1200:w-[90%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore">
-                            <div className="w-[25%] float-left ">
+                        <div className="overflow-hidden flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] max-1024:pt-[13px] max-1024:pb-[22px] max-1024:px-[52px] w-[83%] max-1200:w-[90%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
+                            <figure className="absolute top-0 left-0 max-1024:h-[365px] z-[2]">
+                                <img src="/Home/keystroke-from-bg.svg" className="h-[100%] w-[100%] max-w-[100%]" />
+                            </figure>
+                            <div className="w-[25%] max-1024:w-[100%] max-1024:text-center">
+                            
                                 <h2 className="text-[28px]  leading-[46px]  text-[#000000] ">Get a free
                                     <span className="font-[700]"> keystroke quote</span>
                                 </h2>
                             </div>
-                            <div className="w-[76%] float-right relative leading-0  bg-transparent">
+                            <div className="w-[76%]  max-1024:w-[100%] max-1024:mt-[25px] relative leading-0  bg-transparent">
 
 
                                 <div>
@@ -408,12 +412,14 @@ function Banner() {
 
                                                                 <span className=" formSelectCourse pl-[25px] block"   >
                                                                     <Select
+                                                                         className=" selectBorder antSelector cursor-pointer bg-transparent  "
                                                                         showSearch
                                                                         defaultValue="Select Course"
-                                                                        style={{ width: "100%", border: "0px", cursor: "pointer" }}
+                                                                       
+                                                                        style={{ width: "100%", border: "0px", cursor: "pointer",backgroundColor:"transparent",zIndex:"0" }}
                                                                         onChange={(value) => setFieldValue("course", value)}
                                                                         values={values.course}
-                                                                        className="selectBorder antSelector cursor-pointer"
+                                                                       
                                                                         onBlur={() => setFieldTouched("course", true)} // Manually set touched
 
                                                                         options={[
@@ -457,7 +463,7 @@ function Banner() {
                                                                 <Select
                                                                     showSearch
                                                                     defaultValue="How soon you want to join IT Training?"
-                                                                    style={{ width: "100%", border: "0px", cursor: "pointer" }}
+                                                                    style={{ width: "100%", border: "0px", cursor: "pointer", }}
                                                                     onChange={(value) => setFieldValue("joiningTime", value)}
                                                                     values={values.joiningTime}
                                                                     className="selectBorder antSelector cursor-pointer"
