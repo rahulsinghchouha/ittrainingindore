@@ -35,9 +35,12 @@ module.exports = {
         'max-1200':{max:'1199px'},
         'min-800':{min:'800px'},
         'max-800':{max:'799px'},
+        'max-1024':{max:'1023px'},
+        'max-979' :{max:'979px'},
+        'max-1321' :{max:'1321px'},
+        'max-1680' :{max:'1680px'},
+        'max-1380' :{max:'1380px'}
       },
-     
-    
     },
   },
   plugins: [],

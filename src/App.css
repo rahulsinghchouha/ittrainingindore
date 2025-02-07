@@ -111,26 +111,21 @@ body {
   display: none;
 }
 
-.home-banner-wr {
-  padding: 135px 0 90px;
-  background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
-
-}
 
 /* Banner style */
-.get-course-now {
+.banner-sub-heading {
   position: relative;
 }
 
-.get-course-now::after {
+.banner-sub-heading h4::after {
   content: "";
   position: absolute;
-  width: 9.3%;
+  width: 9%;
   height: 1px;
   background-image: linear-gradient(to right, #1aaef4 0%, #74deff 100%);
   top: 50%;
   transform: translateY(-50%);
-  left: 23%;
+  margin-left: 10px;
 }
 
 .search-submit {
@@ -160,6 +155,7 @@ body {
   background: url("../public/Home/keystroke-from-bg.svg") no-repeat 0% center;
   background-color: #ffffff;
   box-shadow: 3px 4px 57px 0 rgb(0, 0, 0, 0.1);
+
 }
 
 .keyStore ::before {
@@ -788,7 +784,8 @@ h4 {
   -webkit-text-size-adjust: 100%;
 }
 
-.keyAreas,.ant-collapse-item .ant-collapse-header:hover .ant-collapse-header-text {
+.keyAreas,
+.ant-collapse-item .ant-collapse-header:hover .ant-collapse-header-text {
   color: #1AAEF4;
   transition: all 200ms ease-in;
 }
@@ -839,7 +836,7 @@ h4 {
   background: url('../public/arrow-right-blue (1).svg') no-repeat 0% 10px !important;
 }
 
-.hoverBlue  a:hover {
+.hoverBlue a:hover {
   color: #1AAEF4;
   transition: all 0.3s ease;
 }
@@ -872,83 +869,110 @@ h4 {
   -webkit-text-size-adjust: 100%;
   transition: all 0.4s ease-in !important;
 }
-.howToStartCollapse .ant-collapse-header{
+
+.howToStartCollapse .ant-collapse-header {
 
   padding: 12px 16px !important;
   font-size: 16px;
   line-height: 20px;
 
 }
-.howToStartCollapse .ant-collapse-item
-{
-  
+
+.howToStartCollapse .ant-collapse-item {
+
   padding-bottom: 0px !important;
 }
-.howToStartCollapse .ant-collapse-item .ant-collapse-header{
-margin-bottom: 20px !important;
-padding-left: 70PX  !important;
+
+.howToStartCollapse .ant-collapse-item .ant-collapse-header {
+  margin-bottom: 20px !important;
+  padding-left: 70PX !important;
 }
 
 
-.howToStartCollapse .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .anticon::before{
-  content: '+' ;
-  position: absolute ;
-  top: 0px ;
-  left: 0px ;
-  width: 46px ;
-  height: 46px ;
-  background-color: #fff ;
-  box-shadow: 3px 4px 35px rgb(0 0 0 / 8%) ;
-  border-radius: 13px ;
-  font-size: 22px ;
-  line-height: 46px ;
-  font-weight: 800 ;
-  color: #000 ;
+.howToStartCollapse .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .anticon::before {
+  content: '+';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 46px;
+  height: 46px;
+  background-color: #fff;
+  box-shadow: 3px 4px 35px rgb(0 0 0 / 8%);
+  border-radius: 13px;
+  font-size: 22px;
+  line-height: 46px;
+  font-weight: 800;
+  color: #000;
   display: block;
 }
 
-.howToStartCollapse .ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon .anticon::after
-{
-  content: '-' ;
-  position: absolute ;
-  top: 0px ;
-  left: 0px ;
-  width: 46px ;
-  height: 46px ;
-  background-color: #1AAEF4 ;
-  box-shadow: 3px 4px 35px rgb(0 0 0 / 8%) ;
-  border-radius: 13px ;
-  font-size: 22px ;
-  line-height: 46px ;
-  font-weight: 800 ;
-  color: #fff ;
+.howToStartCollapse .ant-collapse-item-active .ant-collapse-header .ant-collapse-expand-icon .anticon::after {
+  content: '-';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 46px;
+  height: 46px;
+  background-color: #1AAEF4;
+  box-shadow: 3px 4px 35px rgb(0 0 0 / 8%);
+  border-radius: 13px;
+  font-size: 22px;
+  line-height: 46px;
+  font-weight: 800;
+  color: #fff;
   display: block;
 }
-.howToStartCollapse .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .anticon svg{
+
+.howToStartCollapse .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .anticon svg {
   display: none;
 }
 
 
 /* Responsiveness */
 @media only screen and (max-width: 1400px) {
-  .wrapper{
-    width :94%;
+  .wrapper {
+    width: 94%;
   }
-  
+
 }
-@media only screen and (max-width :1200px)
-{
-  .header-icon{
+
+@media only screen and (max-width :1200px) {
+  .header-icon {
     padding-left: 17px;
     margin-left: 10px;
   }
 
 }
 
+@media only screen and (max-width :1300px) {
+  .homeBannerHeader {
+    font-size: 0.9em;
+    line-height: 1em;
+    font-weight: bold;
+  }
 
+}
 
+.home-banner-wr {
+  padding: 135px 0 90px;
+  background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
+}
 
+@media only screen and (max-width: 1023px) {
+  .home-banner-wr {
+    padding: 78px 0px 0px;
+    background-position: 48% 4%;
+  }
 
+  .search-icon {
+    margin-left: 50px !important;
+  }
 
+  .popularSearchBtn {
+    margin-left: 10px !important;
+  }
+}
 
-
+.homeBannerHeader h1 {
+  display: inline !important;
+}

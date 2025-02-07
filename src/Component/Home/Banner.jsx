@@ -213,22 +213,21 @@ function Banner() {
         <div>
             <Navbar />
             <div className="pt-[125px] ">
-                <div className="home-banner-wr">
+                {/* Home page banner start */}
+                <div className="home-banner-wr overflow-hidden">
                     <section className="wrapper">
-                        <div className="box-border flex justify-between ">
-                            <div className="w-[48.5%] pt-[16px] pl-0 pr-0 pb-0">
-                                <div>
+                        <div className="box-border flex max-1024:flex-col-reverse justify-between ">
+                            <div className="w-[48.5%] max-1024:w-[100%] max-1024:text-center  max-1024:pt-[50px] max-1024:pb-[90px] max-1024:px-0    pt-[16px] pl-0 pr-0 pb-0 ">
+                                <div className="banner-sub-heading">
                                     <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                                 </div>
                                 <div
                                     ref={mainHeading}
-                                    className={`hoverBlue  mt-[28px] ${isMainHeading && "animate__fadeIn"} `} style={{
+                                    className={`homeBannerHeader w-[120%] max-1024:w-[100%]  mt-[28px]  ${isMainHeading && "animate__fadeIn"} `} style={{
                                         animationDuration: "3s",
                                     }}
-
                                 >
                                     {ConvertAnchorToLink(String(homeData?.bannerHeading))}
-
 
                                 </div>
                                 {/* banner search form */}
@@ -237,7 +236,7 @@ function Banner() {
                                         initialValues={{ query: "" }}
                                         validate={value => {
                                             const error = {};
-                                            if (!value.query) error.query = "Please Enter a Course Name"
+                                            if (!value.query) error.query = "Please Enter a Course Name";
                                             return error;
                                         }
                                         }
@@ -253,7 +252,7 @@ function Banner() {
                                                 <div className="flex w-[100%]">
                                                     <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} bg-[#ffffff] py-[15px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
                                                     <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
-                                                        <BsSearch style={{ color: "white", fontSize: "20px", marginLeft: "25px" }} />
+                                                        <BsSearch style={{ color: "white", fontSize: "20px", marginLeft: "25px" }} className="search-icon" />
                                                     </button>
                                                 </div>
                                                 {errors.query && <span className="text-red-600 inline-block">{errors.query}</span>}
@@ -269,7 +268,7 @@ function Banner() {
                                         <span className="text-[16px] leading-[21px] text-[#000000] font-[600] ">Popular Searches</span>
 
                                     </div>
-                                    <div className="ml-[10px] inline-block cursor-pointer">
+                                    <div className="ml-[10px] max-1380:ml-[-5px] popularSearchBtn  inline-block cursor-pointer ">
                                         {
                                             exploreCat.slice(exploreCat.length - 3, exploreCat.length).reverse().map((category, index) => (
                                                 <button onClick={() => handleSearch(category?.heading)} key={index} className={` ${index != 0 ? "ml-[15px]" : ""} inline-block text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] `}>{category?.heading}</button>
@@ -279,19 +278,19 @@ function Banner() {
                                 </div>
 
                                 {/* banner course link */}
-                                <div className="mt-[60px] box-border flex">
+                                <div className="mt-[60px] w-[110%] max-1321:mt-[42px] box-border flex">
                                     {/* Dynamic category Pending */}
-                                    <div className="w-[32.7%]  border-r-[1px] border-solid border-[#e0e0e0]">
+                                    <div className="w-[34%]  border-r-[1px] border-solid border-[#e0e0e0]">
                                         <img src="/Home/web_development_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
-                                        <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Development</a>
+                                        <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] max-1200:ml-[5px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Development</a>
                                     </div>
-                                    <div className="w-[32.7%] pl-[13px] border-r-[1px] border-solid border-[#e0e0e0]">
+                                    <div className="w-[32%] pl-[13px] border-r-[1px] border-solid border-[#e0e0e0]">
                                         <img src="/Home/graphic_design_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
-                                        <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Designing</a>
+                                        <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] max-1200:ml-[5px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Designing</a>
                                     </div>
-                                    <div className="w-[33%] pl-[13px]  border-solid border-[#e0e0e0] pr-0 box-border">
+                                    <div className="w-[44%] pl-[13px]  border-solid border-[#e0e0e0] pr-0 box-border">
                                         <img src="/Home/digital_marketing_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
-                                        <a href="/" className="text-[16px] leading-[20px] font-[500] text-[#000000] w-[70%] ml-[10px] whitespace-nowrap focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Digital Marketing</a>
+                                        <a href="/" className="text-[16px] leading-[20px] font-[500] text-[#000000] w-[70%] ml-[10px] max-1200:ml-[5px] whitespace-nowrap focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Digital Marketing</a>
                                     </div>
                                 </div>
 
@@ -301,7 +300,8 @@ function Banner() {
                             <div ref={mainImage}
 
 
-                                style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, backgroundRepeat: 'no-repeat', backgroundPositionX: '84%', backgroundPositionY: '25%' }} className={` w-[39%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-h-[687px] relative float-right box-border`}>
+                                style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, backgroundRepeat: 'no-repeat', backgroundPositionX: '84%', backgroundPositionY: '25%' }}
+                                 className={` w-[39%] max-1200:w-[42%] max-1024:w-[52%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[15px] max-h-[687px] relative float-right box-border`}>
                                 <figure
 
                                 >
@@ -329,17 +329,17 @@ function Banner() {
 
                 {/* key store form section starts */}
 
-                <section ref={keyStoreRef} className={`mt-[-110px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
+                <section ref={keyStoreRef} className={`mt-[-110px] max-1200:mt-[-90px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
                     animationDuration: "2s", // Custom animation duration
                 }}>
                     <div className="wrapper">
-                        <div className="flex justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] w-[83%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore">
-                            <div className="w-[15%] float-left ">
+                        <div className="flex justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] w-[83%] max-1200:w-[90%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore">
+                            <div className="w-[25%] float-left ">
                                 <h2 className="text-[28px]  leading-[46px]  text-[#000000] ">Get a free
                                     <span className="font-[700]"> keystroke quote</span>
                                 </h2>
                             </div>
-                            <div className="w-[76%] float-right relative leading-0  bg-[#ffffff]">
+                            <div className="w-[76%] float-right relative leading-0  bg-transparent">
 
 
                                 <div>
@@ -367,7 +367,7 @@ function Banner() {
                                             <form className="flex flex-col m-0 p-0 " onSubmit={handleSubmit}>
 
                                                 <div className="flex">
-                                                    <div className="w-[29%]  relative mb-[27px] ml-0 mr-0 mt-0" >
+                                                    <div className="w-[29%]   relative mb-[27px] ml-0 mr-0 mt-0" >
                                                         <div className=" border-b-[1px]  border-solid  border-[#cecece] ">
                                                             <p className="leading-[21px] text-[#000000] text-[16px] spacing-normal font-[400]">
                                                                 <span className="formUserIcon pl-[25px] block  ">
@@ -535,7 +535,7 @@ function Banner() {
 
                 {/* Greet course section   */}
 
-                <section className="pt-[116px] text-center ">
+                <section className="pt-[116px] text-center overflow-hidden">
                     <div className="wrapper">
 
                         <div style={{ visibility: "visible", animationDuration: '3s' }}
@@ -575,7 +575,7 @@ function Banner() {
 
                 {/* student placed section starts */}
 
-                <section className={`pt-[0px] pr-0 pl-0 pb-[72px] ${isUpliftHead && "animate__fadeIn"} `}
+                <section className={` pt-[0px] pr-0 pl-0 pb-[72px] ${isUpliftHead && "animate__fadeIn"} overflow-hidden `}
                     ref={upliftHead}
                     style={{ animationDuration: '4s' }}>
                     <div className="wrapper">
@@ -1064,7 +1064,7 @@ function Banner() {
                 <Footer className="pt-[300px] "></Footer>
 
                 {/* back to top align */}
-                <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center backtotop  ">
+                {/* <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center backtotop  ">
                     <Link to="/" className=" backtotopchild text-[25px] text-[#ffffff]  text-center w-[62px] h-[62px] bg-[#050505] inline-block align-middle  rounded-[50%] leading-[62px] ">
                         <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg" className="inline-block">
                             <path d="M1.6665 12.2923L11.9998 1.95898L22.3332 12.2923" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -1073,11 +1073,11 @@ function Banner() {
 
                     </Link>
                     <span className="block text-[14px] leading-[19px] font-[500] mt-[12px]  ">Back To Top</span>
-                </div>
+                </div> */}
                 {/* back to top end */}
 
                 {/* get inquiry */}
-                <div className="getInquiryimg fixed top-[50%] right-0 py-[10px] pr-[13px] pl-[11px] shadow-geiinquiryShad bg-[#000] w-[56px] text-center cursor-pointer rounded-[5px] z-[51] flex gap-2 items-center" style={{ writingMode: 'vertical-rl' }}>
+                {/* <div className="getInquiryimg fixed top-[50%] right-0 py-[10px] pr-[13px] pl-[11px] shadow-geiinquiryShad bg-[#000] w-[56px] text-center cursor-pointer rounded-[5px] z-[51] flex gap-2 items-center" style={{ writingMode: 'vertical-rl' }}>
                     <figure className="w-[27px] h-[26px] pt-[4px] pb-[3px] pl-[2px] pr-[6px] rounded-[3px] bg-[#1aaef4] mt-[10px] transform rotate-180 ">
                         <img src="/get-enquiry-icon.svg" alt="It Training Indore Enquiry" className="" />
                     </figure>
@@ -1085,7 +1085,7 @@ function Banner() {
                         <h4 className="text-[#fff] font-[700] text-[16px] leading-[21px] ">Get Enquiry</h4>
                     </div>
 
-                </div>
+                </div> */}
 
                 {/* whatsapp button */}
 
