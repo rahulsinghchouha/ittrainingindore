@@ -676,16 +676,16 @@ function Banner() {
                 </section>
 
                 {/* our partners */}
-                <section className={` pb-[59px] m-0 `}
+                <section className={` pb-[59px] m-0 max-1400:py-[55px] max-1400:px-0`}
 
                 >
                     <div className="wrapper ">
                         <div className={`text-center mb-[30px] ${isOurPartners && "animate__fadeInDown"}`}
                             ref={ourPartners}
                             style={{ animationDuration: "2s" }}>
-                            <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] "> Our Partners </h3>
+                            <h3 className="text-[36px] leading-[52px] max-1200:text-[30px] max-1200:leading-[48px] tracking-[0.72px] text-[#000000] font-[800] "> Our Partners </h3>
                         </div>
-                        <div className="bg-[#ffffff] shadow-partnerShadow relative rounded-[22px] p-[30px] ">
+                        <div className="bg-[#ffffff] shadow-partnerShadow relative rounded-[22px] p-[30px] max-1200:w-[90%] max-1200:my-0 max-1200:mx-auto ">
                             <button onClick={() => { partnerSwipRef.current.slidePrev() }} className="w-[54px] h-[54px] bg-[#ececec] rounded-[50%] absolute top-[30%] left-[-30px] border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-prev (1).svg" /></button>
                             <button onClick={() => { partnerSwipRef.current.slideNext() }} className="w-[54px] h-[54px] bg-[#ececec] rounded-[50%] absolute top-[30%] right-[-30px] border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
 
@@ -702,9 +702,9 @@ function Banner() {
                                     onSwiper={(swiper) => partnerSwipRef.current = swiper}
                                 >
                                     {partnerImage?.map((partner, index) => (
-                                        <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a] ">
-                                            <figure className="w-[315.3px] h-[74px] flex justify-center items-center}">
-                                                <img className=" mt-auto  mb-auto max-w-[100%] max-h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
+                                        <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a]  ">
+                                            <figure className=" h-[74px] flex justify-center items-center}">
+                                                <img className=" mt-auto  mb-auto  max-w-[100%] max-h-[100%]  max-1200:max-w-[90%] max-1200:max-h-[90%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
                                             </figure>
                                         </SwiperSlide>
                                     ))}
