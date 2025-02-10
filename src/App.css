@@ -949,8 +949,20 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
+  #upliftYourCareer h3 {
+    font-size: 32px !important;
+    line-height: 49px !important;
+  }
 
 }
+@media only screen and (max-width :1321px)
+{
+  #upliftYourCareer p {
+    font-size: 16px !important;
+    line-height: 32px !important;
+  }
+}
+
 @media only screen and (max-width :1300px) {
   .homeBannerHeader {
     font-size: 0.9em;
@@ -969,6 +981,10 @@ h4 {
     font-size: 30px !important;
     line-height: 48px !important;
     
+  }
+  #upliftYourCareer h3 {
+    font-size: 30px !important;
+    line-height: 48px !important;
   }
 
 }
@@ -1005,6 +1021,14 @@ h4 {
     margin: 0px auto !important;
   }
   
+}
+
+@media only screen and (max-width : 649px)
+{
+  #upliftYourCareer  {
+    display: none !important;
+  }
+
 }
 
 

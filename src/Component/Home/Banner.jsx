@@ -585,7 +585,7 @@ function Banner() {
                     ref={upliftHead}
                     style={{ animationDuration: '4s' }}>
                     <div className="wrapper">
-                        <div className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
+                        <div id="upliftYourCareer" className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
                             {ConvertAnchorToLink(String(homeData?.upliftYourCareerHead))}
                         </div>
                         <div className="flex justify-between">
