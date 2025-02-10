@@ -3,6 +3,7 @@ import { ittrainingDataSerivice } from "../../Services/dataService";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+
 import { Autoplay } from "swiper/modules";
 
 
@@ -77,9 +78,9 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
             {
                 !isDesktop && square && webCard.length > 0 ?
                     <div className="h-[100%] w-[100%] relative">
-                        <button onClick={() => { swiperRef.current.slidePrev(); setPrevColor("#1AAEF4"); setNextColor("#cecece"); }} className={`w-[54px] h-[54px] rounded-[50%] absolute top-[50%] left-[0px] border-[1px] solid border-[#0000001a] flex justify-center items-center`}
+                        <button onClick={() => { swiperRef.current.slidePrev(); setPrevColor("#1AAEF4"); setNextColor("#cecece"); }} className={`z-[10] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] rounded-[50%] absolute top-[50%] left-[0px] border-[1px] solid border-[#0000001a] flex justify-center items-center`}
                             style={{ backgroundColor: prevBgColor }}  ><img src="/exolore-slider-prev (1).svg" /></button>
-                        <button onClick={() => { swiperRef.current.slideNext(); setPrevColor("#cecece"); setNextColor("#1AAEF4"); }} className={`w-[54px] h-[54px]  rounded-[50%] absolute top-[50%] right-[0px] border-[1px] solid border-[#0000001a] flex justify-center items-center`}
+                        <button onClick={() => { swiperRef.current.slideNext(); setPrevColor("#cecece"); setNextColor("#1AAEF4"); }} className={`z-[10]  w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] rounded-[50%] absolute top-[50%] right-[0px] border-[1px] solid border-[#0000001a] flex justify-center items-center`}
                             style={{ backgroundColor: nextBgColor }} ><img src="/exolore-slider-next.svg" /></button>
 
                         <Swiper
@@ -87,9 +88,18 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard }) => {
                             spaceBetween={30}
                             loop={true}
                             autoplay={
-                                { delay: 2000 }
+                                { delay: 5000 }
                             }
-                            slidesPerView={2}
+                            slidesPerView={1}
+                            breakpoints={{
+                              
+                                768: {
+                                    slidesPerView: 2, // For screens between 768px and 1024px
+                                },
+                                480: {
+                                    slidesPerView: 1, // For screens smaller than 480px
+                                },
+                            }}
                             style={{ width: "90%", margin: "0px auto", padding: "15px 0px" }}
                             onSwiper={(swiper) => { swiperRef.current = swiper }}
                         >
