@@ -210,13 +210,13 @@ function Banner() {
     }
 
     return (
-        <div>
+        <div className="overflow-hidden">
             <Navbar />
             <div className="pt-[125px] ">
                 {/* Home page banner start */}
                 <div className="home-banner-wr overflow-hidden">
-                    <section className="wrapper">
-                        <div className="box-border flex max-1024:flex-col-reverse justify-between ">
+                    <section className="wrapper overflow-hidden">
+                        <div className="box-border flex max-1024:flex-col-reverse justify-between  ">
                             <div className="w-[48.5%] max-1024:w-[100%] max-1024:text-center  max-1024:pt-[50px] max-1024:pb-[90px] max-1024:px-0    pt-[16px] pl-0 pr-0 pb-0 ">
                                 <div className="banner-sub-heading">
                                     <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
@@ -231,7 +231,7 @@ function Banner() {
 
                                 </div>
                                 {/* banner search form */}
-                                <div className="w-[100%] mt-[16px] ">
+                                <div className="w-[100%] mt-[16px] overflow-hidden ">
                                     <Formik
                                         initialValues={{ query: "" }}
                                         validate={value => {
@@ -263,7 +263,7 @@ function Banner() {
 
                                 </div>
                                 {/* popular searches course link */}
-                                <div className="mt-[25px]">
+                                <div className="mt-[25px] overflow-hidden">
                                     <div className="inline-block">
                                         <span className="text-[16px] leading-[21px] text-[#000000] font-[600] ">Popular Searches</span>
 
@@ -329,11 +329,11 @@ function Banner() {
 
                 {/* key store form section starts */}
 
-                <section ref={keyStoreRef} className={`mt-[-110px] max-1200:mt-[-90px] max-1024:mt-[64px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
+                <section ref={keyStoreRef} className={`overflow-hidden mt-[-110px] max-1200:mt-[-90px] max-1024:mt-[64px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
                     animationDuration: "2s", // Custom animation duration
                 }}>
                     <div className="wrapper">
-                        <div className="overflow-hidden flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] max-1024:pt-[13px] max-1024:pb-[22px] max-1024:px-[52px] w-[83%] max-1200:w-[90%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
+                        <div className=" overflow-hidden flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] max-1024:pt-[13px] max-1024:pb-[22px] max-1024:px-[52px] w-[83%] max-1200:w-[90%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
                             <figure className="absolute top-0 left-0 max-1024:h-[365px] z-[2]">
                                 <img src="/Home/keystroke-from-bg.svg" className="h-[100%] w-[100%] max-w-[100%]" />
                             </figure>
@@ -546,7 +546,7 @@ function Banner() {
 
                         <div style={{ visibility: "visible", animationDuration: '3s' }}
                             ref={chooseCourse}
-                            className={` hoverBlue listBgImage w-[82%] mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
+                            className={` courseBannerSection hoverBlue listBgImage  mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
                         >
                             {ConvertAnchorToLink(String(homeData?.chooseCourseHead))}
                         </div>
