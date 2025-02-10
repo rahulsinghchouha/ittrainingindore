@@ -875,7 +875,7 @@ h4 {
 
 .howToStartCollapse .ant-collapse-content-active {
   background-color: #F3FAFD !important;
-  padding: 16px 62px 27px 38px;
+  padding: 16px 25px 17px 18px;
   border-bottom: 7px solid #1AAEF4;
   font-family: 'Montserrat', sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -938,7 +938,12 @@ h4 {
 .howToStartCollapse .ant-collapse-item .ant-collapse-header .ant-collapse-expand-icon .anticon svg {
   display: none;
 }
-
+.testimonialBgImage{
+  background-image: url("../public/Home/testimonials-quote_icon.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
 
 /* Responsiveness */
 @media only screen and (max-width: 1400px) {
@@ -958,6 +963,11 @@ h4 {
 @media only screen and (max-width :1321px)
 {
   #upliftYourCareer p {
+    font-size: 16px !important;
+    line-height: 32px !important;
+  }
+  #testimonialExperience p
+  {
     font-size: 16px !important;
     line-height: 32px !important;
   }
@@ -1020,6 +1030,9 @@ h4 {
     width: 100% !important;
     margin: 0px auto !important;
   }
+  .testimonialBgImage{
+    background-image: none;
+  }
   
 }
 
@@ -1037,9 +1050,6 @@ h4 {
   background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
 }
 
-
-
-
 .formSelectCourse .ant-select {
   color: transparent !important; /* Make default label transparent */
   background-color: transparent !important;
@@ -1055,3 +1065,7 @@ h4 {
 width: 82% !important;
 margin: 0 auto;
 }
+
+
+
+

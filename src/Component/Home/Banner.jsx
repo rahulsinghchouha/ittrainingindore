@@ -585,12 +585,12 @@ function Banner() {
                     ref={upliftHead}
                     style={{ animationDuration: '4s' }}>
                     <div className="wrapper">
-                        <div id="upliftYourCareer" className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto">
+                        <div id="upliftYourCareer" className=" hoverBlue listBgImage pt-[30px] pb-[43px] visible text-center w-[75%] mx-auto max-649:hidden">
                             {ConvertAnchorToLink(String(homeData?.upliftYourCareerHead))}
                         </div>
-                        <div className="flex justify-between">
+                        <div className="flex max-1024:flex-col justify-between max-1024:justify-center max-1024:items-center ">
                             {/* start from scratch  */}
-                            <div className="float-left w-[45.7%] mt-[30px] ">
+                            <div className=" w-[45.7%] mt-[30px] max-1024:w-[71%] max-1024:my-0 max-1024:mx-auto max-979:w-[85%] max-767:w-[100%] max-649:hidden">
                                 <div className="mt-0">
                                     <Collapse bordered={false} activeKey={activeKey} onChange={handleToggle} accordion style={{ backgroundColor: "#fff" }} className="howToStartCollapse">
                                         {
@@ -605,11 +605,15 @@ function Banner() {
                                 </div>
 
                             </div>
+                            <div className="hidden max-649:block">
+                                <h3 className="text-[28px] leading-[46px] mb-[13px] mt-[20px] font-[800] ">Testimonials</h3>
 
-                            <div className="w-[48.5%] relative text-center float-right stuPlacShad">
+                            </div>
+
+                            <div className="w-[48.5%] max-1024:w-[71%] max-1024:mt-[50px] max-979:w-[85%] max-767:w-[100%] relative text-center  stuPlacShad">
                                 <div className="w-[100%]  relative h-[696px]">
-                                    <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
-                                    <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-10 bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
+                                    <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]   text-white absolute transition-all z-[10] bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
+                                    <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-[10] bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
                                     <Swiper
                                         modules={[Autoplay, Pagination, Navigation]}
                                         spaceBetween={0}
@@ -621,7 +625,7 @@ function Banner() {
                                         slidesPerView={1}
                                         navigation={false}
                                         speed={500}
-
+                                        
                                         loop={true}
                                         onSwiper={(swiper) => swiperRef.current = swiper}
 
@@ -629,7 +633,7 @@ function Banner() {
                                         {
                                             stuPlaced?.map((student, index) => (
                                                 <SwiperSlide key={index}>
-                                                    <div className="w-[641.156px] ">
+                                                    <div className=" ">
                                                         <div className="relative">
                                                             <figure className="relative text-center m-0 ">
                                                                 <img className="rounded-[50%] mt-[50px] mr-auto mb-auto ml-auto border-[5px] solid border-[#1AAEF4] shadow-imgShadow w-[215px] h-[215px] " src={`${ittrainingDataSerivice.backendUrl}/${student.img}`} alt="sheetal Rana" />
@@ -637,13 +641,10 @@ function Banner() {
                                                             </figure>
 
                                                         </div>
-                                                        <div className="pt-[60px] pr-[54px] pb-[94px] pl-[54px] bg-[#fff] " >
-                                                            <p className="text-[#000000] text-[16px] leading-[34px] font-[400] tracking-normal"
-                                                                style={{
-                                                                    backgroundImage: `url('/Home/testimonials-quote_icon.svg') `, backgroundRepeat: 'no-repeat',
-                                                                    backgroundPosition: 'center',
-                                                                    backgroundSize: 'contain'
-                                                                }}>
+                                                        <div className="pt-[60px] pr-[54px] pb-[94px] pl-[54px] max-649:pr-[20px] max-649:pl-[20px] bg-[#fff] " >
+                                                            <p id="testimonialExperience" className=" text-[#000000]  text-[16px]  leading-[34px] max-649:leading-[30px] font-[400] tracking-normal testimonialBgImage"
+                                                               >
+                                                            
                                                                 {student.experience}
                                                             </p>
                                                             <div className="mt-[30px] ">
