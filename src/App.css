@@ -958,6 +958,13 @@ h4 {
  
 } */
 
+.backgroundPaperlane{
+  background-image: url("../public/paperplane.svg");
+  background-position-x: 70% ;
+  background-position-y: 45% ;
+  background-repeat: no-repeat;
+  background-color: #f3fbff;
+}
 /* Responsiveness */
 @media only screen and (max-width: 1400px) {
   .wrapper {
@@ -970,6 +977,10 @@ h4 {
   #upliftYourCareer, .maximizeYourCareerHead h3 {
     font-size: 32px !important;
     line-height: 49px !important;
+  }
+ .backgroundPaperlane{
+  background-position-x: 85% ;
+  background-position-y: 40% ;
   }
   
 
@@ -1040,6 +1051,10 @@ h4 {
   .maximizeYourCareerHead h3,p {
     text-align: center;
   }
+  .backgroundPaperlane{
+    background-position-x: 0% ;
+    background-position-y: 23% ;
+    }
 
 }
 
@@ -1058,6 +1073,18 @@ h4 {
     background-image: none;
   }
   
+}
+
+@media only screen and (max-width:767px) {
+  
+  .backgroundPaperlane{
+    background-position-x: 150% ;
+    background-position-y: 8% ;
+    }
+    .mentorBorder::after{
+      display: none;
+    }
+
 }
 
 @media only screen and (max-width : 649px)

@@ -850,29 +850,28 @@ function Banner() {
 
                 {/* our achievements section starts */}
 
-                <section className=" pb-[44px] pt-[10px] m-0 ">
+                <section className="max-649:hidden pb-[44px] pt-[10px] m-0 ">
 
                     <div className="wrapper">
 
-                        <div className="w-[41%] bg-[#009ce5]  pb-[52px] relative wraSuccesfull">
-                            <figure className="absolute top-[-49%] left-[-33%]">
+                        <div className="w-[41%] max-1400:w-[46%] max-1321:w-[51%] max-1200:w-[59%] max-979:w-[100%]  bg-[#009ce5]  pb-[52px] relative wraSuccesfull">
+                            <figure className="absolute bottom-[27%] left-[-33%] successFigure max-1680:left-[-10%] max-1680:bottom-[6%] max-1321:left-[-10px] max-1321:bottom-[8%]   ">
                                 <img src="/our-achievements.svg" />
 
                             </figure>
-                            <div className="w-[100%] ml-0 pl-12  pt-[48px]  " >
+                            <div className="w-[100%] ml-0 pl-12  pt-[48px] max-1400:ml-[56px] max-1400:w-[89%] max-1321:w-[82%] max-1321:ml-[45px] " >
 
-                                <h4 className="text-[24px] leading-[30px] text-[#fff] font-[700]">What makes us SUCCESSFUL?</h4>
+                                <h4 className=" max-1321:ml-[45px] text-[24px] leading-[30px] text-[#fff] font-[700]">What makes us SUCCESSFUL?</h4>
                                 <div className="mt-[12px] pr-[20px] ">
-                                    <p className="text-[#fff] leading-[34px] font-[400] tracking-normal">
+                                    <p className="max-1321:ml-[45px] w-[100%] text-[#fff] leading-[34px] font-[400] tracking-normal text-start ">
                                         These are not only numbers, but the outcome of our hard work, success, and accomplishments over the years.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div ref={countRef} className="w-[100%] pt-[190px] pb-[55px]  border-b-[13px] border-solid border-[#009ce5] -mt-[114px]  text-center"
-                            style={{ background: `url('/paperplane.svg')`, backgroundPositionX: '70%', backgroundPositionY: '45%', backgroundRepeat: 'no-repeat', backgroundColor: '#f3fbff' }}>
-                            <div className="flex w-[82%] ml-auto mr-auto  ">
+                        <div ref={countRef} className="w-[100%] pt-[190px] pb-[55px] max-1400:pt-[218px] max-1400:pb-[35px] max-1400:px-0 max-767:pt-[100px] max-767:pb-[35px] max-767:px-0  border-b-[13px] border-solid border-[#009ce5] -mt-[114px] max-979:mt-0  text-center backgroundPaperlane">
+                            <div className="flex w-[82%] max-979:w-[100%] ml-auto mr-auto  ">
                                 <div className="w-[25%] relative mentorBorder  ">
                                     <h1 className="text-[40px] leading-[45px] text-[#1aaef4] font-[700] ">
                                         {isCountRef &&
