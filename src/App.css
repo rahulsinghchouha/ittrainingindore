@@ -967,10 +967,11 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
-  #upliftYourCareer h3 {
+  #upliftYourCareer, .maximizeYourCareerHead h3 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
+  
 
 }
 @media only screen and (max-width :1321px)
@@ -979,7 +980,7 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  #testimonialExperience p
+  #testimonialExperience, .maximizeYourCareerHead p
   {
     font-size: 16px !important;
     line-height: 32px !important;
@@ -1005,7 +1006,7 @@ h4 {
     line-height: 48px !important;
     
   }
-  #upliftYourCareer h3 {
+  #upliftYourCareer, .maximizeYourCareerHead h3 {
     font-size: 30px !important;
     line-height: 48px !important;
   }
@@ -1033,6 +1034,16 @@ h4 {
   }
 
 }
+
+@media only screen and (max-width : 979px) {
+  
+  .maximizeYourCareerHead h3,p {
+    text-align: center;
+  }
+
+}
+
+
 @media only screen and (max-width:799px) {
 
   .courseBannerSection h3 {

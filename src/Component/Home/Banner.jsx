@@ -609,7 +609,7 @@ function Banner() {
 
                             </div>
 
-                            <div className="w-[48.5%] max-1024:w-[71%] max-1024:mt-[50px] max-979:w-[85%] max-767:w-[100%] relative text-center  stuPlacShad">
+                            <div className="w-[48.5%] max-1024:w-[71%] max-1024:mt-[50px] max-979:w-[70%] max-767:w-[100%] relative text-center  stuPlacShad">
                                 <div className="w-[100%]  relative h-[696px]">
                                     <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]   text-white absolute transition-all z-[10] bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
                                     <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-[10] bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
@@ -723,7 +723,6 @@ function Banner() {
                 {/* our partners end */}
                 {/* Explore categories section starts */}
                 <section className={`pt-[50px] pb-[50px] pr-0 pl-0 m-0  `}
-
                 >
                     <div className="wrapper"
 
@@ -736,8 +735,8 @@ function Banner() {
 
                                 <h3 className="text-[36px] leading-[52px] max-1321:text-[32px] max-1321:leading-[49px] max-1200:text-[30px] max-1200:leading-[48px] max-649:text-[28px] max-649:leading-[46px] max-649:mb-[13px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
                                 <div className="flex gap-2 ">
-                                    <button onClick={() => { exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  bg-[#ececec] hover:bg-[#cecece] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
-                                    <button onClick={() => { exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:right-[20px] max-480:right-[-5px]  bg-[#ececec] hover:bg-[#cecece] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+                                    <button onClick={() => { exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
+                                    <button onClick={() => { exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:right-[20px] max-480:right-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
                                 </div>
                             </div>
                             <div className="mt-[35px] ">
@@ -812,10 +811,10 @@ function Banner() {
                 </section>
 
                 {/* Best Educators section start */}
-                <section className="pt-[62px] mt-[80px] pb-[92px] pl-0 pr-0 overflow-hidden " >
+                <section className="max-649:hidden pt-[62px] mt-[100px] max-1400:mt-[120px] pb-[92px] pl-0 pr-0 overflow-hidden " >
                     <div className="wrapper">
-                        <div className="">
-                            <div className="w-[55%] float-left mb-[25px] ">
+                        <div className="clearfix w-[100%]">
+                            <div className="w-[55%] max-1200:w-[53%]  float-left max-979:float-none mb-[25px] max-979:mb-[80px] max-979:w-[100%]  ">
                                 <div className={` hoverBlue listBgImage maximizeYourCareerHead ${isMaximizeCareer && "animate__fadeInDown"}  `}
                                     ref={maximizeCareer}
                                     style={{ animationDuration: "3s" }}
@@ -823,7 +822,7 @@ function Banner() {
                                     {ConvertAnchorToLink(String(homeData?.maximizeCareerHead))}
                                 </div>
 
-                                <div className="mt-[48px] ">
+                                <div className="mt-[48px]  max-979:text-center ">
                                     <a className="pt-[13px] font-[700] border-none rounded-[24px] relative z-[11]  pb-[13px] pl-[34px] pr-[34px] text-[16px] leading-[21px] text-[#fff] bg-[linear-gradient(180deg,_#1AAEF4_0%,_#1AAEF4_0.01%,_#0096EB_100%)] h-[64px] w-full">
                                         Read More
                                     </a>
@@ -833,13 +832,13 @@ function Banner() {
 
                             </div>
 
-                            <div className={`mt-[-58px] w-[38%]  float-right ${isMaxiSideImg ? "transform translate-x-[-15px] transition-all ease-linear delay-[100ms] duration-[1s]" : "translate-x-6"} `}
+                            <div className={`mt-[-58px] max-1400:mt-[-25px] w-[38%] max-1200:w-[40%] max-1024:mt-0  float-right max-979:float-none max-979:w-[100%]  ${isMaxiSideImg ? "transform translate-x-[-15px] transition-all ease-linear delay-[100ms] duration-[1s]" : "translate-x-6"} `}
                                 ref={maxiSideImg}
                                 style={{ animationDuration: "5s" }}
 
                             >
                                 <figure className="m-0">
-                                    <img className="max-w-[100%] block " src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.maximizeCareerImg}`} />
+                                    <img className="max-w-[100%] block max-979:my-0 max-979:mx-auto " src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.maximizeCareerImg}`} />
                                 </figure>
                             </div>
                         </div>
