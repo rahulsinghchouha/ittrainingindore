@@ -3,9 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Collapse, Select } from "antd";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+
+import { Autoplay } from 'swiper/modules';
 import CountUp from "react-countup";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import { Blocks } from 'react-loader-spinner';
@@ -24,21 +23,18 @@ import { useContactDetails } from "../../Redux/rTKFunction";
 import { BsSearch } from "react-icons/bs";
 const { Panel } = Collapse;
 
-
-
-
 function Banner() {
 
     const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
 
     const navigate = useNavigate();
 
-    const [activeKey,setActiveKey] = useState('0');
+    const [activeKey, setActiveKey] = useState('0');
 
-    const handleToggle = (key) => {      
-        setActiveKey((prev) => (  key.length === 0 ? prev : key));
-      };
-    
+    const handleToggle = (key) => {
+        setActiveKey((prev) => (key.length === 0 ? prev : key));
+    };
+
 
     const [homeData, setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
@@ -116,10 +112,10 @@ function Banner() {
 
     function categoryDetail(categoryDetail) {
         console.log("categoryDetail", categoryDetail);
-        navigate("/course-category/" + categoryDetail?.heading.replace(/\s|\/+/g,'-'), { state: categoryDetail });
+        navigate("/course-category/" + categoryDetail?.heading.replace(/\s|\/+/g, '-'), { state: categoryDetail });
     }
 
-    
+
 
 
     //  $$$$$$$$$$$$$$     ANIMATION      $$$$$$$$$$$$$$$$
@@ -192,6 +188,17 @@ function Banner() {
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
 
+    // const [isSwiperReady, setIsSwiperReady] = useState(false);
+
+    // useEffect(() => {
+    //     if (partnerSwipRef.current) {
+    //         console.log("swiper ref");
+    //         setIsSwiperReady(true);
+    //     }
+    // }, [partnerSwipRef.current]); // Runs when Swiper is assigned
+
+
+
     const handleSearch = (search) => {
         if (search?.query)
             navigate("/search/" + search?.query);
@@ -203,9 +210,9 @@ function Banner() {
         dispatch(studentForm(values));
     }
 
-  
+
     function blogDetails(blogDetail) {
-        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g,'-'), { state: blogDetail });
+        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g, '-'), { state: blogDetail });
 
     }
 
@@ -301,9 +308,8 @@ function Banner() {
 
 
                                 style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, backgroundRepeat: 'no-repeat', backgroundPositionX: '84%', backgroundPositionY: '25%' }}
-                                 className={` w-[39%] max-1200:w-[42%] max-1024:w-[52%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[15px] max-h-[687px] relative float-right box-border`}>
+                                className={` w-[39%] max-1200:w-[42%] max-1024:w-[52%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[15px] max-h-[687px] relative float-right box-border`}>
                                 <figure
-
                                 >
                                     <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " />
                                     <figcaption className="absolute top-[32.5%] pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
@@ -338,7 +344,7 @@ function Banner() {
                                 <img src="/Home/keystroke-from-bg.svg" className="h-[100%] w-[100%] max-w-[100%]" />
                             </figure>
                             <div className="w-[25%] max-1024:w-[100%] max-1024:text-center">
-                            
+
                                 <h2 className="text-[28px]  leading-[46px]  text-[#000000] ">Get a free
                                     <span className="font-[700]"> keystroke quote</span>
                                 </h2>
@@ -412,14 +418,14 @@ function Banner() {
 
                                                                 <span className=" formSelectCourse pl-[25px] block"   >
                                                                     <Select
-                                                                         className=" selectBorder antSelector cursor-pointer bg-transparent  "
+                                                                        className=" selectBorder antSelector cursor-pointer bg-transparent  "
                                                                         showSearch
                                                                         defaultValue="Select Course"
-                                                                       
-                                                                        style={{ width: "100%", border: "0px", cursor: "pointer",backgroundColor:"transparent",zIndex:"0" }}
+
+                                                                        style={{ width: "100%", border: "0px", cursor: "pointer", backgroundColor: "transparent", zIndex: "0" }}
                                                                         onChange={(value) => setFieldValue("course", value)}
                                                                         values={values.course}
-                                                                       
+
                                                                         onBlur={() => setFieldTouched("course", true)} // Manually set touched
 
                                                                         options={[
@@ -553,16 +559,9 @@ function Banner() {
 
                         <div className={`text-center relative mt-[47px] ${isCourseCard && "animate__fadeIn"}  `}
                             ref={courseCard}
-
                             style={{ animationDuration: '3s' }}
                         >
-
-
                             <CourseCard cardLimit={6} square={true} horizontal={false} webCard={webCard} />
-
-
-
-
                         </div>
 
                         {/* view all course btn  */}
@@ -615,25 +614,24 @@ function Banner() {
                                     <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]   text-white absolute transition-all z-[10] bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
                                     <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-[10] bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
                                     <Swiper
-                                        modules={[Autoplay, Pagination, Navigation]}
+                                        modules={[Autoplay]}
                                         spaceBetween={0}
+                                        loop={true}
                                         autoplay={{
                                             delay: 3000,
-                                            disableOnInteraction: false,
-                                            pauseOnMouseEnter: true, //for stop slide on mouse enter
+                                            //disableOnInteraction: false,
+                                            //pauseOnMouseEnter: true, //for stop slide on mouse enter
                                         }}
                                         slidesPerView={1}
-                                        navigation={false}
                                         speed={500}
-                                        
-                                        loop={true}
+
                                         onSwiper={(swiper) => swiperRef.current = swiper}
 
                                     >
                                         {
                                             stuPlaced?.map((student, index) => (
                                                 <SwiperSlide key={index}>
-                                                    <div className=" ">
+                                                    <div>
                                                         <div className="relative">
                                                             <figure className="relative text-center m-0 ">
                                                                 <img className="rounded-[50%] mt-[50px] mr-auto mb-auto ml-auto border-[5px] solid border-[#1AAEF4] shadow-imgShadow w-[215px] h-[215px] " src={`${ittrainingDataSerivice.backendUrl}/${student.img}`} alt="sheetal Rana" />
@@ -643,8 +641,8 @@ function Banner() {
                                                         </div>
                                                         <div className="pt-[60px] pr-[54px] pb-[94px] pl-[54px] max-649:pr-[20px] max-649:pl-[20px] bg-[#fff] " >
                                                             <p id="testimonialExperience" className=" text-[#000000]  text-[16px]  leading-[34px] max-649:leading-[30px] font-[400] tracking-normal testimonialBgImage"
-                                                               >
-                                                            
+                                                            >
+
                                                                 {student.experience}
                                                             </p>
                                                             <div className="mt-[30px] ">
@@ -677,7 +675,6 @@ function Banner() {
 
                 {/* our partners */}
                 <section className={` pb-[59px] m-0 max-1400:py-[55px] max-1400:px-0`}
-
                 >
                     <div className="wrapper ">
                         <div className={`text-center mb-[30px] ${isOurPartners && "animate__fadeInDown"}`}
@@ -685,36 +682,38 @@ function Banner() {
                             style={{ animationDuration: "2s" }}>
                             <h3 className="text-[36px] leading-[52px] max-1200:text-[30px] max-1200:leading-[48px] tracking-[0.72px] text-[#000000] font-[800] "> Our Partners </h3>
                         </div>
-                        <div className="bg-[#ffffff] shadow-partnerShadow relative rounded-[22px] p-[30px] max-1200:w-[90%] max-1200:my-0 max-1200:mx-auto ">
-                            <button onClick={() => { partnerSwipRef.current.slidePrev() }} className="w-[54px] h-[54px] bg-[#ececec] rounded-[50%] absolute top-[30%] left-[-30px] border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-prev (1).svg" /></button>
-                            <button onClick={() => { partnerSwipRef.current.slideNext() }} className="w-[54px] h-[54px] bg-[#ececec] rounded-[50%] absolute top-[30%] right-[-30px] border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+                        <div className="bg-[#ffffff]  shadow-partnerShadow relative rounded-[22px] p-[30px] max-1200:w-[90%] max-1200:my-0 max-1200:mx-auto max-800:border-[1px] max-800:border-solid  max-800:border-[#0000001a] ">
+                            <button onClick={() => { partnerSwipRef.current.slidePrev() }} className="z-[20] overflow-hidden w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px]  bg-[#ececec] rounded-[50%] absolute top-[30%] left-[-27px] max-979:left-[-25px] max-800:left-[-23px]  border-[1px] border-solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-prev (1).svg" /></button>
+                            <button onClick={() => { partnerSwipRef.current.slideNext() }} className="z-[20] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] bg-[#ececec] rounded-[50%] absolute top-[30%]  right-[-27px] max-979:right-[-25px] max-800:right-[-23px] border-[1px] border-solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
 
-
-                            <div className="w-[100%] relative   h-[74px] rounded-[22px]   ">
+                            <div className="overflow-hidden relative h-[74px] w-[100%]  ">
                                 <Swiper
-                                    modules={[Autoplay, Pagination, Navigation]}
-                                    autoplay={{ delay: 3000, }}
-                                    slidesPerView={4}
-                                    navigation={false}
-                                    speed={500}
-                                    // pagination={{ clickable: true }}
+                                    modules={[Autoplay]}
                                     loop={true}
-                                    onSwiper={(swiper) => partnerSwipRef.current = swiper}
+                                    autoplay={
+                                        { delay: 3000 }
+                                    }
+                                    slidesPerView={1}
+                                    // pagination={{ clickable: true }}
+                                    breakpoints={{
+                                        649: {
+                                            slidesPerView: 2
+                                        },
+                                        979: {
+                                            slidesPerView: 4
+                                        }
+                                    }}
+                                    onSwiper={(swiper) => { partnerSwipRef.current = swiper; }}
                                 >
                                     {partnerImage?.map((partner, index) => (
-                                        <SwiperSlide key={index} className="border-l-[1px] solid border-[#0000001a]  ">
-                                            <figure className=" h-[74px] flex justify-center items-center}">
+                                        <SwiperSlide key={index} className="">
+                                            <figure className="min-h-[74px] border-l-[1px] solid border-[#0000001a]  flex justify-center items-center ">
                                                 <img className=" mt-auto  mb-auto  max-w-[100%] max-h-[100%]  max-1200:max-w-[90%] max-1200:max-h-[90%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${partner.img}`} alt="Top Successful Partners of Best IT Training Indore Institute | Best Digital Marketing Services In Indore" />
                                             </figure>
                                         </SwiperSlide>
                                     ))}
                                 </Swiper>
-
-
-
                             </div>
-
-
                         </div>
 
                     </div>
@@ -729,49 +728,64 @@ function Banner() {
                     <div className="wrapper"
 
                     >
-                        <div className={`relative ${isExploreCategory && "animate__fadeIn"}`}
+                        <div className={`w-[100%] relative ${isExploreCategory && "animate__fadeIn"}`}
                             ref={exploreCategory}
                             style={{ animationDuration: "3s" }}
                         >
                             <div className="flex justify-between">
 
-                                <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
-                                <div className="flex gap-2">
-                                    <button onClick={() => { exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center transform transition-all ease-linear duration-75 delay-100"><img src="/exolore-slider-prev (1).svg" /></button>
-                                    <button onClick={() => { exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] hover:bg-[#ececec] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+                                <h3 className="text-[36px] leading-[52px] max-1321:text-[32px] max-1321:leading-[49px] max-1200:text-[30px] max-1200:leading-[48px] max-649:text-[28px] max-649:leading-[46px] max-649:mb-[13px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
+                                <div className="flex gap-2 ">
+                                    <button onClick={() => { exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  bg-[#ececec] hover:bg-[#cecece] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
+                                    <button onClick={() => { exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:right-[20px] max-480:right-[-5px]  bg-[#ececec] hover:bg-[#cecece] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
                                 </div>
                             </div>
                             <div className="mt-[35px] ">
                                 <div>
-                                    <div className="w-[100%] relative h-[392px] pt-[30px]   pr-[20px] pb-[20px] pl-[20px]">
-
+                                    <div className="w-[100%] relative h-[392px] pt-[30px]   pr-[20px] pb-[20px] pl-[20px] max-374:px-[5px] max-374:pt-[5px] max-374:pb-[5] " >
 
 
                                         {/* in this we will add the cart */}
                                         <Swiper
-                                            modules={[Navigation]}
+                                            modules={[]}
                                             autoplay={{ delay: 3000 }}
-                                            slidesPerView={3}
-                                            navigation={false}
+                                            slidesPerView={1}
+                                            spaceBetween={36}
+                                            breakpoints={{
+                                                590: {
+                                                    slidesPerView: 2
+                                                },
+                                                980: {
+                                                    slidesPerView: 3
+                                                },
+                                                1200: {
+                                                    slidesPerView: 4
+                                                },
+                                                1400: {
+                                                    slidesPerView: 3
+                                                }
+                                            }}
                                             speed={500}
                                             loop={true}
                                             onSwiper={(swiper) => { exploreCatRef.current = swiper }}
+                                            style={{ padding: "15px" }}
                                         >
                                             {
                                                 exploreCat?.map((card, index) => (
                                                     <SwiperSlide key={index}>
 
-                                                        <div className={`w-[403.333px]  relative z-50  mr-[36px] ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
+                                                        <div className={`  relative z-[50]   ${(index) % 2 === 0 && (`mt-[65px]`)}`}>
                                                             <div className={`absolute border-t-[2px] border-l-[2px] rounded-[2px] solid w-[80px] h-[80px] top-0 left-0 transform   origin-top-left duration-[0.5s]  ${(index % 4 === 0 && (`border-[#ddac00]`)) || (index % 4 === 1 && (`border-[#0089ca]`)) || (index % 4 === 2 && (`border-[#109304]`)) || (index % 4 === 3 && (`border-[#7b57c6]`))}`}></div>
-                                                            <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] rounded-[22px] shadow-exploreCardShad flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
-                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage: `url(${ittrainingDataSerivice.backendUrl}/${card.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%' }}>
+                                                            <div className=" pr-[35px] pt-[19px]  pb-[33px] pl-[35px] max-1400:px-[15px]  rounded-[22px] shadow-exploreCardShad max-1400:shadow-exploreCardresp flex flex-col justify-center items-center transition-all duration-[0.3s] ease-linear delay-0">
+                                                                <figure className="w-[105px] h-[105px] m-0 " style={{ backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${card?.bgImage})`, backgroundRepeat: 'no-repeat', backgroundPositionY: 'center', backgroundPositionX: '50%', objectFit: "cover" }}>
                                                                     <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Animation" className="w-[78%] mt-0 mb-0 ml-auto mr-auto" />
                                                                 </figure>
                                                                 <div className="mt-[16px] ">
-                                                                    <h4 className="text-[20px] leading-[25px] text-[#000000] font-[700] ">{card.heading}</h4>
+
+                                                                    <h4 className="text-[20px] leading-[25px] text-[#000000] font-[700] ">{card?.heading}</h4>
                                                                 </div>
                                                                 <div className="mt-[13px] text-center ">
-                                                                    <p className="text-[16px] leading-[34px] text-[#000] font-[400] tracking-normal">
+                                                                    <p className="text-[16px] leading-[34px] max-1321:leading-[32px] text-[#000] font-[400] tracking-normal">
                                                                         {card.para} </p>
                                                                 </div>
                                                                 <div className="mt-[18px] ">
@@ -937,7 +951,7 @@ function Banner() {
                                 {ConvertAnchorToLink(String(homeData?.blogHead))}
                                 <div className="mt-[52px] w-[95%] ">
                                     {
-                                        
+
                                         blog?.slice(blog.length - 3, blog.length).reverse().map((latestBlog, index) => {
 
                                             const dateObj = new Date(latestBlog?.updatedAt); // Create a Date object

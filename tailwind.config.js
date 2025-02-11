@@ -10,6 +10,7 @@ module.exports = {
         imgShadow: '0px 10px 20px rgba(0,0,0,0.2) ',
         partnerShadow: '4px 4px 40px rgb(0 0 0 / 8%) ',
         exploreCardShad: '4px 4px 30px #0000000d',
+        exploreCardresp:'-2px -2px 18px 0 rgb(0 0 0 / 7%)',
         blogShadow: '3px 4px 40px 0 rgb(26 174 244 / 11%)',
         jobCardShadow: '5px 4px 35px 0 rgb(26 174 244 / 13%)',
         footFormSahd: '-2px -4px 40px 0 rgba(26, 174, 244, 0.17)',
@@ -42,8 +43,11 @@ module.exports = {
         'max-800': { max: '799px' },
         'max-767': { max: '767px' },
         'max-649': { max: '649px' },
+        'max-590': { max:'589px' },
+        'max-480': {max:'480px'},
+        'max-374' : {max:'374px'},
+        
         'min-800': { min: '800px' },
-
         'min-1024': { min: '1024px' },
       },
     },
