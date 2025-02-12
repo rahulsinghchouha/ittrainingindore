@@ -68,8 +68,8 @@ const Footer = ({homePage = false}) => {
                     ref={footerKeyFormRef}
                     style={{ animationDuration: "2s" }}
                 >
-                    <div className="w-[40.2%] pt-[37px] pr-[69px] pb-[49px] relative pl-[52px]  rounded-[31px] z-[10] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
-                        <div className="w-[100%] ">
+                    <div className="w-[40.2%] max-979:w-[80%]  max-1024:w-[51%] max-1024:pt-[25px] max-1024:pb-[44px] max-1024:px-[45px] max-1024:mt-0 max-1024:mb-[80px] max-1024:mx-auto  pt-[37px] pr-[69px] pb-[49px] pl-[52px] max-1200:w-[46%]  max-1200:pt-[35px] max-1200:pb-[49px] max-1200:pr-[50px] max-1200:pl-[35px]  relative  max-1400:pt-[37px] max-1400:pb-[48px] max-1400:px-[30px]  rounded-[31px] z-[10] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
+                        <div className="w-[100%] max-1024:text-center ">
                             <h4 className="w-[100%] font-normal text-[28px] leading-[46px] ">
                                 Get a free
                                 <span className="font-[700] block">keystroke quote</span>
@@ -103,7 +103,7 @@ const Footer = ({homePage = false}) => {
                                             <div className="relative   w-[100%] ">
                                                 <div className="border-b-[1px] relative border-solid pb-1 border-[#cecece] ">
                                                     <img src="/Home/form-user-icon.svg" className="inline" />
-                                                    <input type="text" name="name" placeholder="Name" onChange={handleChange} onBlur={handleBlur} className="pl-[5px]  font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
+                                                    <input type="text" name="name" placeholder="Name" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] text-[15px] max-1200:text-[13px] max-1200:leading-[19px]  font-[500] focus:outline-none focus:bg-[transparent] focus:placeholder:text-transparent w-[90%]" />
 
                                                 </div>
                                                 {errors?.name && touched?.name && <span className="text-[13px] absolute text-[#ff0000] ">*{errors.name}</span>}
@@ -111,14 +111,14 @@ const Footer = ({homePage = false}) => {
                                             <div className="relative  mt-5">
                                                 <div className=" border-b-[1px]  border-solid border-[#cecece] pb-1">
                                                     <img src="/Home/form-email-icon.svg" className="inline" />
-                                                    <input type="text" name="email" placeholder="Email" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+                                                    <input type="text" name="email" placeholder="Email" onChange={handleChange} onBlur={handleBlur} className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px]  max-1200:text-[13px] max-1200:leading-[19px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
                                                 </div>
                                                 {errors?.email && touched?.email && <span className=" text-[13px] absolute  text-[#ff0000] ">*{errors.email}</span>}
                                             </div>
                                             <div className="mt-5 w-[100%] relative">
                                                 <div className=" border-b-[1px]  border-solid border-[#cecece] pb-1  ">
                                                     <img src="/Home/form-call-icon.svg" className="inline" />
-                                                    <input type="number" name="phone" placeholder="Phone" onChange={handleChange} onBlur={handleBlur} minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
+                                                    <input type="number" name="phone" placeholder="Phone" onChange={handleChange} onBlur={handleBlur} minLength={10} maxLength={10} pattern="/d{10}" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] max-1200:text-[13px] max-1200:leading-[19px] font-[500] focus:outline-none  focus:placeholder:text-transparent  w-[90%]" />
 
                                                 </div>
                                                 {errors?.phone && touched?.phone && <span className=" text-[13px] absolute text-[#ff0000] ">*{errors.phone}</span>}
@@ -132,7 +132,7 @@ const Footer = ({homePage = false}) => {
                                                         style={{ width: "90%", border: "0px", cursor: "pointer" }}
                                                         onChange={(value) => setFieldValue("course", value)}
                                                         onBlur={() => { setFieldTouched('course', true) }}
-                                                        className="selectBorder antSelector cursor-pointer pl-2"
+                                                        className="selectBorder antSelector cursor-pointer pl-2 footer-form"
 
                                                         options={[
 
@@ -171,7 +171,7 @@ const Footer = ({homePage = false}) => {
                                                     style={{ width: "90%", border: "0px", cursor: "pointer" }}
                                                     onChange={(value) => setFieldValue("joiningTime", value)}
                                                     onBlur={() => setFieldTouched("joiningTime", true)} // Manually set touched
-                                                    className="selectBorder antSelector cursor-pointer pl-2"
+                                                    className="selectBorder antSelector cursor-pointer pl-2 max-1200:text-[13px] max-1200:leading-[19px] footer-join-form"
 
                                                     options={[
 
@@ -184,7 +184,7 @@ const Footer = ({homePage = false}) => {
                                             </div>
                                             <div className=" border-b-[1px] border-solid border-[#cecece] pb-1 mt-5">
                                                 <img src="/Home/join-Message.svg" className="inline" />
-                                                <input type="text" name="message" onChange={handleChange} placeholder="Type your message" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
+                                                <input type="text" name="message" onChange={handleChange} placeholder="Type your message" className="pl-[5px] pt-[10px] pb-[6px] pr-[10px] text-[15px] max-1200:text-[13px] max-1200:leading-[19px] font-[500] focus:outline-none focus:placeholder:text-transparent w-[90%]" />
 
                                             </div>
                                             <div className="mt-5 p-0 box-border">
@@ -224,15 +224,12 @@ const Footer = ({homePage = false}) => {
 
                 </div>
             </div>
-            <div>
-
-            </div>
-
-            <div className="mt-[-405px]">
+           
+            <div className="mt-[-405px] max-1024:mt-0">
                 <div style={{ background: `url('/footer-newsletter-bg.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                     <div className="pt-[42px] pb-[40px] pl-0 pr-0 bg-[#1aaef4e6]">
                         <div className="wrapper">
-                            <div className={`w-[35%] mr-[184px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] "}`}
+                            <div className={`w-[35%] max-1400:w-[37.2%]  max-1200:w-[45%] max-979:w-[65%]  max-1024:text-center max-1024:mx-auto  mr-[184px] max-1200:mr-[10px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] "}`}
                                 ref={footerMailFormRef}
                                 style={{ animationDuration: "3s" }}
                             >
@@ -259,9 +256,9 @@ const Footer = ({homePage = false}) => {
                                             <form onSubmit={handleSubmit}>
                                                 <div className="relative">
                                                     <div className=" clearfix">
-                                                        <input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className="inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
+                                                        <input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className=" inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] max-1200:text-[13px] max-1200:leading-[19px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
 
-                                                        <button type="submit" disabled={isSubmitting} className="  float-right absolute pt-[10.3px] text-[white] hover:bg-[] pr-[20px] pb-[11px] pl-[35.1px] text-[16px] rounded-tr-[9px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
+                                                        <button type="submit" disabled={isSubmitting} className="  float-right absolute pt-[10.3px] w-[21.1%] max-1380:w-[23%] max-1024:w-[25%] right-0  text-[white] pr-[20px] pb-[11px] pl-[35.1px] text-[16px] rounded-tr-[9px] max-1200:text-[13px] max-1200:leading-[19px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
                                                             {isSubmitting ?
                                                                 (
                                                                     <Blocks
@@ -273,7 +270,7 @@ const Footer = ({homePage = false}) => {
                                                                         wrapperClass="blocks-wrapper"
                                                                         visible={true}
                                                                     />
-                                                                ) : 'Send'
+                                                                ) : 'Submit'
                                                             }
                                                         </button>
                                                     </div>
@@ -299,17 +296,17 @@ const Footer = ({homePage = false}) => {
                         ref={footerContentRef}
                         style={{ animationDuration: "1s" }}
                     >
-                        <div className="clearfix">
-                            <div className="pt-[252px] w-[44%]  float-left ">
-                                <figure className="m-0 ">
+                        <div className="clearfix max-979:text-center">
+                            <div className="max-979:flex max-979:flex-col max-979:justify-center max-979:items-center pt-[252px] max-1024:pt-0 w-[44%] max-1200:pt-[180] max-1200:pb-[30px] max-1200:px-0 max-1200:w-[100%] max-1400:w-[42%] max-1024:w-[100%] max-1024:mx-auto   float-left max-1024:float-none ">
+                                <figure className="m-0 max-979:mx-auto ">
                                     <a className="text-[#000000] " href="/">
                                         <img src="/footer-logo.svg" alt="Top IT Training Indore Coaching Class Institute" />
                                     </a>
 
                                 </figure>
 
-                                <div className="mt-[22px] w-[75%] ">
-                                    <a href="https://goo.gl/maps/VUxpJgQX4daJNyLDA" target="_blank" className=" inline-block text-[14px] leading-[28px] cursor-pointer font-[400] text-[#ffffff] pl-[28px] hover:text-[#9c9c9c] transition-all delay-150 ease-linear  " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
+                                <div className="mt-[22px] w-[75%]  ">
+                                    <a href="https://goo.gl/maps/VUxpJgQX4daJNyLDA" target="_blank" className="max-979:w-[65%] max-767:w-[75%] max-649:w-[85%] max-590:w-[100%] inline-block text-[14px] leading-[28px] cursor-pointer font-[400] text-[#ffffff] pl-[28px] max-590:pl-[10px] hover:text-[#9c9c9c] transition-all delay-150 ease-linear  " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
 
                                         {contactUsData?.data?.officeAddress}
                                     </a>
@@ -321,24 +318,24 @@ const Footer = ({homePage = false}) => {
 
                                     </div>
                                     <div className="ml-[16px] flex gap-2 ">
-                                        <a href="https://www.facebook.com/ittrainingindore?ref=hl" target="_blank" className="w-[54px] h-[54px] flex justify-center items-center  text-[18px] z-[1] relative  overflow-hidden text-center hover:text-[#009ce5] rounded-[50%] text-[#ffffff] socialIconFooter">
+                                        <a href="https://www.facebook.com/ittrainingindore?ref=hl" target="_blank" className="w-[54px] h-[54px] max-1200:w-[35px] max-1200:h-[35px] flex justify-center items-center  text-[18px] z-[1] relative  overflow-hidden text-center hover:text-[#009ce5] rounded-[50%] text-[#ffffff] socialIconFooter">
 
                                             <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight: 400 }} />
                                         </a>
-                                        <a href="https://www.linkedin.com/company/it-training-indore" target="_blank" className="w-[54px] h-[54px]  flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
+                                        <a href="https://www.linkedin.com/company/it-training-indore" target="_blank" className="w-[54px] h-[54px] max-1200:w-[35px] max-1200:h-[35px]  flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
 
                                             <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight: 400 }} />
                                         </a>
-                                        <a href="https://www.instagram.com/ittrainingindore/" target="_blank" className="w-[54px] h-[54px] flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative overflow-hidden text-[#ffffff] socialIconFooter">
+                                        <a href="https://www.instagram.com/ittrainingindore/" target="_blank" className="w-[54px] h-[54px] max-1200:w-[35px] max-1200:h-[35px] flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative overflow-hidden text-[#ffffff] socialIconFooter">
 
                                             <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight: 400 }} />
                                         </a>
-                                        <a href="https://twitter.com/ITIndore" target="_blank" className="w-[54px] h-[54px]  flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
+                                        <a href="https://twitter.com/ITIndore" target="_blank" className="w-[54px] h-[54px] max-1200:w-[35px] max-1200:h-[35px]  flex justify-center items-center  text-[18px] ml-[5px] text-center hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
 
                                             <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px", fontWeight: 400 }} />
 
                                         </a>
-                                        <a href="https://www.pinterest.com/ittrainingindor/" target="_blank" className="w-[54px] h-[54px]  flex justify-center items-center  text-[18px] ml-[5px] text-center  hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
+                                        <a href="https://www.pinterest.com/ittrainingindor/" target="_blank" className="w-[54px] h-[54px] max-1200:w-[35px] max-1200:h-[35px]  flex justify-center items-center  text-[18px] ml-[5px] text-center  hover:text-[#009ce5] rounded-[50%] z-[1] relative  overflow-hidden text-[#ffffff] socialIconFooter">
 
                                             <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight: 400 }} />
                                         </a>
@@ -350,16 +347,16 @@ const Footer = ({homePage = false}) => {
 
                             </div>
 
-                            <div className="w-[18%] pr-[24px] pl-[24px] float-left">
-                                <div className="mb-[32px] ">
+                            <div className="max-649:hidden w-[18%] max-979:w-[32%] max-979:text-center max-979:mt-[65px]  max-1200:w-[32%] pr-[24px] pl-[24px] max-1200:pl-0 max-1321:w-[19%] max-1321:py-0 max-1321:px-[14px] float-left">
+                                <div className=" ">
                                     <h6 className="text-[18px] leading-[23px] font-[700] text-[#fff] ">Categories</h6>
 
                                 </div>
                                 <div>
-                                    <div className="">
+                                    <div className="flex flex-col max-979:justify-center max-979:items-center">
                                         {
                                             exploreCat?.map((category, index) =>
-                                                <button onClick={() => categoryDetails(category)} key={index}  className="text-[#9c9c9c] text-start hover:text-[#ffffff] transition-all delay-75 ease-linear  mt-[30px]" >
+                                                <button onClick={() => categoryDetails(category)} key={index}  className="text-[#9c9c9c] text-start max-979:text-center hover:text-[#ffffff] transition-all delay-75 ease-linear  mt-[30px]" >
                                                     {category?.heading}
                                                 </button>
                                             
@@ -369,17 +366,17 @@ const Footer = ({homePage = false}) => {
                                 </div>
 
                             </div>
-                            <div className="w-[18%] pt-0 pb-0 pl-[24px] pr-[24px] float-left">
-                                <div className="mb-[32px] ">
+                            <div className="max-649:hidden w-[18%] max-979:w-[32%] max-979:text-center max-979:mt-[65px] max-1200:w-[32%] max-1321:w-[19%]  max-1321:py-0 max-1321:px-[14px] pt-0 pb-0 pl-[24px] pr-[24px] float-left">
+                                <div className=" ">
                                     <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Popular Courses</h6>
                                 </div>
                                 <div>
-                                    <div className="m-0">
+                                    <div className="m-0 flex flex-col max-979:justify-center max-979:items-center ">
 
                                         {
                                             webCard?.slice(webCard.length - 8, webCard.length).reverse().map((course, index) => (
                                                
-                                                    <button onClick={()=>handleCourseDetails(course)} key={index} className="mt-[30px] text-start text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
+                                                    <button onClick={()=>handleCourseDetails(course)} key={index} className="mt-[30px] text-start max-979:text-center text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                         {course?.courseName}
                                                     </button>
                                                
@@ -387,10 +384,9 @@ const Footer = ({homePage = false}) => {
                                             ))
                                         }                                                                       
                                     </div>
-
                                 </div>
                             </div>
-                            <div className="w-[18%] pt-0 pb-0 pl-[24px] pr-[24px] float-left">
+                            <div className="max-649:hidden w-[18%] max-979:w-[32%] max-979:text-center max-979:mt-[65px] pt-0 pb-0 pl-[24px] pr-[24px] max-1200:w-[32%] max-1321:w-[19%] max-1321:py-0 max-1321:px-[14px] float-left">
                                 <div className="mb-[32px] ">
                                     <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Our Menu</h6>
                                 </div>
