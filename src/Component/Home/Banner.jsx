@@ -999,7 +999,7 @@ function Banner() {
 
                 {/* job program sectin start  */}
 
-                <section className="max-649:hidden pt-[50px] max-1400:pt-[20px] pb-[180px]">
+                <section className="max-649:hidden pt-[50px] max-1400:pt-[20px] pb-[180px] max-1680:pb-[100px] max-979:pb-[70px] ">
                     <div className="wrapper">
                         <div className="text-center ">
                             <div id="jobReady" className={` hoverBlue listBgImage w-[80%] mx-auto   ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
@@ -1032,7 +1032,7 @@ function Banner() {
                             ref={jobRedyCardRef}
                             style={{ animationDuration: "2s" }}
                         >
-                            {activeCard === "Money-back-Guarntee" ? <div id="money-back-guarntee" className="jobReadyActiveCard w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            {activeCard === "Money-back-Guarntee" ? <div id="money-back-guarntee" className="jobReadyActiveCard max-1200:min-h-[341px] w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#fff7db] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
                                 </figure>
@@ -1041,7 +1041,7 @@ function Banner() {
                                 </div>
                             </div> : <div></div>
                             }
-                            {activeCard === "Career-Mentoring" ? <div id="career-mentoring" className=" jobReadyActiveCard w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]  shadow-jobCardShadow bg-[#ffffff] ">
+                            {activeCard === "Career-Mentoring" ? <div id="career-mentoring" className=" jobReadyActiveCard max-1200:min-h-[341px]  w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]  shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#e3ffe0] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
                                 </figure>
@@ -1051,7 +1051,7 @@ function Banner() {
                             </div> : <div></div>
                             }
                             {
-                            activeCard === "Interview Prepration" ? <div id="interview-preparation" className=" jobReadyActiveCard w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]   shadow-jobCardShadow bg-[#ffffff] ">
+                            activeCard === "Interview Prepration" ? <div id="interview-preparation" className=" jobReadyActiveCard max-1200:min-h-[341px]  w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]   shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
                                 </figure>
@@ -1103,21 +1103,18 @@ function Banner() {
 
                 {/*college life section starts  */}
 
-                <section className="pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
-                    <div className="wrapper ">
-                        <div className=" hoverBlue listBgImage mt-[40px] w-[60%] float-left">
+                <section className="max-649:hidden pb-[97px] m-0 relative clearfix comCollegeBg  z-[1]" >
+                    <div className="wrapper clearfix ">
+                        <div id="collegeLife" className=" hoverBlue listBgImage mt-[40px] max-1400:-mt-0.5 w-[60%] float-left max-979:float-none max-979:w-[100%] ">
                             {ConvertAnchorToLink(String(homeData?.beforeCollegeHead))}
                         </div>
 
-                        <div className="w-[35%] float-right cle">
-                            <figure className="m-0 ">
-                                <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.beforeCollegeImg}`} alt="College ,placement coaching class institute" />
-
+                        <div className="w-[35%] float-right max-979:float-none max-979:w-[100%] max-979:mt-[50px]   max-979:mx-auto cle">
+                            <figure className="m-0 w-[100%] h-[100%] ">
+                                <img className="max-w-[100%] max-h-[100%] object-cover max-979:mt-0 max-979:mx-auto" src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.beforeCollegeImg}`} alt="College ,placement coaching class institute" />
                             </figure>
-
                         </div>
                     </div>
-
                 </section>
                 {/* completion of college life */}
 

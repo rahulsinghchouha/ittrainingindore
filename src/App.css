@@ -982,7 +982,7 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
-  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog, #jobReady h3 {
+  #upliftYourCareer h3, .maximizeYourCareerHead h3,  #latestBlog h3, #collegeLife h3, #jobReady h3 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
@@ -1000,16 +1000,17 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  #testimonialExperience, .maximizeYourCareerHead, #latestBlog, #jobReady p
+  #testimonialExperience  p, .maximizeYourCareerHead  p, #latestBlog  p, #jobReady p, #collegeLife p
   {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  #latestBlog,#jobReady  h3{
+  #latestBlog h3,#jobReady  h3{
     font-size: 30px !important;
     line-height: 36px !important;
 
   }
+ 
   #jobReadyCard h4{
     font-size: 22px !important;
     line-height: 31px !important;
@@ -1019,9 +1020,6 @@ h4 {
     line-height: 32px !important;
   }
   
-  
-  
-
 }
 
 @media only screen and (max-width :1300px) {
@@ -1043,7 +1041,7 @@ h4 {
     line-height: 48px !important;
     
   }
-  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog, #jobReady  h3 {
+  #upliftYourCareer h3, .maximizeYourCareerHead h3, #latestBlog h3, #jobReady  h3,#collegeLife h3 {
     font-size: 30px !important;
     line-height: 48px !important;
   }
@@ -1086,7 +1084,7 @@ h4 {
 
 @media only screen and (max-width : 979px) {
   
-  .maximizeYourCareerHead h3,.maximizeYourCareerHead p {
+  .maximizeYourCareerHead h3 , .maximizeYourCareerHead p {
     text-align: center;
   }
   .backgroundPaperlane{
