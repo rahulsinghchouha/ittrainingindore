@@ -926,28 +926,28 @@ function Banner() {
 
                 {/* latest blog section starts */}
 
-                <section className="pt-[144px] relative pl-0 pr-0 pb-[100px] overflow-hidden flex ">
+                <section className="max-649:hidden pt-[144px] max-1200:pt-[54px] relative pl-0 pr-0 pb-[100px] overflow-hidden flex ">
 
-                    <div className={`w-[50%]  `}
+                    <div className={`w-[50%] max-1200:hidden `}
 
                     >
-                        <figure className={`m-0   ${isLatestBimg ? "transform duration-[2s] " : " translate-x-[-25px] translate-y-[-25px] "}`}
+                        <figure className={`m-0 max-1680:h-[507px]  ${isLatestBimg ? "transform duration-[2s] " : " translate-x-[-25px] translate-y-[-25px] "}`}
                             ref={latestBimag}
                             style={{ animationDuration: "3s" }}>
-                            <img className="w-[100%]" src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.blogImg}`} />
+                            <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.blogImg}`} />
                         </figure>
                     </div>
 
 
-                    <div className=" w-[686px] ml-10 mt-auto mb-auto">
+                    <div className=" w-[686px] max-1400:w-[49%] ml-10 mt-auto mb-auto max-1200:w-[70%] max-979:w-[80%] max-767:w-[95%]  max-1200:my-0 max-1200:mx-auto  ">
                         <div className="">
-                            <div className=" ">
+                            <div id="latestBlog" className=" ">
                                 <div className={` hoverBlue listBgImage w-[90%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
                                     ref={latestBhead}
                                     style={{ animationDuration: "3s" }}
                                 ></div>
                                 {ConvertAnchorToLink(String(homeData?.blogHead))}
-                                <div className="mt-[52px] w-[95%] ">
+                                <div className="mt-[52px] max-1400:mt-[20px] w-[95%] ">
                                     {
 
                                         blog?.slice(blog.length - 3, blog.length).reverse().map((latestBlog, index) => {
@@ -956,7 +956,7 @@ function Banner() {
                                             const day = dateObj.getDate(); // Get the day of the month (1-31)
                                             const month = dateObj.toLocaleString('en-US', { month: 'short' }); // Get the month 
                                             return (
-                                                <div className=" flex justify-between mb-[45px]" key={index}>
+                                                    <div className={` flex justify-between mb-[20px]  ${index!==0 ? "pt-[25px] border-t-[1px] border-solid border-[#d8effa]":""}`} key={index} >
                                                     <div className=" flex">
                                                         <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
                                                             <div className="mt-[8px] flex flex-col justify-center items-center">
@@ -969,13 +969,13 @@ function Banner() {
                                                             </div>
                                                         </div>
                                                         <div className="ml-[8px] ">
-                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700]`}>{latestBlog?.heading.slice(0, 25)}...</button>
-                                                            <p className={`${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  text-[16px] leading-[34px] font-[400] `}>{latestBlog?.blogCategory}</p>
+                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700] max-1321:text-[18px] max-1321:leading-[31px]`}>{latestBlog?.heading.slice(0, 25)}...</button>
+                                                            <h4 className={`${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  text-[16px] leading-[34px] font-[400] max-1200:text-start `}>{latestBlog?.blogCategory}</h4>
                                                         </div>
 
                                                     </div>
                                                     <div className=" flex justify-center items-center " >
-                                                        <h6 className="text-[#000] text-[18px] leading-[23px] font-[700]">
+                                                        <h6 className="text-[#000] text-[18px] max-1321:text-[16px]  leading-[23px] font-[700]">
                                                             <button onClick={() => blogDetails(latestBlog)} className={`blogBtn itCardBtn  pr-[45px] mt-[33px] ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out `}> Read More   </button> </h6>
                                                     </div>
                                                 </div>

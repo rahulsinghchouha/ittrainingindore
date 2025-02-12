@@ -974,7 +974,7 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
-  #upliftYourCareer, .maximizeYourCareerHead h3 {
+  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog h3 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
@@ -991,11 +991,19 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  #testimonialExperience, .maximizeYourCareerHead p
+  #testimonialExperience, .maximizeYourCareerHead, #latestBlog p
   {
     font-size: 16px !important;
     line-height: 32px !important;
   }
+  #latestBlog  h3{
+    font-size: 30px !important;
+    line-height: 36px !important;
+
+  }
+  
+  
+
 }
 
 @media only screen and (max-width :1300px) {
@@ -1017,9 +1025,12 @@ h4 {
     line-height: 48px !important;
     
   }
-  #upliftYourCareer, .maximizeYourCareerHead h3 {
+  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog  h3 {
     font-size: 30px !important;
     line-height: 48px !important;
+  }
+  #latestBlog  h3,p {
+text-align: center !important;
   }
 
 }
