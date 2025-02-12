@@ -1119,7 +1119,7 @@ function Banner() {
                 {/* completion of college life */}
 
                 {/* footer section start */}
-                <Footer className="pt-[300px] "></Footer>
+                <Footer homePage={true}></Footer>
 
                 {/* back to top align */}
                 {/* <div className="fixed right-[5%] bottom-[5%] cursor-pointer z-[51] text-center backtotop  ">

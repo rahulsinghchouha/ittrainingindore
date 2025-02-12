@@ -13,7 +13,7 @@ import { Select } from "antd";
 import { useContactDetails } from "../../Redux/rTKFunction";
 import { Link, useNavigate } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({homePage = false}) => {
     const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
 
     const dispatch = useDispatch();
@@ -62,7 +62,7 @@ const Footer = () => {
     }
 
     return (
-        <footer className="pt-[393px] ">
+        <footer className={`${homePage ?  "pt-0" : "pt-[393px]" }  `}>
             <div className="wrapper">
                 <div className={` ${isFooterKeyForm && "animate__pulse"} `}
                     ref={footerKeyFormRef}
