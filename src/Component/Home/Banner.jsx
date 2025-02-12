@@ -39,6 +39,7 @@ function Banner() {
     const [homeData, setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
     const [blog, setBlog] = useState([]);
+    const [activeCard, setActiveCard] = useState('Money-back-Guarntee');
 
     const [ourStats, setOurStats] = useState();
 
@@ -941,12 +942,16 @@ function Banner() {
 
                     <div className=" w-[686px] max-1400:w-[49%] ml-10 mt-auto mb-auto max-1200:w-[70%] max-979:w-[80%] max-767:w-[95%]  max-1200:my-0 max-1200:mx-auto  ">
                         <div className="">
-                            <div id="latestBlog" className=" ">
-                                <div className={` hoverBlue listBgImage w-[90%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
+                            <div className=" ">
+                                <div id="latestBlog" className={` hoverBlue listBgImage w-[100%] ${isLatestBhead ? "transform translate-y-0 duration-[2s]" : "translate-y-[-70px]"} `}
                                     ref={latestBhead}
                                     style={{ animationDuration: "3s" }}
-                                ></div>
-                                {ConvertAnchorToLink(String(homeData?.blogHead))}
+                                >   {ConvertAnchorToLink(String(homeData?.blogHead))}
+
+                                </div>
+
+
+
                                 <div className="mt-[52px] max-1400:mt-[20px] w-[95%] ">
                                     {
 
@@ -956,10 +961,10 @@ function Banner() {
                                             const day = dateObj.getDate(); // Get the day of the month (1-31)
                                             const month = dateObj.toLocaleString('en-US', { month: 'short' }); // Get the month 
                                             return (
-                                                    <div className={` flex justify-between mb-[20px]  ${index!==0 ? "pt-[25px] border-t-[1px] border-solid border-[#d8effa]":""}`} key={index} >
+                                                <div className={` flex justify-between mb-[20px]  ${index !== 0 ? "pt-[25px] border-t-[1px] border-solid border-[#d8effa]" : ""}`} key={index} >
                                                     <div className=" flex">
-                                                        <div className="text-center w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
-                                                            <div className="mt-[8px] flex flex-col justify-center items-center">
+                                                        <div className="text-center mt-[8px] max-1200:mt-[15px] w-[64px] h-[64px] bg-[#ffffff] shadow-blogShadow ">
+                                                            <div className="pt-[8px]   flex flex-col justify-center items-center">
                                                                 <h2 className={`text-[18px] leading-[23px] font-[700] ${index === 0 ? "text-[#4800E2]" : "" || index === 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""} `}>
                                                                     {day}{`${day === 1 ? "st" : "" || day === 2 ? "nd" : "" || day === 3 ? "rd" : "th"}`}
                                                                 </h2>
@@ -994,55 +999,92 @@ function Banner() {
 
                 {/* job program sectin start  */}
 
-                <section className="pt-[50px] pb-[180px]">
+                <section className="max-649:hidden pt-[50px] max-1400:pt-[20px] pb-[180px]">
                     <div className="wrapper">
                         <div className="text-center ">
-                            <div className={` hoverBlue listBgImage w-[80%] mx-auto ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
+                            <div id="jobReady" className={` hoverBlue listBgImage w-[80%] mx-auto   ${isJobReady ? "transform duration-[2s]" : "transform translate-y-[-35px]"}`}
                                 ref={jobRedyRef}
                                 style={{ animationDuration: "3s" }}
                             >
                                 {ConvertAnchorToLink(String(homeData?.jobReadyHead))}
                             </div>
                         </div>
-                        <div className={`mt-[95px] flex w-[100%] ${isJobReadyCard && "animate__fadeIn"}`}
+                        <div className="mt-[45px] hidden max-1024:block ">
+                            <ul className="flex justify-center">
+                                <li className="my-0 ml-0 mr-[20px] ">
+                                    <button onClick={() => setActiveCard("Money-back-Guarntee")} className={`py-[10px] px-[15px] max-767:py-[8px] max-767:px-[8px] text-[#fff] ${activeCard === "Money-back-Guarntee" ? "bg-[#000]" : "bg-[#1AAEF4]"} rounded-[5px] `}>
+                                        Money-back Guarnteed
+                                    </button>
+                                </li>
+                                <li className="my-0 ml-0 mr-[20px] ">
+                                    <button onClick={() => setActiveCard("Career-Mentoring")} className={`py-[10px] px-[15px] max-767:py-[8px] max-767:px-[8px] text-[#fff] ${activeCard === "Career-Mentoring" ? "bg-[#000]" : "bg-[#1AAEF4]"} rounded-[5px] `}>
+                                        Career Mentoring
+                                    </button>
+                                </li>
+                                <li className="my-0 ml-0  ">
+                                    <button onClick={() => setActiveCard("Interview Prepration")} className={` py-[10px] px-[15px] max-767:py-[8px] max-767:px-[8px] text-[#fff] ${activeCard === "Interview Prepration" ? "bg-[#000]" : "bg-[#1AAEF4]"} rounded-[5px] `}>
+                                        Interview Prepration
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="jobReadyCard" className={`mt-[95px] flex w-[100%] ${isJobReadyCard && "animate__fadeIn"}`}
                             ref={jobRedyCardRef}
                             style={{ animationDuration: "2s" }}
-
                         >
-                            <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            {activeCard === "Money-back-Guarntee" ? <div id="money-back-guarntee" className="jobReadyActiveCard w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#fff7db] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
-
                                 </figure>
-                                <div className=" hoverBlue listBgImage mt-[17px] " >
+                                <div className=" hoverBlue listBgImage mt-[17px]  " >
                                     {ConvertAnchorToLink(String(homeData?.interviewPrepHead))}
                                 </div>
-
-
-                            </div>
-                            <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            </div> : <div></div>
+                            }
+                            {activeCard === "Career-Mentoring" ? <div id="career-mentoring" className=" jobReadyActiveCard w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]  shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#e3ffe0] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
-
                                 </figure>
                                 <div className=" hoverBlue listBgImage mt-[17px] " >
                                     {ConvertAnchorToLink(String(homeData?.mentorsHead))}
                                 </div>
-
-
-                            </div>
-                            <div className="w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] shadow-jobCardShadow bg-[#ffffff] ">
+                            </div> : <div></div>
+                            }
+                            {
+                            activeCard === "Interview Prepration" ? <div id="interview-preparation" className=" jobReadyActiveCard w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]   shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
-
                                 </figure>
                                 <div className=" hoverBlue listBgImage mt-[17px] ">
                                     {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
                                 </div>
+                            </div> : <div></div>
 
-
+                            }
+                            <div id="money-back-guarntee" className="jobReadyCards w-[31.5%]  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] max-1400:pr-[30px] max-1400:pl-[28px] max-1321:px-[11px] max-1200:w-[32%] max-1200:min-h-[341px] shadow-jobCardShadow bg-[#ffffff] ">
+                                <figure className="w-[92px] h-[92px] leading-[120px] bg-[#fff7db] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                    <img src="/best-job-training-program-1.svg" alt="best-job-training-program-1.svg" className="" />
+                                </figure>
+                                <div className=" hoverBlue listBgImage mt-[17px] " >
+                                    {ConvertAnchorToLink(String(homeData?.interviewPrepHead))}
+                                </div>
                             </div>
-
+                            <div id="career-mentoring" className=" jobReadyCards w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]  max-1400:pr-[30px] max-1400:pl-[28px] max-1321:px-[11px]  max-1200:w-[32%] max-1200:min-h-[341px] max-1200:ml-[1.7%] shadow-jobCardShadow bg-[#ffffff] ">
+                                <figure className="w-[92px] h-[92px] leading-[120px] bg-[#e3ffe0] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                    <img src="/IT-Training-Indore-job-program.svg" alt="best-job-training-program-1.svg" className="" />
+                                </figure>
+                                <div className=" hoverBlue listBgImage mt-[17px] " >
+                                    {ConvertAnchorToLink(String(homeData?.mentorsHead))}
+                                </div>
+                            </div> 
+                            <div id="interview-preparation" className=" jobReadyCards w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]  max-1400:pr-[30px] max-1400:pl-[28px] max-1321:px-[11px] max-1200:w-[32%] max-1200:min-h-[341px] max-1200:ml-[1.7%] shadow-jobCardShadow bg-[#ffffff] ">
+                                <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                    <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
+                                </figure>
+                                <div className=" hoverBlue listBgImage mt-[17px] ">
+                                    {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
+                                </div>
+                            </div> 
                         </div>
 
                         <div className="mt-[40px] text-center ">

@@ -965,6 +965,14 @@ h4 {
   background-repeat: no-repeat;
   background-color: #f3fbff;
 }
+
+#jobReady p{
+  width: 80% !important;
+  margin: 0 auto;
+}
+
+
+
 /* Responsiveness */
 @media only screen and (max-width: 1400px) {
   .wrapper {
@@ -974,10 +982,11 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
-  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog h3 {
+  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog, #jobReady h3 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
+  
  .backgroundPaperlane{
   background-position-x: 85% ;
   background-position-y: 40% ;
@@ -991,16 +1000,25 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  #testimonialExperience, .maximizeYourCareerHead, #latestBlog p
+  #testimonialExperience, .maximizeYourCareerHead, #latestBlog, #jobReady p
   {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  #latestBlog  h3{
+  #latestBlog,#jobReady  h3{
     font-size: 30px !important;
     line-height: 36px !important;
 
   }
+  #jobReadyCard h4{
+    font-size: 22px !important;
+    line-height: 31px !important;
+  }
+  #jobReadyCard p{
+    font-size: 16px !important;
+    line-height: 32px !important;
+  }
+  
   
   
 
@@ -1025,12 +1043,15 @@ h4 {
     line-height: 48px !important;
     
   }
-  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog  h3 {
+  #upliftYourCareer, .maximizeYourCareerHead, #latestBlog, #jobReady  h3 {
     font-size: 30px !important;
     line-height: 48px !important;
   }
-  #latestBlog  h3,p {
-text-align: center !important;
+  #latestBlog h3 {
+    text-align: center !important;
+  }
+  #latestBlog p {
+    text-align: center !important;
   }
 
 }
@@ -1054,12 +1075,18 @@ text-align: center !important;
   .cardSquare{
     width: 38% !important;
   }
+  .jobReadyCards{
+    display: none;
+  }
+  .jobReadyActiveCard{
+    display: block;
+  }
 
 }
 
 @media only screen and (max-width : 979px) {
   
-  .maximizeYourCareerHead h3,p {
+  .maximizeYourCareerHead h3,.maximizeYourCareerHead p {
     text-align: center;
   }
   .backgroundPaperlane{
