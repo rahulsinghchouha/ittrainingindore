@@ -62,13 +62,13 @@ const Footer = ({homePage = false}) => {
     }
 
     return (
-        <footer className={`${homePage ?  "pt-0" : "pt-[393px]" }  `}>
+        <footer className={`${homePage ?  "  max-1200:pt-[15px] max-1023:pt-[17px]  " : "pt-[393px]" }  `}>
             <div className="wrapper">
                 <div className={` ${isFooterKeyForm && "animate__pulse"} `}
                     ref={footerKeyFormRef}
                     style={{ animationDuration: "2s" }}
                 >
-                    <div className="w-[40.2%] max-979:w-[80%]  max-1024:w-[51%] max-1024:pt-[25px] max-1024:pb-[44px] max-1024:px-[45px] max-1024:mt-0 max-1024:mb-[80px] max-1024:mx-auto  pt-[37px] pr-[69px] pb-[49px] pl-[52px] max-1200:w-[46%]  max-1200:pt-[35px] max-1200:pb-[49px] max-1200:pr-[50px] max-1200:pl-[35px]  relative  max-1400:pt-[37px] max-1400:pb-[48px] max-1400:px-[30px]  rounded-[31px] z-[10] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
+                    <div className="w-[40.2%] max-413:pt-[25px] max-413:pb-[35px] max-413:px-[12px] max-480:pt-[25px] max-480:pb-[44px] max-480:px-[25px] max-590:w-[95%] max-649:mt-[150px]  max-767:w-[77%] max-979:w-[80%]  max-1024:w-[51%] max-1024:pt-[25px] max-1024:pb-[44px] max-1024:px-[45px] max-1024:mt-0 max-1024:mb-[80px] max-1024:mx-auto  pt-[37px] pr-[69px] pb-[49px] pl-[52px] max-1200:w-[46%]  max-1200:pt-[35px] max-1200:pb-[49px] max-1200:pr-[50px] max-1200:pl-[35px]  relative  max-1400:pt-[37px] max-1400:pb-[48px] max-1400:px-[30px]  rounded-[31px] z-[10] shadow-footFormSahd" style={{ background: `url('/footer-form-bg.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '101%', backgroundPositionY: '0', backgroundColor: '#ffffff' }}>
                         <div className="w-[100%] max-1024:text-center ">
                             <h4 className="w-[100%] font-normal text-[28px] leading-[46px] ">
                                 Get a free
@@ -189,7 +189,7 @@ const Footer = ({homePage = false}) => {
                                             </div>
                                             <div className="mt-5 p-0 box-border">
                                                 <p className="leading-[21px] font-[400] text-[16px] ">
-                                                    <button type="submit" disabled={isSubmitting} className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px]
+                                                    <button type="submit" disabled={isSubmitting} className="cursor-pointer  pt-[13px] pb-[13px] pl-[75px] pr-[75px] max-979:px-[88px] max-979:py-[10px] max-649:py-[10px] max-649:px-[65px] max-413:px-[58px] max-413:py-[9px]
                                            text-[16px] leading-[21px] inputGradient font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none ">
                                                         {isSubmitting ?
                                                             (
@@ -229,7 +229,7 @@ const Footer = ({homePage = false}) => {
                 <div style={{ background: `url('/footer-newsletter-bg.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                     <div className="pt-[42px] pb-[40px] pl-0 pr-0 bg-[#1aaef4e6]">
                         <div className="wrapper">
-                            <div className={`w-[35%] max-1400:w-[37.2%]  max-1200:w-[45%] max-979:w-[65%]  max-1024:text-center max-1024:mx-auto  mr-[184px] max-1200:mr-[10px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] "}`}
+                            <div className={`w-[35%] max-480:w-[95%] max-413:w-[99%] max-590:w-[85%] max-649:w-[75%] max-1400:w-[37.2%]  max-1200:w-[45%] max-979:w-[65%]   max-1024:text-center max-1024:mx-auto  mr-[184px] max-1200:mr-[10px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] "}`}
                                 ref={footerMailFormRef}
                                 style={{ animationDuration: "3s" }}
                             >
@@ -256,9 +256,9 @@ const Footer = ({homePage = false}) => {
                                             <form onSubmit={handleSubmit}>
                                                 <div className="relative">
                                                     <div className=" clearfix">
-                                                        <input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className=" inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] max-1200:text-[13px] max-1200:leading-[19px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
+                                                        <input type="text" name="email" onChange={handleChange} onBlur={handleBlur} placeholder="Enter Your Email" className=" max-480:w-[68%] inline float-left pt-[10px] pb-[10px] pl-[23px] pr-[23px] max-1200:text-[13px] max-1200:leading-[19px] rounded-tl-[9px] rounded-bl-[9px] w-[78.9%] leading-[20px] font-[400] bg-[#ffffff] focus:outline-none focus:placeholder:text-transparent " />
 
-                                                        <button type="submit" disabled={isSubmitting} className="  float-right absolute pt-[10.3px] w-[21.1%] max-1380:w-[23%] max-1024:w-[25%] right-0  text-[white] pr-[20px] pb-[11px] pl-[35.1px] text-[16px] rounded-tr-[9px] max-1200:text-[13px] max-1200:leading-[19px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
+                                                        <button type="submit" disabled={isSubmitting} className="  float-right absolute pt-[10.3px] w-[21.1%] max-1380:w-[23%] max-480:w-[32%] max-1024:w-[25%] right-0  text-[white] pr-[20px] pb-[11px] pl-[35.1px] text-[16px] rounded-tr-[9px] max-1200:text-[13px] max-1200:leading-[19px] rounded-br-[9px] leading-[19px] font-[600] " style={{ background: `url('/footer-newsletter-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '12%', backgroundPositionY: 'center', backgroundColor: "#111111" }}>
                                                             {isSubmitting ?
                                                                 (
                                                                     <Blocks
@@ -306,13 +306,13 @@ const Footer = ({homePage = false}) => {
                                 </figure>
 
                                 <div className="mt-[22px] w-[75%]  ">
-                                    <a href="https://goo.gl/maps/VUxpJgQX4daJNyLDA" target="_blank" className="max-979:w-[65%] max-767:w-[75%] max-649:w-[85%] max-590:w-[100%] inline-block text-[14px] leading-[28px] cursor-pointer font-[400] text-[#ffffff] pl-[28px] max-590:pl-[10px] hover:text-[#9c9c9c] transition-all delay-150 ease-linear  " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
+                                    <a href="https://goo.gl/maps/VUxpJgQX4daJNyLDA" target="_blank" className="max-480:pl-[15px] max-979:w-[65%] max-767:w-[75%] max-649:w-[85%] max-590:w-[100%] inline-block text-[14px] leading-[28px] cursor-pointer font-[400] text-[#ffffff] pl-[28px] max-590:pl-[10px] hover:text-[#9c9c9c] transition-all delay-150 ease-linear  " style={{ background: `url('/footer-location-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0%', backgroundPositionY: '15%' }}>
 
                                         {contactUsData?.data?.officeAddress}
                                     </a>
 
                                 </div>
-                                <div className="mt-[42px] flex  ">
+                                <div className="mt-[42px] flex max-480:flex-col max-480:mt-[20px] max-480:mb-[20px]  ">
                                     <div className="flex justify-center items-center ">
                                         <h6 className="text-[#ffffff] text-[18px] leading-[23px] font-[700] ">Follow us on:</h6>
 
