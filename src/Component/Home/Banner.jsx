@@ -220,7 +220,7 @@ function Banner() {
     return (
         <div className="overflow-hidden">
             <Navbar />
-            <div className="pt-[125px] ">
+            <div className="max-800:pt-0  pt-[125px] ">
                 {/* Home page banner start */}
                 <div className="home-banner-wr overflow-hidden">
                     <section className="wrapper overflow-hidden">

@@ -75,7 +75,7 @@ const CategoryDetails = () => {
             {
                 category ? (<div>  <Navbar />
                     {/* Categories Banner Page Start */}
-                    <section className="m-0 pt-[125px]">
+                    <section className="m-0 pt-0 max-800:pt-[125px]">
                         <div className="relative">
                             <figure className=" z-[-1] h-[372.66px] relative mainImageAfter">
                                 <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${category?.bannerImg}`} />
