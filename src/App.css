@@ -1145,7 +1145,7 @@ h4 {
   background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
 }
 
-.formSelectCourse .ant-select {
+.formSelectCourse .ant-select,.formSelectCourse .ant-select-selector {
   color: transparent !important; /* Make default label transparent */
   background-color: transparent !important;
 }

@@ -117,7 +117,7 @@ function Navbar() {
                         {
                             dashboardOpen ?
                                 <div className="relative mr-[13px]">
-                                    <button onClick={() => setDashboradOpen(false)} className="text-center pt-[5px] pb-[9px] px-[10px] rounded-[10px] max-590:rounded-[8px] max-649:pt-[4px] max-649:pb-[8px] max-649:px-[8px]  bg-[linear-gradient(283deg,#1AAEF4_0%,#1AAEF4_0.01%,#0096EB_100%)] ">
+                                    <button onClick={() => setDashboradOpen(false)} className="text-center pt-[5px] pb-[9px] px-[10px] rounded-[10px] max-480:pt-[3px] max-480:pb-[7px] max-480:px-[7px]   max-590:rounded-[8px] max-649:pt-[4px] max-649:pb-[8px] max-649:px-[8px]  bg-[linear-gradient(283deg,#1AAEF4_0%,#1AAEF4_0.01%,#0096EB_100%)] ">
                                         <span>
                                             <span className="block w-[30px] h-[2px] rounded-[10px] bg-[#fff] mt-[7px] mb-[3px] mr-[0px] ml-auto   " ></span>
                                             <span className="block w-[20px] h-[2px] rounded-[10px] bg-[#fff] mt-[7px] mb-[3px] mr-[0px] ml-auto   " ></span>
@@ -156,7 +156,7 @@ function Navbar() {
 
                                 :
 
-                                <button onClick={() => setDashboradOpen(true)} className="text-center pt-[5px] pb-[9px] px-[10px] rounded-[10px] bg-[linear-gradient(283deg,#1AAEF4_0%,#1AAEF4_0.01%,#0096EB_100%)] ">
+                                <button onClick={() => setDashboradOpen(true)} className="text-center pt-[5px] pb-[9px] px-[10px] max-480:pt-[3px] max-480:pb-[7px] max-480:px-[7px]  max-590:rounded-[8px] max-649:pt-[4px] max-649:pb-[8px] max-649:px-[8px]  rounded-[10px] bg-[linear-gradient(283deg,#1AAEF4_0%,#1AAEF4_0.01%,#0096EB_100%)] ">
                                     <span>
                                         <span className="block w-[15px] h-[2px] rounded-[10px] bg-[#fff] mt-[7px] mb-[3px] mr-[0px] ml-auto   " ></span>
                                         <span className="block w-[20px] h-[2px] rounded-[10px] bg-[#fff] mt-[7px] mb-[3px] mr-[0px] ml-auto   " ></span>

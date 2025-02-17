@@ -231,7 +231,7 @@ function Banner() {
                                 </div>
                                 <div
                                     ref={mainHeading}
-                                    className={`homeBannerHeader w-[120%] max-1024:w-[100%]  mt-[28px]  ${isMainHeading && "animate__fadeIn"} `} style={{
+                                    className={`homeBannerHeader w-[109%] max-1024:w-[100%]  mt-[28px]  ${isMainHeading && "animate__fadeIn"} `} style={{
                                         animationDuration: "3s",
                                     }}
                                 >
@@ -271,15 +271,15 @@ function Banner() {
 
                                 </div>
                                 {/* popular searches course link */}
-                                <div className="mt-[25px] overflow-hidden">
+                                <div className="mt-[25px] w-[100%] ">
                                     <div className="inline-block">
                                         <span className="text-[16px] leading-[21px] text-[#000000] font-[600] ">Popular Searches</span>
 
                                     </div>
-                                    <div className="ml-[10px] max-1380:ml-[-5px] popularSearchBtn  inline-block cursor-pointer ">
+                                    <div className=" max-1400:mt-[10px]  popularSearchBtn  inline-block cursor-pointer ">
                                         {
                                             exploreCat.slice(exploreCat.length - 3, exploreCat.length).reverse().map((category, index) => (
-                                                <button onClick={() => handleSearch(category?.heading)} key={index} className={` ${index != 0 ? "ml-[15px]" : ""} inline-block text-[14px] py-[9px] px-[15px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] `}>{category?.heading}</button>
+                                                <button onClick={() => handleSearch(category?.heading)} key={index} className={` ${index != 0 ? "ml-[15px]" : ""} inline-block text-[14px] py-[9px] px-[15px] max-1200:px-[11px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] `}>{category?.heading}</button>
                                             ))
                                         }
                                     </div>
@@ -336,21 +336,21 @@ function Banner() {
 
                 {/* key store form section starts */}
 
-                <section ref={keyStoreRef} className={`overflow-hidden mt-[-110px] max-1200:mt-[-90px] max-1024:mt-[64px] z-100 bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
+                <section ref={keyStoreRef} className={` max-800:hidden    mt-[-110px] max-1200:mt-[-90px] max-1024:mt-[64px]  bgKeyStore ${iskeyStore ? "animate__fadeInDown" : ""} `} style={{
                     animationDuration: "2s", // Custom animation duration
                 }}>
                     <div className="wrapper">
-                        <div className=" overflow-hidden flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] max-1024:pt-[13px] max-1024:pb-[22px] max-1024:px-[52px] w-[83%] max-1200:w-[90%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
-                            <figure className="absolute top-0 left-0 max-1024:h-[365px] z-[2]">
-                                <img src="/Home/keystroke-from-bg.svg" className="h-[100%] w-[100%] max-w-[100%]" />
+                        <div className="   flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] max-1024:pt-[13px] max-1024:pb-[22px] max-1024:px-[52px] w-[83%] max-1200:w-[100%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
+                            <figure className="absolute top-[-2px] left-0 max-1024:h-[365px] z-[2]">
+                                <img src="/Home/keystroke-from-bg.svg" className="h-[100%] w-[100%] max-w-[100%] z-0" />
                             </figure>
-                            <div className="w-[25%] max-1024:w-[100%] max-1024:text-center">
+                            <div className="w-[25%] max-1024:w-[100%] max-1200:w-[20%] max-1024:text-center">
 
                                 <h2 className="text-[28px]  leading-[46px]  text-[#000000] ">Get a free
                                     <span className="font-[700]"> keystroke quote</span>
                                 </h2>
                             </div>
-                            <div className="w-[76%]  max-1024:w-[100%] max-1024:mt-[25px] relative leading-0  bg-transparent">
+                            <div className="w-[76%] z-[10]   max-1024:w-[100%] max-1024:mt-[25px] relative leading-0  bg-transparent">
 
 
                                 <div>
@@ -361,7 +361,7 @@ function Banner() {
                                             if (!values.name) errors.name = "Please Enter your Name";
                                             if (!values.email) errors.email = "Please Enter your Email";
                                             else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) errors.email = "Please Enter Valid Email";
-                                            if (!values.phone) errors.phone = "Please Enter your Number";
+                                            if (!values.phone) errors.phone = "Enter your Number";
                                             if (!values.course) errors.course = "Select At least  One Course";
                                             return errors;
 
