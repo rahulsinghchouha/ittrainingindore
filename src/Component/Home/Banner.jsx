@@ -21,6 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
 import { useContactDetails } from "../../Redux/rTKFunction";
 import { BsSearch } from "react-icons/bs";
+import { Content } from "antd/es/layout/layout";
 const { Panel } = Collapse;
 
 function Banner() {
@@ -220,12 +221,12 @@ function Banner() {
     return (
         <div className="overflow-hidden">
             <Navbar />
-            <div className="max-800:pt-0  pt-[125px] ">
+            <div className="max-800:pt-0  pt-[120px] ">
                 {/* Home page banner start */}
                 <div className="home-banner-wr overflow-hidden">
                     <section className="wrapper overflow-hidden">
                         <div className="box-border flex max-1024:flex-col-reverse justify-between  ">
-                            <div className="w-[48.5%] max-1024:w-[100%] max-1024:text-center  max-1024:pt-[50px] max-1024:pb-[90px] max-1024:px-0    pt-[16px] pl-0 pr-0 pb-0 ">
+                            <div className="w-[48.5%]  max-1024:w-[100%] max-1024:text-center   max-1024:pt-[50px] max-1024:px-0    pt-[12px] pl-0 pr-0 pb-0 ">
                                 <div className="banner-sub-heading">
                                     <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                                 </div>
@@ -302,20 +303,31 @@ function Banner() {
                                     </div>
                                 </div>
 
+                                {/* Popular Courses  1023*/}
+                                <div className="hidden max-1024:block  text-center max-1024:pt-[50px]">
+                                    <Link to="/courses" className="inline-block bg-[#000] text-[#fff] pt-[17px] pb-[11px]  px-[130px] rounded-t-[14px] text-[16px] leading-[20px] font-[600]  " >Popular Courses</Link>
+
+                                </div>
+
                             </div>
 
                             {/* second div */}
                             <div ref={mainImage}
+                                className={` pt-[5px] max-800:w-[75%]  max-800:mr-[-100px] w-[39%] max-1200:w-[42%]  max-1024:w-[55%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[0px] max-h-[687px] relative  box-border `}
+                               
+                            >
+                                <div className="w-[100%] h-[500px] top-[75px] max-800:top-0 max-800:[background:unset] absolute bg-no-repeat bg-[position:84%_25%] max-1024:bg-[position:60%_20%] "
+                                 style={{ backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, }}>
 
-
-                                style={{ animationDuration: "3s", backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, backgroundRepeat: 'no-repeat', backgroundPositionX: '84%', backgroundPositionY: '25%' }}
-                                className={` w-[39%] max-1200:w-[42%] max-1024:w-[52%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[15px] max-h-[687px] relative float-right box-border`}>
-                                <figure
+                                </div>
+                               
+                                
+                                <figure className="relative max-800:mr-[100px]"
                                 >
-                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " />
-                                    <figcaption className="absolute top-[32.5%] pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
+                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " className="z-[20] max-590:w-[91%]"/>
+                                    <figcaption className="absolute max-800:top-[34.5%] max-800:pt-[20px] max-800:pb-[13px] max-800:px-[25px] max-800:left-[45%] top-[32.5%]  pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
                                         <div className="mt-[-32px]">
-                                            <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%] block" />
+                                            <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%]  block" />
                                         </div>
                                         <div className="mt-[5px] visible text-[14px] leading-[20px] font-[600] text-[#1aaef4]">
                                             <a href={`tel:+91 ${contactUsData?.data?.contactUsNumber}`} className="hover:text-[#000000] transition-all delay-75">+91 {contactUsData?.data?.contactUsNumber}</a>
@@ -340,7 +352,7 @@ function Banner() {
                     animationDuration: "2s", // Custom animation duration
                 }}>
                     <div className="wrapper">
-                        <div className="   flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px] max-1024:pt-[13px] max-1024:pb-[22px] max-1024:px-[52px] w-[83%] max-1200:w-[100%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
+                        <div className="   flex max-1024:flex-col justify-between pt-[20px] pl-[52px] pr-[52px] pb-[8px]  max-1024:px-[52px] w-[83%] max-1200:w-[100%] max-1680:w-[100%] mt-0 mb-0 ml-auto mr-auto box-border relative rounded-[31px] keyStore ">
                             <figure className="absolute top-[-2px] left-0 max-1024:h-[365px] z-[2]">
                                 <img src="/Home/keystroke-from-bg.svg" className="h-[100%] w-[100%] max-w-[100%] z-0" />
                             </figure>
@@ -1051,14 +1063,14 @@ function Banner() {
                             </div> : <div></div>
                             }
                             {
-                            activeCard === "Interview Prepration" ? <div id="interview-preparation" className=" jobReadyActiveCard max-1200:min-h-[341px]  w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]   shadow-jobCardShadow bg-[#ffffff] ">
-                                <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
-                                    <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
-                                </figure>
-                                <div className=" hoverBlue listBgImage mt-[17px] ">
-                                    {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
-                                </div>
-                            </div> : <div></div>
+                                activeCard === "Interview Prepration" ? <div id="interview-preparation" className=" jobReadyActiveCard max-1200:min-h-[341px]  w-[45%] max-979:w-[55%] max-767:w-[68%] mx-auto hidden  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]   shadow-jobCardShadow bg-[#ffffff] ">
+                                    <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
+                                        <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
+                                    </figure>
+                                    <div className=" hoverBlue listBgImage mt-[17px] ">
+                                        {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
+                                    </div>
+                                </div> : <div></div>
 
                             }
                             <div id="money-back-guarntee" className="jobReadyCards w-[31.5%]  pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px] max-1400:pr-[30px] max-1400:pl-[28px] max-1321:px-[11px] max-1200:w-[32%] max-1200:min-h-[341px] shadow-jobCardShadow bg-[#ffffff] ">
@@ -1076,7 +1088,7 @@ function Banner() {
                                 <div className=" hoverBlue listBgImage mt-[17px] " >
                                     {ConvertAnchorToLink(String(homeData?.mentorsHead))}
                                 </div>
-                            </div> 
+                            </div>
                             <div id="interview-preparation" className=" jobReadyCards w-[31.5%] ml-[2.7%] pt-[66px] pr-[38.3px] pb-[31px] pl-[36.7px]  max-1400:pr-[30px] max-1400:pl-[28px] max-1321:px-[11px] max-1200:w-[32%] max-1200:min-h-[341px] max-1200:ml-[1.7%] shadow-jobCardShadow bg-[#ffffff] ">
                                 <figure className="w-[92px] h-[92px] leading-[120px] bg-[#ece3ff] rounded-[50%] mt-[-110px] flex justify-center items-center">
                                     <img src="/Best-placement-job-program.svg" alt="best-job-training-program-1.svg" className="" />
@@ -1084,7 +1096,7 @@ function Banner() {
                                 <div className=" hoverBlue listBgImage mt-[17px] ">
                                     {ConvertAnchorToLink(String(homeData?.careerCounsilHead))}
                                 </div>
-                            </div> 
+                            </div>
                         </div>
 
                         <div className="mt-[40px] text-center ">
