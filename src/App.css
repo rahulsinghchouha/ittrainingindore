@@ -975,6 +975,32 @@ h4 {
 }
 
 
+.home-banner-wr {
+  padding: 135px 0 90px;
+  background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
+}
+
+.formSelectCourse .ant-select,
+.formSelectCourse .ant-select-selector {
+  color: transparent !important;
+  /* Make default label transparent */
+  background-color: transparent !important;
+}
+
+.custom-select-color .ant-select-arrow {
+  color: black;
+  /* Ensure arrow remains visible */
+}
+
+.formSelectCourse {
+  z-index: 5 !important;
+}
+
+.courseBannerSection p {
+  width: 82% !important;
+  margin: 0 auto;
+}
+
 /* Responsiveness */
 @media only screen and (max-width: 1400px) {
   .wrapper {
@@ -1192,7 +1218,8 @@ h4 {
   padding: 0 !important;
 } 
 .courseBannerSection p{
-  display: none !important;
+  width: 99% !important;
+  margin: 0 auto !important;
 } 
 }
 
@@ -1201,31 +1228,4 @@ h4 {
     font-size: 24px !important;
     line-height: 36px !important;
   } 
-}
-
-
-.home-banner-wr {
-  padding: 135px 0 90px;
-  background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
-}
-
-.formSelectCourse .ant-select,
-.formSelectCourse .ant-select-selector {
-  color: transparent !important;
-  /* Make default label transparent */
-  background-color: transparent !important;
-}
-
-.custom-select-color .ant-select-arrow {
-  color: black;
-  /* Ensure arrow remains visible */
-}
-
-.formSelectCourse {
-  z-index: 5 !important;
-}
-
-.courseBannerSection p {
-  width: 82% !important;
-  margin: 0 auto;
 }
