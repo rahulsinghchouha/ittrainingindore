@@ -313,18 +313,18 @@ function Banner() {
 
                             {/* second div */}
                             <div ref={mainImage}
-                                className={` pt-[5px] max-800:w-[75%]  max-800:mr-[-100px] w-[39%] max-1200:w-[42%]  max-1024:w-[55%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[0px] max-h-[687px] relative  box-border `}
-                               
+                                className={` pt-[5px] max-800:w-[75%]  max-800:mr-[-100px] w-[39%] max-1200:w-[42%]  max-1024:w-[55%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[-15px] max-h-[687px] relative  box-border `}
+
                             >
-                                <div className="w-[100%] h-[500px] top-[75px] max-800:top-0 max-800:[background:unset] absolute bg-no-repeat bg-[position:84%_25%] max-1024:bg-[position:60%_20%] "
-                                 style={{ backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, }}>
+                                <div className="w-[100%]    h-[500px] max-1200:max-h-[687px] max-800:h-[700px] top-[52px] max-800:top-0  max-1200:bg-[position:94%] absolute bg-no-repeat bg-[position:84%_25%] max-1024:bg-[position:60%_20%] "
+                                    style={{ backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, width:"100%",height:"100%" }} >
 
                                 </div>
-                               
-                                
+
+
                                 <figure className="relative max-800:mr-[100px]"
                                 >
-                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " className="z-[20] max-590:w-[91%]"/>
+                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " className="z-[20] max-590:w-[91%]" />
                                     <figcaption className="absolute max-800:top-[34.5%] max-800:pt-[20px] max-800:pb-[13px] max-800:px-[25px] max-800:left-[45%] top-[32.5%]  pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
                                         <div className="mt-[-32px]">
                                             <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%]  block" />
@@ -565,7 +565,7 @@ function Banner() {
 
                         <div style={{ visibility: "visible", animationDuration: '3s' }}
                             ref={chooseCourse}
-                            className={` courseBannerSection hoverBlue listBgImage  mx-auto ${isChooseCourse && "animate__fadeInDown"}`}
+                            className={` courseBannerSection hoverBlue listBgImage   ${isChooseCourse && "animate__fadeInDown"}`}
                         >
                             {ConvertAnchorToLink(String(homeData?.chooseCourseHead))}
                         </div>

@@ -1030,11 +1030,11 @@ h4 {
     line-height: 31px !important;
   }
 
-  #jobReadyCard p {
+  #jobReadyCard p,.courseBannerSection p {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-
+ 
 }
 
 @media only screen and (max-width :1300px) {
@@ -1093,8 +1093,6 @@ h4 {
 }
 
 @media only screen and (max-width: 1023px) {
-  
-
   .search-icon {
     margin-left: 50px !important;
   }
@@ -1162,7 +1160,14 @@ h4 {
       background-color: #fff !important;
       padding: 0px !important;
   }
+  .home-banner-wr .center-wrapper {
+    width: 100%;
+}
 
+/* .courseBannerSection h3{
+  padding: 0px 101px !important;
+  margin-bottom: 28px !important;
+} */
  
 }
 
@@ -1183,7 +1188,19 @@ h4 {
   #upliftYourCareer {
     display: none !important;
   }
+ .courseBannerSection h3{
+  padding: 0 !important;
+} 
+.courseBannerSection p{
+  display: none !important;
+} 
+}
 
+@media only screen and (max-width:567px) {
+  .courseBannerSection h3{
+    font-size: 24px !important;
+    line-height: 36px !important;
+  } 
 }
 
 
