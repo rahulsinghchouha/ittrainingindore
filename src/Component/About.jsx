@@ -172,10 +172,6 @@ const About = () => {
 
                                     >
                                         {convertAnchorToLink(String(aboutUsData?.yourImaginationHead))}
-
-
-
-
                                     </div>
                                 </div>
 

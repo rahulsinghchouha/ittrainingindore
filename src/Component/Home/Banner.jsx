@@ -226,7 +226,7 @@ function Banner() {
                 <div className="home-banner-wr overflow-hidden">
                     <section className="wrapper overflow-hidden">
                         <div className="box-border flex max-1024:flex-col-reverse justify-between  ">
-                            <div className="w-[48.5%]  max-1024:w-[100%] max-1024:text-center   max-1024:pt-[50px] max-1024:px-0    pt-[12px] pl-0 pr-0 pb-0 ">
+                            <div className="w-[48.5%] max-800:bg-[#f5fcff]  max-1024:w-[100%] max-1024:text-center   max-1024:pt-[50px] max-1024:px-0    pt-[12px] pl-0 pr-0 pb-0 ">
                                 <div className="banner-sub-heading">
                                     <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                                 </div>
@@ -313,23 +313,23 @@ function Banner() {
 
                             {/* second div */}
                             <div ref={mainImage}
-                                className={` pt-[5px] max-800:w-[75%]  max-800:mr-[-100px] w-[39%] max-1200:w-[42%]  max-1024:w-[55%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[-15px] max-h-[687px] relative  box-border `}
+                                className={` pt-[5px] max-480:w-[85%] max-800:my-0 max-800:mr-0 max-800:ml-auto  max-800:w-[85%]  w-[39%] max-1200:w-[42%]  max-1024:w-[55%] max-1024:mx-auto max-1024:mt-[60px] max-1024:mb-0 max-1024:max-h-[100%]  ${isMainImage && "animate__fadeIn"}  mt-[-52px] max-1200:mt-[-15px] max-h-[687px] relative  box-border `}
 
                             >
-                                <div className="w-[100%]    h-[500px] max-1200:max-h-[687px] max-800:h-[700px] top-[52px] max-800:top-0  max-1200:bg-[position:94%] absolute bg-no-repeat bg-[position:84%_25%] max-1024:bg-[position:60%_20%] "
-                                    style={{ backgroundImage: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg})`, width:"100%",height:"100%" }} >
+                                <div className=" top-[75px] max-480:top-0  max-590:top-[32px] max-480:left-[45px] max-590:left-[23px] left-[85px] max-1200:left-[20px] max-1024:ml-[50px] max-979:ml-[30px] max-1400:left-[50px] max-1321:left-[35px]   absolute w-[414px] h-[405px] max-374:h-[400px] max-374:w-[374px] max-800:w-[500px] max-800:h-[700px] "
+                                    style={{ background: `url(${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerBgImg}) no-repeat cover/contain`,backgroundRepeat:"none", maxWidth: "100%", maxHeight: "100%" }} >
 
                                 </div>
 
 
-                                <figure className="relative max-800:mr-[100px]"
+                                <figure className="relative max-800:mr-[50px] max-649:mr-[30px] max-374:mt-[40px]  "
                                 >
-                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " className="z-[20] max-590:w-[91%]" />
-                                    <figcaption className="absolute max-800:top-[34.5%] max-800:pt-[20px] max-800:pb-[13px] max-800:px-[25px] max-800:left-[45%] top-[32.5%]  pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
+                                    <img src={`${ittrainingDataSerivice?.backendUrl}/${homeData?.bannerImage}`} alt="best software training institute in indore " className="z-[20] max-590:w-[100%]" />
+                                    <figcaption className="absolute max-800:top-[34.5%] max-800:pt-[20px] max-800:pb-[13px] max-800:px-[25px] max-800:left-[45%] max-649:left-[30%] max-480:left-[10%] max-374:left-[-14%] top-[32.5%]  pt-[12px] pr-[25px] pb-[10px] pl-[25px] bg-[#ffffff] rounded-[12px] figShadow left-[-17%]  ">
                                         <div className="mt-[-32px]">
                                             <img src="/Home/banner-call-icon.png" className="m-auto max-w-[100%]  block" />
                                         </div>
-                                        <div className="mt-[5px] visible text-[14px] leading-[20px] font-[600] text-[#1aaef4]">
+                                        <div className="mt-[5px] max-590:mt-0 visible text-[14px] leading-[20px] font-[600] text-[#1aaef4]">
                                             <a href={`tel:+91 ${contactUsData?.data?.contactUsNumber}`} className="hover:text-[#000000] transition-all delay-75">+91 {contactUsData?.data?.contactUsNumber}</a>
 
                                         </div>

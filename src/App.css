@@ -1182,11 +1182,11 @@ h4 {
 
   .home-banner-wr {
       overflow: hidden !important;
-      background-position: 0% 8% !important;
+      background-position: -4% 8% !important;
       background-color: #fff !important;
       padding: 0px !important;
   }
-  .home-banner-wr .center-wrapper {
+  .home-banner-wr .wrapper {
     width: 100%;
 }
 
@@ -1221,11 +1221,26 @@ h4 {
   width: 99% !important;
   margin: 0 auto !important;
 } 
+
+
 }
 
 @media only screen and (max-width:567px) {
   .courseBannerSection h3{
     font-size: 24px !important;
     line-height: 36px !important;
+    
   } 
+  .home-banner-wr{
+    background-size: 30%;
+    background-position: 0% 5% !important ;
+  }
+  
+}
+@media only screen and (max-width:479px){
+  .home-banner-wr{
+    background-size: 30%;
+    background-position: 1% 2% !important ;
+  }
+  
 }
