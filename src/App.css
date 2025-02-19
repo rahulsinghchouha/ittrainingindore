@@ -1060,6 +1060,10 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
+  .homeBannerHeader p{
+    font-size: 16px !important;
+    line-height: 32px !important;
+  }
  
 }
 
@@ -1115,6 +1119,7 @@ h4 {
     background-size: 94%;
 
   }
+ 
 
 }
 
@@ -1122,23 +1127,18 @@ h4 {
   .search-icon {
     margin-left: 50px !important;
   }
-
   .popularSearchBtn {
     margin-left: 10px !important;
   }
-
   .homeBannerHeader h1 {
     display: inline !important;
   }
-
   .cardSquare {
     width: 38% !important;
   }
-
   .jobReadyCards {
     display: none;
   }
-
   .jobReadyActiveCard {
     display: block;
   }
@@ -1146,7 +1146,6 @@ h4 {
     padding: 35px 0px 0px !important;
     background-position: 48% 4% !important;
   }
-
 }
 
 @media only screen and (max-width : 979px) {
@@ -1190,6 +1189,13 @@ h4 {
     width: 100%;
 }
 
+.homeBannerHeader {
+  font-size: 0.85em;
+  line-height: 0.9em;
+  font-weight: bold;
+  display: block !important;
+}
+
 /* .courseBannerSection h3{
   padding: 0px 101px !important;
   margin-bottom: 28px !important;
@@ -1207,7 +1213,12 @@ h4 {
   .mentorBorder::after {
     display: none;
   }
-
+  .homeBannerHeader {
+    font-size: 0.8em;
+    line-height: 0.85em;
+    font-weight: bold;
+   
+  }
 }
 
 @media only screen and (max-width : 649px) {
@@ -1221,7 +1232,12 @@ h4 {
   width: 99% !important;
   margin: 0 auto !important;
 } 
-
+.homeBannerHeader {
+  font-size: 0.75em;
+  line-height: 0.8em;
+  font-weight: bold;
+ 
+}
 
 }
 
@@ -1235,6 +1251,15 @@ h4 {
     background-size: 30%;
     background-position: 0% 5% !important ;
   }
+  .homeBannerHeader {
+    font-size: 0.66em;
+    line-height: 0.73em;
+    font-weight: bold;
+   
+  }
+  .homeBannerHeader p{
+       line-height: 30px !important;
+  }
   
 }
 @media only screen and (max-width:479px){
@@ -1242,5 +1267,33 @@ h4 {
     background-size: 30%;
     background-position: 1% 2% !important ;
   }
+
+  .homeBannerHeader {
+    font-size: 0.55em;
+    line-height: 0.65em;
+    font-weight: bold;
+   
+  }
+
   
 }
+@media only screen and (max-width:413px) {
+  .homeBannerHeader {
+    font-size: 0.45em;
+    line-height: 0.54em;
+    font-weight: bold;
+  }
+
+ 
+}
+@media only screen and (max-width:374px) {
+  .homeBannerHeader p{
+    line-height: 26px !important;
+}
+}
+
+
+
+
+
+
