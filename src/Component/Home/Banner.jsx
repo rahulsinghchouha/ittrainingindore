@@ -226,7 +226,7 @@ function Banner() {
                 <div className="home-banner-wr overflow-hidden">
                     <section className="wrapper overflow-hidden">
                         <div className="box-border flex max-1024:flex-col-reverse justify-between  ">
-                            <div className="w-[48.5%] max-1200:w-[52.7%]  max-800:relative max-800:pt-[50px] max-800:pb-[80px] max-800:px-[4%] max-800:bg-[#f5fcff]  max-1024:w-[100%] max-1024:text-center   max-1024:pt-[50px] max-1024:px-0    pt-[12px] pl-0 pr-0 pb-0 ">
+                            <div className="w-[48.5%] max-1200:w-[52.7%] max-1024:pb-[90px]  max-1024:relative max-800:pt-[50px] max-800:pb-[80px] max-800:px-[4%] max-800:bg-[#f5fcff]  max-1024:w-[100%] max-1024:text-center   max-1024:pt-[50px] max-1024:px-0    pt-[12px] pl-0 pr-0 pb-0 ">
                                 <div className="banner-sub-heading">
                                     <h4 className="get-course-now text-[14px] leading-[20px] text-[#1aaef4] font-[400] pr-[70px] overflow-hidden">GET COURSE NOW</h4>
                                 </div>
@@ -240,7 +240,7 @@ function Banner() {
 
                                 </div>
                                 {/* banner search form */}
-                                <div className="w-[100%] mt-[16px] overflow-hidden ">
+                                <div className="w-[99%] mt-[16px]  ">
                                     <Formik
                                         initialValues={{ query: "" }}
                                         validate={value => {
@@ -258,10 +258,10 @@ function Banner() {
                                     >
                                         {({ handleSubmit, handleChange, values, errors }) => (
                                             <form className="w-[98%]" onSubmit={handleSubmit}>
-                                                <div className="flex w-[100%]">
-                                                    <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} bg-[#ffffff] py-[15px]  px-[30px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
-                                                    <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[15%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
-                                                        <BsSearch style={{ color: "white", fontSize: "20px", marginLeft: "25px" }} className="search-icon" />
+                                                <div className="flex ">
+                                                    <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} bg-[#ffffff] py-[15px]  px-[30px] max-649:py-[13px] max-649:px-[20px] max-413:px-[15px] max-413:py-[10px] w-[83%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
+                                                    <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000] flex justify-center items-center   w-[15%] rounded-r-full cursor-pointer transition-all duration-150 ease-linear ">
+                                                        <BsSearch style={{ color: "white", fontSize: "20px", }} className="search-icon" />
                                                     </button>
                                                 </div>
                                                 {errors.query && <span className="text-red-600 inline-block">{errors.query}</span>}
@@ -272,7 +272,7 @@ function Banner() {
 
                                 </div>
                                 {/* popular searches course link */}
-                                <div className="mt-[25px] w-[100%] ">
+                                <div className="max-649:hidden mt-[25px] w-[100%] ">
                                     <div className="inline-block">
                                         <span className="text-[16px] leading-[21px] text-[#000000] font-[600] ">Popular Searches</span>
 
@@ -287,7 +287,7 @@ function Banner() {
                                 </div>
 
                                 {/* banner course link */}
-                                <div className="mt-[60px] w-[110%] max-1321:mt-[42px] box-border flex">
+                                <div className="max-649:hidden mt-[60px] w-[110%] max-1321:mt-[42px] box-border flex">
                                     {/* Dynamic category Pending */}
                                     <div className="w-[34%]  border-r-[1px] border-solid border-[#e0e0e0]">
                                         <img src="/Home/web_development_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
@@ -297,16 +297,15 @@ function Banner() {
                                         <img src="/Home/graphic_design_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
                                         <a href="/" className="text-[16px] leading-[22px] font-[500] text-[#000000] w-[57%] ml-[20px] max-1200:ml-[5px] focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Designing</a>
                                     </div>
-                                    <div className="w-[44%] pl-[13px]  border-solid border-[#e0e0e0] pr-0 box-border">
+                                    <div className="w-[44%] pl-[13px] max-767:pl-[5px]  border-solid border-[#e0e0e0] pr-0 box-border">
                                         <img src="/Home/digital_marketing_icon.png" alt="development-icon" className="inline-block align-middle max-w-[100%] " />
                                         <a href="/" className="text-[16px] leading-[20px] font-[500] text-[#000000] w-[70%] ml-[10px] max-1200:ml-[5px] whitespace-nowrap focus:outline-none hover:text-[#1aa3f4] transition-all ease-linear delay-75">Digital Marketing</a>
                                     </div>
                                 </div>
 
                                 {/* Popular Courses  1023*/}
-                                <div className="hidden max-1024:block  text-center max-1024:pt-[50px]">
-                                    <Link to="/courses" className="inline-block bg-[#000] text-[#fff] pt-[17px] pb-[11px]  px-[130px] rounded-t-[14px] text-[16px] leading-[20px] font-[600]  " >Popular Courses</Link>
-
+                                <div className="hidden max-1024:block absolute left-[30%] max-800:left-[20%] max-590:left-[28%] max-480:left-[23%] max-374:left-[15%] bottom-0  text-center ">
+                                    <Link to="/courses" className="inline-block bg-[#000] text-[#fff] pt-[17px] pb-[11px] max-590:pt-[15px] max-590:pb-[12px] max-590:px-[50px]   px-[130px] rounded-t-[14px] text-[16px] leading-[20px] font-[600]  " >Popular Courses</Link>
                                 </div>
 
                             </div>
