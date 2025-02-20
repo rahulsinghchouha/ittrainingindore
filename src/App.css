@@ -1007,7 +1007,7 @@ h4 {
     width: 94%;
   }
 
-  .courseBannerSection h3 {
+  .courseBannerSection h3 ,  .coursePage h2{
     font-size: 32px !important;
     line-height: 49px !important;
   }
@@ -1020,12 +1020,15 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
-
+  h3 {
+    font-size: 32px !important;
+    line-height: 49px !important;
+  }
   .backgroundPaperlane {
     background-position-x: 85%;
     background-position-y: 40%;
   }
-
+  
 
 }
 
@@ -1043,6 +1046,12 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
+  
+  h3 {
+    font-size: 30px !important;
+    line-height: 49px !important;
+
+  }
 
   #latestBlog h3,
   #jobReady h3 {
@@ -1050,6 +1059,7 @@ h4 {
     line-height: 36px !important;
 
   }
+  
 
   #jobReadyCard h4 {
     font-size: 22px !important;
@@ -1060,7 +1070,7 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  .homeBannerHeader p{
+  .homeBannerHeader p, .coursePage p{
     font-size: 16px !important;
     line-height: 32px !important;
   }
@@ -1076,12 +1086,19 @@ h4 {
 }
 
 @media only screen and (max-width :1199px) {
+
+  h3 {
+    font-size: 30px !important;
+    line-height: 48px !important;
+
+  }
+
   .header-icon {
     padding-left: 17px;
     margin-left: 10px;
   }
 
-  .courseBannerSection h3 {
+  .courseBannerSection h3,  .coursePage h2 {
     font-size: 30px !important;
     line-height: 48px !important;
 
@@ -1220,6 +1237,13 @@ h4 {
 }
 
 @media only screen and (max-width : 649px) {
+
+  h3 {
+    font-size: 28px !important;
+    line-height: 46px !important;
+
+  }
+
   #upliftYourCareer {
     display: none !important;
   }
@@ -1236,10 +1260,22 @@ h4 {
   font-weight: bold;
  
 }
+.coursePage h2{
+  font-size: 26px !important;
+  line-height: 30px !important;
+}
 
 }
 
 @media only screen and (max-width:567px) {
+
+  h3 {
+    font-size: 24px !important;
+    line-height: 36px !important;
+
+  }
+
+
   .courseBannerSection h3{
     font-size: 24px !important;
     line-height: 36px !important;
@@ -1255,7 +1291,7 @@ h4 {
     font-weight: bold;
    
   }
-  .homeBannerHeader p{
+   p{
        line-height: 30px !important;
   }
   
@@ -1281,12 +1317,21 @@ h4 {
     line-height: 0.54em;
     font-weight: bold;
   }
+  .coursePage p{
+    margin-top: 13px !important;
+  }
 
  
 }
 @media only screen and (max-width:374px) {
   .homeBannerHeader p{
     line-height: 26px !important;
+}
+
+h3 {
+  font-size: 21px !important;
+  line-height: 33px !important;
+
 }
 }
 

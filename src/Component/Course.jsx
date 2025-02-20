@@ -91,11 +91,13 @@ function Course() {
             {/* Page banner End */}
             <section className="py-[4em] m-0">
                 <div className="wrapper">
-                    <div className="">
+                    <div className="coursePage">
                        {ConvertAnchorToLink(String(bannerImg?.coursePageHeading))}
                     </div>
 
                 </div>
+
+                <h3 className="mt-[20px] text-center">Explore Our Courses</h3>
 
             </section>
 
