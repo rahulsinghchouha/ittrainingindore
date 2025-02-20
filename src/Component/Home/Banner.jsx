@@ -573,7 +573,7 @@ function Banner() {
                             ref={courseCard}
                             style={{ animationDuration: '3s' }}
                         >
-                            <CourseCard cardLimit={6} square={true} horizontal={false} webCard={webCard} />
+                            <CourseCard cardLimit={6} square={true} horizontal={false} webCard={webCard} homePage={true} />
                         </div>
 
                         {/* view all course btn  */}

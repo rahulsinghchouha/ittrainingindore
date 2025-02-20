@@ -232,6 +232,7 @@ function Course() {
                                     square={true}
                                     horizontal={false}
                                     webCard={courses}
+                                    coursePage={true}
 
                                 />
                                 <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
