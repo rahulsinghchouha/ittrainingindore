@@ -102,8 +102,8 @@ function Course() {
             </section>
 
             <section className="bg-[#f3fbff] py-[32px] px-0 ">
-                <div className="wrapper flex justify-between">
-                    <div className="w-[16%] ">
+                <div className="wrapper flex max-567:flex-col justify-between items-center">
+                    <div className="w-[29%] max-1400:w-[18%] max-1200:w-[26%] max-979:w-[38%] max-767:w-[42%] max-649:w-[48%] max-567:w-[100%] ">
                         <Select
                             showSearch
                             defaultValue="All Courses"
@@ -129,7 +129,7 @@ function Course() {
 
                     </div>
 
-                    <div className="flex ">
+                    <div className="max-567:mt-[20px] flex ">
                         <div className={`rounded-[5px] ${squareCard ? "bg-[#1AAEF4]" : "bg-transparent"} cursor-pointer  `}
                             onClick={() => showSquareCard()}
                         >
