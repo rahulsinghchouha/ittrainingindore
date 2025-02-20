@@ -205,7 +205,7 @@ const Footer = ({homePage = false}) => {
                                                             ) : 'Send'
                                                         }
                                                     </button>
-                                                    <span className="w-[24px] h-[24px] absolute right-[-72px] bottom-[9px] mt-0 mb-0 ml-[24px] mr-[24px] "> </span>
+                                                    {/* <span className="w-[24px] h-[24px] absolute right-[-72px] bottom-[9px] mt-0 mb-0 ml-[24px] mr-[24px] "> </span> */}
                                                 </p>
 
                                             </div>
