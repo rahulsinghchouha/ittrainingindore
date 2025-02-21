@@ -62,7 +62,7 @@ const Footer = ({homePage = false}) => {
     }
 
     return (
-        <footer className={`${homePage ?  "  max-1200:pt-[15px] max-1023:pt-[17px]  " : "pt-[393px]" }  `}>
+        <footer className={`${homePage ?  "  max-1200:pt-[15px] max-1023:pt-[17px]  " : "pt-[393px] max-649:pt-[230px]" }  `}>
             <div className="wrapper">
                 <div className={` ${isFooterKeyForm && "animate__pulse"} `}
                     ref={footerKeyFormRef}
