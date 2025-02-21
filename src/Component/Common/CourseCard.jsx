@@ -182,34 +182,34 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
             }
             {
                 horizontal && webCard?.slice(0, cardLimit).map((card) => (
-                    <div className="w-[100%] rounded-[18px] shadow-horizontaCard mb-[36px] p-[25px] flex gap-3">
-                        <figure className="h-[214px] w-[30%] rounded-[20px] relative ">
-                            <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] rounded-[20px] object-cover" />
-                            <figcaption className={`absolute top-[12%] left-[4%]`}>
+                    <div className="max-1200:p-[10px] max-767:p-[18px] w-[100%] rounded-[18px] shadow-horizontaCard mb-[36px] p-[25px]  flex gap-3 max-649:gap-1">
+                        <figure className="h-[214px] max-800:h-[160px] max-649:h-[140px] max-567:h-[95px] max-567:w-[123px]  w-[30%] rounded-[20px] relative ">
+                            <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] rounded-[20px] max-649:rounded-[5px] object-cover" />
+                            <figcaption className={`absolute top-[12%]  max-649:top-[6%] left-[4%] `}>
 
-                                <button onClick={() => categoryDetails(card.category)} className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]"} pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
+                                <button onClick={() => categoryDetails(card.category)} className={`${card.category === "Web Development" && "bg-[#1AAEF4]" || card.category === "Digital Marketing" && "bg-[#4800e2]" || card.category === "Web Designing" && "bg-[#e3875c]" || card.category === "Graphic Designing" && "bg-[#e8b400]" || card.category === "UI/UX Designing" && "bg-[#5aab4b]"} max-649:py-[2px] max-649:px-[4px] max-649:text-[11px] max-413:text-[10px] max-649:leading-[14px] max-979:py-[5px] max-979:px-[11px] pt-[8px] outline-none pr-[16px] pb-[9px] pl-[16px] text-[14px] leading-[19px] font-[700] text-[#ffffff] rounded-[5px] webdevbSha transition-all ease delay-[0.3s] `} >
                                     {card.category}
                                 </button>
 
                             </figcaption>
                         </figure>
-                        <div className=" w-[69%] pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
-                            <div className="mb-[15px] ">
-                                <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                    <button onClick={() => handleCourseDetails(card)}>
+                        <div className="max-567:w-[59%] max-567:my-auto max-649:py-0 max-649:pl-[10px] max-649:pr-0 w-[69%] max-1200:py-[10px] max-1200:px-[20px] max-767:py-0 max-767:pl-[34px] max-767:pr-0 pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
+                            <div className="mb-[15px] max-767:mt-[5px] max-767:mb-[10px] max-767:mx-0 ">
+                                <h4 className="text-[18px]   max-567:text-[16px] max-567:leading-[21px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
+                                    <button className="text-start" onClick={() => handleCourseDetails(card)}>
                                         {card.courseName}
                                     </button>
 
                                 </h4>
                             </div>
-                            <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
+                            <div className="max-567:hidden mt-[15px] mb-[15px] max-767:mt-[5px] max-767:mb-[0px] ml-0 mr-0 min-h-[85px] ">
                                 <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                    {stripHtmlTags(card.overview).slice(0, 160)}....
+                                    {stripHtmlTags(card.overview).slice(0, 100)}....
                                 </p>
 
                             </div>
-                            <div className="mt-[21px] ">
-                                <button onClick={() => handleCourseDetails(card)} className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px] leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
+                            <div className="mt-[21px] max-979:mt-[0px] ">
+                                <button onClick={() => handleCourseDetails(card)} className=" transform  group-hover:translate-x-3 duration-200  itCardBtn text-[#000000] hover:text-[#1AAEF4] pr-[45px] text-[18px]  leading-[23px] font-[700] inline-block transition-all ease delay-75 outline-none ">Details</button>
 
                             </div>
 

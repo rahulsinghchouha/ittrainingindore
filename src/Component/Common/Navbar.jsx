@@ -16,7 +16,7 @@ function Navbar() {
     console.log("contact data ", contactUsData);
     return (
         <header className="w-[100%] border-b-[1px] border-[white]  max-800:static fixed  bg-[#fff] z-[111]  box-border  shadow-navShadow     ">
-            <div className="pt-[17px] pb-[17px]">
+            <div className="pt-[17px] pb-[17px] max-800:py-[10px]">
                 <section className="wrapper  flex justify-between items-center  ">
 
                     <div className="mt-[6px] w-[24%] max-979:w-[25%]  ">
