@@ -235,7 +235,7 @@ function Course() {
                                     coursePage={true}
 
                                 />
-                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-1" : "opacity-1"}`}>
+                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
                                     <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
                                         Load More
                                     </p>

@@ -99,23 +99,24 @@ const About = () => {
             {/* Page banner End */}
 
             {/* upcoming opportunity section start */}
-            <section className="pt-[99px] pb-[80px] px-0">
+            <section className="pt-[99px] pb-[80px] max-979:pt-[70px] max-979:pb-[35px] max-979:px-[20px] max-1321:pt-[90px] max-1321:pb-[35px] px-0">
                 <div className="wrapper">
-                    <div className="flex justify-between">
+                    <div className="flex max-979:flex-col  justify-between">
 
-                        <div className="w-[46%] ">
+                        <div className="w-[46%]  max-979:w-[100%]  ">
                             <figure className={`${isEnrollNowImg && "animate__fadeIn"}`}
                                 ref={enrollNowImg}
                                 style={{ animationDuration: '3s' }}
 
                             >
-                                <img className="max-w-[100%] ml-auto" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.yourImaginationImg}`} alt="Top-IT-Training" />
+                                <img className="max-w-[100%] ml-auto max-979:mx-auto " src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.yourImaginationImg}`} alt="Top-IT-Training" />
                             </figure>
-                            <div className="flex">
+                            <div className="flex max-1024:flex-col max-979:flex-row max-649:flex-col">
                                 <div
                                     ref={enrolNow}
                                     style={{ animationDuration: "3s" }}
-                                    className={` ${isEnrollNow ? "transform ease-linear translate-x-0 duration-[1s] opacity-[1]" : "transform translate-x-[-20px] opacity-0"}  py-[25px] px-[25px] rounded-[16px] shadow-aboutEnrollShadow w-[45.3%] mt-[-254px] bg-[#fff] relative`}>
+                                    className={` ${isEnrollNow ? "transform ease-linear translate-x-0 duration-[1s] opacity-[1]" : "transform translate-x-[-20px] opacity-0"}
+                                   max-567:w-[63%] max-567:mx-auto max-567:mt-[-170px]  max-649:w-[44%]  max-979:w-[40%] max-1200:w-[50%]  py-[25px] px-[25px] rounded-[16px] shadow-aboutEnrollShadow w-[45.3%] mt-[-254px] bg-[#fff] relative`}>
                                     <figure>
                                         <img className="mx-auto my-0" alt="about-us UI-UX master" src="/about-best-ui-ux-course-in-indore.svg" />
                                     </figure>
@@ -133,23 +134,23 @@ const About = () => {
                                     </div>
 
                                 </div>
-                                <div className="w-[54%] pt-[22px] pr-0 pb-0 pl-0 inline-block align-middle">
-                                    <div className="flex">
-                                        <div className="w-[40%] ml-[30px] flex ">
+                                <div className="max-567:w-[85%] max-567:ml-auto max-1024:w-[100%] max-979:w-[58%] max-649:w-[68%]  max-1024:pt-[20px] w-[54%] max-1200:w-[49%] max-1200:pt-[10px] max-1400:w-[53%] pt-[22px] pr-0 pb-0 pl-0 inline-block align-middle">
+                                    <div className="flex  items-center">
+                                        <div className="max-979:w-[36%] max-767:w-[42%]  max-1024:w-[27%] w-[40%]  max-1200:w-[50%] max-1321:w-[48%] max-1400:w-[45%] max-1400:ml-[10px] ml-[30px] flex ">
                                             {stuPlaced.slice(stuPlaced.length - 4, stuPlaced.length).map((student, index) => (
-                                                <figure key={index} className={` ${index != 0 ? "ml-[-19px]" : ""} flex-shrink-0 border-[3px] border-solid border-[#fff] w-[48px] h-[48px] rounded-[50%]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out`}>
-                                                    <Link to="/about-us">
-                                                        <img src={`${ittrainingDataSerivice.backendUrl}/${student?.img}`} className="rounded-[50%]" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
+                                                <figure key={index} className={` ${index != 0 ? "ml-[-17px]" : ""} flex-shrink-0 border-[3px] border-solid border-[#fff] max-979:w-[48px] max-979:h-[48px] w-[48px] h-[48px] max-1200:w-[40px] max-1200:h-[40px] rounded-[50%]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out`}>
+                                                    <Link to="/testimonials">
+                                                        <img src={`${ittrainingDataSerivice.backendUrl}/${student?.img}`} className="rounded-[50%] w-[100%] h-[100%]" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
                                                     </Link>
 
                                                 </figure>
 
                                             ))}
                                         </div>
-                                        <div className="w-[42%] ml-[15px] ">
+                                        <div className="max-767:w-[35%] max-1024:w-[32%]  max-979:w-[30%] max-1024:ml-0 w-[42%] ml-[15px] max-1400:w-[43%] max-1400:ml-[8px] ">
                                             <div>
                                                 <h4 className="leading-[24px] text-[14px] font-[500] text-[#000] ">
-                                                    Over <span className="text-[#1aaef4]">{aboutUsData?.totalStudentJoined} </span>
+                                                    Over <span className="text-[#1aaef4]">{aboutUsData?.totalStudentJoined} </span>+
                                                     Students Joined
 
                                                 </h4>
@@ -163,10 +164,10 @@ const About = () => {
 
 
                         </div>
-                        <div className="w-[48.7%]">
-                            <div className="w-[87%] ">
+                        <div className="w-[48.7%] max-979:w-[100%] max-979:mt-[70px]">
+                            <div className=" max-979:w-[100%] w-[87%] max-1400:w-[84%] max-1321:w-[92%] ">
                                 <div>
-                                    <div className={` listBgImage hoverBlue ${isOpportunityHead ? "transform translate-y-0 duration-700 opacity-[1]" : "transform translate-y-[-15px] opacity-0"}`}
+                                    <div className={` aboutUsTaking listBgImage hoverBlue ${isOpportunityHead ? "transform translate-y-0 duration-700 opacity-[1]" : "transform translate-y-[-15px] opacity-0"}`}
                                         ref={opportunityHead}
                                         style={{ animationDuration: '3s' }}
 
@@ -198,26 +199,25 @@ const About = () => {
             {/* our journey for student career groth section start */}
             <section className="m-0 pb-[74px] ">
                 <div className="wrapper">
-                    <div className="py-[53px] px-0 flex justify-between">
-                        <div className={`w-[50%] mt-[51px] ${isOurJourney ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : " transform translate-x-[-25px] opacity-0"}`}
+                    <div className="py-[53px] px-0 flex max-979:flex-col-reverse  justify-between">
+                        <div className={`w-[50%] max-979:w-[100%] max-979:mt-[177px] max-1200:w-[55%] max-1321:mt-[20px] mt-[51px] ${isOurJourney ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : " transform translate-x-[-25px] opacity-0"}`}
                             ref={ourJourney}
                         >
-                            <div className="w-[100%] hoverBlue"
-
+                            <div className="w-[100%] hoverBlue ourJourneyAbout overflow-hidden"
                             >
                                 {convertAnchorToLink(String(aboutUsData?.ourJourneyHead))}
                             </div>
 
                         </div>
-                        <div className={`w-[42%] text-center   ${isOurJourneyRSide ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : "transform translate-x-5 opacity-0"}`}
+                        <div className={`w-[42%] max-979:w-[100%]  text-center   ${isOurJourneyRSide ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : "transform translate-x-5 opacity-0"}`}
                             ref={ourJourneyRSide}
                             style={{ animationDuration: "3s" }}
 
                         >
                             <div className="relative">
                                 <figure className="relative">
-                                    <img className="rounded-[50%]" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourJourneyImg}`} />
-                                    <figcaption className="p-[27px] w-[33%] rounded-[10px] shadow-aboutFigCaptionShad absolute top-0 left-[-30px] bg-[#fff]">
+                                    <img className="rounded-[50%] max-979:mx-auto" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourJourneyImg}`} />
+                                    <figcaption className="max-480:w-[35%] max-480:p-[15px] max-567:w-[34%] max-567:left-[-10px] p-[27px] max-979:left-[50px] max-979:w-[28%] max-1200:w-[40%] w-[33%] rounded-[10px] shadow-aboutFigCaptionShad absolute top-0 left-[-30px] bg-[#fff]">
                                         <div className="text-center box-border">
                                             <h4 className="text-[14px] leading-[20px] font-[500] text-[#8e8e8e] p-0">We Guarantee</h4>
                                             <h3 className="text-[#1AAEF4] text-[36px] leading-[52px] tracking-[0.72px] font-[800] p-0">100%</h3>
@@ -227,12 +227,12 @@ const About = () => {
                                     </figcaption>
 
                                 </figure>
-                                <div className="w-[44%] pt-[34px] pb-[23px] pl-[24px] pr-[23px] rounded-[24px] shadow-aboutPlacedShad absolute bottom-[-115px] left-[150px] bg-[#fff]">
+                                <div className="w-[44%] max-567:w-[50%] max-567:left-[110px] max-649:left-[170px] max-649:w-[40%] max-800:w-[36%] max-800:left-[220px] max-979:w-[33%] max-979:left-[300px] max-1200:w-[56%] pt-[34px] pb-[23px] pl-[24px] pr-[24px] rounded-[24px] shadow-aboutPlacedShad absolute bottom-[-115px] left-[150px] max-1200:left-[100px] bg-[#fff]">
                                     <h6>Our Placed Candidates</h6>
 
-                                    <div className=" w-[197.297px] relative">
-                                        <button onClick={() => { navRef.current.slidePrev() }} className="w-[30px] h-[20px]  z-[5] absolute left-0  top-[75px] cursor-pointer flex justify-center items-center"><img src="/our-alumni-slider-prev.svg" /></button>
-                                        <button onClick={() => { navRef.current.slideNext() }} className="w-[30px] h-[20px] z-[5] absolute right-0 top-[75px] cursor-pointer flex justify-center items-center"><img src="/our-alumni-slider-next.svg" /></button>
+                                    <div className=" w-[100%] relative">
+                                        <button onClick={() => { navRef.current.slidePrev() }} className="w-[30px] h-[20px]  z-[5] absolute left-0 max-1321:left-[-10px]  top-[75px] cursor-pointer flex justify-center items-center"><img src="/our-alumni-slider-prev.svg" /></button>
+                                        <button onClick={() => { navRef.current.slideNext() }} className="w-[30px] h-[20px] z-[5] absolute right-0 top-[75px] max-1321:right-[-10px] cursor-pointer flex justify-center items-center"><img src="/our-alumni-slider-next.svg" /></button>
 
                                         <Swiper
                                             modules={[Navigation, EffectFade]}
@@ -247,7 +247,7 @@ const About = () => {
                                             {
                                                 stuPlaced?.map((student, index) => (
                                                     <SwiperSlide key={index}>
-                                                        <figure className="mt-[25px] flex justify-center ">
+                                                        <figure className="mt-[25px] flex  justify-center ">
                                                             <img className="rounded-[50%] w-[106px] h-[106px]  " src={`${ittrainingDataSerivice.backendUrl}/${student.img}`} alt="student image" />
                                                         </figure>
                                                         <div className="mt-[20px]">
@@ -266,9 +266,6 @@ const About = () => {
                             </div>
 
                         </div>
-
-
-
                     </div>
 
                     <div className="pb-[53px] pt-[170px]  px-0 flex justify-between">
