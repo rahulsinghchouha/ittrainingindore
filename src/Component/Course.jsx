@@ -217,7 +217,7 @@ function Course() {
                 </div>
             </section>
 
-            <section className="py-[16px] mb-[100px] px-0 ">
+            <section className="py-[16px] max-567:mb-[25px] max-800:mb-[50px]  mb-[100px] px-0 ">
                 <div className="wrapper text-center">
                     <div className={`text-center relative mt-[47px] ${isCourseCard && "animate__fadeIn"}  `}
                         ref={courseCard}
@@ -235,7 +235,7 @@ function Course() {
                                     coursePage={true}
 
                                 />
-                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-0" : "opacity-1"}`}>
+                                <div className={`mt-[81px] ${cardLimit >= cardSize ? "opacity-1" : "opacity-1"}`}>
                                     <p className="btnAfter cursor-pointer" onClick={() => setCardLimit(cardLimit + 6)}>
                                         Load More
                                     </p>

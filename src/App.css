@@ -1238,6 +1238,11 @@ h4 {
     font-weight: bold;
    
   }
+  .counterPage p{
+    font-size: 15px !important;
+    line-height: 20px;
+
+  }
 }
 
 @media only screen and (max-width : 649px) {
@@ -1267,6 +1272,9 @@ h4 {
 .coursePage h2{
   font-size: 26px !important;
   line-height: 30px !important;
+}
+.btnAfter{
+  padding: 10px 25px;
 }
 
 }
