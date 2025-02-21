@@ -39,7 +39,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
 
 
             {
-                isDesktop && square && webCard?.slice(0, cardLimit).map((card, index) => (
+                isDesktop && square && homePage && webCard?.slice(0, cardLimit).map((card, index) => (
                     <div
                         key={index} className={` w-[31.3%] max-1400:w-[30.8%]   relative  text-center roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300 ${(index + 1) % 3 === 0 ? " " : "mr-[3%] max-1400:mr-[2.3%]  max-1321:mr-[2.2%]"} `}
                     >
@@ -147,9 +147,9 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
             {
                 coursePage && square && webCard?.slice(0, cardLimit).map((card, index) => (
                     <div
-                        key={index} className={` w-[31.3%] max-1024:w-[38%] max-1400:w-[30.8%] max-767:w-[70%]   relative  text-center roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300 ${(index + 1) % 3 === 0 ? " " : "mr-[3%] max-1400:mr-[2.3%]  max-1321:mr-[2.2%] max-1024:mr-0  "}  ${index % 2 === 0 ? "max-1024:!mr-[8%] max-767:!mr-0" : ""}  `}
+                        key={index} className={` w-[31.3%] max-1024:w-[38%] max-1400:w-[30.8%] max-979:w-[47%] max-767:w-[70%] max-649:w-[80%] max-413:w-[85%] max-374:w-[95%]   relative  text-center roundex-[18px] mt-0 mb-[36px] ml-0 courseCardShadow rounded-[12px] hover:translate-y-[-15px] transition-all ease-linear duration-300 ${(index + 1) % 3 === 0 ? " " : "mr-[3%] max-1400:mr-[2.3%]  max-1321:mr-[2.2%] max-1024:mr-0  "}  ${index % 2 === 0 ? "max-1024:!mr-[8%] max-979:!mr-[3%] max-767:!mr-0" : ""}  `}
                     >
-                        <figure className="h-[214px] relative webdevelopmentCard">
+                        <figure className="h-[214px] max-767:h-auto relative webdevelopmentCard">
                             <img src={`${ittrainingDataSerivice.backendUrl}/${card.img}`} alt="Best Web API Development Training Course indore" className="h-[100%] w-[100%] object-cover
                                             rounded-tl-[18px] rounded-tr-[18px]  block "/>
                             <figcaption className="absolute top-[12%] left-[9%] ">
@@ -158,9 +158,9 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                                 </button>
                             </figcaption>
                         </figure>
-                        <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
+                        <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] max-1200:py-[25px] max-1200:px-[20px] max-413:pt-[25px] max-413:pb-[15px] max-413:px-[13px] text-left">
                             <div className="mb-[15px] ">
-                                <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
+                                <h4 className="text-[18px] max-1321:text-[17px] max-1024:text-[18px] max-413:text-[16px] text-left leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
                                     <button onClick={() => handleCourseDetails(card)}>
                                         {card.courseName}
                                     </button>
