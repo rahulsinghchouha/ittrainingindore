@@ -1352,6 +1352,13 @@ h3 {
   line-height: 33px !important;
 
 }
+.aboutUsTaking h3{
+  font-size: 22px !important;
+  line-height: 27px !important;
+}
+.aboutUsTaking p{
+ line-height: 26px !important;
+}
 }
 
 

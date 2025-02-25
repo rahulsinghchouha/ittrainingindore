@@ -115,8 +115,8 @@ const About = () => {
                                 <div
                                     ref={enrolNow}
                                     style={{ animationDuration: "3s" }}
-                                    className={` ${isEnrollNow ? "transform ease-linear translate-x-0 duration-[1s] opacity-[1]" : "transform translate-x-[-20px] opacity-0"}
-                                   max-567:w-[63%] max-567:mx-auto max-567:mt-[-170px]  max-649:w-[44%]  max-979:w-[40%] max-1200:w-[50%]  py-[25px] px-[25px] rounded-[16px] shadow-aboutEnrollShadow w-[45.3%] mt-[-254px] bg-[#fff] relative`}>
+                                    className={` max-413:w-[88%] ${isEnrollNow ? "transform ease-linear translate-x-0 duration-[1s] opacity-[1]" : "transform translate-x-[-20px] opacity-0"}
+                                 max-480:mt-[40px] max-480:w-[80%]  max-567:w-[63%] max-567:mx-auto max-567:mt-[-170px]  max-649:w-[44%]  max-979:w-[40%] max-1200:w-[50%]  py-[25px] px-[25px] rounded-[16px] shadow-aboutEnrollShadow w-[45.3%] mt-[-254px] bg-[#fff] relative`}>
                                     <figure>
                                         <img className="mx-auto my-0" alt="about-us UI-UX master" src="/about-best-ui-ux-course-in-indore.svg" />
                                     </figure>
@@ -134,11 +134,11 @@ const About = () => {
                                     </div>
 
                                 </div>
-                                <div className="max-567:w-[85%] max-567:ml-auto max-1024:w-[100%] max-979:w-[58%] max-649:w-[68%]  max-1024:pt-[20px] w-[54%] max-1200:w-[49%] max-1200:pt-[10px] max-1400:w-[53%] pt-[22px] pr-0 pb-0 pl-0 inline-block align-middle">
+                                <div className="max-374:w-[100%] max-374:ml-0 max-413:w-[90%]  max-567:w-[85%] max-567:ml-auto max-1024:w-[100%] max-979:w-[58%] max-649:w-[68%]  max-1024:pt-[20px] w-[54%] max-1200:w-[49%] max-1200:pt-[10px] max-1400:w-[53%] pt-[22px] pr-0 pb-0 pl-0 inline-block align-middle">
                                     <div className="flex  items-center">
-                                        <div className="max-979:w-[36%] max-767:w-[42%]  max-1024:w-[27%] w-[40%]  max-1200:w-[50%] max-1321:w-[48%] max-1400:w-[45%] max-1400:ml-[10px] ml-[30px] flex ">
+                                        <div className="max-480:w-[50%] max-480:ml-0 max-979:w-[36%] max-767:w-[42%]  max-1024:w-[27%] w-[40%]  max-1200:w-[50%] max-1321:w-[48%] max-1400:w-[45%] max-1400:ml-[10px] ml-[30px] flex ">
                                             {stuPlaced.slice(stuPlaced.length - 4, stuPlaced.length).map((student, index) => (
-                                                <figure key={index} className={` ${index != 0 ? "ml-[-17px]" : ""} flex-shrink-0 border-[3px] border-solid border-[#fff] max-979:w-[48px] max-979:h-[48px] w-[48px] h-[48px] max-1200:w-[40px] max-1200:h-[40px] rounded-[50%]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out`}>
+                                                <figure key={index} className={` ${index != 0 ? "ml-[-17px]" : ""} max-413:w-[46px] max-413:h-[46px] flex-shrink-0 border-[3px] border-solid border-[#fff] max-979:w-[48px] max-979:h-[48px] w-[48px] h-[48px] max-1200:w-[40px] max-1200:h-[40px] rounded-[50%]  transform hover:z-[1] hover:scale-[1.1] transition-all duration-[0.3s] ease-out`}>
                                                     <Link to="/testimonials">
                                                         <img src={`${ittrainingDataSerivice.backendUrl}/${student?.img}`} className="rounded-[50%] w-[100%] h-[100%]" alt="Best IT Training Indore | Best IT Training Institute IT Indore" />
                                                     </Link>
@@ -147,7 +147,7 @@ const About = () => {
 
                                             ))}
                                         </div>
-                                        <div className="max-767:w-[35%] max-1024:w-[32%]  max-979:w-[30%] max-1024:ml-0 w-[42%] ml-[15px] max-1400:w-[43%] max-1400:ml-[8px] ">
+                                        <div className="max-413:w-[46%] max-480:w-[41%] max-767:w-[35%] max-1024:w-[32%]  max-979:w-[30%] max-1024:ml-0 w-[42%] ml-[15px] max-1400:w-[43%] max-1400:ml-[8px] ">
                                             <div>
                                                 <h4 className="leading-[24px] text-[14px] font-[500] text-[#000] ">
                                                     Over <span className="text-[#1aaef4]">{aboutUsData?.totalStudentJoined} </span>+
