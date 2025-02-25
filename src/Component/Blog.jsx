@@ -137,10 +137,10 @@ const Blog = () => {
             {/* Page banner End */}
 
             {/* Page Blog Section start */}
-            <section className="pt-[60px] pb-[62px] ">
+            <section className="pt-[60px] pb-[62px] max-979:pt-[70px] max-979:pb-[28px] max-979:px-0 max-649:pt-[46px] ">
                 <div className="wrapper">
-                    <div className="flex justify-between">
-                        <div className={`w-[66%] flex flex-col flex-wrap ${isPagination && "animate__fadeIn"} `}
+                    <div className="flex  max-979:flex-col justify-between">
+                        <div className={`w-[66%] max-979:w-[100%] flex flex-col flex-wrap ${isPagination && "animate__fadeIn"} `}
                             ref={pagination}
                             style={{ animationDuration: '5s' }}
 
@@ -149,10 +149,10 @@ const Blog = () => {
                                 {currentItems?.map((blog, index) => {
                                     const date = new Date(blog?.updatedAt)
                                    
-                                     return <div key={index} className={` w-[47.7%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
-                                        <div className="min-h-[282px] ">
+                                     return <div key={index} className={` w-[47.7%] max-567:w-[80%] max-567:mx-auto max-480:w-[90%] max-649:mt-0 max-649:mx-0 max-649:w-[70%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
+                                        <div className=" ">
                                             <figure>
-                                                <img src={`${ittrainingDataSerivice.backendUrl}/${blog.img}`} className="w-[100%] rounded-t-[23px] rounded-b-none " alt="IT Courses after 12th" />
+                                                <img src={`${ittrainingDataSerivice.backendUrl}/${blog.img}`} className="max-w-[100%] max-h-[100%]  rounded-t-[23px] rounded-b-none " alt="IT Courses after 12th" />
                                             </figure>
 
                                         </div>
@@ -164,7 +164,7 @@ const Blog = () => {
 
                                             </h4>
                                             <div className="mt-[14px]">
-                                                <h6 className="leading-[28px] min-h-[48px] ">
+                                                <h6 className="leading-[28px] max-374:text-[15px] max-374:leading-[20px] max-413:text-[16px] max-413:leading-[21px] max-649:min-h-[auto] min-h-[48px] max-1200:leading-[26px] max-1200:min-h-[107px] ">
                                                     <button onClick={() => blogDetails(blog)} className="text-start hover:text-[#009ce5] transition-all duration-200 ease-out">{blog.heading}</button>
 
                                                 </h6>
@@ -177,7 +177,7 @@ const Blog = () => {
                                                     </figure>
                                                 </div>
                                                 <div className="ml-[15px]">
-                                                    <h4 className="text-[16px] leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out">IT Training Indore</h4>
+                                                    <h4 className="text-[16px]  max-413:leading-[19px] max-767:text-[15px] max-767:leading-[20px] max-1321:text-[22px] max-1321:leading-[31px] leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out">IT Training Indore</h4>
 
                                                 </div>
 
@@ -208,7 +208,7 @@ const Blog = () => {
                             </div>
                         </div>
 
-                        <div className="w-[31.5%] ">
+                        <div className="w-[31.5%] max-979:w-[100%] max-979:mt-[50px] ">
                             <div className="w-[99%] ml-auto pt-[10px]">
                                 <div className={`${isLatestCourse && "animate__fadeIn"}`}
                                     ref={latestCourse}
@@ -231,8 +231,8 @@ const Blog = () => {
                                                 return (<div className="mt-[25px] flex" key={index}>
                                                     <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
                                                         <figure className="m-0">
-                                                            <button className="w-[100%] h-[77px] block" onClick={() => handleCourseDetails(course)}>
-                                                                <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} />
+                                                            <button className=" h-[77px] max-767:h-[65px] block" onClick={() => handleCourseDetails(course)}>
+                                                                <img className="w-[auto] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} />
                                                             </button>
                                                         </figure>
                                                     </div>
@@ -243,8 +243,8 @@ const Blog = () => {
 
 
                                                         <div className="mt-[10px]">
-                                                            <h4 className="leading-[24px] text-[16px] font-[600] ">
-                                                                <button onClick={() => handleCourseDetails(course)} className="hover:text-[#009ce5] transition-all duration-300 ease-out">{course?.courseName}
+                                                            <h4 className="text-start  leading-[24px] max-413:text-[15px] max-413:leading-[19px] text-[16px] max-1024:text-[15px] max-979:text-[16px] font-[600] ">
+                                                                <button onClick={() => handleCourseDetails(course)} className="hover:text-[#009ce5] text-start transition-all duration-300 ease-out">{course?.courseName}
                                                                 </button>
 
                                                             </h4>
@@ -257,7 +257,7 @@ const Blog = () => {
                                         }
                                     </div>
                                 </div>
-                                <div className={`mt-[65px] ${isCourseCategories && "animate__fadeIn"}`}
+                                <div className={`mt-[65px] max-767:mt-[35px] ${isCourseCategories && "animate__fadeIn"}`}
                                     style={{ animationDuration: "5s" }}
                                     ref={courseCategories}
                                 >
@@ -273,7 +273,7 @@ const Blog = () => {
                                             exploreCat?.map((item, index) => (
                                                 <div className="mt-[29px] flex items-center" key={index}>
                                                     <div className="w-[77px] rounded-[10px]">
-                                                        <figure className={`w-[77px] h-[75px] ${index % 4 === 0 && "bg-[#FFF7DB]" || index % 4 === 1 && "bg-[#D9F3FF]" || index % 4 === 2 && "bg-[#E3FFE0]" || index % 4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
+                                                        <figure className={`w-[77px] h-[75px] max-767:w-[65px] max-767:h-[65px] ${index % 4 === 0 && "bg-[#FFF7DB]" || index % 4 === 1 && "bg-[#D9F3FF]" || index % 4 === 2 && "bg-[#E3FFE0]" || index % 4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
                                                             <button onClick={() => categoryDetails(item)}  className="block">
                                                                 <img className="w-[35px] " src={`${ittrainingDataSerivice.backendUrl}/${item.img}`} />
                                                             </button>
@@ -282,7 +282,7 @@ const Blog = () => {
 
                                                     </div>
                                                     <div className="w-[68%] ml-[24px]">
-                                                        <h4 className="text-[16px] font-[600] leading-[24px]">
+                                                        <h4 className="text-[16px] max-1024:text-[15px] max-979:text-[16px] max-413:text-[15px] max-413:leading-[19px] font-[600] leading-[24px]">
                                                             <button onClick={() => categoryDetails(item)} className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
                                                         </h4>
 
@@ -295,7 +295,7 @@ const Blog = () => {
 
                                 </div>
 
-                                <div className={`mt-[65px] ${isTags && "animate__fadeIn"}`}
+                                <div className={`mt-[65px] max-767:mt-[35px] ${isTags && "animate__fadeIn"}`}
                                     style={{ animationDuration: '5s' }}
                                     ref={tags}
                                 >
@@ -309,7 +309,7 @@ const Blog = () => {
                                                 tag?.map((item, index) => (
                                                     <div onClick={() => showTagsBlog(item?.tag)} key={index} className="mr-[3%] mt-0 ml-0 mb-5  inline-block  ">
                                                         <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                            <button to="/courses" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
+                                                            <button to="/courses" className="py-[6px] px-[20px] max-1321:px-[15px] max-1200:px-[8px] max-979:px-[20px] max-567:px-[13px]  bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
                                                                 {item?.tag}
                                                             </button>
 

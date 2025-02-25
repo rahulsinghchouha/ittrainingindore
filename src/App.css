@@ -1317,7 +1317,7 @@ h4 {
   .ourJourneyAbout div {
     width: 100% !important;
   }
-.ourBeliefAbout h3, .ourJourneyAbout h3,  .ourMissionAbout h3 {
+.ourBeliefAbout h3, .ourJourneyAbout h3, .ourMissionAbout h3 {
   font-size: 26px !important;
   line-height: 30px !important;
 
@@ -1404,7 +1404,12 @@ h4 {
     line-height: 34px !important;
   
   }
-  
+  .page-item a {
+    padding: 5px 12px;
+    
+    font-size: 14px;
+    
+  }
 
 }
 
