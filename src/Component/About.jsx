@@ -197,13 +197,13 @@ const About = () => {
             {/* upcoming opportunity section End */}
 
             {/* our journey for student career groth section start */}
-            <section className="m-0 pb-[74px] ">
+            <section className="m-0 pb-[74px] max-979:px-[20px] max-979:py-0 ">
                 <div className="wrapper">
                     <div className="py-[53px] px-0 flex max-979:flex-col-reverse  justify-between">
-                        <div className={`w-[50%] max-979:w-[100%] max-979:mt-[177px] max-1200:w-[55%] max-1321:mt-[20px] mt-[51px] ${isOurJourney ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : " transform translate-x-[-25px] opacity-0"}`}
+                        <div className={`max-374:mt-[300px] w-[50%] max-979:w-[100%] max-979:mt-[177px] max-1200:w-[55%] max-1321:mt-[20px] mt-[51px] ${isOurJourney ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : " transform translate-x-[-25px] opacity-0"}`}
                             ref={ourJourney}
                         >
-                            <div className="w-[100%] hoverBlue ourJourneyAbout overflow-hidden"
+                            <div className="w-[100%]   hoverBlue ourJourneyAbout overflow-hidden"
                             >
                                 {convertAnchorToLink(String(aboutUsData?.ourJourneyHead))}
                             </div>
@@ -217,7 +217,7 @@ const About = () => {
                             <div className="relative">
                                 <figure className="relative">
                                     <img className="rounded-[50%] max-979:mx-auto" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourJourneyImg}`} />
-                                    <figcaption className="max-480:w-[35%] max-480:p-[15px] max-567:w-[34%] max-567:left-[-10px] p-[27px] max-979:left-[50px] max-979:w-[28%] max-1200:w-[40%] w-[33%] rounded-[10px] shadow-aboutFigCaptionShad absolute top-0 left-[-30px] bg-[#fff]">
+                                    <figcaption className="max-413:left-[-8px] max-413:top-[-25px] max-413:p-[10px] max-480:w-[35%] max-480:p-[15px] max-567:w-[34%] max-567:left-[-10px] p-[27px] max-979:left-[50px] max-979:w-[28%] max-1200:w-[40%] w-[33%] rounded-[10px] shadow-aboutFigCaptionShad absolute top-0 left-[-30px] bg-[#fff]">
                                         <div className="text-center box-border">
                                             <h4 className="text-[14px] leading-[20px] font-[500] text-[#8e8e8e] p-0">We Guarantee</h4>
                                             <h3 className="text-[#1AAEF4] text-[36px] leading-[52px] tracking-[0.72px] font-[800] p-0">100%</h3>
@@ -227,7 +227,7 @@ const About = () => {
                                     </figcaption>
 
                                 </figure>
-                                <div className="w-[44%] max-567:w-[50%] max-567:left-[110px] max-649:left-[170px] max-649:w-[40%] max-800:w-[36%] max-800:left-[220px] max-979:w-[33%] max-979:left-[300px] max-1200:w-[56%] pt-[34px] pb-[23px] pl-[24px] pr-[24px] rounded-[24px] shadow-aboutPlacedShad absolute bottom-[-115px] left-[150px] max-1200:left-[100px] bg-[#fff]">
+                                <div className="w-[44%] max-374:left-[40px] max-374:w-[78%] max-374:bottom-[-250px] max-413:w-[68%] max-413:p-[15px] max-413:left-[55px] max-480:left-[80px] max-480:w-[65%] max-567:w-[50%] max-567:left-[110px] max-649:left-[170px] max-649:w-[40%] max-800:w-[36%] max-800:left-[220px] max-979:w-[33%] max-979:left-[300px] max-1200:w-[56%] pt-[34px] pb-[23px] pl-[24px] pr-[24px] rounded-[24px] shadow-aboutPlacedShad absolute bottom-[-115px] left-[150px] max-1200:left-[100px] bg-[#fff]">
                                     <h6>Our Placed Candidates</h6>
 
                                     <div className=" w-[100%] relative">

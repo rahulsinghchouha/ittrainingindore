@@ -1283,6 +1283,13 @@ h4 {
 .btnAfter{
   padding: 10px 25px;
 }
+.ourJourneyAbout h3{
+  font-size: 26px !important;
+  line-height: 30px !important;
+}
+.ourJourneyAbout div{
+  width: 100% !important;
+}
 
 }
 
@@ -1313,6 +1320,11 @@ h4 {
    p{
        line-height: 30px !important;
   }
+  .ourJourneyAbout p{
+    font-size: 17px !important;
+    line-height: 28px !important;
+
+  }
   
 }
 @media only screen and (max-width:479px){
@@ -1340,6 +1352,11 @@ h4 {
     margin-top: 13px !important;
   }
 
+  .ourJourneyAbout h3{
+    font-size: 23px !important;
+    line-height: 34px !important;
+  }
+
  
 }
 @media only screen and (max-width:374px) {
@@ -1359,6 +1376,12 @@ h3 {
 .aboutUsTaking p{
  line-height: 26px !important;
 }
+
+.ourJourneyAbout h3{
+  font-size: 22px !important;
+  line-height: 27px !important;
+}
+
 }
 
 
