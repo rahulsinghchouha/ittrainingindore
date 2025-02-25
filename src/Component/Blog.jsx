@@ -283,7 +283,7 @@ const Blog = () => {
                                                     </div>
                                                     <div className="w-[68%] ml-[24px]">
                                                         <h4 className="text-[16px] max-1024:text-[15px] max-979:text-[16px] max-413:text-[15px] max-413:leading-[19px] font-[600] leading-[24px]">
-                                                            <button onClick={() => categoryDetails(item)} className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
+                                                            <button onClick={() => categoryDetails(item)} className="text-start hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
                                                         </h4>
 
                                                     </div>

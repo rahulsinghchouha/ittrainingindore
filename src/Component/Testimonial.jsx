@@ -63,12 +63,12 @@ const Testimonial = () => {
 
             <section className="px-0 pt-[124px] pb-[48px] bg-[#f3fbff]">
                 <div className="wrapper">
-                    <div className={` ${isCard ? "animate__fadeIn" : ""} w-[100%] relative  flex flex-wrap   gap-9 `}
+                    <div className={` ${isCard ? "animate__fadeIn" : ""} w-[100%] relative  flex flex-wrap   gap-9 max-1400:gap-8 `}
                         ref={card}
                         style={{ animationDuration: '5s' }}
 
                     >
-                        <div className="w-[31.5%]">
+                        <div className="w-[31.5%] max-1400:w-[31.4%]">
                             {
                                 stuPlaced?.filter((_, index) => index % 3 === 0).map((student, index) => (
 
@@ -115,7 +115,7 @@ const Testimonial = () => {
                                 )
                                 )}
                         </div>
-                        <div className="w-[31.5%]">
+                        <div className="w-[31.5%] max-1400:w-[31.4%]">
                             {
                                 stuPlaced?.filter((_, index) => index % 3 === 1).map((student, index) => (
 
@@ -163,7 +163,7 @@ const Testimonial = () => {
                                 )
                             }
                         </div>
-                        <div className="w-[31.5%]">
+                        <div className="w-[31.5%] max-1400:w-[31.4%]">
                             {
                                 stuPlaced?.filter((_, index) => index % 3 === 2).map((student, index) => (
 
