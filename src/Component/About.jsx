@@ -297,24 +297,24 @@ const About = () => {
                     </div>
 
 
-                    <div className="py-[53px] flex justify-between">
-                        <div className={`w-[46%] ${isOurMissionImg ? "transform translate-x-0 duration-1000 ease-linear opacity-[1]" : "transform translate-x-[-20px] opacity-0"}`}
+                    <div className=" ourMissionAbout pb-[53px] pt-0 flex max-1200:flex-col justify-between">
+                        <div className={`w-[46%] max-1200:w-[100%] max-1200:mb-[50px]  ${isOurMissionImg ? "transform translate-x-0 duration-1000 ease-linear opacity-[1]" : "transform translate-x-[-20px] opacity-0"}`}
                             ref={ourMissionImg}
 
                         >
-                            <figure className="h-[525.69px]">
-                                <img className="w-[100%] h-[100%] object-cover " src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourMissionImg}`} alt="best it training team coaching class indore" />
+                            <figure className="">
+                                <img className="max-w-[100%] max-h-[100%] object-cover " src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourMissionImg}`} alt="best it training team coaching class indore" />
                             </figure>
 
                         </div>
-                        <div className={`w-[50%] ${isOurMissionRSide ? "transform translate-x-0 ease-linear duration-1000 opacity-1" : "transform translate-x-[20px] opacity-0"} `}
+                        <div className={`w-[50%] max-1200:w-[100%] ${isOurMissionRSide ? "transform translate-x-0 ease-linear duration-1000 opacity-1" : "transform translate-x-[20px] opacity-0"} `}
                             ref={ourMissionRSide}
                         >
                             <div>
                                 <h3>{aboutUsData?.ourMissionHead}</h3>
                             </div>
                             <div className="mt-[25px] ">
-                                <div className="flex justify-between">
+                                <div className=" flex max-480:flex-col justify-between">
                                     <div className="w-[50px] h-[50px] ">
                                         <figure className="w-[100%] h-[100%] rounded-[10px] bg-[#D9F3FF] flex justify-center items-center">
                                             <img src="/mission.svg" alt="mission" />
@@ -322,13 +322,13 @@ const About = () => {
                                         </figure>
 
                                     </div>
-                                    <div className="w-[87%]">
+                                    <div className="max-480:mt-[20px] max-567:w-[83%]  w-[87%] max-480:w-[100%]">
                                         {convertAnchorToLink(String(aboutUsData?.missionDetails))}
 
 
                                     </div>
                                 </div>
-                                <div className="flex justify-between ">
+                                <div className="max-1200:mt-[15px] max-480:mt-[20px] flex max-480:flex-col justify-between max-1321:mt-[0px] mt-[25px] ">
                                     <div className="w-[50px] h-[50px] ">
                                         <figure className="w-[100%] h-[100%] rounded-[10px] bg-[#e3ffe0] flex justify-center items-center">
                                             <img src="/vision.svg" alt="mission" />
@@ -336,12 +336,12 @@ const About = () => {
                                         </figure>
 
                                     </div>
-                                    <div className="w-[87%]">
+                                    <div className="max-480:mt-[20px] max-567:w-[83%] w-[87%] max-480:w-[100%]">
                                         {convertAnchorToLink(String(aboutUsData?.visionDetails))}
 
                                     </div>
                                 </div>
-                                <div className="flex justify-between mt-[25px]">
+                                <div className="max-1200:mt-[15px] max-480:mt-[20px] flex max-480:flex-col justify-between max-1321:mt-[0px] mt-[25px]">
                                     <div className="w-[50px] h-[50px] ">
                                         <figure className="w-[100%] h-[100%] rounded-[10px] bg-[#ECE3FF] flex justify-center items-center">
                                             <img src="/values.svg" alt="mission" />
@@ -349,7 +349,7 @@ const About = () => {
                                         </figure>
 
                                     </div>
-                                    <div className="w-[87%]">
+                                    <div className=" max-480:mt-[20px] max-567:w-[83%]  w-[87%] max-480:w-[100%]">
                                         {convertAnchorToLink(String(aboutUsData?.valuesDetails))}
 
                                     </div>
