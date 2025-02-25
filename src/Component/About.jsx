@@ -199,7 +199,7 @@ const About = () => {
             {/* our journey for student career groth section start */}
             <section className="m-0 pb-[74px] max-979:px-[20px] max-979:py-0 ">
                 <div className="wrapper">
-                    <div className="py-[53px] px-0 flex max-979:flex-col-reverse  justify-between">
+                    <div className="pt-[53px] pb-[75px] px-0 flex max-979:flex-col-reverse  justify-between">
                         <div className={`max-374:mt-[300px] w-[50%] max-979:w-[100%] max-979:mt-[177px] max-1200:w-[55%] max-1321:mt-[20px] mt-[51px] ${isOurJourney ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : " transform translate-x-[-25px] opacity-0"}`}
                             ref={ourJourney}
                         >
@@ -268,14 +268,14 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="pb-[53px] pt-[170px]  px-0 flex justify-between">
-                        <div className={`w-[42%] ${isOurBeliefImg ? "transform translate-x-0 ease-linear duration-1000 opacity-[1] " : "transform translate-x-5 opacity-0"} `}
+                    <div className="max-649:pt-0 max-979:flex-col pb-[53px] pt-[170px] max-979:pt-[25px] max-1200:pt-[100px]  px-0 flex  justify-between">
+                        <div className={`w-[42%] max-979:w-[100%] ${isOurBeliefImg ? "transform translate-x-0 ease-linear duration-1000 opacity-[1] " : "transform translate-x-5 opacity-0"} `}
                             ref={ourBeliefImg}
 
                         >
                             <div className="ml-[14px]">
                                 <figure className="m-0">
-                                    <img className="w-[100%]" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourBeliefImg}`} />
+                                    <img className="w-[100%] max-480:w-[95%] max-649:w-[70%] max-649:mx-auto" src={`${ittrainingDataSerivice.backendUrl}/${aboutUsData?.ourBeliefImg}`} />
 
                                 </figure>
 
@@ -283,10 +283,10 @@ const About = () => {
 
                         </div>
 
-                        <div className={`w-[50%] ${isOurBeliefRside ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : "transform translate-x-[-20px] opacity-0"}`}
+                        <div className={`max-979:w-[100%] max-413:pt-[20px] max-567:px-0 max-979:pt-[50px] max-1200:w-[58%] max-1200:py-0 max-1200:px-[25px]  w-[50%] ${isOurBeliefRside ? "transform translate-x-0 ease-linear duration-1000 opacity-[1]" : "transform translate-x-[-20px] opacity-0"}`}
                             ref={ourBeliefRside}
                         >
-                            <div className="w-[100%] hoverBlue"
+                            <div className="w-[100%] max-979:text-center ourBeliefAbout hoverBlue"
 
                             >
                                 {convertAnchorToLink(String(aboutUsData?.ourBeliefsHead))}

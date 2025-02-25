@@ -1007,7 +1007,8 @@ h4 {
     width: 94%;
   }
 
-  .courseBannerSection h3 ,  .coursePage h2{
+  .courseBannerSection h3,
+  .coursePage h2 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
@@ -1020,16 +1021,18 @@ h4 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
+
   h3 {
     font-size: 32px !important;
     line-height: 49px !important;
   }
+
   .backgroundPaperlane {
     background-position-x: 85%;
     background-position-y: 40%;
   }
- 
-  
+
+
 
 }
 
@@ -1047,7 +1050,7 @@ h4 {
     font-size: 16px !important;
     line-height: 32px !important;
   }
-  
+
   h3 {
     font-size: 30px !important;
     line-height: 49px !important;
@@ -1060,25 +1063,31 @@ h4 {
     line-height: 36px !important;
 
   }
-  
+
 
   #jobReadyCard h4 {
     font-size: 22px !important;
     line-height: 31px !important;
   }
 
-  #jobReadyCard p,.courseBannerSection p {
-    font-size: 16px !important;
-    line-height: 32px !important;
-  }
-  .homeBannerHeader p, .coursePage p{
+  #jobReadyCard p,
+  .courseBannerSection p {
     font-size: 16px !important;
     line-height: 32px !important;
   }
 
- 
+  .homeBannerHeader p,
+  .coursePage p {
+    font-size: 16px !important;
+    line-height: 32px !important;
+  }
 
- 
+  .ourBeliefAbout p:nth-child(6) {
+    margin-top: 16px !important;
+  }
+
+
+
 }
 
 @media only screen and (max-width :1300px) {
@@ -1087,10 +1096,11 @@ h4 {
     line-height: 1em;
     font-weight: bold;
   }
+
   .aboutUsTaking ul li {
     font-size: 15px !important;
     line-height: 26px !important;
-  } 
+  }
 }
 
 @media only screen and (max-width :1199px) {
@@ -1106,7 +1116,8 @@ h4 {
     margin-left: 10px;
   }
 
-  .courseBannerSection h3,  .coursePage h2 {
+  .courseBannerSection h3,
+  .coursePage h2 {
     font-size: 30px !important;
     line-height: 48px !important;
 
@@ -1144,31 +1155,37 @@ h4 {
     background-size: 94%;
 
   }
+
   .courseSelector .ant-select-selection-item {
     font-size: 13px !important;
-    
+
   }
 
 }
 
 @media only screen and (max-width: 1023px) {
- 
+
   .popularSearchBtn {
     margin-left: 10px !important;
   }
+
   .homeBannerHeader h1 {
     display: inline !important;
   }
+
   .cardSquare {
     width: 38% !important;
   }
+
   .jobReadyCards {
     display: none;
   }
+
   .jobReadyActiveCard {
     display: block;
   }
-  .home-banner-wr{
+
+  .home-banner-wr {
     padding: 35px 0px 0px !important;
     background-position: 48% 4% !important;
   }
@@ -1206,27 +1223,28 @@ h4 {
   }
 
   .home-banner-wr {
-      overflow: hidden !important;
-      background-position: -4% 8% !important;
-      background-color: #fff !important;
-      padding: 0px !important;
+    overflow: hidden !important;
+    background-position: -4% 8% !important;
+    background-color: #fff !important;
+    padding: 0px !important;
   }
+
   .home-banner-wr .wrapper {
     width: 100%;
-}
+  }
 
-.homeBannerHeader {
-  font-size: 0.85em;
-  line-height: 0.9em;
-  font-weight: bold;
-  display: block !important;
-}
+  .homeBannerHeader {
+    font-size: 0.85em;
+    line-height: 0.9em;
+    font-weight: bold;
+    display: block !important;
+  }
 
-/* .courseBannerSection h3{
+  /* .courseBannerSection h3{
   padding: 0px 101px !important;
   margin-bottom: 28px !important;
 } */
- 
+
 }
 
 @media only screen and (max-width:767px) {
@@ -1239,13 +1257,15 @@ h4 {
   .mentorBorder::after {
     display: none;
   }
+
   .homeBannerHeader {
     font-size: 0.8em;
     line-height: 0.85em;
     font-weight: bold;
-   
+
   }
-  .counterPage p{
+
+  .counterPage p {
     font-size: 15px !important;
     line-height: 20px;
 
@@ -1263,32 +1283,44 @@ h4 {
   #upliftYourCareer {
     display: none !important;
   }
- .courseBannerSection h3{
-  padding: 0 !important;
-} 
-.courseBannerSection p{
-  width: 99% !important;
-  margin: 0 auto !important;
-} 
-.homeBannerHeader {
-  font-size: 0.75em;
-  line-height: 0.8em;
-  font-weight: bold;
- 
-}
-.coursePage h2{
+
+  .courseBannerSection h3 {
+    padding: 0 !important;
+  }
+
+  .courseBannerSection p {
+    width: 99% !important;
+    margin: 0 auto !important;
+  }
+
+  .homeBannerHeader {
+    font-size: 0.75em;
+    line-height: 0.8em;
+    font-weight: bold;
+
+  }
+
+  .coursePage h2 {
+    font-size: 26px !important;
+    line-height: 30px !important;
+  }
+
+  .btnAfter {
+    padding: 10px 25px;
+  }
+
+  .ourJourneyAbout h3 {
+    font-size: 26px !important;
+    line-height: 30px !important;
+  }
+
+  .ourJourneyAbout div {
+    width: 100% !important;
+  }
+.ourBeliefAbout h3 {
   font-size: 26px !important;
   line-height: 30px !important;
-}
-.btnAfter{
-  padding: 10px 25px;
-}
-.ourJourneyAbout h3{
-  font-size: 26px !important;
-  line-height: 30px !important;
-}
-.ourJourneyAbout div{
-  width: 100% !important;
+
 }
 
 }
@@ -1302,90 +1334,107 @@ h4 {
   }
 
 
-  .courseBannerSection h3{
+  .courseBannerSection h3 {
     font-size: 24px !important;
     line-height: 36px !important;
-    
-  } 
-  .home-banner-wr{
-    background-size: 30%;
-    background-position: 0% 5% !important ;
+
   }
+
+  .home-banner-wr {
+    background-size: 30%;
+    background-position: 0% 5% !important;
+  }
+
   .homeBannerHeader {
     font-size: 0.66em;
     line-height: 0.73em;
     font-weight: bold;
-   
+
   }
-   p{
-       line-height: 30px !important;
+
+  p {
+    line-height: 30px !important;
   }
-  .ourJourneyAbout p{
+
+  .ourJourneyAbout p {
     font-size: 17px !important;
     line-height: 28px !important;
 
   }
-  
+
 }
-@media only screen and (max-width:479px){
-  .home-banner-wr{
+
+@media only screen and (max-width:479px) {
+  .home-banner-wr {
     background-size: 30%;
-    background-position: 1% 2% !important ;
+    background-position: 1% 2% !important;
   }
 
   .homeBannerHeader {
     font-size: 0.55em;
     line-height: 0.65em;
     font-weight: bold;
-   
+
   }
 
-  
+
 }
+
 @media only screen and (max-width:413px) {
   .homeBannerHeader {
     font-size: 0.45em;
     line-height: 0.54em;
     font-weight: bold;
   }
-  .coursePage p{
+
+  .coursePage p {
     margin-top: 13px !important;
   }
 
-  .ourJourneyAbout h3{
+  .ourJourneyAbout h3 {
     font-size: 23px !important;
     line-height: 34px !important;
   }
+  .ourBeliefAbout h3 {
+    font-size: 23px !important;
+    line-height: 34px !important;
+  
+  }
 
- 
 }
+
 @media only screen and (max-width:374px) {
-  .homeBannerHeader p{
+  .homeBannerHeader p {
     line-height: 26px !important;
+  }
+
+  h3 {
+    font-size: 21px !important;
+    line-height: 33px !important;
+
+  }
+
+  .aboutUsTaking h3 {
+    font-size: 22px !important;
+    line-height: 27px !important;
+  }
+
+  .aboutUsTaking p {
+    line-height: 26px !important;
+  }
+
+  .ourJourneyAbout h3 {
+    font-size: 22px !important;
+    line-height: 27px !important;
+  }
+  p{
+    line-height: 26px !important;
+  }
+
+  .ourBeliefAbout h3 {
+    font-size: 22px !important;
+    line-height: 27px !important;
+  
+  }
+
 }
-
-h3 {
-  font-size: 21px !important;
-  line-height: 33px !important;
-
-}
-.aboutUsTaking h3{
-  font-size: 22px !important;
-  line-height: 27px !important;
-}
-.aboutUsTaking p{
- line-height: 26px !important;
-}
-
-.ourJourneyAbout h3{
-  font-size: 22px !important;
-  line-height: 27px !important;
-}
-
-}
-
-
-
-
-
-
