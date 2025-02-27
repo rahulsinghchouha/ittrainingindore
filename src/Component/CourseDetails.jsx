@@ -85,16 +85,16 @@ const CourseDetails = () => {
             {
                 course ? (<div>
                     <Navbar />
-                    <section className="m-0 pt-[125px]">
+                    <section className="m-0 pt-[125px] max-800:pt-0">
                         <div className="relative">
-                            <figure className=" z-[-1] h-[372.66px]  relative mainImageAfter">
-                                <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice?.backendUrl}/${bannerImg?.img}`} />
+                            <figure className=" z-[-1]  relative mainImageAfter">
+                                <img className="h-[100%] w-[100%] max-649:h-[160px] max-649:object-cover" src={`${ittrainingDataSerivice?.backendUrl}/${bannerImg?.img}`} />
                             </figure>
 
                             <div >
                                 <div className="wrapper">
                                     <div className="absolute top-[50%] transform translate-y-[-50%]">
-                                        <h1 className={`  ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
+                                        <h1 className={`  ${isMainPageHead && "animate__fadeIn"}  text-[54px] max-1321:text-[48px] max-1321:leading-[54px] max-1200:text-[44px] max-1200:leading-[56px] max-1024:text-[40px] max-1024:leading-[51px] max-979:text-[45px] max-979:leading-[55px] max-767:text-[38px] max-767:leading-[48px] max-567:text-[30px] max-567:leading-[40px] max-413:text-[25px] max-413:leading-[35px] max-374:text-[22px] max-374:leading-[28px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
                                             ref={mainPageHead}
                                             style={{
                                                 animationDuration: "3s",
@@ -111,18 +111,18 @@ const CourseDetails = () => {
                         </div>
                     </section>
                     {/* course details section start */}
-                    <section className="pt-[83px] pb-[36px] px-0 " >
-                        <div className="wrapper flex">
-                            <div className="w-[66%]">
+                    <section className="  pt-[83px] pb-[36px] px-0 " >
+                        <div className=" wrapper flex max-979:flex-col">
+                            <div className="w-[66%] max-979:w-[90%] max-979:mx-auto">
                                 <div>
-                                    <Link to={`/course-category/${course?.category?.replace(/\s|\/+/g, '-')}`} className="text-[16px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
+                                    <Link to={`/course-category/${course?.category?.replace(/\s|\/+/g, '-')}`} className="text-[14px] leading-[19px] font-[700] text-[#fff] py-[7px] px-[22px] rounded-[5px] shadow-courseDetailsCatShad bg-[#1AAEF4] ">{course?.category}</Link>
                                 </div>
                                 <div className="mt-[29px] ">
-                                    <h2 className="text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000]">{course?.courseName}</h2>
+                                    <h2 className=" max-1200:leading-[48px] max-1200:text-[30px]  max-1321:text-[32px] max-1321:leading-[49px]   text-[36px] leading-[52px] tracking-[0.72px] font-[800] text-[#000]">{course?.courseName}</h2>
 
                                 </div>
                                 <div className="mt-[68px] ">
-                                    <figure className="m-0  w-[868px] h-[451px]" >
+                                    <figure className="m-0 " >
                                         <img src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} alt="Best Web API Development Training Course indore" className="w-[100%] h-[100%] object-cover block" />
 
                                     </figure>
@@ -150,10 +150,10 @@ const CourseDetails = () => {
                                 </div>
                                 <div className="mt-[50px]">
                                     <div>
-                                        <h4>Key Areas We Are Covering in the {course?.courseName} Course in Indore</h4>
+                                        <h4 className="max-1321:text-[22px]  max-1321:leading-[31px] " >Key Areas We Are Covering in the {course?.courseName} Course in Indore</h4>
                                     </div>
 
-                                    <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
+                                    <div className="keyAreaWeAreRes mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
                                         <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
                                             {
                                                 course?.keyAreas?.map((keyArea, index) =>
@@ -171,9 +171,9 @@ const CourseDetails = () => {
                                 <div className="mt-[55px]   pt-[25px] pb-[89px] px-0">
                                     <div>
                                         <h3 className="mb-[16px]">Tools to hands-on</h3>
-                                        <ul className="flex flex-wrap gap-[23px]">
+                                        <ul className="flex flex-wrap gap-[23px] max-1321:gap-[20px] toolsresponsive">
                                             {
-                                                course?.toolsInHand?.map((tools, index) => <li key={index} className=" toolsInHand font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
+                                                course?.toolsInHand?.map((tools, index) => <li key={index} className="max-1321:mt-[5px] max-1200:mt-[0px] toolsInHand font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
                                                     {tools}
                                                 </li>)
                                             }
@@ -182,7 +182,7 @@ const CourseDetails = () => {
 
                                 </div>
                                 {/* Course Benefits section */}
-                                <div className="mt-[10px]  pt-[25px] listBgImage hoverBlue pb-[89px] px-0" >
+                                <div className="benefitsSection mt-[10px]  pt-[25px] listBgImage hoverBlue pb-[89px] px-0" >
                                     {
                                         ConvertAnchorToLink(String(course?.benefits))
                                     }
@@ -191,7 +191,7 @@ const CourseDetails = () => {
                                     <h3>Course Curriculum</h3>
                                 </div>
                                 {/* course curricullum pending */}
-                                <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
+                                <div className="mt-[42px] keyAreaWeAreRes py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
                                     <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
                                         {
                                             course?.courseCurriculum?.map((curriculumn, index) =>
@@ -208,9 +208,9 @@ const CourseDetails = () => {
                                 <div className="mt-[55px] pt-[25px] pb-[89px] border-b-[2px] border-solid border-[#0003]">
                                     <div>
                                         <h3 className="mb-[16px] ">Key Highlights</h3>
-                                        <ul className="flex flex-wrap gap-[23px]">
+                                        <ul className="flex flex-wrap gap-[23px] max-1321:gap-[20px] ">
                                             {
-                                                course?.keyHighLights?.map((key, index) => <li key={index} className=" keyHighlight font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
+                                                course?.keyHighLights?.map((key, index) => <li key={index} className="max-1024:py-[15px] max-1024:px-[10px]   max-1200:py-[17px] max-1200:px-[14px]  max-1380:p-[18px] max-1321:p-[16px] max-1321:text-[15px] max-1321:leading-[25px] max-1321:mt-[5px] max-1200:mt-[0px] keyHighlight font-[700] w-[30.8%] p-[20px]  text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
                                                     {key}
                                                 </li>)
                                             }
@@ -223,9 +223,9 @@ const CourseDetails = () => {
 
                                         <h3 className="mt-[50px] mb-[25px] text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">What Job Roles Offer With {course?.courseName} Training in Indore
                                         </h3>
-                                        <ul className="flex flex-wrap gap-[23px]">
+                                        <ul className="flex flex-wrap gap-[23px] max-1321:gap-[20px] ">
                                             {
-                                                course?.jobRoles?.map((key, index) => <li key={index} className=" keyHighlight font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
+                                                course?.jobRoles?.map((key, index) => <li key={index} className="max-1024:py-[15px] max-1024:px-[10px]   max-1200:py-[17px] max-1200:px-[14px]  max-1380:p-[18px] max-1321:p-[16px] max-1321:text-[15px] max-1321:leading-[25px] max-1321:mt-[5px] max-1200:mt-[0px] keyHighlight font-[700] w-[30.8%] p-[20px] text-center relative border-[1px] border-solid border-[#0000001a] mt-[20px] text-[16px] leading-[28px] ">
                                                     {key}
                                                 </li>)
                                             }
@@ -239,7 +239,7 @@ const CourseDetails = () => {
                                     <div>
                                         <h3 className="font-[800] " >FAQ’s</h3>
                                     </div>
-                                    <div className="mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
+                                    <div className="keyAreaWeAreRes mt-[42px] py-0 px-[39px] border-[1px] border-solid border-[#bddae780] ">
                                         <Collapse bordered={false} accordion style={{ backgroundColor: "#fff" }} className="keyAreas">
                                             {
                                                 course?.fAQ?.map((faqs, index) =>
@@ -255,11 +255,11 @@ const CourseDetails = () => {
                                 </div>
 
                             </div>
-                            <div className="w-[34%]  ">
-                                <div className=" px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
+                            <div className="w-[34%] max-979:w-[90%] max-979:mx-auto max-979:mt-[60px] max-979:mb-[40px]  ">
+                                <div className=" max-979:w-[60%] max-979:mx-auto max-1200:w-[88%] max-1200:px-[22px] px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
                                     <div>
-                                        <figure className="m-0">
-                                            <img className="max-w-[100%]" src="/designers-using-gadgets.jpg" />
+                                        <figure className="m-0 ">
+                                            <img className="max-w-[100%] max-979:mx-auto" src="/designers-using-gadgets.jpg" />
                                         </figure>
                                     </div>
                                     <div>
@@ -272,42 +272,42 @@ const CourseDetails = () => {
                                         </div>
                                     </div>
                                     <div className="mt-[27px]">
-                                        <h4>Get Course Enquiry</h4>
+                                        <h4 className="max-1321:text-[22px] max-1321:leading-[31px]">Get Course Enquiry</h4>
 
                                         <div className="w-[100%] mt-[25px] ">
                                             <form>
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-user-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" type="text" />
+                                                            <input className="py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" type="text" />
                                                         </span>
                                                     </p>
                                                 </div>
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-email-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Email" type="email" />
+                                                            <input className="py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Email" type="email" />
                                                         </span>
                                                     </p>
                                                 </div>
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-call-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Phone" type="tel:" />
+                                                            <input className="py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Phone" type="tel:" />
                                                         </span>
                                                     </p>
                                                 </div>
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-course-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className="py-[10px] px-[5px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Message" type="text" />
+                                                            <input className="py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Message" type="text" />
                                                         </span>
                                                     </p>
                                                 </div>
-                                                <div className="mt-[27px] flex justify-center items-center">
-                                                    <p className="leading-[21px] font-[400] text-[16px] ">
-                                                        <button type="submit" className=" w-[100%] cursor-pointer pt-[9px] pb-[9px] pl-[90px] pr-[90px]
-                                                         text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
+                                                <div className="mt-[27px]  flex justify-center items-center">
+                                                    <p className="max-1200:leading-[32px] font-[400] text-[16px] leading-[34px] ">
+                                                        <button type="submit" className="max-1200:py-[8px] max-979:px-[120px] max-1200:px-[72px] w-[100%] cursor-pointer pt-[9px] pb-[9px] pl-[90px] pr-[90px]
+                                                        max-1200:text-[14px] text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
 
                                                             Send Form
                                                         </button>
@@ -323,22 +323,22 @@ const CourseDetails = () => {
                                     <div className="mt-[30px] ">
                                         <div className="mb-[15px] flex justify-center items-center gap-5">
                                             <div className="flex">
-                                                <a href="/" className="h-[40px] w-[40px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faFacebookF} style={{ fontSize: "19px", fontWeight: 400, }} />
+                                                <a href="/" className="h-[40px]  text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] w-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
+                                                    <FontAwesomeIcon icon={faFacebookF} style={{  fontWeight: 400, }} />
 
                                                 </a>
-                                                <a href="/" className="h-[40px] w-[40px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faLinkedinIn} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                                <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
+                                                    <FontAwesomeIcon icon={faLinkedinIn} style={{  fontWeight: 400 }} />
                                                 </a>
-                                                <a href="/" className="h-[40px] w-[40px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faInstagram} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                                <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
+                                                    <FontAwesomeIcon icon={faInstagram} style={{  fontWeight: 400 }} />
                                                 </a>
-                                                <a href="/" className="h-[40px] w-[40px] rounded-full relative  z-0  overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faTwitter} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                                <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full relative  z-0  overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
+                                                    <FontAwesomeIcon icon={faTwitter} style={{  fontWeight: 400 }} />
 
                                                 </a>
-                                                <a href="/" className="h-[40px] w-[40px] rounded-full relative  z-0  overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
-                                                    <FontAwesomeIcon icon={faPinterest} style={{ fontSize: "19px", fontWeight: 400 }} />
+                                                <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full relative  z-0  overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
+                                                    <FontAwesomeIcon icon={faPinterest} style={{  fontWeight: 400 }} />
                                                 </a>
                                             </div>
 
