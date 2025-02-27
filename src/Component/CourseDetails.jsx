@@ -256,7 +256,7 @@ const CourseDetails = () => {
 
                             </div>
                             <div className="w-[34%] max-979:w-[90%] max-979:mx-auto max-979:mt-[60px] max-979:mb-[40px]  ">
-                                <div className=" max-979:w-[60%] max-979:mx-auto max-1200:w-[88%] max-1200:px-[22px] px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
+                                <div className="max-567:w-[90%] max-767:w-[70%] max-979:w-[60%] max-979:mx-auto max-1200:w-[88%] max-1200:px-[22px] px-[30px] pt-[30px] pb-[36px] rounded-[30px] w-[76%] ml-auto bg-[#fff] shadow-courseDetailsRightFormShad">
                                     <div>
                                         <figure className="m-0 ">
                                             <img className="max-w-[100%] max-979:mx-auto" src="/designers-using-gadgets.jpg" />
@@ -306,7 +306,7 @@ const CourseDetails = () => {
                                                 </div>
                                                 <div className="mt-[27px]  flex justify-center items-center">
                                                     <p className="max-1200:leading-[32px] font-[400] text-[16px] leading-[34px] ">
-                                                        <button type="submit" className="max-1200:py-[8px] max-979:px-[120px] max-1200:px-[72px] w-[100%] cursor-pointer pt-[9px] pb-[9px] pl-[90px] pr-[90px]
+                                                        <button type="submit" className="max-374:px-[57px] max-413:px-[80px] max-480:px-[90px] max-649:px-[100px] max-1200:py-[8px] max-979:px-[120px] max-1200:px-[72px] w-[100%] cursor-pointer pt-[9px] pb-[9px] pl-[90px] pr-[90px]
                                                         max-1200:text-[14px] text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
 
                                                             Send Form
