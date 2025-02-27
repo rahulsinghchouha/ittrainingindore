@@ -32,7 +32,7 @@ const CounterPage = () => {
 
         <section className="pt-[55px] pb-[300px] max-567:pt-[38px] max-567:pb-[132px] max-767:pt-[55px] max-767:pb-[222px] max-1321:pt-[51px] max-1321:pb-[280px] max-1321:px-0  px-0 max-1024:mb-[-300px] mb-[-620px]  bg-[#f3fbff] bg-no-repeat bg-[position:67%_70%] max-767:bg-[position:50%_77%] max-767:bg-[length:82%]  max-567:bg-[position:60%_85%] max-413:bg-[position:50%_87%] max-374:bg-[position:50%_93%]   " style={{ backgroundImage: `url('/our-achievement-paperplane.svg')`,   backgroundColor: "#f3fbff" }}>
             <div className="wrapper text-center">
-                <h3 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">
+                <h3 className="text-[36px] leading-[52px] max-374:!text-[22px] tracking-[0.72px] text-[#000] font-[800] ">
                     We feel proud about our Stats
                 </h3>
 
