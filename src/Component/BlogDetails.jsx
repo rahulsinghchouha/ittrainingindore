@@ -136,25 +136,25 @@ function BlogDetails() {
             blogDetails ? (   <div>
                 <Navbar />
                 
-                <section className="m-0 pt-[125px]">
+                <section className="m-0 pt-[125px] max-800:pt-0">
                     <div className="relative">
-                        <figure className=" z-[-1] h-[372.66px]  relative mainImageAfter">
-                            <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice?.backendUrl}/${banner?.img}`} />
+                        <figure className=" z-[-1]   relative mainImageAfter">
+                            <img className="w-[100%] h-[100%] max-649:h-[160px] max-649:object-cover" src={`${ittrainingDataSerivice?.backendUrl}/${banner?.img}`} />
                         </figure>
     
                         <div >
                             <div className="wrapper">
                                 <div className="absolute top-[50%] transform translate-y-[-50%]">
-                                    <h1 className={`  ${isMainPageHead && "animate__fadeIn"} text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
+                                    <h1 className={`  ${isMainPageHead && "animate__fadeIn"} max-1321:text-[48px] max-1321:leading-[54px] max-1200:text-[44px] max-1200:leading-[56px] max-1024:text-[40px] max-1024:leading-[51px] max-979:text-[45px] max-979:leading-[55px] max-767:text-[38px] max-767:leading-[48px] max-567:text-[30px] max-567:leading-[40px] max-413:text-[25px] max-413:leading-[35px] max-374:text-[22px] max-374:leading-[28px] text-[54px] leading-[60px] font-[800] text-[#fff] tracking-[1.62px] `}
                                         ref={mainPageHead}
                                         style={{
                                             animationDuration: "3s",
                                         }}
                                     >Blog</h1>
                                     <div className="mt-[5px] block">
-                                        <NavLink to="/" className="hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
-                                        <NavLink to="/blogs" className="ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">Blogs</NavLink>
-                                        <span className="ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">{blogDetails?.heading}</span>
+                                        <NavLink to="/" className="max-413:text-[15px] max-413:leading-[20px]  hover:text-[#009ce5] text-[#fff]  text-[#16px] font-[500] leading-[20px] transition-all ease-linear duration-[0.5s]">Home</NavLink>
+                                        <NavLink to="/blogs" className=" max-413:text-[15px] max-413:leading-[20px]  ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">Blogs</NavLink>
+                                        <span className=" max-413:text-[15px] max-413:leading-[20px]  ml-[15px] pl-[17px] text-[#fff] font-[500] rightSmallArrow transition-all ease-in-out duration-500">{blogDetails?.heading}</span>
                                     </div>
                                 </div>
                             </div>
@@ -164,23 +164,23 @@ function BlogDetails() {
                 {/* Blog Section start */}
     
                 <section className="pt-[80px] px-0 pb-[62px]">
-                    <div className="wrapper flex">
-                        <div className="w-[66%] ">
+                    <div className="wrapper flex max-979:flex-col">
+                        <div className="w-[66%] max-979:w-[100%] ">
                             <div className="mb-[50px]">
-                                <h2 className="text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">{blogDetails?.heading}</h2>
+                                <h2 className=" max-1400:text-[32px] max-1400:leading-[49px]  text-[36px] leading-[52px] tracking-[0.72px] text-[#000] font-[800] ">{blogDetails?.heading}</h2>
     
                             </div>
                             <div className="mb-[40px] ">
                                 <img src={`${ittrainingDataSerivice.backendUrl}/${blogDetails?.img}`} className="w-[100%]" alt="blog image" />
                             </div>
                             {/* blog details */}
-                            <div className="mt-[40px] listBgImage hoverBlue"
+                            <div className="mt-[40px] listBgImage hoverBlue blogDetailsResponsive "
                                 dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blogDetails?.details) }}
                             >
     
                             </div>
                             {/* Show particular Blog Tags */}
-                            <div className="w-[100%]  flex">
+                            <div className="pt-[40px] border-t-[1px] border-solid border-[black] border-opacity-10 w-[100%]  flex">
                                 <div className="w-[70%] ">
                                     {
                                         blogDetails?.tags?.map((item, index) => (
@@ -442,14 +442,14 @@ function BlogDetails() {
     
     
                         </div>
-                        <div className="w-[31.5%] ml-auto">
+                        <div className="w-[31.5%] max-979:w-[100%] max-979:mt-[50px] ml-auto">
                             <div className="w-[99%] ml-auto pt-[10px]">
                                 <div className={`${isLatestCourse && "animate__fadeIn"}`}
                                     ref={latestCourse}
                                     style={{ animationDuration: '5s' }}
                                 >
                                     <div className="w-[90%]  ">
-                                        <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Latest Blogs</h6>
+                                        <h6 className="pb-[18px] border-b-[1px] border-solid border-[#cfcfcf]">Recent Posts</h6>
     
                                     </div>
                                     <div >
@@ -466,7 +466,7 @@ function BlogDetails() {
                                                     <div className="mt-[25px] flex" key={index}>
                                                         <div className=" w-[77px]   rounded-[10px] overflow-hidden ">
                                                             <figure className="m-0">
-                                                                <button className="w-[100%] h-[77px] block" onClick={() => handleBlogDetails(blog)}>
+                                                                <button className="w-[100%] h-[77px] max-767:h-[65px] block" onClick={() => handleBlogDetails(blog)}>
                                                                     <img className="w-[100%] h-[100%] object-cover" src={`${ittrainingDataSerivice.backendUrl}/${blog?.img}`} />
                                                                 </button>
                                                             </figure>
@@ -478,8 +478,8 @@ function BlogDetails() {
     
     
                                                             <div className="mt-[10px]">
-                                                                <h4 className="leading-[24px] text-[16px] font-[600] ">
-                                                                    <button onClick={() => handleBlogDetails(blog)} className="hover:text-[#009ce5] transition-all duration-300 ease-out">{blog?.heading}
+                                                                <h4 className=" max-1024:text-[15px]  leading-[24px] max-413:text-[15px] max-413:leading-[19px] text-[16px]  max-979:text-[16px]  font-[600] ">
+                                                                    <button onClick={() => handleBlogDetails(blog)} className="hover:text-[#009ce5] text-start transition-all duration-300 ease-out">{blog?.heading}
                                                                     </button>
     
                                                                 </h4>
@@ -509,21 +509,21 @@ function BlogDetails() {
                                             exploreCat?.map((item, index) => (
                                                 <div className="mt-[29px] flex items-center" key={index}>
                                                     <div className="w-[77px] rounded-[10px]">
-                                                        <figure className={`w-[77px] h-[75px] ${index % 4 === 0 && "bg-[#FFF7DB]" || index % 4 === 1 && "bg-[#D9F3FF]" || index % 4 === 2 && "bg-[#E3FFE0]" || index % 4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
-                                                            <button onClick={() => categoryDetails(item)} to="/" className="block">
+                                                        <figure className={`w-[77px] h-[75px] max-767:w-[65px] max-767:h-[65px] ${index % 4 === 0 && "bg-[#FFF7DB]" || index % 4 === 1 && "bg-[#D9F3FF]" || index % 4 === 2 && "bg-[#E3FFE0]" || index % 4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
+                                                            <button onClick={() => categoryDetails(item)}  className="block">
                                                                 <img className="w-[35px] " src={`${ittrainingDataSerivice.backendUrl}/${item.img}`} />
                                                             </button>
-    
+
                                                         </figure>
-    
+
                                                     </div>
                                                     <div className="w-[68%] ml-[24px]">
-                                                        <h4 className="text-[16px] font-[600] leading-[24px]">
-                                                            <button onClick={() => categoryDetails(item)} className="hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
+                                                        <h4 className="text-[16px] max-1024:text-[15px] max-979:text-[16px] max-413:text-[15px] max-413:leading-[19px] font-[600] leading-[24px]">
+                                                            <button onClick={() => categoryDetails(item)} className="text-start hover:text-[#009ce5] transition-all duration-300 ease-out">{item.heading}</button>
                                                         </h4>
-    
+
                                                     </div>
-    
+
                                                 </div>
                                             ))
                                         }
@@ -531,7 +531,7 @@ function BlogDetails() {
     
                                 </div>
     
-                                <div className={`mt-[65px] ${isTags && "animate__fadeIn"}`}
+                                <div className={`mt-[65px] max-767:mt-[35px] ${isTags && "animate__fadeIn"}`}
                                     style={{ animationDuration: '5s' }}
                                     ref={tags}
                                 >
@@ -540,23 +540,25 @@ function BlogDetails() {
                                     </div>
                                     <div className="mt-[24px]">
                                         <div className="h-[200px]  overflow-y-scroll">
+
                                             {
                                                 tag?.map((item, index) => (
                                                     <div onClick={() => showTagsBlog(item?.tag)} key={index} className="mr-[3%] mt-0 ml-0 mb-5  inline-block  ">
                                                         <h4 className="text-[14px] leading-[20px] font-[500] ">
-                                                            <button to="/course" className="py-[6px] px-[20px] bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
+                                                            <button to="/courses" className="py-[6px] px-[20px] max-1321:px-[15px] max-1200:px-[8px] max-979:px-[20px] max-567:px-[13px]  bg-[#f2f2f2] text-[#989898] inline-block hover:text-white hover:bg-[#009ce5] transition-all duration-300 ease-out ">
                                                                 {item?.tag}
                                                             </button>
-    
+
                                                         </h4>
-    
+
                                                     </div>
                                                 ))
                                             }
+
                                         </div>
-    
+
                                     </div>
-    
+
                                 </div>
                             </div>
     

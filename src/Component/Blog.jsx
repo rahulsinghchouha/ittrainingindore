@@ -177,7 +177,9 @@ const Blog = () => {
                                                     </figure>
                                                 </div>
                                                 <div className="ml-[15px]">
-                                                    <h4 className="text-[16px]  max-413:leading-[19px] max-767:text-[15px] max-767:leading-[20px] max-1321:text-[22px] max-1321:leading-[31px] leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out">IT Training Indore</h4>
+                                                    <h4>
+                                                        <Link to="/" className="text-[16px]  max-413:leading-[19px] max-767:text-[15px] max-767:leading-[20px]  leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out" > IT Training Indore</Link>
+                                                        </h4>
 
                                                 </div>
 
