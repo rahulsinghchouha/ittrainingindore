@@ -1001,15 +1001,17 @@ h4 {
   margin: 0 auto;
 }
 
-.contactUSRespons p:nth-child(6){
-  width: 92%; 
+.contactUSRespons p:nth-child(6) {
+  width: 92%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .benefitsSection ul li {
- 
+
   margin-top: 0px !important;
 }
+
 /* Responsiveness */
 @media only screen and (max-width: 1400px) {
   .wrapper {
@@ -1046,7 +1048,7 @@ h4 {
 }
 
 .benefitsSection ul li {
- 
+
   width: 100% !important;
 
 }
@@ -1061,7 +1063,8 @@ h4 {
   .maximizeYourCareerHead p,
   #latestBlog p,
   #jobReady p,
-  #collegeLife p,p {
+  #collegeLife p,
+  p {
     font-size: 16px !important;
     line-height: 32px !important;
   }
@@ -1100,8 +1103,8 @@ h4 {
   .ourBeliefAbout p:nth-child(6) {
     margin-top: 16px !important;
   }
- 
-  .toolsresponsive li{
+
+  .toolsresponsive li {
     font-size: 15px !important;
     line-height: 26px !important;
     padding: 18px;
@@ -1112,7 +1115,7 @@ h4 {
     line-height: 26px !important;
     margin-top: 0px !important;
   }
- 
+
 }
 
 @media only screen and (max-width :1300px) {
@@ -1183,23 +1186,25 @@ h4 {
   .courseSelector .ant-select-selection-item {
     font-size: 13px !important;
   }
- 
-  .card-parent:hover  .studentName{
+
+  .card-parent:hover .studentName {
     opacity: 0 !important;
   }
-  
+
   .testimonialP {
     font-size: 15px !important;
     line-height: 28px !important;
 
   }
+
   .keyAreaWeAreRes .ant-collapse-item {
-    padding: 10px 0px !important;
+    padding: 9px 0px !important;
   }
-  .toolsresponsive li{
+
+  .toolsresponsive li {
     padding: 17px 14px !important;
   }
-  
+
 }
 
 @media only screen and (max-width: 1023px) {
@@ -1232,18 +1237,19 @@ h4 {
   .studentExperinceP {
     line-height: 34px !important;
   }
-  .contactUSRespons p:nth-child(6){
-    width: 85%; 
+
+  .contactUSRespons p:nth-child(6) {
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
   }
-   
-  .toolsresponsive li{
-   
-    padding: 15px 10px !important;    
+
+  .toolsresponsive li {
+
+    padding: 15px 10px !important;
   }
 
-  
+
 }
 
 @media only screen and (max-width : 979px) {
@@ -1325,7 +1331,8 @@ h4 {
     line-height: 20px;
 
   }
-  .contactUSRespons p:nth-child(6){
+
+  .contactUSRespons p:nth-child(6) {
     width: 100%;
   }
 }
@@ -1375,11 +1382,18 @@ h4 {
   .ourJourneyAbout div {
     width: 100% !important;
   }
-.ourBeliefAbout h3, .ourJourneyAbout h3, .ourMissionAbout h3 {
-  font-size: 26px !important;
-  line-height: 30px !important;
 
-}  
+  .ourBeliefAbout h3,
+  .ourJourneyAbout h3,
+  .ourMissionAbout h3 {
+    font-size: 26px !important;
+    line-height: 30px !important;
+  }
+
+  .courseOverViewPara p {
+    font-size: 16px !important;
+    line-height: 30px !important;
+  }
 
 }
 
@@ -1419,9 +1433,48 @@ h4 {
     line-height: 28px !important;
 
   }
-  .ourBeliefAbout h3, .ourJourneyAbout h3 , .ourMissionAbout h3 {
+
+  .ourBeliefAbout h3,
+  .ourJourneyAbout h3,
+  .ourMissionAbout h3 {
     font-size: 24px !important;
     line-height: 36px !important;
+  }
+
+  .keyAreas,
+  .ant-collapse-item .ant-collapse-header .ant-collapse-header-text {
+
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .toolsresponsive li {
+    padding: 8px 7px !important;
+    font-size: 13px !important;
+    line-height: 23px !important;
+  }
+
+  .keyAreaWeAreRes .ant-collapse-item {
+    padding: 3px 0px !important;
+    font-size: 16px !important;
+    line-height: 25px !important;
+  }
+
+  .curriculumDetails::before {
+
+    width: 6.78px;
+    height: 6.78px;
+    top: 11px;
+  }
+
+  .keyAreas .ant-collapse-content-box p {
+    font-size: 16px !important;
+    line-height: 30px !important;
+  }
+
+  .responsiveCurriculum .ant-collapse-content-box p {
+    font-size: 15px !important;
+    line-height: 28px !important;
   }
 
 }
@@ -1438,7 +1491,8 @@ h4 {
     font-weight: bold;
 
   }
-  .studentExperinceP{
+
+  .studentExperinceP {
     font-size: 15px !important;
     line-height: 30px !important;
   }
@@ -1460,23 +1514,36 @@ h4 {
     font-size: 23px !important;
     line-height: 34px !important;
   }
-  .ourBeliefAbout h3, .ourJourneyAbout h3 , .ourMissionAbout h3  {
+
+  .ourBeliefAbout h3,
+  .ourJourneyAbout h3,
+  .ourMissionAbout h3 {
     font-size: 23px !important;
     line-height: 34px !important;
-  
+
   }
+
   .page-item a {
     padding: 5px 12px;
-    
+
     font-size: 14px;
-    
+
   }
 
-  .contactUSRespons p:nth-child(6), .contactUsCard p{
-   font-size: 15px !important;
-   line-height: 24px !important;
+  .contactUSRespons p:nth-child(6),
+  .contactUsCard p {
+    font-size: 15px !important;
+    line-height: 24px !important;
   }
 
+  .keyAreas, .ant-collapse-item .ant-collapse-header .ant-collapse-header-text{
+    font-size: 14px !important;
+  }
+  .keyAreas .ant-collapse-content-box p {
+    font-size: 15px !important;
+    line-height: 26px !important;
+  }
+  
 }
 
 @media only screen and (max-width:374px) {
@@ -1499,19 +1566,24 @@ h4 {
     line-height: 26px !important;
   }
 
-   
-  p{
+
+  p {
     line-height: 26px !important;
   }
 
-  .ourBeliefAbout h3, .ourJourneyAbout h3, .ourMissionAbout h3 {
+  .ourBeliefAbout h3,
+  .ourJourneyAbout h3,
+  .ourMissionAbout h3 {
     font-size: 22px !important;
     line-height: 27px !important;
-  
   }
-  .studentExperinceP{
+
+  .studentExperinceP {
     font-size: 15px !important;
     line-height: 22px !important;
   }
- 
+  .courseOverViewPara p {
+    font-size: 15px !important;
+    line-height: 28px !important;
+  }
 }
