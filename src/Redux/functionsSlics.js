@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { ittrainingDataSerivice } from "../Services/dataService";
 
 
-
 export const fetchCards = createAsyncThunk(
     'backendFunctions/fetchCards', //  Type prefix (action identifier) (required)
     async () => {

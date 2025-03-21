@@ -218,6 +218,10 @@ function Banner() {
 
     }
 
+    const [loopConditionStudent,setLoopConditionStudent] = useState(false);
+    const [loopConditionPartner,setLoopConditionPartner] = useState(false);
+    const [loopConditionCategory,setLoopConditionCategory] = useState(false);
+
     return (
         <div className="overflow-hidden">
             <Navbar />
@@ -623,16 +627,23 @@ function Banner() {
 
                             <div className="w-[48.5%] max-1024:w-[71%] max-1024:mt-[50px] max-979:w-[70%] max-767:w-[100%] relative text-center  stuPlacShad">
                                 <div className="w-[100%]  relative h-[696px]">
-                                    <button onClick={() => swiperRef.current.slidePrev()} className="w-[35px] h-[35px]   text-white absolute transition-all z-[10] bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
-                                    <button onClick={() => swiperRef.current.slideNext()} className="w-[35px] h-[35px]  text-white absolute transition-all z-[10] bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
+                                    <button onClick={() => { 
+                                        if(!loopConditionStudent) setLoopConditionStudent(true);
+                                   
+                                            swiperRef.current.slidePrev();
+                                        
+                                    } }className="w-[35px] h-[35px]   text-white absolute transition-all z-[10] bg-[#1AAEF4] flex items-center justify-center top-[50%] left-0 "><img src="/swiperLefticon.png" alt="swiper left" /></button>
+                                    <button onClick={() =>{  if(!loopConditionStudent) setLoopConditionStudent(true);
+                                         swiperRef.current.slideNext()} }className="w-[35px] h-[35px]  text-white absolute transition-all z-[10] bg-[#1AAEF4] flex justify-center items-center top-[50%] right-0"><img src="/swiperRighticon.png" alt="swiper right" /></button>
                                     <Swiper
                                         modules={[Autoplay]}
                                         spaceBetween={0}
-                                        loop={true}
+                                        loop={loopConditionStudent}
+                                      
                                         autoplay={{
                                             delay: 3000,
-                                            //disableOnInteraction: false,
-                                            //pauseOnMouseEnter: true, //for stop slide on mouse enter
+                                            disableOnInteraction: false,
+                                            pauseOnMouseEnter: true, //for stop slide on mouse enter
                                         }}
                                         slidesPerView={1}
                                         speed={500}
@@ -695,13 +706,13 @@ function Banner() {
                             <h3 className="text-[36px] leading-[52px] max-1200:text-[30px] max-1200:leading-[48px] tracking-[0.72px] text-[#000000] font-[800] "> Our Partners </h3>
                         </div>
                         <div className="bg-[#ffffff]  shadow-partnerShadow relative rounded-[22px] p-[30px] max-1200:w-[90%] max-1200:my-0 max-1200:mx-auto max-800:border-[1px] max-800:border-solid  max-800:border-[#0000001a] ">
-                            <button onClick={() => { partnerSwipRef.current.slidePrev() }} className="z-[20] overflow-hidden w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px]  bg-[#ececec] rounded-[50%] absolute top-[30%] left-[-27px] max-979:left-[-25px] max-800:left-[-23px]  border-[1px] border-solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-prev (1).svg" /></button>
-                            <button onClick={() => { partnerSwipRef.current.slideNext() }} className="z-[20] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] bg-[#ececec] rounded-[50%] absolute top-[30%]  right-[-27px] max-979:right-[-25px] max-800:right-[-23px] border-[1px] border-solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+                            <button onClick={() => { if(!loopConditionPartner) setLoopConditionPartner(true); partnerSwipRef.current.slidePrev() }} className="z-[20] overflow-hidden w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px]  bg-[#ececec] rounded-[50%] absolute top-[30%] left-[-27px] max-979:left-[-25px] max-800:left-[-23px]  border-[1px] border-solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-prev (1).svg" /></button>
+                            <button onClick={() => {  if(!loopConditionPartner) setLoopConditionPartner(true); partnerSwipRef.current.slideNext() }} className="z-[20] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] bg-[#ececec] rounded-[50%] absolute top-[30%]  right-[-27px] max-979:right-[-25px] max-800:right-[-23px] border-[1px] border-solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
 
                             <div className="overflow-hidden relative h-[74px] w-[100%]  ">
                                 <Swiper
                                     modules={[Autoplay]}
-                                    loop={true}
+                                    loop={loopConditionPartner}
                                     autoplay={
                                         { delay: 3000 }
                                     }
@@ -747,14 +758,13 @@ function Banner() {
 
                                 <h3 className="text-[36px] leading-[52px] max-1321:text-[32px] max-1321:leading-[49px] max-1200:text-[30px] max-1200:leading-[48px] max-649:text-[28px] max-649:leading-[46px] max-649:mb-[13px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
                                 <div className="flex gap-2 ">
-                                    <button onClick={() => { exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
-                                    <button onClick={() => { exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:right-[20px] max-480:right-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
+                                    <button onClick={() => { if(!loopConditionCategory) setLoopConditionCategory(true);    exploreCatRef.current.slidePrev() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
+                                    <button onClick={() => { if(!loopConditionCategory) setLoopConditionCategory(true);    exploreCatRef.current.slideNext() }} className="w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:right-[20px] max-480:right-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
                                 </div>
                             </div>
                             <div className="mt-[35px] ">
                                 <div>
                                     <div className="w-[100%] relative h-[392px] pt-[30px]   pr-[20px] pb-[20px] pl-[20px] max-374:px-[5px] max-374:pt-[5px] max-374:pb-[5] " >
-
 
                                         {/* in this we will add the cart */}
                                         <Swiper
@@ -762,6 +772,7 @@ function Banner() {
                                             autoplay={{ delay: 3000 }}
                                             slidesPerView={1}
                                             spaceBetween={36}
+                                            loop={loopConditionCategory}
                                             breakpoints={{
                                                 590: {
                                                     slidesPerView: 2
@@ -777,7 +788,7 @@ function Banner() {
                                                 }
                                             }}
                                             speed={500}
-                                            loop={true}
+                                           
                                             onSwiper={(swiper) => { exploreCatRef.current = swiper }}
                                             style={{ padding: "15px" }}
                                         >
