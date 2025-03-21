@@ -92,7 +92,7 @@ const CategoryDetails = () => {
                     <section className="m-0 max-800:pt-0 pt-[125px]">
                         <div className="relative">
                             <figure className=" z-[-1]   relative mainImageAfter">
-                                <img className="" src={`${ittrainingDataSerivice.backendUrl}/${category?.bannerImg}`} />
+                                <img className="max-649:w-[100%] max-649:object-cover max-649:h-[160px]  " src={`${ittrainingDataSerivice.backendUrl}/${category?.bannerImg}`} />
                             </figure>
                             <div className="wrapper">
                                 <div className="absolute top-[50%] transform translate-y-[-50%] ">
@@ -102,7 +102,7 @@ const CategoryDetails = () => {
                         </div>
                     </section>
                     {/* Category Banner Page End */}
-                    <section className="pt-[69px] pb-[77px] px-auto">
+                    <section className="pt-[69px] max-1400:pt-[50px] max-979:pt-[35px] pb-[77px] px-auto">
                         <div className="wrapper">
                             <div className="flex max-1200:flex-col justify-between ">
                                 <div className="w-[53%] max-1200:w-[100%] categoryDetailsWhat">
