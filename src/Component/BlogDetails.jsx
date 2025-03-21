@@ -180,8 +180,8 @@ function BlogDetails() {
     
                             </div>
                             {/* Show particular Blog Tags */}
-                            <div className="pt-[40px] border-t-[1px] border-solid border-[black] border-opacity-10 w-[100%]  flex">
-                                <div className="w-[70%] ">
+                            <div className="pt-[40px] border-t-[1px] border-solid border-[black] border-opacity-10 w-[100%]  flex max-767:flex-col">
+                                <div className="w-[70%] max-979:w-[65%] max-767:w-[100%] ">
                                     {
                                         blogDetails?.tags?.map((item, index) => (
                                             <div onClick={() => showTagsBlog(item)} key={index} className="mr-[3%] mt-0 ml-0 mb-5  inline-block  ">
@@ -197,7 +197,7 @@ function BlogDetails() {
                                     }
     
                                 </div>
-                                <div className="w-[30%] ">
+                                <div className="w-[30%] max-979:w-[35%] max-767:w-[100%] ">
                                     <p><strong>Share</strong></p>
                                     <div className="ml-[20px] mt-[1px] ">
                                         <div className="flex gap-[20px] ">
