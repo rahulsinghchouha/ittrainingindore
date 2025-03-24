@@ -67,7 +67,7 @@ const Sitemap = () => {
 
             {/* Sitemap section start */}
 
-            <section className="py-[100px] px-0">
+            <section className="py-[100px] px-0 ">
                 <div className="wrapper">
                     {/* menu categories and courses section */}
                     <div className="flex listBgImage">

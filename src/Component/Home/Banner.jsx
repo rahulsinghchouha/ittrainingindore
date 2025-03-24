@@ -21,7 +21,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ConvertAnchorToLink from "../Common/ConvertAnchorToLink";
 import { useContactDetails } from "../../Redux/rTKFunction";
 import { BsSearch } from "react-icons/bs";
-import { Content } from "antd/es/layout/layout";
+
 const { Panel } = Collapse;
 
 function Banner() {

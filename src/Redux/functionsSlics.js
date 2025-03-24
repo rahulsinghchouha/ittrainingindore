@@ -5,7 +5,7 @@ import { ittrainingDataSerivice } from "../Services/dataService";
 export const fetchCards = createAsyncThunk(
     'backendFunctions/fetchCards', //  Type prefix (action identifier) (required)
     async () => {
-        try {        
+        try {
             const response = await ittrainingDataSerivice.getCourseCard();
             if (response.status === 200)
                 return response.data?.data;
@@ -25,12 +25,12 @@ export const getPlacedStudent = createAsyncThunk(
     async () => {
         try {
             const response = await ittrainingDataSerivice.getStudentPlaced();
-           
+
             if (response.status === 200)
-               return response.data.data
-               
-                else {
-                    console.log("error");
+                return response.data.data
+
+            else {
+                console.log("error");
                 throw new Error(`Unexpected response status: ${response.status}`);
             }
         }
@@ -47,9 +47,9 @@ export const studentForm = createAsyncThunk(
         try {
             const response = await ittrainingDataSerivice.studentForm(values);
             if (response.status === 200)
-               return response.data.message;
-                else {
-                    console.log("error");
+                return response.data.success;
+            else {
+                console.log("error");
                 throw new Error(`form not submitted please try again: ${response.status}`);
             }
         }
@@ -62,22 +62,21 @@ export const studentForm = createAsyncThunk(
 
 export const getExploreCards = createAsyncThunk(
     'backendFunctions/getExploreCards',
-    async () =>{
-            try{
-                   const response =  await ittrainingDataSerivice.getExploreCards();
-                            
-                            if(response.status === 200)
-                                 return response.data.data;
-                            else{
-                                console.log("error");
-                                throw new Error(`Unexpected response status: ${response.status}`);
-                            }
-                }
-            catch(error)
-            {
-                    console.log(error);
-                    throw error;
+    async () => {
+        try {
+            const response = await ittrainingDataSerivice.getExploreCards();
+
+            if (response.status === 200)
+                return response.data.data;
+            else {
+                console.log("error");
+                throw new Error(`Unexpected response status: ${response.status}`);
             }
+        }
+        catch (error) {
+            console.log(error);
+            throw error;
+        }
     }
 )
 
@@ -94,14 +93,14 @@ const backendFunctionsSlice = createSlice({
     initialState: {
         webCard: [],
         stuPlaced: [],
-        exploreCat:[],
-        studentFormMessage:null,
+        exploreCat: [],
+        studentFormResponse: false,
         isLoadingWebCard: false,
         errorWebCard: null,
         isLoadingStuPlaced: false,
         errorStuPlaced: null,
         isLoadingExploreCat: false,
-        errorExploreCat: null, 
+        errorExploreCat: null,
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -131,7 +130,7 @@ const backendFunctionsSlice = createSlice({
             })
             //for Explore Category
             .addCase(getExploreCards.pending, (state) => {
-                state.isLoadingExploreCat = true;               
+                state.isLoadingExploreCat = true;
             })
             .addCase(getExploreCards.fulfilled, (state, action) => {
                 state.isLoadingExploreCat = false;
@@ -143,14 +142,14 @@ const backendFunctionsSlice = createSlice({
             })
             //for student Form 
             .addCase(studentForm.pending, (state) => {
-                               
+
             })
             .addCase(studentForm.fulfilled, (state, action) => {
-              
-                state.studentFormMessage = action.payload;
+
+                state.studentFormResponse = action.payload;
             })
             .addCase(studentForm.rejected, (state, action) => {
-                state.studentFormMessage = "data not saved please try again"
+                state.studentFormResponse = "data not saved please try again"
             })
     }
 })
