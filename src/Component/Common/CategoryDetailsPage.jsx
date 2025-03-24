@@ -135,6 +135,7 @@ const CategoryDetails = () => {
                                                     pauseOnMouseEnter: true
                                                 }
                                             }
+                                         
                                             speed={2000}
                                         >
                                             {

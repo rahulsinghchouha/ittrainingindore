@@ -10,6 +10,7 @@ import ReactPaginate from "react-paginate";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 import { BsSearch } from "react-icons/bs";
 import { Formik } from "formik";
+import ConvertAnchorToLink from "./Common/ConvertAnchorToLink";
 
 const Search = () => {
 
@@ -51,19 +52,25 @@ const Search = () => {
             navigate("/search/" + search);
     }
 
+     //Function to safely slice HTML Content
+     const stripHtmlTags = (htmlContent) => {
+        const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
+        return doc.body.textContent || "";
+    };
+
     return (
         <div>
 
             <Navbar />
             {/* Search Banner Page Start */}
-            <section className="m-0 pt-[125px]">
+            <section className="m-0 pt-[125px] max-800:pt-0">
                 <div className="relative">
                     <figure className=" z-[-1]  relative mainImageAfter">
-                        <img className="w-[100%]" src={`/2c68f8235b8b46e1b9266a86b93db66b599a92cb.webp`} />
+                        <img className=" max-649:w-[100%] max-649:object-cover max-649:h-[160px]" src={`/2c68f8235b8b46e1b9266a86b93db66b599a92cb.webp`} />
                     </figure>
                     <div className="wrapper">
                         <div className="absolute top-[50%] transform translate-y-[-50%] ">
-                            <h1 className="text-[54px] leading-[60px] font-extrabold text-[#ffffff] tracking-[1.62px] ">Search</h1>
+                            <h1 className=" max-374:leading-[28px] max-374:text-[22px] max-413:leading-[35px] max-413:text-[25px] max-567:text-[30px] max-567:leading-[40px] max-767:text-[38px] max-767:leading-[48px] max-979:text-[45px] max-979:leading-[55px] max-1024:text-[40px] max-1024:leading-[51px] max-1200:text-[44px] max-1200:leading-[56px] max-1321:text-[48px] max-1321:leading-[54px]  text-[54px] leading-[60px] font-extrabold text-[#ffffff] tracking-[1.62px] ">Search</h1>
                         </div>
 
                     </div>
@@ -71,14 +78,14 @@ const Search = () => {
             </section>
 
             {/* main search section start */}
-            <section className="pt-[85px] pb-[80px] ">
+            <section className=" max-1024:pt-[60px] max-800:pt-[40px]  pt-[85px] pb-[80px] ">
                 <div className="wrapper">
                     <div className="mt-0 mb-[50px] mx-auto">
 
                         <div>
                             <header className=" text-[#000] text-center">
                                 <div className="mt-[29px]">
-                                    <h1 className="text-[54px] leading-[60px] font-[800] text-[#1AAEF4] "> Search : <span className="text-[#000] ">“{searchValue}”</span></h1>
+                                    <h1 className=" max-480:text-[30px] max-480:leading-[39px] max-567:text-[34px] max-567:leading-[51px] max-649:text-[40px] max-649:leading-[50px] max-1200:text-[50px] max-1200:leading-[56px] text-[54px] leading-[60px] font-[800] text-[#1AAEF4] "> Search: <span className="text-[#000] "> “{searchValue}”</span></h1>
                                     <div className="mt-[29px] ">
                                         {
                                             courseFind?.length > 0 ? <p>We found {courseFind?.length} results for your search.</p>
@@ -121,25 +128,25 @@ const Search = () => {
                             </header>
                             {
                                 currentItems?.map((course, index) => (
-                                    <article className="w-[1200px] mx-auto my-0" key={index}>
+                                    <article className="w-[1200px] max-1321:w-[90%] mx-auto my-0" key={index}>
                                         <div>
                                             <div className=" mt-[30px] pt-[10px] pb-[25px] border-b-[1px] border-[#cecece]">
                                                 <header>
-                                                    <div className="mt-[29px] ">
+                                                    <div className="my-[29px] max-979:my-[5px] ">
 
-                                                        <button onClick={() => handleCourseDetails(course)} className="text-[#1AAEF4] font-bold text-[24px] leading-[30px] ">{course?.courseName}
+                                                        <button onClick={() => handleCourseDetails(course)} className=" max-374:text-[20px] max-374:leading-[29px] max-480:text-[22px]   max-649:text-[23px]  text-[#1AAEF4] font-bold text-[24px] leading-[30px] ">{course?.courseName}
                                                         </button>
 
                                                     </div>
                                                 </header>
-                                                <div className="flex items-center">
-                                                    <figure className="w-[27%]  mb-0 ml-0 mr-[30px] mt-[35px]  ">
+                                                <div className="flex max-979:flex-col items-center max-979:items-start">
+                                                    <figure className="w-[27%] max-979:w-[35%] max-800:w-[100%]  mb-0 ml-0 mr-[30px] mt-[35px]  ">
 
                                                         <img src={`${ittrainingDataSerivice.backendUrl}/${course?.img}`} />
                                                     </figure>
-                                                    <div className="w-[70%] ">
+                                                    <div className="w-[70%] max-979:w-[90%] max-800:w-[100%]  max-1400:w-[69%] max-979:mt-[30px] ">
                                                         <div className="">
-                                                            <p>{course.overview?.slice(0, 400)}...</p>
+                                                            <p>{stripHtmlTags(course.overview)?.slice(0, 400)}[...]</p>
 
 
                                                         </div>
