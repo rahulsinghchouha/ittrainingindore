@@ -232,11 +232,11 @@ function Banner() {
             <Navbar />
             <ToastContainer/>
 
-            {
+            {/* {
                 studentFormResponse ? toast.success("Your Data Submitted Succesfully We Will Call Back you in Next 24 Working Hour.",
                     {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 10000,
                         hideProgressBar: false,
                         closeOnClick: false,
                         pauseOnHover: true,
@@ -245,9 +245,9 @@ function Banner() {
                         theme: "light"                       
                     }
                 ) : <div></div>
-            }
+            } */}
 
-            <div className="max-800:pt-0  pt-[120px] ">
+            <div className="max-800:pt-0  pt-[104px] ">
                 {/* Home page banner start */}
                 <div className="home-banner-wr overflow-hidden">
                     <section className="wrapper overflow-hidden">
