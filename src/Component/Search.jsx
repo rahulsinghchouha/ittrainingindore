@@ -18,6 +18,9 @@ const Search = () => {
 
     const searchValue = useParams()?.searchvalue;
 
+    console.log("Search value",searchValue);
+    
+
     const dispatch = useDispatch();
     const webCard = useSelector((state) => state.backendFunction.webCard);
 

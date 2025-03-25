@@ -28,6 +28,8 @@ const { Panel } = Collapse;
 
 function Banner() {
 
+    const performanceCount = useRef(0);
+
     const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
 
     const navigate = useNavigate();
@@ -38,6 +40,9 @@ function Banner() {
         setActiveKey((prev) => (key.length === 0 ? prev : key));
     };
 
+    performanceCount.current += 1;
+    console.log("Performance Count",performanceCount.current);
+   
 
     const [homeData, setHomeData] = useState();
     const [partnerImage, setOurPartners] = useState([]);
@@ -46,6 +51,10 @@ function Banner() {
 
     const [ourStats, setOurStats] = useState();
 
+    
+    const [loopConditionStudent, setLoopConditionStudent] = useState(false);
+    const [loopConditionPartner, setLoopConditionPartner] = useState(false);
+    const [loopConditionCategory, setLoopConditionCategory] = useState(false);
     const dispatch = useDispatch();
     // const webCard = useSelector((state) => state.backendFunction.webCard);
     // const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
@@ -53,7 +62,7 @@ function Banner() {
     // const studentFormResponse = useSelector((state) => state.backendFunction.studentFormResponse);
 
     const { webCard, stuPlaced, exploreCat, studentFormResponse } = useSelector((state) => state.backendFunction);
-    console.log("studentFormResponse", studentFormResponse);
+   
     async function getHome() {
         try {
             const response = await ittrainingDataSerivice.getHome();
@@ -195,16 +204,7 @@ function Banner() {
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
 
-    // const [isSwiperReady, setIsSwiperReady] = useState(false);
-
-    // useEffect(() => {
-    //     if (partnerSwipRef.current) {
-    //         console.log("swiper ref");
-    //         setIsSwiperReady(true);
-    //     }
-    // }, [partnerSwipRef.current]); // Runs when Swiper is assigned
-
-
+   
 
     const handleSearch = (search) => {
         if (search?.query)
@@ -223,9 +223,7 @@ function Banner() {
 
     }
 
-    const [loopConditionStudent, setLoopConditionStudent] = useState(false);
-    const [loopConditionPartner, setLoopConditionPartner] = useState(false);
-    const [loopConditionCategory, setLoopConditionCategory] = useState(false);
+
 
     return (
         <div className="overflow-hidden">
@@ -782,7 +780,7 @@ function Banner() {
 
                                 <h3 className="text-[36px] leading-[52px] max-1321:text-[32px] max-1321:leading-[49px] max-1200:text-[30px] max-1200:leading-[48px] max-649:text-[28px] max-649:leading-[46px] max-649:mb-[13px] tracking-[0.72px] text-[#000000] font-[800] ">Explore the Categories</h3>
                                 <div className="flex gap-2  ">
-                                    <button onClick={() => { if (!loopConditionCategory) setLoopConditionCategory(true); console.log("You click on prev button of category section"); exploreCatRef.current.slidePrev() }} className="z-[10] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
+                                    <button onClick={() => { if (!loopConditionCategory) setLoopConditionCategory(true); exploreCatRef.current.slidePrev() }} className="z-[10] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:left-[20px]  max-480:left-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]  hover:border-[1px] solid border-[#0000001a] flex justify-center items-center "><img src="/exolore-slider-prev (1).svg" /></button>
                                     <button onClick={() => { if (!loopConditionCategory) setLoopConditionCategory(true); exploreCatRef.current.slideNext() }} className=" z-[10] w-[54px] h-[54px] max-649:w-[48px] max-649:h-[48px] max-590:absolute max-590:top-[70%] max-590:right-[20px] max-480:right-[-5px]  max-590:bg-[#cecece] hover:bg-[#ececec] rounded-[50%]   hover:border-[1px] solid border-[#0000001a] flex justify-center items-center"><img src="/exolore-slider-next.svg" /></button>
                                 </div>
                             </div>
