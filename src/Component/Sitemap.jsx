@@ -67,10 +67,10 @@ const Sitemap = () => {
 
             {/* Sitemap section start */}
 
-            <section className="py-[100px] px-0 ">
+            <section className="py-[100px] max-1200:py-[80px] max-800:py-[65px] max-480:py-[50px] px-0 ">
                 <div className="wrapper">
                     {/* menu categories and courses section */}
-                    <div className="flex listBgImage">
+                    <div className="flex listBgImage flex-wrap">
                         <div >
                             <h4 className="text-[20px] leading-[30px] mb-[23px] ">Our Menu</h4>
                             <ul>
@@ -99,7 +99,7 @@ const Sitemap = () => {
 
                             </ul>
                         </div>
-                        <div className="ml-[50px] pl-[50px] pb-[50px] pt-0 pr-0 border-l-[1px] border-solid border-[#70707033]">
+                        <div className="max-413:mt-[30px] max max-413:pl-0 max-413:border-l-0 max-413:ml-0 max-413:w-[100%] max-413:pt-[30px] max-413:border-t-[1px] max-413:border-solid max-413:border-[#7a7a7a33] ml-[50px] pl-[50px] pb-[50px] pt-0 pr-0 border-l-[1px] border-solid border-[#70707033]">
                             <h4 className="text-[20px] leading-[30px] mb-[23px] ">Courses Categories</h4>
                             <ul>
                                 {
@@ -116,7 +116,7 @@ const Sitemap = () => {
 
 
                         </div>
-                        <div className="ml-[50px] pl-[50px] pb-[50px] pt-0 pr-0 border-l-[1px] border-solid border-[#70707033]">
+                        <div className="max-800:pl-0 max-800:border-l-0 max-800:ml-0 max-800:w-[100%] max-800:pt-[30px] max-800:border-t-[1px] max-800:border-solid max-800:border-[#7a7a7a33] ml-[50px] pl-[50px] pb-[50px] pt-0 pr-0 border-l-[1px] border-solid border-[#70707033]">
                             <h4 className="text-[20px] leading-[30px] mb-[23px] ">All Courses</h4>
                             <ul>
                                 {
@@ -137,7 +137,7 @@ const Sitemap = () => {
                             {
                                 blog?.map((blog, index) => (
                                     <li key={index} className="mt-[24px]">
-                                        <button onClick={() => blogDetails(blog)} className=" ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" >{blog?.heading}</button>
+                                        <button onClick={() => blogDetails(blog)} className=" text-start ml-[30px] text-[16px] leading-[28px] font-[400] inline-block" >{blog?.heading}</button>
                                     </li>))
                             }
 
@@ -147,7 +147,7 @@ const Sitemap = () => {
                     {/* side image button */}
 
                     <div className="pt-[40px] border-t-[1px] border-solid border-[#7a7a7a33] mt-[50px] ">
-                        <button  className="cursor-pointer ml-[22px] pt-[13px] pb-[13px] pl-[40px] pr-[40px]
+                        <button  className="max-413:ml-0 max-649:py-[8px] max-649:px-[20px] cursor-pointer ml-[22px] pt-[13px] pb-[13px] pl-[40px] pr-[40px]
                                                              text-[16px] leading-[21px] inputGradient hover:bg-[#1aeef4] font-[700] text-[#ffffff] rounded-[24px] relative z-10 focus:outline-none  transition duration-500 ease-linear hover:bg-[linear-gradient(180deg,_#1AAEF4_100%,_#1AAEF4_0%,_#0096EB_0.1%)]">
 
                             Sitemap
