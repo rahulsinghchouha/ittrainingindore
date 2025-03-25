@@ -6,7 +6,6 @@ import { faInstagram, faTwitter, faPinterest } from "@fortawesome/free-brands-sv
 import "animate.css";
 import { Link, NavLink } from "react-router-dom";
 import { useContactDetails } from "../../Redux/rTKFunction";
-import BurgerMenu from "./BurgerMenu";
 
 
 function Navbar() {

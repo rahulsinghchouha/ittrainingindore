@@ -80,7 +80,7 @@ const Search = () => {
             {/* main search section start */}
             <section className=" max-1024:pt-[60px] max-800:pt-[40px]  pt-[85px] pb-[80px] ">
                 <div className="wrapper">
-                    <div className="mt-0 mb-[50px] mx-auto">
+                    <div className="mt-0 mx-auto">
 
                         <div>
                             <header className=" text-[#000] text-center">
@@ -111,8 +111,8 @@ const Search = () => {
                                                         {({ handleSubmit, handleChange, values, errors }) => (
                                                             <form className="w-[98%]" onSubmit={handleSubmit}>
                                                                 <div className="flex w-[95%] ml-auto">
-                                                                    <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} bg-[#ffffff] py-[15px]  px-[30px] w-[92%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
-                                                                    <button type="submit" className="  bg-[#1aaef4] hover:bg-[#000]    w-[8%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
+                                                                    <input type="text" value={values?.query} onChange={handleChange} name="query" placeholder="Search Course" className={` ${errors?.query ? "border-b-[1px] border-solid border-red-500" : ""} max-480:py-[13px] max-480:w-[75%] max-649:w-[80%] max-979:w-[85%]  bg-[#ffffff] py-[15px]  px-[30px] w-[92%] rounded-tl-[27px] rounded-r-[0px] rounded-b-[0px] rounded-l-[27px] search-shadow focus:outline-none placeholder:text-[#000] placeholder:text-opacity-30 font-[400]  focus:placeholder:text-transparent`} />
+                                                                    <button type="submit" className="  max-480:py-[13px] bg-[#1aaef4] hover:bg-[#000]  max-480:w-[23%] max-649:w-[18%] max-767:w-[15%]  max-979:w-[12%]    w-[8%] rounded-r-full items-center cursor-pointer transition-all duration-150 ease-linear ">
                                                                         <BsSearch style={{ color: "white", fontSize: "20px", marginLeft: "25px" }} />
                                                                     </button>
                                                                 </div>
