@@ -55,7 +55,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                         <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
                             <div className="mb-[15px] ">
                                 <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                    <button onClick={() => handleCourseDetails(card)}>
+                                    <button className="text-start" onClick={() => handleCourseDetails(card)}>
                                         {card.courseName}
                                     </button>
                                 </h4>
@@ -121,7 +121,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                                             <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] text-left">
                                                 <div className="mb-[15px] ">
                                                     <h4 className="text-[18px] leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                                        <button onClick={() => handleCourseDetails(card)}>
+                                                        <button className="text-start" onClick={() => handleCourseDetails(card)}>
                                                             {card.courseName}
                                                         </button>
 
@@ -161,7 +161,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                         <div className="pt-[30px] pb-[30px] pl-[28px] pr-[28px] max-1200:py-[25px] max-1200:px-[20px] max-413:pt-[25px] max-413:pb-[15px] max-413:px-[13px] text-left">
                             <div className="mb-[15px] ">
                                 <h4 className="text-[18px] max-1321:text-[17px] max-1024:text-[18px] max-413:text-[16px] text-left leading-[23px] text-[#000000] font-[700] hover:text-[#1AAEF4] transition-all delay-75 ease-linear ">
-                                    <button onClick={() => handleCourseDetails(card)}>
+                                    <button className="text-start" onClick={() => handleCourseDetails(card)}>
                                         {card.courseName}
                                     </button>
                                 </h4>

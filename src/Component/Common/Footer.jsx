@@ -229,7 +229,7 @@ const Footer = ({homePage = false}) => {
                 <div style={{ background: `url('/footer-newsletter-bg.jpg')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
                     <div className="pt-[42px] pb-[40px] pl-0 pr-0 bg-[#1aaef4e6]">
                         <div className="wrapper">
-                            <div className={`w-[35%] max-480:w-[95%] max-413:w-[99%] max-590:w-[85%] max-649:w-[75%] max-1400:w-[37.2%]  max-1200:w-[45%] max-979:w-[65%]   max-1024:text-center max-1024:mx-auto  mr-[184px] max-1200:mr-[10px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] "}`}
+                            <div className={`w-[35%] max-480:w-[95%] max-413:w-[99%] max-590:w-[85%] max-649:w-[75%] max-1400:w-[37.2%]  max-1200:w-[45%] max-979:w-[65%]   max-1024:text-center max-1024:mx-auto  mr-[184px] max-1200:mr-[10px] ml-auto mt-0 mb-0 ${isFooterMailForm ? "transform duration-[2s]" : "transform translate-x-[30px] max-567:translate-x-[0px]"}`}
                                 ref={footerMailFormRef}
                                 style={{ animationDuration: "3s" }}
                             >
