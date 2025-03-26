@@ -31,16 +31,12 @@ function BlogDetails() {
 
     const blogDetail = useLocation()?.state;
 
-    useEffect(() => {
-        dispatch(getExploreCards());
-    }, [dispatch])
-
+   
     async function fetchBlog() {
         try {
 
             const response = await ittrainingDataSerivice.getBlogs();
-            
-            //console.log("Blog ", response);
+    
             if (response.status === 200) {
                 setLatestBlog(response.data.data);
             }
@@ -83,6 +79,13 @@ function BlogDetails() {
     }, [])
 
     const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
+
+
+    useEffect(() => {
+        if(!exploreCat)
+              dispatch(getExploreCards());
+    }, [dispatch])
+
 
     useMemo(() => {if(blogDetail) setBlogDetails(blogDetail)}, [blogDetail])
     //console.log(blog);

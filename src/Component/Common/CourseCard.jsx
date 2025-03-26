@@ -36,8 +36,6 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
     return (
         <div className="flex flex-wrap justify-center items-center w-[100%] max-w-[100%] relative">
 
-
-
             {
                 isDesktop && square && homePage && webCard?.slice(0, cardLimit).map((card, index) => (
                     <div

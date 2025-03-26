@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useRef } from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
@@ -7,7 +7,6 @@ import { ittrainingDataSerivice } from "../../Services/dataService";
 import ConvertAnchorToLink from "./ConvertAnchorToLink";
 import NotFoundResponse from "./NotFoundResponse";
 import { useParams } from "react-router-dom";
-
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -48,7 +47,7 @@ const CategoryDetails = () => {
             getCategoryByName();
         }
     }, [categories])
-    //related 
+    
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -61,7 +60,7 @@ const CategoryDetails = () => {
         [allCourse, categories]
     );
     function handleCourseDetails(course) {
-        // console.log("card", course);
+      
         navigate("/course/" + course?.courseName?.replace(/\s|\/+|\?/g, "-"), { state: course });
     }
 
@@ -71,17 +70,9 @@ const CategoryDetails = () => {
         return doc.body.textContent || "";
     };
 
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width,setWidth] = useState(window.innerWidth > 978);
 
-    useEffect(() => {
-
-        const handleResize = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResize);
-        console.log("inner Width", width);
-        return window.removeEventListener("resize", handleResize);
-
-    }, [])
-
+ 
 
 
     return (
@@ -185,7 +176,7 @@ const CategoryDetails = () => {
                             </div>
                             {/* Category features card */}
                             {
-                                width > 978 ?
+                                width  ?
                                     <div className="mb-[15px] text-center m-4">
                                         <div>
                                             {/* category features inner */}

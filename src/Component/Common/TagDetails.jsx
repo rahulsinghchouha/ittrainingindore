@@ -16,9 +16,6 @@ const TagDetails = () => {
     const params = useParams();
 
     const [tag, setTag] = useState();
-    // const [currentPage, setCurrentPage] = useState(0);
-
-    console.log("tag", tag);
 
     const [blog, setBlog] = useState([]);
     const [banner, setBanner] = useState({});
@@ -62,7 +59,7 @@ const TagDetails = () => {
         // Check if any tag matches the provided tag
         return blog?.tags?.some(element => element === tag);
     });
-    console.log("filterBlog", filterBlog);
+
 
     useEffect(() => {
         fetchBlog();

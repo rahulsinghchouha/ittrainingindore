@@ -40,8 +40,6 @@ function Banner() {
         setActiveKey((prev) => (key.length === 0 ? prev : key));
     };
 
-    performanceCount.current += 1;
-    console.log("Performance Count",performanceCount.current);
    
 
     const [homeData, setHomeData] = useState();
@@ -51,23 +49,20 @@ function Banner() {
 
     const [ourStats, setOurStats] = useState();
 
-    
+
     const [loopConditionStudent, setLoopConditionStudent] = useState(false);
     const [loopConditionPartner, setLoopConditionPartner] = useState(false);
     const [loopConditionCategory, setLoopConditionCategory] = useState(false);
     const dispatch = useDispatch();
-    // const webCard = useSelector((state) => state.backendFunction.webCard);
-    // const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
-    // const exploreCat = useSelector((state) => state.backendFunction.exploreCat);
-    // const studentFormResponse = useSelector((state) => state.backendFunction.studentFormResponse);
+
 
     const { webCard, stuPlaced, exploreCat, studentFormResponse } = useSelector((state) => state.backendFunction);
-   
+
     async function getHome() {
         try {
             const response = await ittrainingDataSerivice.getHome();
             if (response.status === 200) {
-                console.log("home data ", response.data.data);
+
                 setHomeData(response.data.data);
             }
         }
@@ -120,9 +115,13 @@ function Banner() {
     }, []);
 
     useEffect(() => {
+
         dispatch(fetchCards());
+
         dispatch(getPlacedStudent());
+
         dispatch(getExploreCards());
+
     }, [dispatch])
 
 
@@ -204,7 +203,7 @@ function Banner() {
     const partnerSwipRef = useRef(null);
     const exploreCatRef = useRef(null);
 
-   
+
 
     const handleSearch = (search) => {
         if (search?.query)
@@ -228,7 +227,7 @@ function Banner() {
     return (
         <div className="overflow-hidden">
             <Navbar />
-            <ToastContainer/>
+            <ToastContainer />
 
             {/* {
                 studentFormResponse ? toast.success("Your Data Submitted Succesfully We Will Call Back you in Next 24 Working Hour.",

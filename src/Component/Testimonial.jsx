@@ -25,8 +25,7 @@ const Testimonial = () => {
     const dispatch = useDispatch();
 
     const stuPlaced = useSelector((state) => state.backendFunction.stuPlaced);
-    // ref.current += 1;
-    //console.log("ref count -> ", ref.current);
+   
 
     useEffect(() => {
         dispatch(getPlacedStudent());
@@ -36,7 +35,7 @@ const Testimonial = () => {
     async function getBanner() {
         try {
             const response = await ittrainingDataSerivice.getTestimonialBanner();
-            console.log("response data", response.data)
+           
 
             if (response.status === 200)
                 setBanner(response.data?.data);

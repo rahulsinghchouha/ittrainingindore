@@ -10,39 +10,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { studentForm } from "../Redux/functionsSlics";
 import { useInView } from "react-intersection-observer";
 import { ittrainingDataSerivice } from "../Services/dataService";
-import { useEffect, useState } from "react";
+
 //import DOMPurify from "dompurify";
 import convertAnchorToLink from "./Common/ConvertAnchorToLink";
+import { useContactDetails } from "../Redux/rTKFunction";
 
 
 const Contact = () => {
 
     const dispatch = useDispatch();
+
     async function traineeDetailsForm(values) {
         dispatch(studentForm(values));
     }
 
-    const [contactUs, setContactUs] = useState();
-
-    async function getContactUs() {
-        try {
-            const response = await ittrainingDataSerivice.getContactUs();
-
-            if (response.status === 200) {
-                setContactUs(response.data.data);
-            }
-
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        getContactUs();
-    }, [])
-
-
+  
+    const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
+  
     const { ref: yourOneClick, inView: isYourOneClick } = useInView({
         threshold: 0.1,
         triggerOnce: true
@@ -56,13 +40,13 @@ const Contact = () => {
         threshold: 0.1,
         triggerOnce: true
     })
-    // Destructure the data object to extract the required properties
+    
 
 
     return (
         <div>
             <Navbar />
-            <PageBanner heading={"Contact Us"} img={`${ittrainingDataSerivice.backendUrl}/${contactUs?.bannerImg}`} />
+            <PageBanner heading={"Contact Us"} img={`${ittrainingDataSerivice.backendUrl}/${contactUsData?.data?.bannerImg}`} />
 
             <section className="py-[80px] px-0 max-1024:pt-[80px] max-979:pt-[45px]  ">
                 <div className="wrapper">
@@ -70,7 +54,7 @@ const Contact = () => {
                         ref={yourOneClick}
                         style={{ animationDuration: "5s" }}
                     >
-                        {convertAnchorToLink(String(contactUs?.contactUsHead))}
+                        {convertAnchorToLink(String(contactUsData?.data?.contactUsHead))}
 
                   </div>
 
@@ -90,7 +74,7 @@ const Contact = () => {
                             <div className="mt-[15px] text-center ">
                                 <p>
                                     <a className="hover:text-[#009ce5] transition-all duration-300 ease-out cursor-pointer">
-                                        {contactUs?.officeAddress}
+                                        {contactUsData?.data?.officeAddress}
                                     </a>
                                 </p>
 
@@ -112,7 +96,7 @@ const Contact = () => {
                                 <ul>
                                     <li className="my-[13px] ">Call On: <a href="tel: +91 8269600400" className="hover:text-[#1AAEF4] transition-all duration-300 ease-out"
 
-                                    >+91 {contactUs?.contactUsNumber}</a></li><li className="my-[13px] ">Email Us: <a href={`mailto: ${contactUs?.contactUsEmail}`} className="hover:text-[#1AAEF4] transition-all duration-300 ease-out">{contactUs?.contactUsEmail}</a></li>
+                                    >+91 {contactUsData?.data?.contactUsNumber}</a></li><li className="my-[13px] ">Email Us: <a href={`mailto: ${contactUsData?.data?.contactUsEmail}`} className="hover:text-[#1AAEF4] transition-all duration-300 ease-out">{contactUsData?.data?.contactUsEmail}</a></li>
                                 </ul>
 
 
@@ -131,7 +115,7 @@ const Contact = () => {
                             </div>
                             <div className="mt-[15px] text-center ">
                                 <p className="w-[70%] max-374:w-[100%] max-480:w-[85%] max-800:w-[72%] max-979:w-[61%] max-1024:w-[85%] max-1321:w-[90%] max-1200:w-[95%] mx-auto">
-                                    {contactUs?.officeTiming}
+                                    {contactUsData?.data?.officeTiming}
                                 </p>
                             </div>
                         </div>

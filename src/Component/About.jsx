@@ -25,11 +25,11 @@ const About = () => {
 
     async function getAboutData() {
         try {
-            console.log("about us call");
+          
             const response = await ittrainingDataSerivice.getAboutUs();
 
             if (response.status === 200) {
-                console.log(response.data.data)
+               
                 setAboutData(response.data.data);
             }
         }

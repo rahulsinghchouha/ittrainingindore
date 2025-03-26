@@ -24,14 +24,13 @@ const Blog = () => {
     const courses = useSelector((state) => state.backendFunction.webCard)
 
     const [blog, setBlog] = useState([]);
-    const [bannerImg,setBannerImg] = useState();
+    const [bannerImg, setBannerImg] = useState();
     const [tag, setTag] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
 
     const itemsPerPage = 6;
     //total pages
     const totalPages = Math.ceil(blog.length / 6);
-
 
     const currentItems = blog.slice(currentPage * itemsPerPage, currentPage * itemsPerPage + itemsPerPage);
 
@@ -65,16 +64,15 @@ const Blog = () => {
         }
 
     }
-    async function banner(){
-        try{
-                const response = await ittrainingDataSerivice.getBlogBanner();
-                if(response.status === 200)
-                    setBannerImg(response.data.data);
+    async function banner() {
+        try {
+            const response = await ittrainingDataSerivice.getBlogBanner();
+            if (response.status === 200)
+                setBannerImg(response.data.data);
 
         }
-        catch(error)
-        {
-            console.log("error to get course details banner",error);
+        catch (error) {
+            console.log("error to get course details banner", error);
         }
     }
     useEffect(() => {
@@ -84,13 +82,17 @@ const Blog = () => {
     }, [])
 
     useEffect(() => {
-        dispatch(getExploreCards());
-        dispatch(fetchCards());
-    }, [dispatch])
+        if (!exploreCat) {
+            dispatch(getExploreCards());
+        }
+        if (!courses) {
+            dispatch(fetchCards());
+        }
+    }, [dispatch, exploreCat, courses])
 
     function blogDetails(blogDetail) {
 
-        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g,'-'), { state: blogDetail });
+        navigate("/" + blogDetail.heading?.replace(/\s|\/+/g, '-'), { state: blogDetail });
 
     }
 
@@ -119,11 +121,11 @@ const Blog = () => {
 
     function handleCourseDetails(course) {
 
-        navigate("/course/" + course.courseName?.replace(/\s|\/+/g,"-"), { state: course });
+        navigate("/course/" + course.courseName?.replace(/\s|\/+/g, "-"), { state: course });
     }
 
     function showTagsBlog(tag) {
-        navigate("/tag/" + tag?.replace(/\s|\/+/g,'-'));
+        navigate("/tag/" + tag?.replace(/\s|\/+/g, '-'));
     }
 
 
@@ -148,8 +150,8 @@ const Blog = () => {
                             <div className="flex flex-wrap">
                                 {currentItems?.map((blog, index) => {
                                     const date = new Date(blog?.updatedAt)
-                                   
-                                     return <div key={index} className={` w-[47.7%] max-567:w-[80%] max-567:mx-auto max-480:w-[90%] max-649:mt-0 max-649:mx-0 max-649:w-[70%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
+
+                                    return <div key={index} className={` w-[47.7%] max-567:w-[80%] max-567:mx-auto max-480:w-[90%] max-649:mt-0 max-649:mx-0 max-649:w-[70%] pt-[10px]  mb-[38px] ml-0 z-[20] hover:translate-y-[-10px] duration-300 ease-linear ${index % 2 == 0 ? "mr-[4.4%]" : ""}`}>
                                         <div className=" ">
                                             <figure>
                                                 <img src={`${ittrainingDataSerivice.backendUrl}/${blog.img}`} className="max-w-[100%] max-h-[100%]  rounded-t-[23px] rounded-b-none " alt="IT Courses after 12th" />
@@ -160,7 +162,7 @@ const Blog = () => {
                                             <h4 className="text-[#b0b0b0] text-[14px] leading-[20px] font-[500] flex items-center">
                                                 <span><FaRegClock style={{ fontSize: '17px' }} /></span> <span className="ml-[7px]">
 
-                                                   {date.toLocaleString('en-US',{month:'long'})}, {date.getFullYear()}</span>
+                                                    {date.toLocaleString('en-US', { month: 'long' })}, {date.getFullYear()}</span>
 
                                             </h4>
                                             <div className="mt-[14px]">
@@ -179,7 +181,7 @@ const Blog = () => {
                                                 <div className="ml-[15px]">
                                                     <h4>
                                                         <Link to="/" className="text-[16px]  max-413:leading-[19px] max-767:text-[15px] max-767:leading-[20px]  leading-[21px] text-[#b0b0b0] font-[600] hover:text-[#009ce5] cursor-pointer transition-all duration-200 ease-out" > IT Training Indore</Link>
-                                                        </h4>
+                                                    </h4>
 
                                                 </div>
 
@@ -276,7 +278,7 @@ const Blog = () => {
                                                 <div className="mt-[29px] flex items-center" key={index}>
                                                     <div className="w-[77px] rounded-[10px]">
                                                         <figure className={`w-[77px] h-[75px] max-767:w-[65px] max-767:h-[65px] ${index % 4 === 0 && "bg-[#FFF7DB]" || index % 4 === 1 && "bg-[#D9F3FF]" || index % 4 === 2 && "bg-[#E3FFE0]" || index % 4 === 3 && "bg-[#ECE3FF]"} text-center flex  justify-center items-center rounded-[10px] `}>
-                                                            <button onClick={() => categoryDetails(item)}  className="block">
+                                                            <button onClick={() => categoryDetails(item)} className="block">
                                                                 <img className="w-[35px] " src={`${ittrainingDataSerivice.backendUrl}/${item.img}`} />
                                                             </button>
 

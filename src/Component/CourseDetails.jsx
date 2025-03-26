@@ -32,11 +32,14 @@ const CourseDetails = () => {
 
     let { courseName } = useParams();
     courseName = courseName?.split("-").join(" ");
-    console.log("course name", courseName);
+
 
     const courseDetails = location?.state;
-    console.log("course details", courseDetails);
-    useMemo(() => { if (courseDetails) setCourse(courseDetails) }, [courseDetails]);
+
+    useEffect(() => {
+         if (courseDetails)
+             setCourse(courseDetails)
+     }, [courseDetails]);
 
     const allCourse = useSelector((state) => state.backendFunction.webCard);
 
@@ -46,7 +49,7 @@ const CourseDetails = () => {
             return allCourse?.find(course => course?.courseName?.toLowerCase().includes(courseName?.toLowerCase()));
         }
     }, [allCourse, courseName])
-    console.log("query params", courseQueryParam);
+
 
     useMemo(() => { if (courseQueryParam) setCourse(courseQueryParam) }, [courseQueryParam]);
 
@@ -78,7 +81,7 @@ const CourseDetails = () => {
         threshold: 0.5,
         triggerOnce: true,
     });
-    console.log("course", course);
+  
     return (
 
         <div>
@@ -319,21 +322,21 @@ const CourseDetails = () => {
                                         <div className="mb-[15px] flex justify-center items-center gap-5 ">
                                             <div className="flex max-979:gap-4 max-649:gap-3 max-480:gap-2 max-413:gap-1">
                                                 <a href="/" className="h-[40px]  text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] w-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full  z-0 relative overflow-hidden hover:text-[#000] text-[#1877F2] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faFacebookF} style={{  fontWeight: 400, }} />
+                                                    <FontAwesomeIcon icon={faFacebookF} style={{ fontWeight: 400, }} />
 
                                                 </a>
                                                 <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#0077B5] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faLinkedinIn} style={{  fontWeight: 400 }} />
+                                                    <FontAwesomeIcon icon={faLinkedinIn} style={{ fontWeight: 400 }} />
                                                 </a>
                                                 <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full  z-0  relative overflow-hidden hover:text-[#000] text-[#E1306C] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faInstagram} style={{  fontWeight: 400 }} />
+                                                    <FontAwesomeIcon icon={faInstagram} style={{ fontWeight: 400 }} />
                                                 </a>
                                                 <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full relative  z-0  overflow-hidden  hover:text-[#000] text-[#1DA1F2] flex justify-center items-center socialIcon">
-                                                    <FontAwesomeIcon icon={faTwitter} style={{  fontWeight: 400 }} />
+                                                    <FontAwesomeIcon icon={faTwitter} style={{ fontWeight: 400 }} />
 
                                                 </a>
                                                 <a href="/" className="h-[40px] w-[40px] text-[18px] max-1200:text-[17px] max-1200:leading-[35px] leading-[40px] max-1200:h-[35px] max-1200:w-[35px] rounded-full relative  z-0  overflow-hidden hover:text-[#000] text-[#E60023] flex justify-center items-center mr-[6px] socialIcon">
-                                                    <FontAwesomeIcon icon={faPinterest} style={{  fontWeight: 400 }} />
+                                                    <FontAwesomeIcon icon={faPinterest} style={{ fontWeight: 400 }} />
                                                 </a>
                                             </div>
 
@@ -354,7 +357,7 @@ const CourseDetails = () => {
                     {/* course details section end */}
 
                     {/* related course section start */}
-                    { relatedCourses.length > 0 && 
+                    {relatedCourses.length > 0 &&
                         <section className="py-[50px] px-0" id="related-courses">
                             <div className="wrapper">
                                 <div>

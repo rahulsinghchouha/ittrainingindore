@@ -12,7 +12,7 @@ function Navbar() {
     const [dashboardOpen, setDashboradOpen] = useState(false);
 
     const { data: contactUsData, error, isLoading } = useContactDetails(); //using the hook to fetch the data
-    console.log("contact data ", contactUsData);
+  
     return (
         <header className="w-[100%] border-b-[1px] border-[white]  max-800:static fixed  bg-[#fff] z-[111]  box-border  shadow-navShadow     ">
             <div className="pt-[17px] pb-[17px] max-800:pt-[10px] max-800:pb-0">
