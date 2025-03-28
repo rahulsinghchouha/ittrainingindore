@@ -14,6 +14,7 @@ import { ittrainingDataSerivice } from "../Services/dataService";
 import ConvertAnchorToLink from "./Common/ConvertAnchorToLink";
 
 
+
 function Course() {
 
     const [squareCard, setSquareCard] = useState(true);
@@ -21,6 +22,8 @@ function Course() {
     const [cardLimit, setCardLimit] = useState(12);
     const [courses, setCourses] = useState([]);
     const [bannerImg,setBannerImg] = useState({});
+
+  
 
 
     const dispatch = useDispatch();

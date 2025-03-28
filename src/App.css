@@ -1636,3 +1636,21 @@ h4 {
   border: 1px solid #1AAEF4;
   border-radius: 50%;
 }
+
+
+.loader-img {  
+  animation: loaderImg 1.5s ease-in forwards;
+}
+
+
+@keyframes loaderImg  {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+

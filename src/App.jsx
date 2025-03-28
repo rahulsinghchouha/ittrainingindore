@@ -13,6 +13,7 @@ import TagDetails from "./Component/Common/TagDetails";
 import Sitemap from './Component/Sitemap';
 import Search from './Component/Search';
 import NotFoundResponse from './Component/Common/NotFoundResponse';
+import Loader from './Component/Common/Loader';
 
 
 
@@ -27,6 +28,7 @@ function App() {
           {/* static Routes */}
           <Route path='/' element={<Banner />} />
           <Route path='/courses' element={<Course/>}/>
+          <Route path='/loader' element={<Loader/>}/>
           <Route path='/about-us' element={<About/>} />
           <Route path='/blogs' element={<Blog/>}/>
           <Route path='/testimonials' element={<Testimonial/>}/> 
