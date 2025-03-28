@@ -229,14 +229,14 @@ function BlogDetails() {
                                                             display: 'inline-block',
                                                             opacity: 1,
                                                             float: 'left',
-                                                            fontSize: '32px',
+                                                          
                                                             boxShadow: 'none',
                                                             fontSize: '16px',
                                                             padding: '0 4px',
                                                             verticalAlign: 'middle',
                                                             backgroundRepeat: 'repeat',
                                                             overflow: 'hidden',
-                                                            padding: 0,
+                                                           
                                                             cursor: 'pointer',
                                                             boxSizing: 'content-box',
                                                         }}
@@ -282,14 +282,14 @@ function BlogDetails() {
                                                             display: 'inline-block',
                                                             opacity: 1,
                                                             float: 'left',
-                                                            fontSize: '32px',
+                                                       
                                                             boxShadow: 'none',
                                                             fontSize: '16px',
                                                             padding: '0 4px',
                                                             verticalAlign: 'middle',
                                                             backgroundRepeat: 'repeat',
                                                             overflow: 'hidden',
-                                                            padding: 0,
+                                                           
                                                             cursor: 'pointer',
                                                             boxSizing: 'content-box',
                                                         }}
@@ -336,14 +336,14 @@ function BlogDetails() {
                                                             display: 'inline-block',
                                                             backgroundColorOpacity: 0.1,
                                                             float: 'left',
-                                                            fontSize: '32px',
+                                                           
                                                             boxShadow: 'none',
                                                             fontSize: '16px',
                                                             padding: '0 4px',
                                                             verticalAlign: 'middle',
                                                             backgroundRepeat: 'repeat',
                                                             overflow: 'hidden',
-                                                            padding: 0,
+                                                          
                                                             cursor: 'pointer',
                                                             boxSizing: 'content-box',
                                                         }}
@@ -390,14 +390,14 @@ function BlogDetails() {
                                                             display: 'inline-block',
                                                             opacity: 1,
                                                             float: 'left',
-                                                            fontSize: '32px',
+                                                            
                                                             boxShadow: 'none',
                                                             fontSize: '16px',
                                                             padding: '0 4px',
                                                             verticalAlign: 'middle',
                                                             backgroundRepeat: 'repeat',
                                                             overflow: 'hidden',
-                                                            padding: 0,
+                                                           
                                                             cursor: 'pointer',
                                                             boxSizing: 'content-box',
                                                         }}

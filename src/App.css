@@ -129,7 +129,7 @@ body {
 }
 
 .search-submit {
-  background: url("../public/Home/form-search-icon.svg") no-repeat;
+  background: url("/Home/form-search-icon.svg") no-repeat;
 }
 
 .search-shadow {
@@ -143,7 +143,7 @@ body {
 
 /* 
 .banner-images{
-  background: url("../public/Home/banner-image-bg.svg") no-repeat 84% 25% ; 
+  background: url("/Home/banner-image-bg.svg") no-repeat 84% 25% ; 
   visibility: visible;
   animation-duration: 1s;
 } */
@@ -167,7 +167,7 @@ body {
   background-size: contain;
   background-position: center;
   object-fit: cover;
-  background: url("../public/Home/keystroke-from-bg.svg") no-repeat 0% ;
+  background: url("/Home/keystroke-from-bg.svg") no-repeat 0% ;
   left: 0;
   top: 0;
 } */
@@ -185,27 +185,27 @@ body {
 }
 
 .formUserIcon {
-  background: url("../public/Home/form-user-icon.svg") no-repeat 0px 50%;
+  background: url("/Home/form-user-icon.svg") no-repeat 0px 50%;
 }
 
 .formEmailIcon {
-  background: url("../public/Home/form-email-icon.svg") no-repeat 0px 50%;
+  background: url("/Home/form-email-icon.svg") no-repeat 0px 50%;
 }
 
 .formPhoneIcon {
-  background: url("../public/Home/form-call-icon.svg") no-repeat 0px 50%;
+  background: url("/Home/form-call-icon.svg") no-repeat 0px 50%;
 }
 
 .formSelectCourse {
-  background: url("../public/Home/form-course-icon.svg") no-repeat 0px 50%;
+  background: url("/Home/form-course-icon.svg") no-repeat 0px 50%;
 }
 
 .formSelectCalender {
-  background: url("../public/Home/join-calendar.svg") no-repeat 0px 50%;
+  background: url("/Home/join-calendar.svg") no-repeat 0px 50%;
 }
 
 .formMessage {
-  background: url("../public/Home/join-Message.svg") no-repeat 0px 50%;
+  background: url("/Home/join-Message.svg") no-repeat 0px 50%;
 }
 
 .selectBorder .ant-select-selector {
@@ -262,14 +262,14 @@ textarea::placeholder {
 }
 
 /* .webdevelopmentCard{
-  background: url("../public/Home/blog-our-course-categories-01-bg.svg") no-repeat 50% center ;
+  background: url("/Home/blog-our-course-categories-01-bg.svg") no-repeat 50% center ;
  } */
 
 /* .webdevbSha{
   box-shadow: 3px 4px 30px 0 rgba(0, 0, 0, 0.2);
 } */
 .itCardBtn {
-  background: url("../public/Home/black-right-arrow.svg") no-repeat 90% center;
+  background: url("/Home/black-right-arrow.svg") no-repeat 90% center;
 }
 
 .itCardBtn:hover {
@@ -385,7 +385,7 @@ p {
 }
 
 .blogBtn {
-  background: url("../public/btn-right-arrow.svg") no-repeat 97% center;
+  background: url("/btn-right-arrow.svg") no-repeat 97% center;
 }
 
 h3 {
@@ -405,7 +405,7 @@ h3 {
 .comCollegeBg::after {
   content: "";
   position: absolute;
-  background: url("../public/Cheerful_People.png") no-repeat center;
+  background: url("/Cheerful_People.png") no-repeat center;
   height: 806px;
   width: 100%;
   left: 0;
@@ -567,7 +567,7 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .rightSmallArrow {
-  background: url(../public/breadcrumb_arrow.svg) no-repeat 0px 7px;
+  background: url(/breadcrumb_arrow.svg) no-repeat 0px 7px;
 }
 
 .rightSmallArrow:hover {
@@ -585,7 +585,7 @@ font-family: 'Montserrat', sans-serif;
 
 .courseSelector .ant-select-arrow {
 
-  background-image: url("../public/filter-down.svg") no-repeat 92% center;
+  background-image: url("/filter-down.svg") no-repeat 92% center;
 
 }
 
@@ -846,7 +846,7 @@ h4 {
 }
 
 .listBgImage ul li, .listBgImage ol li {
-  background: url('../public/arrow-right-blue (1).svg') no-repeat 0% 10px !important;
+  background: url('/arrow-right-blue (1).svg') no-repeat 0% 10px !important;
 }
 
 .hoverBlue a:hover {
@@ -857,7 +857,7 @@ h4 {
 
 
 .sitemapBtn {
-  background: url('../public//exolore-slider-prev (1).svg') no-repeat 0 5px;
+  background: url('//exolore-slider-prev (1).svg') no-repeat 0 5px;
   animation: leftRight 1s linear infinite;
 }
 
@@ -941,7 +941,7 @@ h4 {
 }
 
 .testimonialBgImage {
-  background-image: url("../public/Home/testimonials-quote_icon.svg");
+  background-image: url("/Home/testimonials-quote_icon.svg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -962,7 +962,7 @@ h4 {
 } */
 
 .backgroundPaperlane {
-  background-image: url("../public/paperplane.svg");
+  background-image: url("/paperplane.svg");
   background-position-x: 70%;
   background-position-y: 45%;
   background-repeat: no-repeat;
@@ -977,7 +977,7 @@ h4 {
 
 .home-banner-wr {
   padding: 135px 0 90px;
-  background: #f5fcff url(../public/Home/home_paperplane.svg) no-repeat 55% 10%;
+  background: #f5fcff url(/Home/home_paperplane.svg) no-repeat 55% 10%;
 }
 
 .formSelectCourse .ant-select,
