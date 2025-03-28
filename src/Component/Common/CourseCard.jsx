@@ -60,7 +60,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                             </div>
                             <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
                                 <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                    {stripHtmlTags(card.overview).slice(0, 75)}....
+                                    {stripHtmlTags(card.overview)?.slice(0, 75)}....
                                 </p>
                             </div>
                             <div className="mt-[21px] ">
@@ -127,7 +127,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                                                 </div>
                                                 <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
                                                     <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                                        {stripHtmlTags(card.overview).slice(0, 75)}....
+                                                        {stripHtmlTags(card.overview)?.slice(0, 75)}....
                                                     </p>
                                                 </div>
                                                 <div className="mt-[21px] ">
@@ -166,7 +166,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                             </div>
                             <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
                                 <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                    {stripHtmlTags(card.overview).slice(0, 75)}....
+                                    {stripHtmlTags(card.overview)?.slice(0, 75)}....
                                 </p>
                             </div>
                             <div className="mt-[21px] ">
@@ -202,7 +202,7 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
                             </div>
                             <div className="max-567:hidden mt-[15px] mb-[15px] max-767:mt-[5px] max-767:mb-[0px] ml-0 mr-0 min-h-[85px] ">
                                 <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                    {stripHtmlTags(card.overview).slice(0, 100)}....
+                                    {stripHtmlTags(card.overview)?.slice(0, 100)}....
                                 </p>
 
                             </div>

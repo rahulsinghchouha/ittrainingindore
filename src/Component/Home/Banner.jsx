@@ -302,7 +302,7 @@ function Banner() {
                                     </div>
                                     <div className=" max-1400:mt-[10px]  popularSearchBtn  inline-block cursor-pointer ">
                                         {
-                                            exploreCat.slice(exploreCat.length - 3, exploreCat.length).reverse().map((category, index) => (
+                                            exploreCat?.slice(exploreCat.length - 3, exploreCat.length).reverse().map((category, index) => (
                                                 <button onClick={() => handleSearch(category?.heading)} key={index} className={` ${index != 0 ? "ml-[15px]" : ""} inline-block text-[14px] py-[9px] px-[15px] max-1200:px-[11px] ml-[5px] textColor rounded-[18px] leading-[16px] font-[500] border-solid border-[0.4px] border-[#1aaef4] transition-all delay-75 duration-300 ease hover:bg-[#1aaef4] hover:text-[white] `}>{category?.heading}</button>
                                             ))
                                         }
@@ -1017,7 +1017,7 @@ function Banner() {
                                                             </div>
                                                         </div>
                                                         <div className="ml-[8px] ">
-                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700] max-1321:text-[18px] max-1321:leading-[31px]`}>{latestBlog?.heading.slice(0, 25)}...</button>
+                                                            <button onClick={() => blogDetails(latestBlog)} className={` ${index == 0 ? "hover:text-[#4800E2]" : "" || index == 1 ? "hover:text-[#11B400]" : "" || index === 2 ? "hover:text-[#1AAEF4]" : ""} transition-all delay-[0.1s] ease-out text-[24px] leading-[27px] text-[#000] font-[700] max-1321:text-[18px] max-1321:leading-[31px]`}>{latestBlog?.heading?.slice(0, 25)}...</button>
                                                             <h4 className={`${index == 0 ? "text-[#4800E2]" : "" || index == 1 ? "text-[#11B400]" : "" || index === 2 ? "text-[#1AAEF4]" : ""}  text-[16px] leading-[34px] font-[400] max-1200:text-start `}>{latestBlog?.blogCategory}</h4>
                                                         </div>
 

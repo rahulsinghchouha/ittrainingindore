@@ -144,7 +144,7 @@ const CategoryDetails = () => {
                                                                 </div>
                                                                 <div className="mt-[15px] mb-[15px] ml-0 mr-0 min-h-[85px] ">
                                                                     <p className="leading-[26px] text-[16px] text-[#000] font-[400] tracking-normal">
-                                                                        {stripHtmlTags(related?.overview).slice(0, 70)}....
+                                                                        {stripHtmlTags(related?.overview)?.slice(0, 70)}....
                                                                     </p>
                                                                 </div>
                                                                 <div className="pt-[21px] w-[100%]">
