@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, useRef } from "react";
+import React, { useEffect, useMemo, useState, useRef, memo } from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
@@ -262,7 +262,7 @@ const CategoryDetails = () => {
     )
 }
 
-export default CategoryDetails;
+export default memo(CategoryDetails);
 
 
 

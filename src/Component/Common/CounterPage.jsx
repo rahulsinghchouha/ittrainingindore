@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useInView } from 'react-intersection-observer';
 import CountUp from "react-countup";
-import { useEffect } from "react";
+import { useEffect,memo } from "react";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 
 const CounterPage = () => {
@@ -116,4 +116,4 @@ const CounterPage = () => {
 
 
 
-export default CounterPage;
+export default memo(CounterPage);

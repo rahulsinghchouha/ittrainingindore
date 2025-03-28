@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect,memo } from "react"
 import { Field, Formik, Form } from "formik";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -455,4 +455,4 @@ const Footer = ({homePage = false}) => {
 
 
 }
-export default Footer;
+export default memo(Footer);

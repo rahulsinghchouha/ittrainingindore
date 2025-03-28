@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState ,memo} from "react";
 import Navbar from "./Navbar";
 import CounterPage from "./CounterPage";
 import Footer from "./Footer";
@@ -176,7 +176,7 @@ const TagDetails = () => {
     )
 }
 
-export default TagDetails;
+export default memo(TagDetails);
 
 
 

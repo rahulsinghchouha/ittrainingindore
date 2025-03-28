@@ -1,4 +1,4 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { memo, useReducer, useRef, useState } from "react";
 import { ittrainingDataSerivice } from "../../Services/dataService";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -223,5 +223,5 @@ const CourseCard = ({ cardLimit, square, horizontal, webCard, homePage, coursePa
 
 }
 
-export default CourseCard;
+export default memo(CourseCard);
 

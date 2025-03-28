@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,memo } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
@@ -178,4 +178,4 @@ function Navbar() {
     )
 }
 
-export default Navbar;
+export default memo(Navbar);

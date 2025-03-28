@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { NavLink } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
 const PageBanner = ({ heading, img }) => {
@@ -34,5 +34,5 @@ const PageBanner = ({ heading, img }) => {
     )
 }
 
-export default PageBanner;
+export default memo(PageBanner);
 
