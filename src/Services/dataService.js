@@ -1,10 +1,12 @@
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
+const url = import.meta.env?.VITE_BACKEND_LIVE_URL ? import.meta.env.VITE_BACKEND_LIVE_URL : import.meta.env.VITE_BACKEND_URL;
+
 class DataService {
 
     constructor() {
-        this.backendUrl = "https://ittraining.onrender.com"; // Define backendUrl here 
+        this.backendUrl = url; // Define backendUrl here 
     }
 
     studentForm(values) {

@@ -273,25 +273,25 @@ const CourseDetails = () => {
                                         <h4 className="max-1321:text-[22px] max-1321:leading-[31px]">Get Course Enquiry</h4>
 
                                         <div className="w-[100%] mt-[25px] ">
-                                            <form>
+                                            <form >
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-user-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className="w-[100%] py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" type="text" />
+                                                            <input required className="w-[100%] py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px] text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Name" type="text" />
                                                         </span>
                                                     </p>
                                                 </div>
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-email-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className=" w-[100%] py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Email" type="email" />
+                                                            <input required className=" w-[100%] py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Email" type="email" />
                                                         </span>
                                                     </p>
                                                 </div>
                                                 <div className="w-[100%] mt-0 mb-[21px] mx-0 border-b-[1px] border-solid border-[#cecece] ">
                                                     <p>
                                                         <span className="pl-[25px] block" style={{ backgroundImage: `url('/form-call-icon.svg')`, backgroundRepeat: 'no-repeat', backgroundPositionX: '0px', backgroundPositionY: '50%' }}>
-                                                            <input className=" w-[100%] py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Phone" type="tel:" />
+                                                            <input required className=" w-[100%] py-[10px] px-[5px] max-1200:text-[13px] max-1200:leading-[19px]  text-[14px] leading-[18px] font-[500] focus:outline-none" placeholder="Phone" type="tel:" />
                                                         </span>
                                                     </p>
                                                 </div>
