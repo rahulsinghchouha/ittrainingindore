@@ -374,7 +374,7 @@ const Footer = ({homePage = false}) => {
                                     <div className="m-0 flex flex-col max-979:justify-center max-979:items-center ">
 
                                         {
-                                            webCard?.slice(webCard.length - 8, webCard.length).reverse().map((course, index) => (
+                                            webCard?.slice(webCard.length - 8, webCard.length)?.reverse().map((course, index) => (
                                                
                                                     <button onClick={()=>handleCourseDetails(course)} key={index} className="mt-[30px] text-start max-979:text-center text-[#9c9c9c] hover:text-[#ffffff] transition-all delay-75 ease-linear">
                                                         {course?.courseName}
