@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "routes": {
+      "/**": {
+        "headers": {
+          "cache-control": "public, max-age=0, must-revalidate"
+        },
+        "dynamic": true
+      }
+    }
+  }
