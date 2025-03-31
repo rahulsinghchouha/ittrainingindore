@@ -53,22 +53,24 @@ const CategoryDetails = () => {
     useEffect(() => {
         dispatch(fetchCards());
     }, [dispatch]);
-    const allCourse = useSelector((state) => state.backendFunction.webCard);
 
-    const relatedCourses = useMemo(() =>
-        allCourse?.filter(related => related.category === categories),
-        [allCourse, categories]
-    );
-    function handleCourseDetails(course) {
+    // const allCourse = useSelector((state) => state.backendFunction.webCard);
+
+    // const relatedCourses = useMemo(() =>
+    //     allCourse?.filter(related => related.category === categories),
+    //     [allCourse, categories]
+    // );
+
+    // function handleCourseDetails(course) {
       
-        navigate("/course/" + course?.courseName?.replace(/\s|\/+|\?/g, "-"), { state: course });
-    }
+    //     navigate("/course/" + course?.courseName?.replace(/\s|\/+|\?/g, "-"), { state: course });
+    // }
 
     //Function to safely slice HTML Content
-    const stripHtmlTags = (htmlContent) => {
-        const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
-        return doc.body.textContent || "";
-    };
+    // const stripHtmlTags = (htmlContent) => {
+    //     const doc = new DOMParser().parseFromString(htmlContent, 'text/html'); //for html content
+    //     return doc.body.textContent || "";
+    // };
 
     const [width,setWidth] = useState(window.innerWidth > 978);
 
@@ -106,7 +108,8 @@ const CategoryDetails = () => {
                         </div>
                     </section>
                     {/* Related Courses */}
-                    {
+
+                    {/* {
                         relatedCourses.length > 0 &&
                         <section className="py-[50px] px-0" id="related-courses">
                             <div className="wrapper">
@@ -162,7 +165,7 @@ const CategoryDetails = () => {
                                 </div>
                             </div>
                         </section>
-                    }
+                    } */}
 
                     {/* Category content wrapper */}
                     <section className="mb-[40px] ">
